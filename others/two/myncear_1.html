@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Institute v2 - Modern Design</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1f36;
+            --secondary: #2dd4bf;
+            --accent: #ff6b6b;
+            --accent-2: #ffa500;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #1a1f36;
+            --text-light: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ========== HEADER & NAVIGATION ========== */
+        header {
+            background: var(--white);
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+
+        .btn-header {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem 1.25rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-header:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* ========== HERO SECTION WITH SLIDER ========== */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slider {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+
+        .slider-item {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            position: absolute;
+            width: 100%;
+        }
+
+        .slider-item.active {
+            display: block;
+            opacity: 1;
+            position: relative;
+        }
+
+        .slider-content {
+            max-width: 600px;
+            z-index: 10;
+        }
+
+        .slider-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .slider-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .slider-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            z-index: 20;
+        }
+
+        .slider-arrow {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid white;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 1.25rem;
+        }
+
+        .slider-arrow:hover {
+            background: white;
+            color: #667eea;
+            transform: scale(1.1);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        .slider-image {
+            position: absolute;
+            right: -100px;
+            bottom: -100px;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            opacity: 0.15;
+        }
+
+        /* ========== BUTTONS ========== */
+        .btn-primary-custom {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(45, 212, 191, 0.3);
+        }
+
+        .btn-secondary-custom {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-secondary-custom:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* ========== SECTIONS STYLING ========== */
+        section {
+            padding: 5rem 0;
+        }
+
+        section.light-bg {
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .about-text h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========== CARDS GRID ========== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .card-item:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 15px 40px rgba(45, 212, 191, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .card-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .card-link {
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-link:hover {
+            color: var(--accent);
+            gap: 1rem;
+        }
+
+        /* ========== RESEARCH PROJECTS ========== */
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .project-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        /* ========== PUBLICATIONS SECTION ========== */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 1rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .publication-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .publication-item:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transform: translateX(8px);
+        }
+
+        .publication-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-meta {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* ========== WORKSHOP / PRICING ========== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--secondary);
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(45, 212, 191, 0.2);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin: 1.5rem 0;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pricing-features li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--secondary);
+        }
+
+        /* ========== TEAM SECTION ========== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            box-shadow: 0 15px 40px rgba(45, 212, 191, 0.15);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .team-content {
+            padding: 1.5rem;
+        }
+
+        .team-content h4 {
+            font-size: 1.125rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========== EVENTS ========== */
+        .event-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .event-item:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(45, 212, 191, 0.1);
+        }
+
+        .event-date {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            height: fit-content;
+        }
+
+        .event-day {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .event-month {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .event-info h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-info p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* ========== NEWS SECTION ========== */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #ffa500 0%, #ff6b6b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: var(--secondary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            border-radius: 16px;
+            padding: 4rem 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* ========== NEWSLETTER SECTION ========== */
+        .newsletter-section {
+            background: var(--light-bg);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            margin-top: 3rem;
+        }
+
+        .newsletter-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form button {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .slider-content h1 {
+                font-size: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .event-item {
+                grid-template-columns: 1fr;
+            }
+
+            .event-date {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid p-0">
+                    <a class="navbar-brand" href="#home">
+                        <i class="fas fa-flask"></i> Research<span>Lab</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                            <li class="nav-item"><button class="btn-header">Get Involved</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH SLIDER -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-slider">
+                <div class="slider-item active">
+                    <div class="slider-content">
+                        <span class="slider-badge">Latest Research</span>
+                        <h1>Shaping Policy Through Data-Driven Research</h1>
+                        <p>Discover innovative solutions to global challenges through rigorous academic research and evidence-based policy recommendations.</p>
+                        <button class="btn-primary-custom">Explore Our Work</button>
+                    </div>
+                </div>
+                <div class="slider-item">
+                    <div class="slider-content">
+                        <span class="slider-badge">Expert Analysis</span>
+                        <h1>Evidence for Better Governance</h1>
+                        <p>Our team of leading researchers brings together diverse expertise to tackle society's most pressing challenges.</p>
+                        <button class="btn-primary-custom">Read Latest Report</button>
+                    </div>
+                </div>
+                <div class="slider-item">
+                    <div class="slider-content">
+                        <span class="slider-badge">Global Impact</span>
+                        <h1>Research That Changes the World</h1>
+                        <p>Join us in creating sustainable solutions through collaboration, innovation, and commitment to excellence.</p>
+                        <button class="btn-primary-custom">Join Our Community</button>
+                    </div>
+                </div>
+                <div class="slider-image"></div>
+            </div>
+
+            <div class="slider-controls">
+                <button class="slider-arrow" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+                <button class="slider-arrow" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="light-bg">
+        <div class="container">
+            <h2 class="section-title">About ResearchLab</h2>
+            <p class="section-subtitle">Leading the way in global policy research and innovation</p>
+
+            <div class="about-grid">
+                <div class="about-image">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <div class="about-text">
+                    <h3>Advancing Knowledge, Shaping Policy</h3>
+                    <p>ResearchLab is a premier independent research institute dedicated to generating actionable insights on critical policy challenges. Since 2005, we've been at the forefront of evidence-based policy research, working with governments, organizations, and communities worldwide.</p>
+                    <p style="margin-top: 1rem;">Our mission is to conduct rigorous research and provide strategic recommendations that drive positive change and improve lives globally.</p>
+
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <span class="stat-number">250+</span>
+                            <span class="stat-label">Research Projects</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">80</span>
+                            <span class="stat-label">Active Researchers</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">45</span>
+                            <span class="stat-label">Countries</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH VERTICALS -->
+    <section id="research">
+        <div class="container">
+            <h2 class="section-title">Research Verticals</h2>
+            <p class="section-subtitle">Exploring critical areas of policy and social impact</p>
+
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Climate & Environment</h3>
+                    <p>Investigating sustainable solutions for climate change and environmental policy challenges.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Education & Skills</h3>
+                    <p>Analyzing workforce development and educational policy innovations for the future.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Health & Wellbeing</h3>
+                    <p>Advancing public health policy through evidence-based research and community engagement.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Governance & Rights</h3>
+                    <p>Strengthening democratic institutions and protecting human rights through research.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Economic Development</h3>
+                    <p>Fostering inclusive growth and sustainable economic policy solutions.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-digital-tachograph"></i></div>
+                    <h3>Digital & Innovation</h3>
+                    <p>Exploring digital transformation and technology policy for modern challenges.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ONGOING RESEARCH PROJECTS -->
+    <section class="light-bg">
+        <div class="container">
+            <h2 class="section-title">Ongoing Research Projects</h2>
+            <p class="section-subtitle">Current initiatives driving impact and change</p>
+
+            <div class="cards-grid">
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-leaf"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Climate</span>
+                        <h3>Net Zero Pathways Study</h3>
+                        <p>Analyzing cost-effective transition strategies for achieving net zero emissions by 2050.</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 1rem;"><strong>Timeline:</strong> 2024-2026</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-laptop"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Digital</span>
+                        <h3>AI Governance Framework</h3>
+                        <p>Developing comprehensive guidelines for responsible AI policy and regulation.</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 1rem;"><strong>Timeline:</strong> 2024-2025</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-users"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Social</span>
+                        <h3>Inclusive Growth Initiative</h3>
+                        <p>Measuring and promoting equitable economic growth across communities.</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 1rem;"><strong>Timeline:</strong> 2023-2025</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-microscope"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Health</span>
+                        <h3>Pandemic Prevention Policy</h3>
+                        <p>Strengthening global health systems and epidemic preparedness strategies.</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 1rem;"><strong>Timeline:</strong> 2024-2027</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-book"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Education</span>
+                        <h3>Future Skills Program</h3>
+                        <p>Identifying critical skills needed for tomorrow's workforce and education reform.</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 1rem;"><strong>Timeline:</strong> 2024-2026</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-scale-balanced"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Governance</span>
+                        <h3>Democratic Resilience Index</h3>
+                        <p>Assessing and strengthening democratic institutions worldwide.</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 1rem;"><strong>Timeline:</strong> 2023-2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications & Reports</h2>
+            <p class="section-subtitle">Access our latest research findings and policy recommendations</p>
+
+            <div class="tabs">
+                <button class="tab-button active" onclick="switchTab(event, 'reports')">
+                    <i class="fas fa-file-pdf"></i> Reports
+                </button>
+                <button class="tab-button" onclick="switchTab(event, 'briefs')">
+                    <i class="fas fa-newspaper"></i> Policy Briefs
+                </button>
+                <button class="tab-button" onclick="switchTab(event, 'papers')">
+                    <i class="fas fa-scroll"></i> Working Papers
+                </button>
+            </div>
+
+            <div id="reports" class="tab-content active">
+                <div class="publication-item">
+                    <h4>Global Climate Policy Effectiveness Report 2024</h4>
+                    <div class="publication-meta">Published: January 2024 | Authors: Dr. Sarah Mitchell, Dr. James Chen</div>
+                    <p>Comprehensive analysis of climate policies across 50 countries and their effectiveness in reducing emissions.</p>
+                    <a href="#" class="card-link">Download PDF <i class="fas fa-download"></i></a>
+                </div>
+                <div class="publication-item">
+                    <h4>Digital Economy Transformation Study</h4>
+                    <div class="publication-meta">Published: December 2023 | Authors: Prof. Alex Kumar, Dr. Lisa Rodriguez</div>
+                    <p>In-depth examination of digital transformation trends and their impact on employment and economic growth.</p>
+                    <a href="#" class="card-link">Download PDF <i class="fas fa-download"></i></a>
+                </div>
+                <div class="publication-item">
+                    <h4>Healthcare System Resilience Report</h4>
+                    <div class="publication-meta">Published: November 2023 | Authors: Dr. Emma Watson</div>
+                    <p>Assessment of healthcare system preparedness and recommendations for building resilience.</p>
+                    <a href="#" class="card-link">Download PDF <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+
+            <div id="briefs" class="tab-content">
+                <div class="publication-item">
+                    <h4>AI Regulation: Best Practices for Policymakers</h4>
+                    <div class="publication-meta">Published: January 2024 | 8 pages</div>
+                    <p>Quick reference guide for developing responsible AI governance frameworks.</p>
+                    <a href="#" class="card-link">Download Brief <i class="fas fa-download"></i></a>
+                </div>
+                <div class="publication-item">
+                    <h4>Green Jobs Initiative: Policy Roadmap</h4>
+                    <div class="publication-meta">Published: December 2023 | 6 pages</div>
+                    <p>Actionable recommendations for creating sustainable employment opportunities.</p>
+                    <a href="#" class="card-link">Download Brief <i class="fas fa-download"></i></a>
+                </div>
+                <div class="publication-item">
+                    <h4>Education System Modernization</h4>
+                    <div class="publication-meta">Published: October 2023 | 7 pages</div>
+                    <p>Strategic recommendations for updating education systems for the 21st century.</p>
+                    <a href="#" class="card-link">Download Brief <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+
+            <div id="papers" class="tab-content">
+                <div class="publication-item">
+                    <h4>Behavioral Economics and Policy Implementation</h4>
+                    <div class="publication-meta">Published: January 2024 | Working Paper #234</div>
+                    <p>Research paper exploring behavioral insights in policy design and implementation strategies.</p>
+                    <a href="#" class="card-link">Download Paper <i class="fas fa-download"></i></a>
+                </div>
+                <div class="publication-item">
+                    <h4>Cross-Border Trade Dynamics Post-2023</h4>
+                    <div class="publication-meta">Published: November 2023 | Working Paper #231</div>
+                    <p>Analysis of changing trade patterns and implications for international commerce policy.</p>
+                    <a href="#" class="card-link">Download Paper <i class="fas fa-download"></i></a>
+                </div>
+                <div class="publication-item">
+                    <h4>Urban Development and Sustainability</h4>
+                    <div class="publication-meta">Published: September 2023 | Working Paper #228</div>
+                    <p>Comprehensive study on sustainable urban planning and policy frameworks.</p>
+                    <a href="#" class="card-link">Download Paper <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DATA & RESOURCES -->
+    <section class="light-bg">
+        <div class="container">
+            <h2 class="section-title">Data & Resources</h2>
+            <p class="section-subtitle">Access our research data, tools, and knowledge resources</p>
+
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-database"></i></div>
+                    <h3>Research Database</h3>
+                    <p>Access our comprehensive database of research findings and policy data across all verticals.</p>
+                    <a href="#" class="card-link">Access Database <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Policy Datasets</h3>
+                    <p>Download curated datasets for policy analysis and research purposes.</p>
+                    <a href="#" class="card-link">View Datasets <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-toolbox"></i></div>
+                    <h3>Research Tools</h3>
+                    <p>Open-source tools and frameworks developed by our research team.</p>
+                    <a href="#" class="card-link">Explore Tools <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Knowledge Hub</h3>
+                    <p>Educational resources, guides, and best practices for policy professionals.</p>
+                    <a href="#" class="card-link">Visit Hub <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-video"></i></div>
+                    <h3>Video Library</h3>
+                    <p>Explore our collection of research videos, webinars, and expert interviews.</p>
+                    <a href="#" class="card-link">Browse Videos <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    <h3>API Access</h3>
+                    <p>Integrate our research data and tools into your applications via our API.</p>
+                    <a href="#" class="card-link">View API Docs <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORKSHOPS / PRICING -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Professional Development Workshops</h2>
+            <p class="section-subtitle">Join our comprehensive training programs and certifications</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic Workshop</h3>
+                    <div class="pricing-price">$499<span>/person</span></div>
+                    <p style="color: var(--text-light); margin-bottom: 1.5rem;">2-day intensive program</p>
+                    <ul class="pricing-features">
+                        <li>Core policy research methodology</li>
+                        <li>Research fundamentals</li>
+                        <li>Data analysis basics</li>
+                        <li>Digital materials & resources</li>
+                        <li>Certificate of completion</li>
+                    </ul>
+                    <button class="btn-primary-custom" style="width: 100%; text-align: center; border: none;">Enroll Now</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3>Professional Program</h3>
+                    <div class="pricing-price">$1,299<span>/person</span></div>
+                    <p style="color: var(--text-light); margin-bottom: 1.5rem;">5-day comprehensive program</p>
+                    <ul class="pricing-features">
+                        <li>Advanced research methodology</li>
+                        <li>Policy analysis frameworks</li>
+                        <li>Advanced data analytics</li>
+                        <li>Networking with experts</li>
+                        <li>Internship opportunities</li>
+                        <li>Professional certificate</li>
+                    </ul>
+                    <button class="btn-primary-custom" style="width: 100%; text-align: center; border: none; background: var(--accent);">Enroll Now</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Executive Program</h3>
+                    <div class="pricing-price">$2,499<span>/person</span></div>
+                    <p style="color: var(--text-light); margin-bottom: 1.5rem;">10-day executive certification</p>
+                    <ul class="pricing-features">
+                        <li>Customized learning paths</li>
+                        <li>Executive mentorship</li>
+                        <li>Advanced policy scenarios</li>
+                        <li>One-on-one coaching sessions</li>
+                        <li>Private networking events</li>
+                        <li>Executive certification</li>
+                    </ul>
+                    <button class="btn-primary-custom" style="width: 100%; text-align: center; border: none;">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEDIA SECTION -->
+    <section class="light-bg">
+        <div class="container">
+            <h2 class="section-title">Media & Content</h2>
+            <p class="section-subtitle">Videos, podcasts, and webinars featuring our research</p>
+
+            <div class="cards-grid">
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-video"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Video</span>
+                        <h3>Climate Action Summit 2024</h3>
+                        <p>Our keynote presentation on net-zero transition strategies for developing nations.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-podcast"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Podcast</span>
+                        <h3>Policy Insights Podcast</h3>
+                        <p>Weekly discussions on emerging policy challenges with leading researchers and experts.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-microphone"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Webinar</span>
+                        <h3>Digital Governance Forum</h3>
+                        <p>Interactive webinar series exploring digital policy innovations and best practices.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-play-circle"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Video</span>
+                        <h3>Research Explainers</h3>
+                        <p>Short educational videos explaining key research findings in accessible language.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-headphones"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Podcast</span>
+                        <h3>Voices in Research</h3>
+                        <p>Interview series featuring prominent researchers and thought leaders globally.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="project-content">
+                        <span class="project-tag">Webinar</span>
+                        <h3>Training Series</h3>
+                        <p>Free training webinars on research methodologies and policy analysis tools.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section id="team">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-subtitle">Meet our world-class researchers and policy experts</p>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image"><i class="fas fa-user"></i></div>
+                    <div class="team-content">
+                        <h4>Dr. Sarah Mitchell</h4>
+                        <p class="team-role">Director of Research</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.75rem;">Leading climate policy research with 15+ years of experience.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image"><i class="fas fa-user"></i></div>
+                    <div class="team-content">
+                        <h4>Prof. James Chen</h4>
+                        <p class="team-role">Senior Fellow</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.75rem;">Expert in digital policy and technology governance frameworks.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image"><i class="fas fa-user"></i></div>
+                    <div class="team-content">
+                        <h4>Dr. Lisa Rodriguez</h4>
+                        <p class="team-role">Economics Researcher</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.75rem;">Specializing in inclusive growth and development policy.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image"><i class="fas fa-user"></i></div>
+                    <div class="team-content">
+                        <h4>Dr. Emma Watson</h4>
+                        <p class="team-role">Health Policy Lead</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.75rem;">Advancing public health and healthcare system policy.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image"><i class="fas fa-user"></i></div>
+                    <div class="team-content">
+                        <h4>Prof. Alex Kumar</h4>
+                        <p class="team-role">Education Specialist</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.75rem;">Transforming education systems for modern workforce needs.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image"><i class="fas fa-user"></i></div>
+                    <div class="team-content">
+                        <h4>Dr. Michael Torres</h4>
+                        <p class="team-role">Governance Expert</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.75rem;">Strengthening democratic institutions and governance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS SECTION -->
+    <section class="light-bg" id="events">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <p class="section-subtitle">Join us for conferences, seminars, and networking events</p>
+
+            <div style="margin-top: 3rem;">
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-day">15</div>
+                        <div class="event-month">FEB</div>
+                    </div>
+                    <div class="event-info">
+                        <h4>Global Policy Summit 2024</h4>
+                        <p><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Virtual & Singapore</p>
+                        <p style="color: var(--text-light);">Join leading policymakers and researchers for insights on global governance challenges and solutions.</p>
+                        <button class="btn-primary-custom">Register Now</button>
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-day">28</div>
+                        <div class="event-month">FEB</div>
+                    </div>
+                    <div class="event-info">
+                        <h4>Climate Research Workshop</h4>
+                        <p><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> London, UK</p>
+                        <p style="color: var(--text-light);">Intensive 3-day workshop on climate policy research methodologies and impact assessment.</p>
+                        <button class="btn-primary-custom">Register Now</button>
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-day">15</div>
+                        <div class="event-month">MAR</div>
+                    </div>
+                    <div class="event-info">
+                        <h4>Digital Governance Webinar Series</h4>
+                        <p><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Online</p>
+                        <p style="color: var(--text-light);">Four-week series exploring AI governance, digital rights, and technology policy frameworks.</p>
+                        <button class="btn-primary-custom">Register Now</button>
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-day">22</div>
+                        <div class="event-month">MAR</div>
+                    </div>
+                    <div class="event-info">
+                        <h4>Education Transformation Conference</h4>
+                        <p><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Toronto, Canada</p>
+                        <p style="color: var(--text-light);">Annual conference bringing together education policymakers and researchers worldwide.</p>
+                        <button class="btn-primary-custom">Register Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACT & OUTCOMES -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <p class="section-subtitle">Measuring real-world change through research and policy engagement</p>
+
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 800; margin-bottom: 1rem;">45+</div>
+                    <h3>National Policies Influenced</h3>
+                    <p>Our research has directly influenced policy decisions affecting millions of people worldwide.</p>
+                </div>
+                <div class="card-item">
+                    <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 800; margin-bottom: 1rem;">$2.5B+</div>
+                    <h3>Policy Investment Generated</h3>
+                    <p>Our recommendations have led to billions in new investments in priority areas.</p>
+                </div>
+                <div class="card-item">
+                    <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 800; margin-bottom: 1rem;">500+</div>
+                    <h3>Media Mentions</h3>
+                    <p>Our research is regularly featured in major international media outlets.</p>
+                </div>
+                <div class="card-item">
+                    <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 800; margin-bottom: 1rem;">120+</div>
+                    <h3>Global Partnerships</h3>
+                    <p>Collaborating with leading institutions and organizations across continents.</p>
+                </div>
+                <div class="card-item">
+                    <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 800; margin-bottom: 1rem;">10K+</div>
+                    <h3>Lives Improved</h3>
+                    <p>Policies influenced by our research benefit millions of people globally.</p>
+                </div>
+                <div class="card-item">
+                    <div style="font-size: 2.5rem; color: var(--secondary); font-weight: 800; margin-bottom: 1rem;">95%</div>
+                    <h3>Client Satisfaction</h3>
+                    <p>High satisfaction rates from government and organizational clients we serve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERSHIPS -->
+    <section class="light-bg">
+        <div class="container">
+            <h2 class="section-title">Strategic Partners</h2>
+            <p class="section-subtitle">Collaborating with leading global institutions</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: center;">
+                <div style="padding: 2rem; background: white; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <i class="fas fa-university" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                    <p style="font-weight: 600;">Oxford University</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <i class="fas fa-landmark" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                    <p style="font-weight: 600;">World Bank</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <i class="fas fa-globe" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                    <p style="font-weight: 600;">United Nations</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <i class="fas fa-building" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                    <p style="font-weight: 600;">Bill & Melinda Gates Foundation</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <i class="fas fa-university" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                    <p style="font-weight: 600;">Stanford University</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <i class="fas fa-landmark-alt" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                    <p style="font-weight: 600;">European Commission</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS SECTION -->
+    <section id="news">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            <p class="section-subtitle">Stay updated with our latest research and announcements</p>
+
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image"><i class="fas fa-newspaper"></i></div>
+                    <div class="news-content">
+                        <div class="news-date">January 24, 2024</div>
+                        <h4>New Climate Study Shows 30% Progress on Emissions</h4>
+                        <p>Our latest comprehensive analysis reveals significant progress in global emissions reduction efforts across major economies.</p>
+                        <a href="#" class="card-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image"><i class="fas fa-certificate"></i></div>
+                    <div class="news-content">
+                        <div class="news-date">January 20, 2024</div>
+                        <h4>ResearchLab Receives International Award for Impact</h4>
+                        <p>Recognized for our contributions to global policy research and implementation of evidence-based solutions worldwide.</p>
+                        <a href="#" class="card-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image"><i class="fas fa-handshake"></i></div>
+                    <div class="news-content">
+                        <div class="news-date">January 15, 2024</div>
+                        <h4>Partnership Announcement with Leading Tech Institute</h4>
+                        <p>We're thrilled to announce a collaboration to advance AI governance research and policy development.</p>
+                        <a href="#" class="card-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAREERS & FELLOWSHIPS -->
+    <section class="light-bg">
+        <div class="container">
+            <h2 class="section-title">Join Our Team</h2>
+            <p class="section-subtitle">Explore careers and fellowship opportunities</p>
+
+            <div class="cards-grid">
+                <div class="card-item">
+                    <h3>Research Fellowships</h3>
+                    <p>12-month intensive research fellowships for early-career scholars interested in policy research.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <p style="font-size: 0.875rem; color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">Stipend: $45,000/year</p>
+                        <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <h3>Senior Researcher Position</h3>
+                    <p>We're seeking experienced researchers to lead our climate and environmental policy research team.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <p style="font-size: 0.875rem; color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">Salary: Competitive</p>
+                        <a href="#" class="card-link">View Position <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <h3>Data Analyst Position</h3>
+                    <p>Join our data science team to support research analysis across all policy verticals.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <p style="font-size: 0.875rem; color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">Salary: Competitive</p>
+                        <a href="#" class="card-link">View Position <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <h3>Policy Communications</h3>
+                    <p>Communications specialist to translate research into engaging policy communications.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <p style="font-size: 0.875rem; color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">Salary: Competitive</p>
+                        <a href="#" class="card-link">View Position <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <h3>Summer Internship</h3>
+                    <p>3-month summer internships for students pursuing policy, research, or related studies.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <p style="font-size: 0.875rem; color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">Stipend: $6,000</p>
+                        <a href="#" class="card-link">Apply Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <h3>Executive Director Role</h3>
+                    <p>Strategic leadership opportunity for accomplished policy professional to lead institute expansion.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <p style="font-size: 0.875rem; color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">Salary: Competitive</p>
+                        <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & CTA -->
+    <section id="contact">
+        <div class="container">
+            <div class="cta-section">
+                <h2>Ready to Partner with Us?</h2>
+                <p>Let's work together to drive evidence-based policy change and create lasting impact.</p>
+                <button class="btn-primary-custom" style="background: white; color: #667eea;">Get in Touch</button>
+            </div>
+
+            <div style="margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Main Office</h4>
+                    <p style="color: var(--text-light);">123 Research Street<br>New York, NY 10001<br>United States</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Email</h4>
+                    <p style="color: var(--text-light);">info@researchlab.org<br>partnerships@researchlab.org<br>press@researchlab.org</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Phone</h4>
+                    <p style="color: var(--text-light);">+1 (555) 123-4567<br>+1 (555) 123-4568<br>Mon-Fri, 9AM-5PM EST</p>
+                </div>
+            </div>
+
+            <div class="newsletter-section">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Get the latest research updates and policy insights delivered to your inbox.</p>
+                <form class="newsletter-form" onsubmit="return subscribeNewsletter(event)">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4><i class="fas fa-flask"></i> ResearchLab</h4>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">Leading global policy research institute driving evidence-based solutions.</p>
+                    <div class="social-links">
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#research">Our Research</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#news">News</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Research Database</a></li>
+                        <li><a href="#">Policy Tools</a></li>
+                        <li><a href="#">Knowledge Hub</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Datasets</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Annual Reports</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 ResearchLab. All rights reserved. | <a href="#" style="color: var(--secondary);">Privacy Policy</a> | <a href="#" style="color: var(--secondary);">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slider-item');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        // Auto-advance slider every 6 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 6000);
+
+        function changeSlide(n) {
+            currentSlide = (currentSlide + n + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function currentSlideFunc(n) {
+            currentSlide = n;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        // Tab switching for publications
+        function switchTab(e, tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            const tabButtons = document.querySelectorAll('.tab-button');
+
+            tabContents.forEach(content => content.classList.remove('active'));
+            tabButtons.forEach(button => button.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            e.target.closest('.tab-button').classList.add('active');
+        }
+
+        // Newsletter subscription
+        function subscribeNewsletter(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing! Check your email for confirmation.');
+            e.target.reset();
+            return false;
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

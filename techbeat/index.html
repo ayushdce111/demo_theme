@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ALP Group India - Premium recruitment and staffing services. Connecting top talent with visionary companies.">
+    <title> ALP Group India | Expert Recruitment &amp; Staffing Solutions </title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <style>
+        :root {
+            --primary:  #00d4ff;
+            --dark: #0a2540;
+            --light: #f8f9ff;
+            --accent: #00b8d4;
+            --text: #0a2540;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: rgba(10, 37, 64, 0.95) !important;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(92deg, #0a2540 0%, #003d5c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+            opacity: 0.25;
+            z-index: 1;
+            filter: brightness(0.85);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+        
+        .hero .badge {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Mouse effect glow */
+        .mouse-glow {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            mix-blend-mode: screen;
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            position: relative;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            bottom: -8px;
+            left: 0;
+        }
+        
+        /* Cards */
+        .service-card, .industry-card, .job-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(10, 37, 64, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover, .industry-card:hover, .job-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.15);
+        }
+        
+        /* Trusted logos marquee */
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 25s linear infinite;
+        }
+        
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        
+        .logo-item {
+            height: 65px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0a2540;
+            opacity: 0.7;
+        }
+        
+        /* How it works */
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00d4ff, #00b8d4);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(10, 37, 64, 0.1);
+        }
+        
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(90deg, #0a2540, #003d5c);
+            color: white;
+        }
+        
+        /* Floating buttons */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 65px;
+            height: 65px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            text-decoration: none;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            background: var(--dark);
+            color: white;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 25px rgba(10, 37, 64, 0.3);
+            z-index: 9999;
+            opacity: 0;
+        }
+        
+        /* Form */
+        .form-control {
+            border-radius: 14px;
+            padding: 14px 20px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.15);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 70px 0;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        /* Unique background texture */
+        .texture-bg {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(0, 212, 255, 0.08) 1px, transparent 0),
+                radial-gradient(circle at 75% 75%, rgba(0, 212, 255, 0.08) 1px, transparent 0);
+            background-size: 80px 80px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center fw-bold fs-3 text-white" href="#">
+                <div style="width: 4rem;" class="me-3">
+                    <img src="./alp1.jpg" class="w-100 h-100 rounded"/>
+                 </div>
+                <!-- <span class="bg-white text-dark rounded-3 px-2 py-1 me-2">ALP</span> -->
+                ALP Group India
+                <!-- <span class="text-primary ms-1">STAFFING</span> -->
+                 
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-1 text-white"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto gap-4">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Services</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#industries">Industries</a></li> -->
+                    <!-- <li class="nav-item"><a class="nav-link" href="#why-us">Why Us</a></li> -->
+                    <!-- <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li> -->
+                    
+                    <li class="nav-item"><a class="nav-link" href="#stories">Career</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#insights">Contact</a></li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <!-- <a href="#contact" class="btn btn-outline-light rounded-5 px-4 py-2 fw-medium">Post a Job</a> -->
+                    <a href="#contact" class="btn btn-primary rounded-5 px-4 py-2 fw-medium d-flex align-items-center gap-2">
+                        <i class="bi bi-lightning-fill"></i>
+                        Get Talent Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- HERO SECTION -->
+    <header id="home" class="hero d-flex align-items-center">
+        <div class="mouse-glow" id="mouseGlow"></div>
+        
+        <div class="container hero-content " style="margin-top: 2rem;">
+            <div class="row align-items-center g-2 g-md-5">
+                <div class="col-lg-7">
+                    <div class="badge d-inline-flex align-items-center gap-2 px-4 py-2 rounded-5 mb-4">
+                        <span class="bi bi-rocket-takeoff-fill"></span>
+                        17 Years of Industry Excellence
+                    </div>
+                    
+                    <h1 class="text-white mb-4">Talent that <span class="text-primary">transforms</span>.<br>Teams that <span class="text-primary">win</span>.</h1>
+                    
+                    <p class="lead text-white-50 fs-4 mb-5" style="max-width: 520px;">
+                        Premium staffing &amp; recruitment solutions. 48-hour candidate delivery. 98% retention rate.
+                    </p>
+                    
+                    <div class="d-flex flex-wrap gap-3">
+                        <!-- <a href="#jobs" onclick="document.getElementById('jobs').scrollIntoView({behavior:'smooth'})" 
+                           class="btn btn-light btn-lg rounded-5 px-5 py-3 fw-semibold d-flex align-items-center gap-2 shadow-lg">
+                            <i class="bi bi-binoculars"></i>
+                            BROWSE JOBS
+                        </a> -->
+                        
+                        <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" 
+                           class="btn btn-light btn-lg rounded-5 px-5 py-3 fw-semibold d-flex align-items-center gap-2 shadow-lg">
+                            Know More
+                        </a>
+                        <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" 
+                           class="btn btn-outline-light btn-lg rounded-5 px-5 py-3 fw-semibold">
+                            TALK TO OUR TEAM
+                        </a>
+                    </div>
+                    
+                    <!-- <div class="mt-5 d-flex align-items-center gap-5 text-white-50">
+                        <div>
+                            <span class="fw-bold fs-2 text-white">12k+</span><br>
+                            <small>Placements in 2025</small>
+                        </div>
+                        <div>
+                            <span class="fw-bold fs-2 text-white">240+</span><br>
+                            <small>Active Clients</small>
+                        </div>
+                        <div>
+                            <span class="fw-bold fs-2 text-white">4.98</span><br>
+                            <small>Average Rating</small>
+                        </div>
+                    </div> -->
+                </div>
+                
+                <!-- Hero visual -->
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="position-relative">
+                        <div class="bg-white rounded-4 shadow-2xl p-4" style="transform: rotate(-8deg);">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="bg-success rounded-circle" style="width: 12px; height: 12px;"></div>
+                                    <strong class="text-dark">Our Services</strong>
+                                </div>
+                                <span class="badge bg-primary">High Success Rate</span>
+                            </div>
+                            <div class="bg-light rounded-3 p-3 mb-3 text-center">
+                                <p class="text-dark mb-1 fw-medium">Business Development Consulting</p>
+                                <small class="text-success">Career Counseling & Training Services</small>
+                            </div>
+                            <div class="text-center text-muted small">Comprehensive Legal Solutions</div>
+                        </div>
+                        
+                        <!-- Floating badge -->
+                        <div class="position-absolute top-0 start-0 bg-white text-dark shadow rounded-3 px-4 py-3 d-flex align-items-center gap-2" style="transform: translate(-30px, -30px);">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                            <div>
+                                <strong>Staffing / Recruitment</strong><br>
+                                <span class="text-primary fw-bold">HR Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="position-absolute bottom-0 start-50 translate-middle-x text-white d-flex flex-column align-items-center">
+            <small class="mb-2 opacity-75">Scroll Down</small>
+            <i class="bi bi-chevron-down fs-2 animate__animated animate__bounce"></i>
+        </div>
+    </header>
+    
+    <!-- TRUSTED BY -->
+    <section class="texture-bg py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <p class="text-muted fw-medium">TRUSTED BY THE WORLD’S MOST AMBITIOUS TEAMS</p>
+            </div>
+            
+            <div class="marquee">
+                <div class="marquee-content">
+                    <!-- Logos repeated for seamless loop -->
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                    <div class="logo-item"><img src="./images/reliance.png" style="width: 10rem;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="why-us" class="bg-white">
+        <!-- <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <span class="badge bg-primary text-white px-3 py-2 rounded-5 mb-3">WHAT WE OFFER</span>
+                    <h2 class="display-5 fw-bold text-dark">About Us</h2>
+                    <p class="lead text-muted">From C-suite hires to blue-collar staffing — we’ve got you covered with speed and precision.</p>
+                </div>
+            </div> -->
+        <div class="container">
+            <div class="row align-items-center g-2 g-md-5">
+                <div class="col-lg-6">
+                    <div class=" rounded-4 p-0 shadow-inner">
+                        <div class="row text-center">
+                            <!-- <div class="col-4">
+                                <h3 class="display-6 fw-bold text-primary mb-0">98%</h3>
+                                <p class="small text-muted">Retention after 1 year</p>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="display-6 fw-bold text-primary mb-0">4.8x</h3>
+                                <p class="small text-muted">Faster than industry average</p>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="display-6 fw-bold text-primary mb-0">₹1.4Cr</h3>
+                                <p class="small text-muted">Average salary placed</p>
+                            </div> -->
+                            <div class="col-12">
+                                <div style="height:90%;">
+                                <img src="./images/photo.jpg" class="w-100 h-100"/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="mt-5 text-center border-top pt-5">
+                            <p class="text-muted">“ALP Group India didn’t just fill roles — they transformed our entire hiring process.”</p>
+                            <div class="d-flex align-items-center justify-content-center gap-2">
+                                <img src="https://i.pravatar.cc/48?u=ceo" alt="" class="rounded-circle" width="32">
+                                <div>
+                                    <strong>Rahul Sharma</strong><br>
+                                    <small>CHRO, PayU India</small>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <span class="badge bg-dark text-white px-4 py-2">About Us</span>
+                    <h4 class="display-7 fw-bold mt-3 mb-4">OUR LEGACY (ALP GROUP INDIA)</h3>
+                    <p class="text-muted">ALP Group draws its vision and inspiration from the late SH. ACHCHHE LAL PRIYADARSHI (ALP), (MA, B.Ed. & LL. B.), a distinguished scholar, educationist, social reformer, passionate visionary and the voice of thousands. Though he is no longer with us, his ideals and principles continue to live on, guiding and transforming both the Group and society at large. His legacy remains a constant source of inspiration for our endeavours.
+
+ALP Group, led by Ms. Annu Kumari (M.Sc., B.Ed.) with Mr. Guru Bandhu (MBA, LL.B.) serving as Chief Advisor and Independent Consultant, is a new-age HR, Business Consulting and Legal Consulting firm bringing over 17 years of industry expertise.</p>
+
+                    <h4 class="display-7 fw-bold mt-3 mb-4">LEADERSHIP & ADVISORY</h4>
+                    <p class="text-muted">Proprietor – Ms. Annu Kumari B.Sc. (Hons.), M.Sc., B.Ed. A seasoned business leader committed to delivering high-quality staffing solutions.
+
+Chief Advisor and Independent Consultant – Sh. Guru Bandhu (MBA- HR & Marketing) with Post MBA in International HRM & LL.B., with 17 years of industry exposure in the area of Infrastructure, Construction & Engineering Industries.
+
+We are a team of highly experienced and specialized HR professionals, Recruiters, Corporate Trainers, and Business Development Experts, supported by a network of Senior Consultants, Freelancers, Academicians, and Partner Institutions.
+
+Together, we deliver customized, high-impact solutions tailored to meet the unique needs of individuals and organizations, ensuring excellence, growth, and measurable results</p>
+
+                     <a href="#"  
+                           class="w-auto btn btn-dark btn-sm rounded-5 px-5 py-3 fw-semibold  shadow-lg">
+                            Know More
+                        </a>
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR SERVICES -->
+    <section id="services" class="bg-white">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <span class="badge bg-primary text-white px-3 py-2 rounded-5 mb-3">WHAT WE OFFER</span>
+                    <h2 class="display-5 fw-bold text-dark">End-to-end recruitment solutions</h2>
+                    <p class="lead text-muted">From C-suite hires to blue-collar staffing — we’ve got you covered with speed and precision.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card h-100 p-5 text-center">
+                        <i class="bi bi-briefcase-fill text-primary fs-1 mb-4"></i>
+                        <h4>Staffing / Recruitment</h4>
+                        <p class="text-muted">Full-time hires with 90-day replacement guarantee. Average time-to-hire: 12 days.</p>
+                        <a href="#" class="text-primary fw-medium">Learn more →</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card h-100 p-5 text-center">
+                        <i class="bi bi-clock-history text-primary fs-1 mb-4"></i>
+                        <h4>HR Solutions</h4>
+                        <p class="text-muted">Flexible workforce solutions. Scale up or down instantly. 24-hour deployment.</p>
+                        <a href="#" class="text-primary fw-medium">Learn more →</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card h-100 p-5 text-center">
+                        <i class="bi bi-trophy-fill text-primary fs-1 mb-4"></i>
+                        <h4>Business Development Consulting</h4>
+                        <p class="text-muted">C-level, VP, and Director level talent. Confidential and global network.</p>
+                        <a href="#" class="text-primary fw-medium">Learn more →</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card h-100 p-5 text-center">
+                        <i class="bi bi-robot text-primary fs-1 mb-4"></i>
+                        <h4>Career Counseling & Training</h4>
+                        <p class="text-muted">Our proprietary AI matches candidates with 98.7% accuracy in under 60 seconds.</p>
+                        <a href="#" class="text-primary fw-medium">Learn more →</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card h-100 p-5 text-center">
+                        <i class="bi bi-globe text-primary fs-1 mb-4"></i>
+                        <h4>Comprehensive Legal Solutions</h4>
+                        <p class="text-muted">Access talent from 38 countries. Visa &amp; relocation support included.</p>
+                        <a href="#" class="text-primary fw-medium">Learn more →</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card h-100 p-5 text-center">
+                        <i class="bi bi-people-fill text-primary fs-1 mb-4"></i>
+                        <h4>IT Software Services</h4>
+                        <p class="text-muted">Bulk fresher hiring programs for IT, management, and engineering roles.</p>
+                        <a href="#" class="text-primary fw-medium">Learn more →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- INDUSTRIES WE SERVE -->
+    <section id="industries" class="texture-bg">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold">Industries we dominate</h2>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="industry-card text-center p-4">
+                        <i class="bi bi-laptop fs-2 text-primary mb-3"></i>
+                        <h5>Technology</h5>
+                        <small class="text-muted">AI, Cloud, Cybersecurity</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="industry-card text-center p-4">
+                        <i class="bi bi-heart-pulse fs-2 text-primary mb-3"></i>
+                        <h5>Healthcare</h5>
+                        <small class="text-muted">Doctors, Nurses, Pharma</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="industry-card text-center p-4">
+                        <i class="bi bi-currency-exchange fs-2 text-primary mb-3"></i>
+                        <h5>Banking &amp; Finance</h5>
+                        <small class="text-muted">Fintech, Insurance</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="industry-card text-center p-4">
+                        <i class="bi bi-truck fs-2 text-primary mb-3"></i>
+                        <h5>Logistics &amp; Supply</h5>
+                        <small class="text-muted">E-commerce, Warehousing</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="industry-card text-center p-4">
+                        <i class="bi bi-building fs-2 text-primary mb-3"></i>
+                        <h5>Manufacturing</h5>
+                        <small class="text-muted">Automotive, FMCG</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="industry-card text-center p-4">
+                        <i class="bi bi-emoji-smile fs-2 text-primary mb-3"></i>
+                        <h5>Hospitality</h5>
+                        <small class="text-muted">Hotels, Restaurants</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- WHY CHOOSE US -->
+    <section id="why-us" class="bg-white">
+        <div class="container">
+            <div class="row align-items-center g-2 g-md-5">
+                <div class="col-lg-6">
+                    <span class="badge bg-dark text-white px-4 py-2">OUR EDGE</span>
+                    <h2 class="display-5 fw-bold mt-3 mb-4">Why Companies Choose Us</h2>
+                    
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-shrink-0">
+                            <div class="step-number">01</div>
+                        </div>
+                        <div>
+                            <h5>Industry Specialization</h5>
+                            <p class="text-muted">Proven track record in Infrastructure & Construction companies</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-shrink-0">
+                            <div class="step-number">02</div>
+                        </div>
+                        <div>
+                            <h5>Zero Hidden Fees</h5>
+                            <p class="text-muted">Transparent pricing. Pay only when you hire. No recruitment fees upfront.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-shrink-0">
+                            <div class="step-number">03</div>
+                        </div>
+                        <div>
+                            <h5>Professional Exposure</h5>
+                            <p class="text-muted">Extensive experience in delivering HR, Recruitment, Business Development, and Legal Solutions </p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-shrink-0">
+                            <div class="step-number">04</div>
+                        </div>
+                        <div>
+                            <h5>Trusted Network</h5>
+                            <p class="text-muted">Extensive experience in delivering HR, Recruitment, Business Development, and Legal Solutions </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class=" rounded-4 p-0 shadow-inner">
+                        <div class="row text-center">
+                            <!-- <div class="col-4">
+                                <h3 class="display-6 fw-bold text-primary mb-0">98%</h3>
+                                <p class="small text-muted">Retention after 1 year</p>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="display-6 fw-bold text-primary mb-0">4.8x</h3>
+                                <p class="small text-muted">Faster than industry average</p>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="display-6 fw-bold text-primary mb-0">₹1.4Cr</h3>
+                                <p class="small text-muted">Average salary placed</p>
+                            </div> -->
+                            <div class="col-12">
+                                <div style="width: ;">
+                                <img src="./images/photo1.jpg" class="w-100"/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="mt-5 text-center border-top pt-5">
+                            <p class="text-muted">“ALP Group India didn’t just fill roles — they transformed our entire hiring process.”</p>
+                            <div class="d-flex align-items-center justify-content-center gap-2">
+                                <img src="https://i.pravatar.cc/48?u=ceo" alt="" class="rounded-circle" width="32">
+                                <div>
+                                    <strong>Rahul Sharma</strong><br>
+                                    <small>CHRO, PayU India</small>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="texture-bg">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">From brief to hire in 4 simple steps</h2>
+            </div>
+            
+            <div class="row g-2 g-md-5">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="step-number mx-auto mb-4">1</div>
+                    <h5 class="fw-semibold">Submit Requirement</h5>
+                    <p class="text-muted">Tell us your needs via our 60-second form or WhatsApp.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="step-number mx-auto mb-4">2</div>
+                    <h5 class="fw-semibold">AI + Expert Matching</h5>
+                    <p class="text-muted">Our AI scans 1.2 million profiles. Experts curate top 5 matches.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="step-number mx-auto mb-4">3</div>
+                    <h5 class="fw-semibold">Interviews &amp; Onboarding</h5>
+                    <p class="text-muted">We handle everything — from scheduling to offer letters.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="step-number mx-auto mb-4">4</div>
+                    <h5 class="fw-semibold">Success Guarantee</h5>
+                    <p class="text-muted">90-day performance guarantee. Unlimited replacements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FEATURED TALENT / JOB OPENINGS -->
+    <!-- <section id="jobs" class="bg-white">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-5">
+                <div>
+                    <span class="badge bg-primary">HOT ROLES</span>
+                    <h2 class="display-5 fw-bold mb-0">Featured Openings</h2>
+                </div>
+                <a href="#" class="text-primary fw-medium d-flex align-items-center">View all 184 openings <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+            
+            <div class="row g-4">
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="job-card p-4 h-100">
+                        <div class="d-flex justify-content-between">
+                            <div class="badge bg-success">Delhi NCR</div>
+                            <div class="text-end">
+                                <span class="fw-bold text-primary">₹32 LPA</span>
+                            </div>
+                        </div>
+                        <h5 class="mt-3 mb-1">Head of Growth Marketing</h5>
+                        <p class="text-muted">Fintech • 8-12 years exp</p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <span class="badge bg-light text-dark">Remote Hybrid</span>
+                            <span class="badge bg-light text-dark">Immediate Join</span>
+                        </div>
+                        <button onclick="alert('✅ Application started! Our recruiter will call you shortly.')" class="btn btn-outline-primary w-100 mt-4 rounded-4">Apply in 30 seconds</button>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="job-card p-4 h-100">
+                        <div class="d-flex justify-content-between">
+                            <div class="badge bg-warning text-dark">Bangalore</div>
+                            <div class="text-end">
+                                <span class="fw-bold text-primary">₹18 LPA</span>
+                            </div>
+                        </div>
+                        <h5 class="mt-3 mb-1">Senior Data Scientist</h5>
+                        <p class="text-muted">AI Startup • Python + LLM</p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <span class="badge bg-light text-dark">Stock Options</span>
+                            <span class="badge bg-light text-dark">4 candidates shortlisted</span>
+                        </div>
+                        <button onclick="alert('✅ Application started! Our recruiter will call you shortly.')" class="btn btn-outline-primary w-100 mt-4 rounded-4">Apply in 30 seconds</button>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="job-card p-4 h-100">
+                        <div class="d-flex justify-content-between">
+                            <div class="badge bg-info">Mumbai</div>
+                            <div class="text-end">
+                                <span class="fw-bold text-primary">₹45 LPA</span>
+                            </div>
+                        </div>
+                        <h5 class="mt-3 mb-1">VP - Engineering</h5>
+                        <p class="text-muted">SaaS • 15+ years</p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <span class="badge bg-light text-dark">Equity offered</span>
+                            <span class="badge bg-light text-dark">Confidential</span>
+                        </div>
+                        <button onclick="alert('✅ Application started! Our recruiter will call you shortly.')" class="btn btn-outline-primary w-100 mt-4 rounded-4">Apply in 30 seconds</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    
+    <!-- SUCCESS STORIES / TESTIMONIALS -->
+    <section id="stories" class="texture-bg">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold">Real stories. Real impact.</h2>
+                </div>
+            </div>
+            
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner p-5">
+                    <!-- Testimonial 1 -->
+                    <div class="carousel-item active">
+                        <div class="testimonial-card mx-auto p-5" style="max-width: 720px;">
+                            <div class="d-flex gap-3">
+                                <i class="bi bi-quote fs-1 text-primary"></i>
+                                <div>
+                                    <p class="lead">"ALP placed 14 senior engineers in 3 weeks. Their AI system literally read our culture and delivered perfect fits."</p>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://i.pravatar.cc/64?u=1" class="rounded-circle me-3" width="48" alt="">
+                                        <div>
+                                            <strong>Priya Menon</strong><br>
+                                            <small>CTO, Groww • Bangalore</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="carousel-item" >
+                        <div class="testimonial-card mx-auto p-5" style="max-width: 720px;">
+                            <div class="d-flex gap-3">
+                                <i class="bi bi-quote fs-1 text-primary"></i>
+                                <div>
+                                    <p class="lead">"They helped us build our entire Delhi manufacturing team of 87 people in under 40 days. Unbelievable execution."</p>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://i.pravatar.cc/64?u=2" class="rounded-circle me-3" width="48" alt="">
+                                        <div>
+                                            <strong>Arjun Kapoor</strong><br>
+                                            <small>Founder, BharatForge</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-card mx-auto p-5" style="max-width: 720px;">
+                            <div class="d-flex gap-3">
+                                <i class="bi bi-quote fs-1 text-primary"></i>
+                                <div>
+                                    <p class="lead">"Switched from Naukri to ALP. Our cost per hire dropped 62% and quality skyrocketed."</p>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://i.pravatar.cc/64?u=3" class="rounded-circle me-3" width="48" alt="">
+                                        <div>
+                                            <strong>Neha Gupta</strong><br>
+                                            <small>HR Director, Zomato</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- INSIGHTS / RESOURCES -->
+    <!-- <section id="insights" class="bg-white">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-5">
+                <h2 class="display-5 fw-bold">Latest Insights</h2>
+                <a href="#" class="btn btn-outline-primary rounded-5">Explore our blog →</a>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://picsum.photos/id/1016/800/420" class="card-img-top" alt="Salary trends">
+                        <div class="card-body">
+                            <span class="badge bg-dark mb-3">Salary Trends 2026</span>
+                            <h5>Tech salaries in India are up 21% — here’s what you need to know</h5>
+                            <small class="text-muted">April 10, 2026 • 8 min read</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://picsum.photos/id/201/800/420" class="card-img-top" alt="Future of work">
+                        <div class="card-body">
+                            <span class="badge bg-dark mb-3">Future of Work</span>
+                            <h5>Why AI won’t replace recruiters — but will make the great ones unstoppable</h5>
+                            <small class="text-muted">April 8, 2026 • 6 min read</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://picsum.photos/id/251/800/420" class="card-img-top" alt="Hiring hacks">
+                        <div class="card-body">
+                            <span class="badge bg-dark mb-3">Hiring Hacks</span>
+                            <h5>5 questions every candidate should ask in 2026 interviews</h5>
+                            <small class="text-muted">April 5, 2026 • 4 min read</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    
+    <!-- STRONG CTA SECTION -->
+    <section class="cta-section py-5">
+        <div class="container text-center py-5">
+            <h2 class="display-4 fw-bold text-white mb-4">Ready to build the team of your dreams?</h2>
+            <p class="lead text-white-50 mb-5">Speak to a recruitment strategist in the next 90 seconds.</p>
+            
+            <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" 
+               class="btn btn-light btn-lg rounded-5 px-5 py-4 fs-4 shadow-lg d-inline-flex align-items-center gap-3">
+                START HIRING TODAY
+                <i class="bi bi-arrow-right-circle-fill fs-2"></i>
+            </a>
+            
+            <div class="mt-4 text-white-50 small">Or WhatsApp us at +91 9899202646</div>
+        </div>
+    </section>
+    
+    <!-- CONTACT US FORM -->
+    <section id="contact" class="bg-white">
+        <div class="container">
+            <div class="row g-2 g-md-5">
+                <div class="col-lg-5">
+                    <h2 class="display-5 fw-bold">Let’s get you the perfect talent</h2>
+                    <p class="lead text-muted">Our team typically responds within 11 minutes.</p>
+                    
+                    <div class="mt-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="bi bi-telephone-fill text-primary fs-3 me-4"></i>
+                            <div>
+                                <div class="fw-medium">+91 9899202646</div>
+                                <small class="text-muted">Mon–Sat, 9am–8pm IST</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="bi bi-envelope-fill text-primary fs-3 me-4"></i>
+                            <div>
+                                <div class="fw-medium">business@alpgroupindia.com</div>
+                                <small class="text-muted">We reply in &lt; 15 mins</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-geo-alt-fill text-primary fs-3 me-4"></i>
+                            <div>
+                                <div class="fw-medium">27A, South Ganesh Nagar, Delhi-110092</div>
+                                <small class="text-muted">CORPORATE OFFICE</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <form id="contactForm" class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium">Your Name</label>
+                            <input type="text" class="form-control" placeholder="Rahul Sharma" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium">Company Name</label>
+                            <input type="text" class="form-control" placeholder="Your Company Pvt Ltd" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium">Phone / WhatsApp</label>
+                            <input type="tel" class="form-control" placeholder="+91 98xxxxxxxx" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-medium">Email</label>
+                            <input type="email" class="form-control" placeholder="you@company.com" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-medium">What are you hiring for?</label>
+                            <textarea class="form-control" rows="4" placeholder="E.g. Senior React Native Developers • 8-10 positions • Bangalore" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary w-100 py-4 rounded-4 fw-bold fs-5">
+                                SEND REQUIREMENT • WE’LL CALL YOU IN 11 MINUTES
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-2 g-md-5">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center text-white fs-3 fw-bold mb-3">
+                        <div style="width: 4rem; " class="me-3">
+                    <img src="./alp1.jpg" class="w-100 h-100 rounded"/>
+                 </div>
+                        <!-- <span class="bg-primary text-dark rounded-3 px-2 py-1 me-2">L</span> -->
+                        ALP Group India
+                    </div>
+                    <p class="text-white-50">Your Trusted & Reliable Partner in HR, Staffing & Legal Solutions</p>
+                    <div class="mt-auto pt-4">
+                        <a href="https://wa.me/919899202646" target="_blank" class="text-white me-4"><i class="bi bi-whatsapp fs-3"></i></a>
+                        <a href="#" class="text-white me-4"><i class="bi bi-linkedin fs-3"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-instagram fs-3"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-semibold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><a href="#" class="text-reset">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-reset">Our Team</a></li>
+                        <li class="mb-2"><a href="#" class="text-reset">Careers</a></li>
+                        <li><a href="#" class="text-reset">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-semibold mb-3">Our Services</h6>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><a href="#" class="text-reset">Staffing & Recruitment</a></li>
+                        <li class="mb-2"><a href="#" class="text-reset">HR Consulting/a></li>
+                        <li class="mb-2"><a href="#" class="text-reset">Legal Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- <div class="col-lg-2 col-6">
+                    <h6 class="fw-semibold mb-3">For Employers</h6>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><a href="#" class="text-reset">Post a Job</a></li>
+                        <li class="mb-2"><a href="#" class="text-reset">Hiring Solutions</a></li>
+                        <li class="mb-2"><a href="#" class="text-reset">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-semibold mb-3">Resources</h6>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><a href="#" class="text-reset">Blog</a></li>
+                        <li class="mb-2"><a href="#" class="text-reset">Hiring Guides</a></li>
+                        <li class="mb-2"><a href="#" class="text-reset">Talent Market Report</a></li>
+                    </ul>
+                </div> -->
+            </div>
+            
+            <div class="border-top border-white-10 mt-5 pt-4 text-center text-white-50 small">
+                © 2026 ALP GROUP INDIA • All Rights Reserved • Made in India
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WHATSAPP FLOATING -->
+    <a href="https://wa.me/919899202646?text=Hi%20!%20I%20need%20talent%20for..." target="_blank" class="floating-whatsapp shadow-lg">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+    
+    <!-- BACK TO TOP -->
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backToTop" class="back-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+        // GSAP + ScrollTrigger Registration
+        gsap.registerPlugin(ScrollTrigger)
+        
+        // Hero animations
+        function initHeroAnimations() {
+            const tl = gsap.timeline()
+            
+            tl.from(".hero h1", {
+                y: 80,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power4.out"
+            })
+            .from(".hero .badge", {
+                scale: 0.6,
+                opacity: 0,
+                duration: 0.8,
+                ease: "back.out(1.4)"
+            }, "-=0.8")
+            .from(".hero p", {
+                y: 40,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            }, "-=0.6")
+            .from(".hero .btn", {
+                y: 60,
+                opacity: 0,
+                stagger: 0.15,
+                duration: 1,
+                ease: "power3.out"
+            }, "-=0.8")
+            
+            // Mouse glow effect
+            const glow = document.getElementById('mouseGlow')
+            document.querySelector('.hero').addEventListener('mousemove', (e) => {
+                const x = e.clientX - 210
+                const y = e.clientY - 210
+                glow.style.left = `${x}px`
+                glow.style.top = `${y}px`
+                gsap.to(glow, { opacity: 1, duration: 0.3 })
+            })
+            
+            document.querySelector('.hero').addEventListener('mouseleave', () => {
+                gsap.to(glow, { opacity: 0, duration: 0.6 })
+            })
+        }
+        
+        // Scroll-triggered animations
+        function initScrollAnimations() {
+            // Cards & sections
+            gsap.utils.toArray('.service-card, .industry-card, .job-card, .testimonial-card').forEach((el, i) => {
+                gsap.from(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    },
+                    y: 80,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.05,
+                    ease: "power3.out"
+                })
+            })
+            
+            // Section headers
+            gsap.utils.toArray('.section-header, .display-5').forEach(header => {
+                gsap.from(header, {
+                    scrollTrigger: header,
+                    y: 40,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power4.out"
+                })
+            })
+            
+            // Step numbers
+            gsap.utils.toArray('.step-number').forEach((num, i) => {
+                gsap.from(num, {
+                    scrollTrigger: {
+                        trigger: num,
+                        start: "top 85%"
+                    },
+                    scale: 0,
+                    rotation: -180,
+                    duration: 1.2,
+                    ease: "back.out(2)",
+                    delay: i * 0.2
+                })
+            })
+        }
+        
+        // Back to top button
+        function initBackToTop() {
+            const btn = document.getElementById('backToTop')
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 600) {
+                    btn.style.display = 'flex'
+                    gsap.to(btn, { opacity: 1, duration: 0.4 })
+                } else {
+                    gsap.to(btn, { opacity: 0, duration: 0.3, onComplete: () => btn.style.display = 'none' })
+                }
+            })
+        }
+        
+        // Contact form handling
+        function initContactForm() {
+            const form = document.getElementById('contactForm')
+            
+            form.addEventListener('submit', function (e) {
+                e.preventDefault()
+                
+                // Fake loading
+                const btn = this.querySelector('button')
+                const originalText = btn.innerHTML
+                
+                btn.innerHTML = `
+                    <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                    SENDING TO OUR AI MATCHMAKER...
+                `
+                btn.disabled = true
+                
+                setTimeout(() => {
+                    alert('🎉 Thank you! A senior recruiter will call you within the next 11 minutes.\n\nYour requirement has been added to our priority queue.')
+                    form.reset()
+                    btn.innerHTML = originalText
+                    btn.disabled = false
+                    
+                    // Fireworks animation effect
+                    console.log('%c🚀 Requirement submitted to ALP Group India!', 'color:#00d4ff; font-size:18px; font-weight:bold')
+                }, 1800)
+            })
+        }
+        
+        // Marquee speed control (optional pause on hover)
+        function initMarquee() {
+            const marquee = document.querySelector('.marquee-content')
+            if (marquee) {
+                marquee.addEventListener('mouseenter', () => marquee.style.animationPlayState = 'paused')
+                marquee.addEventListener('mouseleave', () => marquee.style.animationPlayState = 'running')
+            }
+        }
+        
+        // Initialize everything
+        window.onload = function () {
+            initHeroAnimations()
+            initScrollAnimations()
+            initBackToTop()
+            initContactForm()
+            initMarquee()
+            
+            console.log('%c✅ ALP Group India Staffing single-page website loaded successfully! Lightweight, animated & mobile-responsive.', 'color:#00d4ff; font-family:monospace')
+        }
+    </script>
+</body>
+</html>

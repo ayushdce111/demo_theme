@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindfulness Education - Transform Your Life</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
+    <style>
+        :root {
+           --primary: #2c3e50;
+            --secondary: #E8755F;
+            --accent: #F4D9C4;
+            --accent-green: #6BA566;
+            --dark-bg: #1a1f2e;
+            --dark-surface: #232d3f;
+            --dark-text: #e8dcc8;
+            --light-bg: #f9f7f2;
+            --light-surface: #ffffff;
+            --light-text: #2c3e50;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                        /* --primary: #6B5CE7;
+            --secondary: #FF6B6B;
+            --accent: #FFB74D;
+            --dark-bg: #0f172a;
+            --dark-surface: #1a1f3a;
+            --dark-text: #e2e8f0;
+            --light-bg: #f8f9fa;
+            --light-surface: #ffffff;
+            --light-text: #1a1f3a;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--light-text);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .slider-slide {
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        .slider-btn:hover {
+            background: rgba(255,255,255,0.6) !important;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-indicator.active {
+            background: white !important;
+            transform: scale(1.2);
+        }
+
+        .slider-indicator:hover {
+            background: rgba(255,255,255,0.8) !important;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link span {
+            position: relative;
+        }
+
+        .nav-link span::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover span::after {
+            width: 100%;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-bg);
+        }
+
+        body.dark-mode ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        /* Navigation */
+        nav.navbar {
+            background: var(--light-surface);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        body.dark-mode nav.navbar {
+            background: rgba(26, 31, 58, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: #ddd !important;
+            font-weight: 500;
+            position: relative;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+
+        body.dark-mode .nav-link {
+            color: var(--secondary) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(20deg) scale(1.1);
+            box-shadow: 0 8px 20px rgba(107, 92, 231, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 20px 40px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            height: 100%;
+            background: url('/images/q.jpeg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-image {
+                display: none;
+            }
+            .hero-content {
+                width: 100%;
+            }
+        }
+
+        /* Buttons */
+        .btn-primary-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            padding: 12px 35px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: var(--transition);
+            display: inline-block;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(107, 92, 231, 0.3);
+            text-decoration: none;
+        }
+
+        .btn-primary-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(107, 92, 231, 0.5);
+            color: white;
+        }
+
+        .btn-outline-primary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+            padding: 10px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        body.dark-mode .btn-outline-primary {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        body.dark-mode .btn-outline-primary:hover {
+            background: var(--accent);
+            color: var(--dark-bg);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 1.1rem;
+            margin: 40px auto;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        body.dark-mode .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* What is Mindfulness Section */
+        .mindfulness-section {
+            background: linear-gradient(135deg, rgba(107, 92, 231, 0.05), rgba(255, 107, 107, 0.05));
+            border-radius: 20px;
+        }
+
+        body.dark-mode .mindfulness-section {
+            background: linear-gradient(135deg, rgba(107, 92, 231, 0.1), rgba(255, 107, 107, 0.1));
+        }
+
+        .mindfulness-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .mindfulness-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mindfulness-image {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(107, 92, 231, 0.2);
+            animation: scaleIn 0.8s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .mindfulness-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .mindfulness-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .mindfulness-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .mindfulness-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        body.dark-mode .mindfulness-text p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Features Section */
+        .features-section {
+            background: linear-gradient(135deg, #FFF4E6, #FFE8CC);
+        }
+
+        body.dark-mode .features-section {
+            background: rgba(255, 183, 77, 0.1);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: var(--light-surface);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+
+        }
+
+        body.dark-mode .feature-card {
+            background: var(--dark-surface);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(107, 92, 231, 0.3);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .feature-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 1.6;
+        }
+
+        body.dark-mode .feature-card p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Shift Section */
+        .shift-section {
+            background: var(--light-surface);
+        }
+
+        body.dark-mode .shift-section {
+            background: var(--dark-bg);
+        }
+
+        .shift-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin: 60px 0;
+        }
+
+        .shift-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .shift-item:nth-child(even) > div {
+            direction: ltr;
+        }
+
+        @media (max-width: 768px) {
+            .shift-item,
+            .shift-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+
+            .shift-item:nth-child(even) > div {
+                direction: ltr;
+            }
+        }
+
+        .shift-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(107, 92, 231, 0.2);
+        }
+
+        .shift-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .shift-image:hover img {
+            transform: scale(1.08);
+        }
+
+        .shift-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .shift-text p {
+            color: rgba(0, 0, 0, 0.7);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        body.dark-mode .shift-text p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            counter-increment: stat-counter;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: linear-gradient(135deg, rgba(107, 92, 231, 0.05), rgba(255, 107, 107, 0.05));
+        }
+
+        body.dark-mode .gallery-section {
+            background: linear-gradient(135deg, rgba(107, 92, 231, 0.1), rgba(255, 107, 107, 0.1));
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            /* group/item: true; */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 0.5;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--light-surface);
+        }
+
+        body.dark-mode .testimonials-section {
+            background: var(--dark-bg);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(107, 92, 231, 0.05), rgba(255, 107, 107, 0.05));
+            padding: 30px;
+            border-radius: 15px;
+            transition: var(--transition);
+            border: 1px solid rgba(107, 92, 231, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        body.dark-mode .testimonial-card {
+            background: rgba(107, 92, 231, 0.1);
+            border-color: rgba(107, 92, 231, 0.2);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(107, 92, 231, 0.2);
+            border-color: var(--primary);
+        }
+
+        .testimonial-text {
+            color: rgba(0, 0, 0, 0.7);
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        body.dark-mode .testimonial-text {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: var(--transition);
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+
+        .newsletter-form button {
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-surface);
+            color: var(--dark-text);
+            padding: 50px 20px 20px;
+        }
+
+        body.dark-mode footer {
+            background: var(--dark-bg);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(107, 92, 231, 0.4);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Scroll Animation */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            font-size: 1.3rem;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(107, 92, 231, 0.4);
+        }
+
+        /* Loading Animation */
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(107, 92, 231, 0.2);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 50px 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .navbar-toggler {
+                background: linear-gradient(135deg, var(--primary), var(--secondary));
+            }
+
+            .navbar-toggler:focus {
+                box-shadow: none;
+            }
+        }
+    </style>
+    <style>
+        
+.mywave-text span {
+    display: inline-block;
+    /* font-size: 4rem; */
+    animation: wave 2s ease-in-out infinite;
+    padding: 1px;
+}
+
+.mywave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.mywave-text span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.mywave-text span:nth-child(3) {
+    animation-delay: 0.5s;
+}
+.mywave-text span:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+@keyframes wave {
+    0%{
+        transform: translateY(0px);
+    }
+   
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top" style="background: var(--primary); box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 1000;">
+        <div class="container">
+            <a class="navbar-brand d-flex" href="#" style="gap:0.3rem;align-items: center; color: white; font-weight: 700; font-size: 1.5rem;"  >
+                <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/logo.png" style="width: 5rem; height: 5rem;" data-aos="zoom-in" data-aos-duration="2000"/>
+                <!-- <i class="fas fa-lotus"></i> -->
+                <div class="d-flex flex-column "> 
+                <span style="font-size:1.5rem;"  >Lightworks</span> <span style="font-size:1rem">Mindfulness</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-3" data-aos="zoom-in" data-aos-duration="1000">
+                    <li class="nav-item"><a class="nav-link" href="#what-is" style="color: white;"><span>What is Mindfulness</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features" style="color: white;"><span>Features</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials" style="color: white;"><span>Testimonials</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery" style="color: white;"><span>Gallery</span></a></li>
+                    <li class="nav-item">
+                        <button id="themeToggle" class="btn btn-sm" style="background: var(--secondary); color: white; border: none;">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Slider Section -->
+    <div class="hero-slider-container" style="position: relative; height: 600px; overflow: hidden; margin-top: 0;">
+        <div class="slider-wrapper" style="position: relative; height: 100%; display: flex;">
+            <!-- Slide 1 -->
+            <div class="slider-slide" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0; opacity: 1; background: linear-gradient(135deg, var(--primary) 0%, rgba(44, 62, 80, 0.8) 100%);">
+                <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/bg/ind_slide2.jpg" alt="Mindfulness" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3; position: absolute;" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="container h-100 d-flex align-items-center position-relative z-2">
+                    <div class="row w-100">
+                        <div class="col-lg-6">
+                            <h1 class="mywave-text" style="color: white; font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; line-height: 1.2; animation: slideInUp 0.8s ease-out;" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
+                                <span>Mindfulness</span><span> is the dawn</span><span> of a transformative era</span>
+                            </h1>
+                            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 30px; animation: slideInUp 0.8s ease-out 0.2s both;">
+                                for humanity and education.
+                            </p>
+                            <button class="btn" style="background: var(--secondary); color: white; padding: 12px 40px; border: none; border-radius: 50px; font-weight: 600; animation: slideInUp 0.8s ease-out 0.4s both;">
+                                Get Started <i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slider-slide" style="position: absolute; width: 100%; height: 100%; left: 100%; top: 0; opacity: 0; background: linear-gradient(135deg, var(--accent-green) 0%, rgba(107, 165, 102, 0.8) 100%);">
+                <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/bg/ind_slide3.jpg" alt="Education" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.2; position: absolute;" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="container h-100 d-flex align-items-center position-relative z-2">
+                    <div class="row w-100">
+                        <div class="col-lg-6">
+                            <h1 class="mywave-text" style="color: white; font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; line-height: 1.2;">
+                                <span>Transform</span><span> Your Life</span><span> Today</span>
+                            </h1>
+                            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 30px;">
+                                Join thousands on their mindfulness journey.
+                            </p>
+                            <button class="btn" style="background: var(--secondary); color: white; padding: 12px 40px; border: none; border-radius: 50px; font-weight: 600;">
+                                Explore More <i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+             <!-- background: linear-gradient(135deg, var(--secondary) 0%, rgba(232, 117, 95, 0.8) 100%); -->
+            <div class="slider-slide" style="position: absolute; width: 100%; height: 100%; left: 200%; top: 0; opacity: 0; background: linear-gradient(135deg, var(--dark-bg) 0%, rgba(232, 117, 95, 0.8) 100%);">
+                <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/bg/ind_slide1.jpg" alt="Community" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.2; position: absolute;" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="container h-100 d-flex align-items-center position-relative z-2">
+                    <div class="row w-100">
+                        <div class="col-lg-6">
+                            <h1 style="color: white; font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; line-height: 1.2;">
+                                Build a Mindful Community
+                            </h1>
+                            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 30px;">
+                                Practice together with our global mindfulness network.
+                            </p>
+                            <button class="btn" style="background: white; color: var(--secondary); padding: 12px 40px; border: none; border-radius: 50px; font-weight: 600;">
+                                Join Now <i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <button class="slider-btn slider-prev" style="position: absolute; left: 30px; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255,255,255,0.3); border: 2px solid white; color: white; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; transition: var(--transition);">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-btn slider-next" style="position: absolute; right: 30px; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255,255,255,0.3); border: 2px solid white; color: white; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; transition: var(--transition);">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Slider Indicators -->
+        <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 12px;">
+            <button class="slider-indicator active" data-slide="0" style="width: 12px; height: 12px; border-radius: 50%; background: white; border: none; cursor: pointer; transition: var(--transition);"></button>
+            <button class="slider-indicator" data-slide="1" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); border: none; cursor: pointer; transition: var(--transition);"></button>
+            <button class="slider-indicator" data-slide="2" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); border: none; cursor: pointer; transition: var(--transition);"></button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-image">
+            <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/bg/ind_home-about-img.jpg"/>
+        </div>
+        <div class="hero-content" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
+            <h1 class="mywave-text"><span>Mindfulness</span> <span>is the dawn</span><span> of a transformative era</span> <span>for humanity </span><span>and education</span></h1>
+            <p>Join us in discovering the power of mindfulness and transform your life today</p>
+            <button class="btn-primary-gradient" onclick="document.getElementById('mindfulness').scrollIntoView()">
+                Learn More
+            </button>
+        </div>
+    </section>
+
+    <!-- What is Mindfulness -->
+    <section class="mindfulness-section " id="mindfulness">
+        <div class="container ">
+            <h2 class="section-title mywave-text" data-aos="fade-up" data-aos-duration="2000"><span>What</span> <span>is</span><span> Mindfulness?</span></h2>
+            <p class="section-subtitle">Discover the essence of mindfulness and how it can transform your daily life</p>
+
+            <div class="mindfulness-content ">
+                <div class="mindfulness-image containertoanimate">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/bg/ind_home-about-img.jpg" alt="Mindfulness Practice"  class="imagetoanimate">
+                </div>
+                <div class="mindfulness-text fade-in-on-scroll">
+                    <h3 data-aos="fade-up" data-aos-duration="2000" class="mywave-text"><span>The</span><span> Foundation</span><span> of Inner Peace</span></h3>
+                    <p>Mindfulness is the practice of bringing your full attention to the present moment without judgment. It's about observing your thoughts, feelings, and sensations with curiosity and compassion.</p>
+                    <p>Through consistent practice, mindfulness helps reduce stress, improve focus, and enhance overall well-being. It's a journey of self-discovery that transforms how you relate to yourself and the world around you.</p>
+                    <p>Whether you're seeking peace, clarity, or personal growth, mindfulness offers proven benefits backed by scientific research and thousands of years of wisdom.</p>
+                    <button class="btn-primary-gradient" style="margin-top: 20px;">Start Your Journey</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="section-title mywave-text" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000"><span>Why is</span><span> Mindfulness</span><span> Important?</span></h2>
+            <p class="section-subtitle">Explore the transformative benefits of mindfulness practice</p>
+
+            <div class="features-grid">
+                <div class="feature-card fade-in-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain" ></i>
+                    </div>
+                    <h4 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">Mental Clarity</h4>
+                    <p>Enhance focus and concentration, making your mind sharper and more efficient in all endeavors.</p>
+                </div>
+
+                <div class="feature-card fade-in-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart" ></i>
+                    </div>
+                    <h4 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">Emotional Balance</h4>
+                    <p>Develop emotional resilience and better manage stress, anxiety, and difficult emotions.</p>
+                </div>
+
+                <div class="feature-card fade-in-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"  ></i>
+                    </div>
+                    <h4 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">Better Health</h4>
+                    <p>Improve physical health with reduced blood pressure, better sleep, and stronger immunity.</p>
+                </div>
+
+                <div class="feature-card fade-in-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"  ></i>
+                    </div>
+                    <h4 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">Improved Relationships</h4>
+                    <p>Cultivate compassion and empathy, leading to deeper and more meaningful connections.</p>
+                </div>
+
+                <div class="feature-card fade-in-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"  ></i>
+                    </div>
+                    <h4 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">Enhanced Creativity</h4>
+                    <p>Unlock your creative potential by quieting mental noise and allowing new ideas to flourish.</p>
+                </div>
+
+                <div class="feature-card fade-in-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"  ></i>
+                    </div>
+                    <h4 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">Self-Discovery</h4>
+                    <p>Gain deeper insights into yourself and develop a stronger sense of purpose and meaning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Shift Section -->
+    <section class="shift-section" id="shift">
+        <div class="container">
+            <h2 class="section-title mywave-text" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000"><span>How to</span> <span>Shift</span> <span>Towards</span><span> Mindfulness</span></h2>
+            <p class="section-subtitle">A practical guide to integrating mindfulness into your life</p>
+
+            <div class="shift-item fade-in-on-scroll">
+                <div class="shift-image">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/bg/ind_Imbibe1.jpg" alt="Meditation Practice" data-aos="zoom-in" data-aos-duration="1000">
+                </div>
+                <div class="shift-text">
+                    <h3 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000" class="mywave-text"><span>Start</span><span> with</span><span> Meditation</span></h3>
+                    <p>Begin your mindfulness journey with simple meditation practices. Even 5-10 minutes daily can create profound changes in your mental state and overall well-being.</p>
+                    <button class="btn-primary-gradient">Learn Techniques</button>
+                </div>
+            </div>
+
+            <div class="shift-item fade-in-on-scroll">
+                <div class="shift-image">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/bg/ind_Imbibe2.jpg" alt="Daily Practice" data-aos="zoom-in" data-aos-duration="1000">
+                </div>
+                <div class="shift-text">
+                    <h3 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000" class="mywave-text"><span>Daily</span><span> Mindful</span><span> Living</span></h3>
+                    <p>Extend mindfulness beyond meditation into your daily activities. Practice being present while eating, walking, or interacting with others.</p>
+                    <button class="btn-primary-gradient">Explore Practices</button>
+                </div>
+            </div>
+
+            <div class="shift-item fade-in-on-scroll">
+                <div class="shift-image">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/bg/ind_Imbibe4.jpg" alt="Community Practice" data-aos="zoom-in" data-aos-duration="1000">
+                </div>
+                <div class="shift-text">
+                    <h3 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000" class="mywave-text"><span>Join</span><span> a Community</span></h3>
+                    <p>Connect with like-minded individuals in mindfulness groups and classes. Shared practice strengthens your commitment and provides support.</p>
+                    <button class="btn-primary-gradient">Find Groups</button>
+                </div>
+            </div>
+
+            <div class="shift-item fade-in-on-scroll">
+                <div class="shift-image">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/bg/ind_Imbibe3.jpg" alt="Continue Growth" data-aos="zoom-in" data-aos-duration="1000">
+                </div>
+                <div class="shift-text">
+                    <h3 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000" class="mywave-text"><span>Continuous</span><span> Growth</span></h3>
+                    <p>Deepen your practice over time with advanced techniques and teachings. Mindfulness is a lifelong journey of discovery and transformation.</p>
+                    <button class="btn-primary-gradient">Advanced Path</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title mywave-text" style="color: white; margin-bottom: 20px;" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000"><span>Our</span><span> Impact</span></h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">Join thousands who have transformed their lives</p>
+
+            <div class="stats-container">
+                <div class="stat-item fade-in-on-scroll" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000" data-target="50000">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Happy Students</div>
+                </div>
+
+                <div class="stat-item fade-in-on-scroll"data-target="1000">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Classes & Workshops</div>
+                </div>
+
+                <div class="stat-item fade-in-on-scroll"data-target="150">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Expert Teachers</div>
+                </div>
+
+                <div class="stat-item fade-in-on-scroll" data-target="99">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title mywave-text" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000"><span>Our</span> <span>Happy</span><span> Results</span></h2>
+            <p class="section-subtitle">See the transformations and positive changes in our community</p>
+
+            <div class="gallery-grid fade-in-on-scroll">
+                <div class="gallery-item">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/gallery/ind_2.jpg" alt="Gallery 1" data-aos="zoom-in" data-aos-duration="1000">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/gallery/ind_2.jpg" alt="Gallery 2" data-aos="zoom-in" data-aos-duration="1000">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/gallery/ind_2.jpg" alt="Gallery 3" data-aos="zoom-in" data-aos-duration="1000">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/gallery/ind_2.jpg" alt="Gallery 4" data-aos="zoom-in" data-aos-duration="1000">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/gallery/ind_2.jpg" alt="Gallery 5" data-aos="zoom-in" data-aos-duration="1000">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/gallery/ind_2.jpg" alt="Gallery 6" data-aos="zoom-in" data-aos-duration="1000">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title mywave-text" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000"><span>Our</span><span> Happy</span><span> Families</span></h2>
+            <p class="section-subtitle">Hear from people whose lives have been transformed by mindfulness</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in-on-scroll">
+                    <div class="testimonial-text" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
+                        "This program changed my life completely. I've learned to manage stress better and find peace in everyday moments. Highly recommend it to everyone!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">S</div>
+                        <div>
+                            <div class="testimonial-name">Sarah Johnson</div>
+                            <small>Teacher, NYC</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in-on-scroll">
+                    <div class="testimonial-text" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
+                        "I was skeptical at first, but the mindfulness practices have truly helped me improve my focus and productivity at work. Best investment I've made!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">M</div>
+                        <div>
+                            <div class="testimonial-name">Michael Chen</div>
+                            <small>Software Engineer, SF</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in-on-scroll">
+                    <div class="testimonial-text" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
+                        "The compassionate teaching and supportive community have helped me heal from anxiety and depression. I feel like myself again!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">E</div>
+                        <div>
+                            <div class="testimonial-name">Emma Williams</div>
+                            <small>Student, Boston</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in-on-scroll">
+                    <div class="testimonial-text" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
+                        "As a parent, this course helped me become more present with my family. My kids have noticed the positive change in me too!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">R</div>
+                        <div>
+                            <div class="testimonial-name">Robert Martinez</div>
+                            <small>Parent, LA</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in-on-scroll">
+                    <div class="testimonial-text " data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
+                        "The techniques are easy to understand and implement. I've seen significant improvements in my sleep quality and overall happiness."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">A</div>
+                        <div>
+                            <div class="testimonial-name">Amanda Foster</div>
+                            <small>Fitness Coach, Miami</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in-on-scroll">
+                    <div class="testimonial-text" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
+                        "This is more than just a course—it's a transformational journey. The teachers genuinely care and it shows in their work."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">D</div>
+                        <div>
+                            <div class="testimonial-name">David Kumar</div>
+                            <small>Entrepreneur, Chicago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2 class="section-title mywave-text" style="color: white; margin-bottom: 20px;" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000"><span>Subscribe</span><span> To Our</span><span> Newsletter</span></h2>
+            <p style="font-size: 1.1rem; opacity: 0.95;">Get exclusive tips, practices, and updates delivered to your inbox</p>
+
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Lightworks <span>Mindful</span></h4>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Transforming lives through the power of mindfulness and education.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#mindfulness">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="#">Meditation Basics</a></li>
+                        <li><a href="#">Advanced Practices</a></li>
+                        <li><a href="#">Corporate Training</a></li>
+                        <li><a href="#">School Programs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Lightworks, Lightworks City, PC 12345</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@Lightworks.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lightworks. All rights reserved. | <a href="#" style="color: var(--accent); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--accent); text-decoration: none;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+gsap.timeline({
+  scrollTrigger: {
+    trigger: ".containertoanimate",
+    start: "center center",
+    // end: "+=200%",
+    pin: true,
+    scrub: true,
+    pinSpacing: true
+    // markers: true // 👈 helpful for debugging
+  }
+})
+.fromTo(".containertoanimate .imagetoanimate",
+  { scale: 1 },
+  { scale: 1.5, ease: "none",transformOrigin: "center center " }
+);
+
+gsap.fromTo(
+      ".feature-card",
+      { y: 260, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: "power3.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: ".features-grid",
+          start: "top 70%",
+          toggleActions: "play reverse play reverse",
+        //    end: "+=200%",
+          // once: true,
+        //   markers: true // 🔴 remove after confirming
+        }
+      }
+    );
+
+    gsap.fromTo(
+      ".testimonial-card",
+      { y: 260, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: "power3.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: ".testimonials-grid",
+          start: "top 70%",
+          toggleActions: "play reverse play reverse",
+        //    end: "+=200%",
+          // once: true,
+        //   markers: true // 🔴 remove after confirming
+        }
+      }
+    );
+
+gsap.utils.toArray(".stat-item").forEach((el) => {
+    const numberEl = el.querySelector(".stat-number");
+    const target = parseInt(el.getAttribute("data-target"));
+
+    // Animate the stat item (slide up + fade in)
+    gsap.to(el, {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top 85%",
+        toggleActions: "play reverse play reverse",
+      },
+      onStart: () => {
+        // Animate a plain object for the counter
+        const counterObj = { val: 0 };
+        gsap.to(counterObj, {
+          val: target,
+          duration: 2,
+          ease: "power1.out",
+          onUpdate: () => {
+            numberEl.textContent = Math.floor(counterObj.val).toLocaleString();
+          }
+        });
+      }
+    });
+  });
+</script>
+    <script>
+        $(document).ready(function() {
+            // Theme Toggle
+            const themeToggle = $('#themeToggle');
+            const html = $('html');
+            const body = $('body');
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                body.addClass('dark-mode');
+                themeToggle.html('<i class="fas fa-sun"></i>');
+            }
+
+            themeToggle.on('click', function() {
+                body.toggleClass('dark-mode');
+                const isDarkMode = body.hasClass('dark-mode');
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                themeToggle.html(isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>');
+            });
+
+            // Scroll Animation
+            function observeElements() {
+                const elements = $('.fade-in-on-scroll');
+                elements.each(function() {
+                    const elementTop = $(this).offset().top;
+                    const elementBottom = elementTop + $(this).outerHeight();
+                    const viewportTop = $(window).scrollTop();
+                    const viewportBottom = viewportTop + $(window).height();
+
+                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                        $(this).addClass('visible');
+                    }
+                });
+            }
+
+            $(window).on('scroll', observeElements);
+            observeElements();
+
+            // Back to Top Button
+            const backToTop = $('#backToTop');
+            $(window).on('scroll', function() {
+                if ($(this).scrollTop() > 300) {
+                    backToTop.addClass('show');
+                } else {
+                    backToTop.removeClass('show');
+                }
+            });
+
+            backToTop.on('click', function() {
+                $('html, body').animate({ scrollTop: 0 }, 800);
+            });
+
+            // Newsletter Form
+            $('#newsletterForm').on('submit', function(e) {
+                e.preventDefault();
+                const email = $(this).find('input[type="email"]').val();
+                alert(`Thank you for subscribing with ${email}!`);
+                $(this).reset();
+                $(this)[0].reset();
+            });
+
+            // Smooth Navigation
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                const target = $(this.getAttribute('href'));
+                if (target.length) {
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 80
+                    }, 1000);
+                }
+            });
+
+            // Counter Animation for Stats
+            function animateCounters() {
+                let counted = false;
+                $(window).on('scroll', function() {
+                    const statsSection = $('.stats-section').offset().top;
+                    const viewportTop = $(window).scrollTop();
+
+                    if (viewportTop > statsSection - $(window).height() && !counted) {
+                        counted = true;
+                        // Animation already handled by CSS/jQuery fade-in
+                    }
+                });
+            }
+            animateCounters();
+
+            // Slider Functionality
+            let currentSlide = 0;
+            const slides = $('.slider-slide');
+            const totalSlides = slides.length;
+            let autoSlideInterval;
+
+            function showSlide(n) {
+                slides.each(function(index) {
+                    $(this).css({
+                        'left': ((index - n) * 100) + '%',
+                        'opacity': index === n ? 1 : 0
+                    });
+                });
+
+                $('.slider-indicator').each(function(index) {
+                    $(this).toggleClass('active', index === n);
+                });
+
+                currentSlide = n;
+            }
+
+            function nextSlide() {
+                const n = (currentSlide + 1) % totalSlides;
+                showSlide(n);
+            }
+
+            function prevSlide() {
+                const n = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(n);
+            }
+
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            }
+
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+
+            $('.slider-next').on('click', function() {
+                nextSlide();
+                resetAutoSlide();
+            });
+
+            $('.slider-prev').on('click', function() {
+                prevSlide();
+                resetAutoSlide();
+            });
+
+            $('.slider-indicator').on('click', function() {
+                const slideIndex = $(this).data('slide');
+                showSlide(slideIndex);
+                resetAutoSlide();
+            });
+
+            // Initialize slider
+            showSlide(0);
+            startAutoSlide();
+
+            // Pause on hover
+            $('.hero-slider-container').on('mouseenter', function() {
+                clearInterval(autoSlideInterval);
+            }).on('mouseleave', function() {
+                startAutoSlide();
+            });
+        });
+    </script>
+
+    <script>
+  AOS.init();
+</script>
+
+</body>
+</html>

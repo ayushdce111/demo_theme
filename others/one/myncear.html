@@ -1,0 +1,2597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalPolicy Institute - Research, Impact & Insight</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3a52;
+            --secondary: #2d5a8c;
+            --accent: #d4a574;
+            --light-bg: #f8f9fa;
+            --dark-bg: #0f1f2e;
+            --text-primary: #1a3a52;
+            --text-secondary: #6c757d;
+            --border-color: #e0e0e0;
+            --success: #2d7c5f;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ==================== HEADER & NAVIGATION ==================== */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary) !important;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-brand span {
+            color: var(--accent);
+        }
+
+        .nav-link {
+            color: var(--text-primary) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: var(--accent) !important;
+        }
+
+        .nav-link.active {
+            color: var(--accent) !important;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.2rem 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+            border: 1px solid var(--accent);
+        }
+
+        /* ==================== HERO SECTION WITH SLIDER ==================== */
+        .hero-slider {
+            height: 650px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .hero-slide {
+            display: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .hero-slide.active {
+            display: flex;
+            opacity: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 58, 82, 0.6);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 40px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #c49563;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
+            color: white;
+        }
+
+        .btn-secondary-custom {
+            background-color: transparent;
+            color: white;
+            padding: 12px 35px;
+            border: 2px solid white;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary-custom:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* Slider Navigation */
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .slider-dot.active {
+            background-color: var(--accent);
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 15px 18px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 3;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+
+        .slider-arrow:hover {
+            background-color: var(--accent);
+        }
+
+        .slider-prev {
+            left: 30px;
+        }
+
+        .slider-next {
+            right: 30px;
+        }
+
+        /* ==================== SECTIONS STYLING ==================== */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        #about {
+            background-color: var(--light-bg);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        /* ==================== RESEARCH VERTICALS ==================== */
+        #research-verticals {
+            background-color: white;
+        }
+
+        .vertical-card {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+            height: 100%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .vertical-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .vertical-icon {
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .vertical-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .vertical-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ==================== PROJECTS GRID ==================== */
+        #projects {
+            background-color: var(--light-bg);
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-status {
+            display: inline-block;
+            background-color: var(--success);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            width: fit-content;
+            font-weight: 600;
+        }
+
+        .project-status.completed {
+            background-color: #6c757d;
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: auto;
+        }
+
+        .project-meta {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== PUBLICATIONS ==================== */
+        #publications {
+            background-color: white;
+        }
+
+        .publication-tabs {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .pub-tab {
+            padding: 12px 25px;
+            border: 2px solid var(--border-color);
+            background-color: white;
+            color: var(--text-primary);
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .pub-tab.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .pub-tab:hover {
+            border-color: var(--accent);
+        }
+
+        .publication-item {
+            background-color: var(--light-bg);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            display: none;
+        }
+
+        .publication-item.active {
+            display: block;
+        }
+
+        .publication-item h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .publication-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .publication-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .pub-download {
+            margin-top: 15px;
+        }
+
+        .pub-download a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .pub-download a:hover {
+            color: var(--primary);
+        }
+
+        /* ==================== DATA & RESOURCES ==================== */
+        #data-resources {
+            background-color: var(--light-bg);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .resource-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .resource-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .resource-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .resource-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .resource-link:hover {
+            color: var(--primary);
+        }
+
+        /* ==================== PEOPLE / TEAM ==================== */
+        #team {
+            background-color: white;
+        }
+
+        .team-filters {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .team-filter {
+            padding: 8px 18px;
+            border: 1px solid var(--border-color);
+            background-color: white;
+            color: var(--text-primary);
+            cursor: pointer;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .team-filter.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .team-member {
+            text-align: center;
+            background-color: var(--light-bg);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .team-member:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin: 0 auto 15px;
+        }
+
+        .team-member h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .member-bio {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* ==================== MEDIA SECTION ==================== */
+        #media {
+            background-color: var(--light-bg);
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .media-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .media-item:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .media-thumb {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .media-play {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .media-item:hover .media-play {
+            transform: scale(1.1);
+            background-color: #c49563;
+        }
+
+        .media-info {
+            padding: 20px;
+        }
+
+        .media-tag {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .media-info h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .media-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* ==================== WORKSHOPS & EVENTS ==================== */
+        #events {
+            background-color: white;
+        }
+
+        .event-card {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .event-date {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .event-day {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .event-month {
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .event-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .event-meta {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .event-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .event-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: auto;
+        }
+
+        .event-button {
+            margin-top: 15px;
+        }
+
+        .event-button a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .event-button a:hover {
+            color: var(--primary);
+        }
+
+        /* ==================== WORKSHOPS & PRICING ==================== */
+        #workshops {
+            background-color: var(--light-bg);
+        }
+
+        .workshop-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .workshop-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .workshop-card.featured {
+            border: 2px solid var(--accent);
+            transform: scale(1.03);
+        }
+
+        .workshop-featured-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: var(--accent);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .workshop-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            margin-top: 10px;
+        }
+
+        .workshop-duration {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .workshop-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .workshop-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .workshop-features li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .workshop-features li:last-child {
+            border-bottom: none;
+        }
+
+        .workshop-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .workshop-price {
+            margin-bottom: 20px;
+        }
+
+        .workshop-price-amount {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .workshop-price-period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ==================== IMPACT & OUTCOMES ==================== */
+        #impact {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        #impact .section-title {
+            color: white;
+        }
+
+        #impact .section-title::after {
+            background-color: var(--accent);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .impact-item {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .impact-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .impact-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .impact-description {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* ==================== PARTNERSHIPS ==================== */
+        #partnerships {
+            background-color: var(--light-bg);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .partner-logo {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        .partner-logo:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* ==================== NEWS & UPDATES ==================== */
+        #news {
+            background-color: white;
+        }
+
+        .news-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .featured-news {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .featured-content {
+            padding: 30px;
+        }
+
+        .news-date {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .featured-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .featured-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .recent-news {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-item {
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s;
+        }
+
+        .news-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item h4 {
+            font-size: 1.05rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .news-item .news-date {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .news-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* ==================== NEWSLETTER ==================== */
+        #newsletter {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-container h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .newsletter-container p {
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .newsletter-form input::placeholder {
+            color: #999;
+        }
+
+        .newsletter-form button {
+            padding: 14px 35px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #c49563;
+        }
+
+        /* ==================== CONTACT & CAREERS ==================== */
+        #contact {
+            background-color: var(--light-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        #careers {
+            background-color: white;
+        }
+
+        .job-listing {
+            background-color: var(--light-bg);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .job-listing:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .job-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 20px;
+        }
+
+        .job-apply {
+            margin-left: 20px;
+        }
+
+        .job-apply a {
+            background-color: var(--accent);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .job-apply a:hover {
+            background-color: #c49563;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .slider-prev,
+            .slider-next {
+                padding: 12px 14px;
+                font-size: 1.2rem;
+            }
+
+            .slider-prev {
+                left: 15px;
+            }
+
+            .slider-next {
+                right: 15px;
+            }
+
+            .news-container {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                height: 200px;
+            }
+
+            .workshop-card.featured {
+                transform: scale(1);
+            }
+
+            .job-listing {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .job-apply {
+                margin-left: 0;
+                margin-top: 15px;
+                width: 100%;
+            }
+
+            .job-apply a {
+                display: block;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-content {
+                padding: 20px;
+            }
+
+            .vertical-card,
+            .project-content,
+            .event-content {
+                padding: 20px;
+            }
+
+            .team-member,
+            .partner-logo {
+                height: auto;
+            }
+
+            .workshop-card {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+
+            .publication-tabs,
+            .team-filters {
+                gap: 8px;
+            }
+
+            .pub-tab,
+            .team-filter {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ==================== UTILITY CLASSES ==================== */
+        .text-accent {
+            color: var(--accent);
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== HEADER & NAVIGATION ==================== -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-lg">
+            <a class="navbar-brand" href="#home">GlobalPolicy<span>•</span>Institute</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#research-verticals">Research</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION WITH SLIDER ==================== -->
+    <section class="hero-slider" id="home">
+        <!-- Slider Item 1 -->
+        <div class="hero-slide active" style="background-image: url('https://via.placeholder.com/1920x650/1a3a52/d4a574?text=Research+Excellence');">
+            <div class="hero-content">
+                <h1 class="hero-title">Research Excellence</h1>
+                <p class="hero-subtitle">Advancing knowledge and policy solutions for global challenges</p>
+                <div class="hero-buttons">
+                    <a href="#research-verticals" class="btn-primary-custom">Explore Research</a>
+                    <a href="#events" class="btn-secondary-custom">Upcoming Events</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Item 2 -->
+        <div class="hero-slide" style="background-image: url('https://via.placeholder.com/1920x650/2d5a8c/d4a574?text=Impact+Innovation');">
+            <div class="hero-content">
+                <h1 class="hero-title">Impact & Innovation</h1>
+                <p class="hero-subtitle">Translating research into actionable policy insights</p>
+                <div class="hero-buttons">
+                    <a href="#impact" class="btn-primary-custom">See Our Impact</a>
+                    <a href="#partnerships" class="btn-secondary-custom">Our Partners</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Item 3 -->
+        <div class="hero-slide" style="background-image: url('https://via.placeholder.com/1920x650/0f1f2e/d4a574?text=Engage+Learn');">
+            <div class="hero-content">
+                <h1 class="hero-title">Engage & Learn</h1>
+                <p class="hero-subtitle">Join our workshops and connect with leading experts</p>
+                <div class="hero-buttons">
+                    <a href="#workshops" class="btn-primary-custom">Browse Workshops</a>
+                    <a href="#newsletter" class="btn-secondary-custom">Subscribe</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <button class="slider-arrow slider-prev" onclick="changeSlide(-1)">❮</button>
+        <button class="slider-arrow slider-next" onclick="changeSlide(1)">❯</button>
+        
+        <div class="slider-nav">
+            <span class="slider-dot active" onclick="currentSlide(0)"></span>
+            <span class="slider-dot" onclick="currentSlide(1)"></span>
+            <span class="slider-dot" onclick="currentSlide(2)"></span>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about">
+        <div class="container-lg">
+            <h2 class="section-title">About GlobalPolicy Institute</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Driving Evidence-Based Policy</h3>
+                    <p>GlobalPolicy Institute is a leading independent research organization dedicated to advancing knowledge on critical policy challenges facing the world. Since 2008, we have been at the forefront of rigorous research, strategic analysis, and policy engagement.</p>
+                    <p>Our multidisciplinary team of researchers, economists, and policy experts works across multiple sectors to produce high-quality research that informs decision-makers worldwide.</p>
+                    <p>We believe in the power of evidence-based policy and are committed to making our research accessible and actionable for policymakers, practitioners, and the public.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years of Excellence</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Active Researchers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">Publications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">80+</span>
+                            <span class="stat-label">Partner Organizations</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <i class="fas fa-university"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RESEARCH VERTICALS ==================== -->
+    <section id="research-verticals">
+        <div class="container-lg">
+            <h2 class="section-title">Research Verticals</h2>
+            <p class="section-subtitle">Our research covers critical areas of policy and development</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="vertical-card">
+                        <div class="vertical-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Economic Policy</h3>
+                        <p>Research on fiscal policy, trade, monetary systems, and inclusive economic growth strategies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="vertical-card">
+                        <div class="vertical-icon"><i class="fas fa-globe"></i></div>
+                        <h3>Environmental Sustainability</h3>
+                        <p>Analysis of climate change, renewable energy, biodiversity conservation, and green transitions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="vertical-card">
+                        <div class="vertical-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>Education & Skills</h3>
+                        <p>Research on education systems, workforce development, and skills for future economies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="vertical-card">
+                        <div class="vertical-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h3>Health & Wellbeing</h3>
+                        <p>Studies on public health systems, healthcare access, nutrition, and social determinants.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="vertical-card">
+                        <div class="vertical-icon"><i class="fas fa-users"></i></div>
+                        <h3>Social Protection</h3>
+                        <p>Analysis of social safety nets, poverty reduction, gender equality, and inclusive development.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="vertical-card">
+                        <div class="vertical-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Governance & Security</h3>
+                        <p>Research on institutional capacity, rule of law, conflict prevention, and good governance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ONGOING RESEARCH PROJECTS ==================== -->
+    <section id="projects">
+        <div class="container-lg">
+            <h2 class="section-title">Ongoing Research Projects</h2>
+            <p class="section-subtitle">Currently active studies advancing policy knowledge</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-microscope"></i></div>
+                        <div class="project-content">
+                            <span class="project-status">Ongoing</span>
+                            <h3>Climate Transition in Emerging Markets</h3>
+                            <p>Analyzing pathways for developing countries to transition to renewable energy while maintaining economic growth and employment.</p>
+                            <div class="project-meta">Lead Researcher: Dr. Sarah Chen | 2024-2026</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-network-wired"></i></div>
+                        <div class="project-content">
+                            <span class="project-status">Ongoing</span>
+                            <h3>Digital Economy & Inclusion</h3>
+                            <p>Examining how digital transformation impacts labor markets, productivity, and inequality across regions.</p>
+                            <div class="project-meta">Lead Researcher: Prof. James Miller | 2024-2027</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-stethoscope"></i></div>
+                        <div class="project-content">
+                            <span class="project-status">Ongoing</span>
+                            <h3>Health Systems Resilience</h3>
+                            <p>Studying pandemic preparedness and resilience frameworks for healthcare systems in low-income countries.</p>
+                            <div class="project-meta">Lead Researcher: Dr. Aisha Patel | 2024-2026</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-book"></i></div>
+                        <div class="project-content">
+                            <span class="project-status">Ongoing</span>
+                            <h3>Education Quality Assessment</h3>
+                            <p>Comparative analysis of education quality metrics and their relationship to learning outcomes and economic mobility.</p>
+                            <div class="project-meta">Lead Researcher: Dr. Elena Rodriguez | 2024-2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-landmark"></i></div>
+                        <div class="project-content">
+                            <span class="project-status">Ongoing</span>
+                            <h3>Anti-Corruption Mechanisms</h3>
+                            <p>Evaluating effectiveness of institutional reforms and anti-corruption measures across democracies.</p>
+                            <div class="project-meta">Lead Researcher: Prof. Marcus König | 2023-2026</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-water"></i></div>
+                        <div class="project-content">
+                            <span class="project-status">Ongoing</span>
+                            <h3>Water Security & Policy</h3>
+                            <p>Research on water resource management, climate adaptation, and transboundary water governance.</p>
+                            <div class="project-meta">Lead Researcher: Dr. Rajesh Kumar | 2024-2027</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PUBLICATIONS ==================== -->
+    <section id="publications">
+        <div class="container-lg">
+            <h2 class="section-title">Publications</h2>
+            <p class="section-subtitle">Our research disseminated through multiple formats</p>
+            
+            <div class="publication-tabs">
+                <button class="pub-tab active" onclick="filterPublications('reports')">Reports</button>
+                <button class="pub-tab" onclick="filterPublications('briefs')">Policy Briefs</button>
+                <button class="pub-tab" onclick="filterPublications('papers')">Working Papers</button>
+            </div>
+
+            <!-- Reports -->
+            <div id="reports" class="publication-item active">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <h4>Global Economic Outlook 2025</h4>
+                        <div class="publication-meta">Published: January 2025 | 120 pages</div>
+                        <p>Comprehensive analysis of global economic trends, growth forecasts, and policy recommendations for emerging markets and developed economies.</p>
+                        <div class="pub-download">
+                            <a href="#"><i class="fas fa-download"></i> Download PDF</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>Renewable Energy Transition: Pathways & Barriers</h4>
+                        <div class="publication-meta">Published: December 2024 | 95 pages</div>
+                        <p>Detailed study of renewable energy adoption, cost curves, policy frameworks, and the barriers preventing faster transitions in developing regions.</p>
+                        <div class="pub-download">
+                            <a href="#"><i class="fas fa-download"></i> Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policy Briefs -->
+            <div id="briefs" class="publication-item">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <h4>Universal Healthcare Coverage: Implementation Strategies</h4>
+                        <div class="publication-meta">Published: November 2024 | 12 pages</div>
+                        <p>Evidence-based policy brief on strategies for expanding healthcare coverage with fiscal sustainability in low-income countries.</p>
+                        <div class="pub-download">
+                            <a href="#"><i class="fas fa-download"></i> Download PDF</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>Digital Skills Gap: Bridging the Divide</h4>
+                        <div class="publication-meta">Published: October 2024 | 10 pages</div>
+                        <p>Policy recommendations for governments on addressing digital skills deficits and ensuring inclusive access to digital economy opportunities.</p>
+                        <div class="pub-download">
+                            <a href="#"><i class="fas fa-download"></i> Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Working Papers -->
+            <div id="papers" class="publication-item">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <h4>Labor Market Dynamics in AI-Driven Economies</h4>
+                        <div class="publication-meta">Published: January 2025 | 35 pages</div>
+                        <p>Working paper analyzing labor market shifts, wage impacts, and policy interventions needed as AI transforms employment structures.</p>
+                        <div class="pub-download">
+                            <a href="#"><i class="fas fa-download"></i> Download PDF</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>Fiscal Sustainability & Social Protection Trade-offs</h4>
+                        <div class="publication-meta">Published: December 2024 | 28 pages</div>
+                        <p>Explores the fiscal implications of expanding social protection systems and optimal policy mix for sustainable welfare provision.</p>
+                        <div class="pub-download">
+                            <a href="#"><i class="fas fa-download"></i> Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DATA & RESOURCES ==================== -->
+    <section id="data-resources">
+        <div class="container-lg">
+            <h2 class="section-title">Data & Resources</h2>
+            <p class="section-subtitle">Open-access datasets and tools for research and analysis</p>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-database"></i></div>
+                    <h3>Policy Database</h3>
+                    <p>Comprehensive database of policy instruments across 150+ countries with detailed metadata and analysis.</p>
+                    <a href="#" class="resource-link">Access Database →</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Economic Indicators</h3>
+                    <p>Real-time economic data covering growth, inflation, employment, and fiscal indicators worldwide.</p>
+                    <a href="#" class="resource-link">View Indicators →</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-code"></i></div>
+                    <h3>Research Toolkit</h3>
+                    <p>Open-source tools, code repositories, and methodological frameworks for policy research and analysis.</p>
+                    <a href="#" class="resource-link">Explore Tools →</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-map"></i></div>
+                    <h3>Interactive Maps</h3>
+                    <p>Geospatial data visualizations showing policy implementation, indicators, and regional comparisons.</p>
+                    <a href="#" class="resource-link">View Maps →</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Research Library</h3>
+                    <p>Curated collection of academic papers, policy documents, and working papers on key research themes.</p>
+                    <a href="#" class="resource-link">Browse Library →</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-podcast"></i></div>
+                    <h3>Podcasts & Webinars</h3>
+                    <p>Recorded episodes featuring researchers discussing latest findings and policy implications.</p>
+                    <a href="#" class="resource-link">Listen Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== OP-EDS & COMMENTARY ==================== -->
+    <section id="op-eds" class="section-light">
+        <div class="container-lg">
+            <h2 class="section-title">Op-Eds & Commentary</h2>
+            <p class="section-subtitle">Expert perspectives on current policy debates</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-item">
+                        <h4>Why Markets Alone Won't Solve Climate Change</h4>
+                        <span class="news-date">By Dr. Sarah Chen | 5 days ago</span>
+                        <p>An analysis of market failures in climate action and the necessary role of government policy intervention to achieve net-zero targets.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-item">
+                        <h4>The Future of Work in an AI Age</h4>
+                        <span class="news-date">By Prof. James Miller | 2 weeks ago</span>
+                        <p>Examining how artificial intelligence will reshape labor markets and what policymakers should do to ensure inclusive growth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-item">
+                        <h4>Rethinking Global Supply Chains</h4>
+                        <span class="news-date">By Dr. Liu Wei | 3 weeks ago</span>
+                        <p>A perspective on resilience versus efficiency in global supply chains and implications for trade policy in the post-pandemic era.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EVENTS & CONFERENCES ==================== -->
+    <section id="events">
+        <div class="container-lg">
+            <h2 class="section-title">Events & Conferences</h2>
+            <p class="section-subtitle">Join us for knowledge sharing and networking</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="event-day">15</span>
+                            <span class="event-month">March 2025</span>
+                        </div>
+                        <div class="event-content">
+                            <h3>Climate Policy Roundtable</h3>
+                            <div class="event-meta">
+                                <span><i class="fas fa-map-marker"></i> Hybrid</span>
+                                <span><i class="fas fa-users"></i> 200 attendees</span>
+                            </div>
+                            <p>Expert discussion on latest climate policy developments and implementation challenges across regions.</p>
+                            <div class="event-button">
+                                <a href="#"><i class="fas fa-arrow-right"></i> Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="event-day">22</span>
+                            <span class="event-month">March 2025</span>
+                        </div>
+                        <div class="event-content">
+                            <h3>Annual Research Conference</h3>
+                            <div class="event-meta">
+                                <span><i class="fas fa-map-marker"></i> In-person</span>
+                                <span><i class="fas fa-users"></i> 500+ attendees</span>
+                            </div>
+                            <p>Our flagship conference featuring keynotes, research presentations, and policy maker sessions.</p>
+                            <div class="event-button">
+                                <a href="#"><i class="fas fa-arrow-right"></i> Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="event-day">8</span>
+                            <span class="event-month">April 2025</span>
+                        </div>
+                        <div class="event-content">
+                            <h3>Digital Economy Symposium</h3>
+                            <div class="event-meta">
+                                <span><i class="fas fa-map-marker"></i> Virtual</span>
+                                <span><i class="fas fa-users"></i> Unlimited</span>
+                            </div>
+                            <p>Deep-dive into digital transformation, AI regulation, and data governance in emerging economies.</p>
+                            <div class="event-button">
+                                <a href="#"><i class="fas fa-arrow-right"></i> Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WORKSHOPS & PRICING ==================== -->
+    <section id="workshops">
+        <div class="container-lg">
+            <h2 class="section-title">Professional Development Workshops</h2>
+            <p class="section-subtitle">Enroll in our specialized training programs</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="workshop-card">
+                        <h3>Policy Analysis Fundamentals</h3>
+                        <div class="workshop-duration"><i class="fas fa-clock"></i> 5 days | Online</div>
+                        <p class="workshop-description">Learn core methodologies for evidence-based policy analysis and impact assessment.</p>
+                        <ul class="workshop-features">
+                            <li>Expert-led sessions</li>
+                            <li>Case studies & exercises</li>
+                            <li>Certificate of completion</li>
+                            <li>Lifetime access to materials</li>
+                        </ul>
+                        <div class="workshop-price">
+                            <span class="workshop-price-amount">$499</span>
+                            <span class="workshop-price-period">per participant</span>
+                        </div>
+                        <button class="btn-primary-custom" style="width: 100%;">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="workshop-card featured">
+                        <div class="workshop-featured-badge">MOST POPULAR</div>
+                        <h3>Data Science for Policy</h3>
+                        <div class="workshop-duration"><i class="fas fa-clock"></i> 8 days | Hybrid</div>
+                        <p class="workshop-description">Master data analysis tools and visualization techniques for policy research.</p>
+                        <ul class="workshop-features">
+                            <li>Hands-on coding projects</li>
+                            <li>Python & R programming</li>
+                            <li>Data visualization tools</li>
+                            <li>Lifetime support access</li>
+                        </ul>
+                        <div class="workshop-price">
+                            <span class="workshop-price-amount">$799</span>
+                            <span class="workshop-price-period">per participant</span>
+                        </div>
+                        <button class="btn-primary-custom" style="width: 100%; background-color: var(--accent);">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="workshop-card">
+                        <h3>Climate Policy & Economics</h3>
+                        <div class="workshop-duration"><i class="fas fa-clock"></i> 6 days | Virtual</div>
+                        <p class="workshop-description">Advanced course on climate economics, carbon pricing, and transition strategies.</p>
+                        <ul class="workshop-features">
+                            <li>Industry expert faculty</li>
+                            <li>Real-world case studies</li>
+                            <li>Networking sessions</li>
+                            <li>Post-course mentoring</li>
+                        </ul>
+                        <div class="workshop-price">
+                            <span class="workshop-price-amount">$599</span>
+                            <span class="workshop-price-period">per participant</span>
+                        </div>
+                        <button class="btn-primary-custom" style="width: 100%;">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <h4 style="color: var(--primary); margin-bottom: 20px;">Looking for organization-wide training?</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">We offer customized workshops and bulk discounts for teams and organizations.</p>
+                <button class="btn-primary-custom">Request Custom Program</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MEDIA ==================== -->
+    <section id="media">
+        <div class="container-lg">
+            <h2 class="section-title">Media: Videos, Podcasts & Webinars</h2>
+            <p class="section-subtitle">Multimedia content featuring our research and expert insights</p>
+            
+            <div class="media-grid">
+                <div class="media-item">
+                    <div class="media-thumb">
+                        <div class="media-play"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="media-info">
+                        <span class="media-tag">Video</span>
+                        <h4>The Future of Global Trade</h4>
+                        <p>Dr. Sarah Chen discusses new patterns in international trade and their policy implications.</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="media-thumb">
+                        <div class="media-play"><i class="fas fa-microphone"></i></div>
+                    </div>
+                    <div class="media-info">
+                        <span class="media-tag">Podcast</span>
+                        <h4>PolicyTalk Podcast - Episode 42</h4>
+                        <p>In-depth conversation with leading economists on inflation dynamics and monetary policy.</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="media-thumb">
+                        <div class="media-play"><i class="fas fa-webcam"></i></div>
+                    </div>
+                    <div class="media-info">
+                        <span class="media-tag">Webinar</span>
+                        <h4>Social Protection in Developing Nations</h4>
+                        <p>Expert panel on designing effective social safety nets with fiscal sustainability.</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="media-thumb">
+                        <div class="media-play"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="media-info">
+                        <span class="media-tag">Video</span>
+                        <h4>Research Explainer: Climate Economics</h4>
+                        <p>Animated explanation of carbon pricing mechanisms and their economic effects.</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="media-thumb">
+                        <div class="media-play"><i class="fas fa-microphone"></i></div>
+                    </div>
+                    <div class="media-info">
+                        <span class="media-tag">Podcast</span>
+                        <h4>GlobalPolicy Conversations - SE-02</h4>
+                        <p>Long-form interviews with policymakers, researchers, and thought leaders.</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="media-thumb">
+                        <div class="media-play"><i class="fas fa-webcam"></i></div>
+                    </div>
+                    <div class="media-info">
+                        <span class="media-tag">Webinar</span>
+                        <h4>Women in Development Leadership</h4>
+                        <p>Discussion on gender equality in policy implementation and institutional leadership.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PEOPLE / TEAM ==================== -->
+    <section id="team">
+        <div class="container-lg">
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-subtitle">World-class researchers and policy experts</p>
+            
+            <div class="team-filters">
+                <button class="team-filter active" onclick="filterTeam('all')">All</button>
+                <button class="team-filter" onclick="filterTeam('researchers')">Researchers</button>
+                <button class="team-filter" onclick="filterTeam('fellows')">Fellows</button>
+                <button class="team-filter" onclick="filterTeam('advisors')">Advisors</button>
+            </div>
+
+            <div class="row g-4">
+                <!-- Researcher 1 -->
+                <div class="col-lg-3 col-md-6 team-item" data-role="researchers">
+                    <div class="team-member">
+                        <div class="member-avatar"><i class="fas fa-user"></i></div>
+                        <h3>Dr. Sarah Chen</h3>
+                        <div class="member-role">Senior Researcher</div>
+                        <p class="member-bio">Expert in climate economics and environmental policy with 12+ years of research experience.</p>
+                    </div>
+                </div>
+                <!-- Researcher 2 -->
+                <div class="col-lg-3 col-md-6 team-item" data-role="researchers">
+                    <div class="team-member">
+                        <div class="member-avatar"><i class="fas fa-user"></i></div>
+                        <h3>Prof. James Miller</h3>
+                        <div class="member-role">Principal Investigator</div>
+                        <p class="member-bio">Labor economics specialist with research on digital transformation and employment.</p>
+                    </div>
+                </div>
+                <!-- Researcher 3 -->
+                <div class="col-lg-3 col-md-6 team-item" data-role="researchers">
+                    <div class="team-member">
+                        <div class="member-avatar"><i class="fas fa-user"></i></div>
+                        <h3>Dr. Aisha Patel</h3>
+                        <div class="member-role">Health Policy Researcher</div>
+                        <p class="member-bio">Focuses on public health systems, healthcare access, and pandemic preparedness.</p>
+                    </div>
+                </div>
+                <!-- Fellow 1 -->
+                <div class="col-lg-3 col-md-6 team-item" data-role="fellows">
+                    <div class="team-member">
+                        <div class="member-avatar"><i class="fas fa-user"></i></div>
+                        <h3>Elena Rodriguez</h3>
+                        <div class="member-role">Research Fellow</div>
+                        <p class="member-bio">PhD candidate researching education quality and human capital development.</p>
+                    </div>
+                </div>
+                <!-- Researcher 4 -->
+                <div class="col-lg-3 col-md-6 team-item" data-role="researchers">
+                    <div class="team-member">
+                        <div class="member-avatar"><i class="fas fa-user"></i></div>
+                        <h3>Dr. Liu Wei</h3>
+                        <div class="member-role">Trade Policy Expert</div>
+                        <p class="member-bio">Specializes in international trade, supply chains, and economic development.</p>
+                    </div>
+                </div>
+                <!-- Advisor 1 -->
+                <div class="col-lg-3 col-md-6 team-item" data-role="advisors">
+                    <div class="team-member">
+                        <div class="member-avatar"><i class="fas fa-user"></i></div>
+                        <h3>Prof. Marcus König</h3>
+                        <div class="member-role">Board Advisor</div>
+                        <p class="member-bio">Former government economist providing strategic guidance on institutional research.</p>
+                    </div>
+                </div>
+                <!-- Fellow 2 -->
+                <div class="col-lg-3 col-md-6 team-item" data-role="fellows">
+                    <div class="team-member">
+                        <div class="member-avatar"><i class="fas fa-user"></i></div>
+                        <h3>Rajesh Kumar</h3>
+                        <div class="member-role">Doctoral Fellow</div>
+                        <p class="member-bio">Research focus on water security, climate adaptation, and environmental governance.</p>
+                    </div>
+                </div>
+                <!-- Advisor 2 -->
+                <div class="col-lg-3 col-md-6 team-item" data-role="advisors">
+                    <div class="team-member">
+                        <div class="member-avatar"><i class="fas fa-user"></i></div>
+                        <h3>Dr. Victoria Ross</h3>
+                        <div class="member-role">Strategic Advisor</div>
+                        <p class="member-bio">Advises on impact measurement and policy engagement strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== IMPACT & OUTCOMES ==================== -->
+    <section id="impact">
+        <div class="container-lg">
+            <h2 class="section-title">Impact & Outcomes</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Measuring our research influence on policy and society</p>
+            
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="impact-number">45</div>
+                    <div class="impact-label">Policy Reforms Influenced</div>
+                    <p class="impact-description">Direct influence on government policy reforms across 30+ countries</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-number">120M+</div>
+                    <div class="impact-label">Lives Affected</div>
+                    <p class="impact-description">Research informing policies affecting over 120 million people</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-number">5.8K</div>
+                    <div class="impact-label">Research Citations</div>
+                    <p class="impact-description">Academic and policy citations of our work globally</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-number">$2.3B</div>
+                    <div class="impact-label">Investment Influenced</div>
+                    <p class="impact-description">Research informing government and development investment decisions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COLLABORATIONS & PARTNERS ==================== -->
+    <section id="partnerships">
+        <div class="container-lg">
+            <h2 class="section-title">Collaborations & Partners</h2>
+            <p class="section-subtitle">Working with leading institutions worldwide</p>
+            
+            <div class="partners-grid">
+                <div class="partner-logo"><i class="fas fa-university"></i></div>
+                <div class="partner-logo"><i class="fas fa-globe"></i></div>
+                <div class="partner-logo"><i class="fas fa-building"></i></div>
+                <div class="partner-logo"><i class="fas fa-bank"></i></div>
+                <div class="partner-logo"><i class="fas fa-hospital"></i></div>
+                <div class="partner-logo"><i class="fas fa-landmark"></i></div>
+                <div class="partner-logo"><i class="fas fa-flask"></i></div>
+                <div class="partner-logo"><i class="fas fa-network-wired"></i></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 1.05rem;">We partner with universities, governments, international organizations, and NGOs to advance knowledge and drive policy impact.</p>
+                <a href="#contact" class="btn-primary-custom">Explore Partnership Opportunities</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NEWS & UPDATES ==================== -->
+    <section id="news">
+        <div class="container-lg">
+            <h2 class="section-title">Latest News & Updates</h2>
+            
+            <div class="news-container">
+                <div class="featured-news">
+                    <div class="featured-image"><i class="fas fa-newspaper"></i></div>
+                    <div class="featured-content">
+                        <span class="news-date">Featured Article - January 28, 2025</span>
+                        <h3>New Climate Research Reshapes Carbon Pricing Strategy</h3>
+                        <p>Our latest study challenges conventional wisdom on carbon pricing mechanisms, showing that sector-specific approaches yield better outcomes than uniform pricing across the economy.</p>
+                        <a href="#" class="btn-primary-custom">Read Full Article</a>
+                    </div>
+                </div>
+                
+                <div class="recent-news">
+                    <div class="news-item">
+                        <span class="news-date">January 22, 2025</span>
+                        <h4>GlobalPolicy Institute Launches New Research Initiative</h4>
+                        <p>Announcing our three-year program on resilient supply chains with $5M in funding from major foundations.</p>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-date">January 15, 2025</span>
+                        <h4>Dr. Chen Appointed to International Policy Commission</h4>
+                        <p>Our Senior Researcher selected to advise the UN on climate finance mechanisms for developing countries.</p>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-date">January 8, 2025</span>
+                        <h4>Report on Digital Skills Released to Major Media</h4>
+                        <p>Coverage in 50+ news outlets worldwide of our analysis on digital divide and policy solutions.</p>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-date">December 30, 2024</span>
+                        <h4>Annual Report Highlights Research Impact</h4>
+                        <p>2024 Annual Report shows 45 new policy reforms directly influenced by our research across regions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NEWSLETTER SIGNUP ==================== -->
+    <section id="newsletter">
+        <div class="newsletter-container">
+            <h2>Stay Updated with Our Research</h2>
+            <p>Subscribe to our newsletter for latest research, policy insights, and event invitations</p>
+            
+            <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT & CAREERS ==================== -->
+    <section id="contact">
+        <div class="container-lg">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-icon"><i class="fas fa-map-marker"></i></div>
+                    <h3>Headquarters</h3>
+                    <p>123 Policy Street<br>New York, NY 10001<br>United States</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <h3>Phone</h3>
+                    <p>+1 (212) 555-0100<br>+1 (212) 555-0101<br>Available 9 AM - 5 PM EST</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email</h3>
+                    <p>info@globalpolicyinstitute.org<br>research@globalpolicyinstitute.org<br>partnerships@globalpolicyinstitute.org</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CAREERS & FELLOWSHIPS ==================== -->
+    <section id="careers">
+        <div class="container-lg">
+            <h2 class="section-title">Careers & Fellowships</h2>
+            <p class="section-subtitle">Join our team and contribute to policy impact</p>
+            
+            <div class="job-listing">
+                <div>
+                    <h3 class="job-title">Senior Policy Researcher</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-map-marker"></i> New York</span>
+                        <span><i class="fas fa-briefcase"></i> Full-time</span>
+                        <span><i class="fas fa-graduation-cap"></i> PhD Required</span>
+                    </div>
+                </div>
+                <div class="job-apply">
+                    <a href="#">Apply Now →</a>
+                </div>
+            </div>
+
+            <div class="job-listing">
+                <div>
+                    <h3 class="job-title">Doctoral Research Fellow</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-map-marker"></i> Remote</span>
+                        <span><i class="fas fa-briefcase"></i> 2-year Fellowship</span>
+                        <span><i class="fas fa-graduation-cap"></i> PhD Candidate</span>
+                    </div>
+                </div>
+                <div class="job-apply">
+                    <a href="#">Apply Now →</a>
+                </div>
+            </div>
+
+            <div class="job-listing">
+                <div>
+                    <h3 class="job-title">Policy Communications Specialist</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-map-marker"></i> New York</span>
+                        <span><i class="fas fa-briefcase"></i> Full-time</span>
+                        <span><i class="fas fa-graduation-cap"></i> Masters Preferred</span>
+                    </div>
+                </div>
+                <div class="job-apply">
+                    <a href="#">Apply Now →</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px; padding: 40px; background-color: var(--light-bg); border-radius: 8px;">
+                <h3 style="color: var(--primary); margin-bottom: 15px;">Visiting Scholar Program</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">We welcome visiting scholars and researchers from institutions worldwide for 3-6 month collaborations.</p>
+                <a href="#contact" class="btn-primary-custom">Apply as Visiting Scholar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container-lg">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#partnerships">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Research</h4>
+                    <ul>
+                        <li><a href="#research-verticals">Research Areas</a></li>
+                        <li><a href="#projects">Ongoing Projects</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                        <li><a href="#data-resources">Data & Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Engagement</h4>
+                    <ul>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#workshops">Workshops</a></li>
+                        <li><a href="#media">Media</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    <p>&copy; 2025 GlobalPolicy Institute. All rights reserved. | <span style="color: var(--accent);">Advancing Knowledge for Policy Impact</span></p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Annual Report</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // ==================== HERO SLIDER ==================== 
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            if (index >= slides.length) currentSlideIndex = 0;
+            if (index < 0) currentSlideIndex = slides.length - 1;
+            
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        function changeSlide(n) {
+            currentSlideIndex += n;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(n) {
+            currentSlideIndex = n;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-rotate slides every 6 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 6000);
+
+        // ==================== PUBLICATION FILTERING ==================== 
+        function filterPublications(type) {
+            document.querySelectorAll('.publication-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.getElementById(type).classList.add('active');
+
+            document.querySelectorAll('.pub-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // ==================== TEAM FILTERING ==================== 
+        function filterTeam(role) {
+            const items = document.querySelectorAll('.team-item');
+            
+            items.forEach(item => {
+                if (role === 'all' || item.getAttribute('data-role') === role) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            document.querySelectorAll('.team-filter').forEach(filter => {
+                filter.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // ==================== NEWSLETTER SIGNUP ==================== 
+        function handleNewsletterSignup(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            alert('Thank you for subscribing with: ' + email + '\nYou will receive our latest research and insights.');
+            e.target.reset();
+        }
+
+        // ==================== SMOOTH SCROLL & ACTIVE NAV ==================== 
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ==================== BUTTON INTERACTIONS ==================== 
+        document.querySelectorAll('.btn-primary-custom, .btn-secondary-custom').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.textContent.includes('Enroll') || this.textContent.includes('Apply')) {
+                    alert('Thank you for your interest! Please complete the full application form on the next page.');
+                }
+            });
+        });
+
+        // ==================== ADD FADE-IN ON SCROLL ==================== 
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .event-card, .workshop-card, .team-member, .media-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

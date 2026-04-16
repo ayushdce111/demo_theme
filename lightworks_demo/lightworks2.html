@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lightworks Mindfulness – Holistic Education for Young Minds</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+
+  <style>
+    :root {
+      --sage:        #6b9c78;
+      --sage-dark:   #5a8565;
+      --peach:       #e89f71;
+      --peach-dark:  #d88c5a;
+      --cream:       #f9fbee;
+      --mint-sage:   #e8f0e9;
+      --lavender:    #f0eef4;
+      --forest:      #2d3f2f;
+      --text-muted:  #5f6c5e;
+    }
+
+    [data-bs-theme="dark"] {
+      --sage:        #8ab897;
+      --sage-dark:   #739e7f;
+      --peach:       #f0b38f;
+      --peach-dark:  #e0a07c;
+      --cream:       #1a2f1f;
+      --mint-sage:   #24392a;
+      --lavender:    #2e2a38;
+      --forest:      #d4e4d2;
+      --text-muted:  #b8c4b5;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--cream);
+      color: var(--forest);
+      transition: all 0.45s ease;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--sage);
+    }
+
+    /* Sticky Navbar */
+    .navbar {
+      background: rgba(233, 240, 235, 0.92);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      padding: 1rem 0;
+    }
+
+    .navbar.scrolled {
+      background: rgba(233, 240, 235, 0.98);
+      box-shadow: 0 4px 20px rgba(107,156,120,0.15);
+      padding: 0.75rem 0;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--forest) !important;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--sage) !important;
+    }
+
+    /* Hero Carousel */
+    .carousel-item {
+      height: 90vh;
+      min-height: 600px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .carousel-caption {
+      bottom: 25%;
+      text-align: left;
+      left: 8%;
+      right: auto;
+      max-width: 650px;
+    }
+
+    .carousel-caption h1 {
+      font-size: 4.2rem;
+      font-weight: 700;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .carousel-caption p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-hero {
+      background: var(--peach);
+      border: none;
+      color: white;
+      padding: 0.9rem 2.2rem;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+
+    .btn-hero:hover {
+      background: var(--peach-dark);
+      transform: translateY(-3px);
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+      width: 8%;
+      opacity: 0.7;
+    }
+
+    .carousel-indicators [data-bs-target] {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: white;
+      opacity: 0.6;
+    }
+
+    .carousel-indicators .active {
+      opacity: 1;
+      background-color: var(--sage);
+    }
+
+    .section-padding {
+      padding: 8rem 0;
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px rgba(31,38,135,0.15);
+      transition: all 0.4s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 50px rgba(31,38,135,0.25);
+    }
+
+    .benefit-icon {
+      font-size: 3rem;
+      margin-bottom: 1.2rem;
+      color: var(--peach);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1.2rem;
+      right: 5.5rem;
+      z-index: 1000;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .loader {
+      position: fixed;
+      inset: 0;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.7s ease;
+    }
+
+    .loader.hidden { opacity: 0; pointer-events: none; }
+
+    .loader::after {
+      content: '';
+      width: 70px;
+      height: 70px;
+      border: 6px solid var(--peach);
+      border-top-color: var(--sage);
+      border-radius: 50%;
+      animation: spin 1.2s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<!-- Loader -->
+<div id="page-loader" class="loader"></div>
+
+<!-- Theme Toggle -->
+<button id="themeBtn" class="btn btn-light theme-toggle shadow">🌿</button>
+
+<!-- Sticky Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-3" href="#">Lightworks</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#benefits">Benefits</a></li>
+        <li class="nav-item"><a class="nav-link" href="#what">What is</a></li>
+        <li class="nav-item"><a class="nav-link" href="#why">Why</a></li>
+        <li class="nav-item"><a class="nav-link" href="#how">How to</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+        <li class="nav-item ms-3"><a class="btn btn-outline-peach rounded-pill px-4" href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Carousel -->
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="background-image: url('https://images.pexels.com/photos/8613313/pexels-photo-8613313.jpeg');">
+      <div class="carousel-caption">
+        <h1>India’s First Holistic Mindfulness Program</h1>
+        <p>Nurturing calm, focused, and compassionate young minds</p>
+        <a href="#" class="btn btn-hero">Start Free Trial</a>
+      </div>
+    </div>
+
+    <div class="carousel-item" style="background-image: url('https://www.skillpointtherapy.com/wp-content/uploads/2025/03/nature_s_mindful_outdoor_benefits.jpg');">
+      <div class="carousel-caption">
+        <h1>Transform Stress into Serenity</h1>
+        <p>Science-backed practices for emotional balance & resilience</p>
+        <a href="#" class="btn btn-hero">Discover More</a>
+      </div>
+    </div>
+
+    <div class="carousel-item" style="background-image: url('https://freerangestock.com/sample/170677/mother-and-child-during-a-yoga-session.jpg');">
+      <div class="carousel-caption">
+        <h1>Invest in Your Child’s Future Today</h1>
+        <p>Build lifelong skills of awareness, kindness & focus</p>
+        <a href="#" class="btn btn-hero">Book a Session</a>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- About Section -->
+<section id="about" class="section-padding bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <h2 class="display-5">About Lightworks Mindfulness</h2>
+        <p class="lead mt-4">India's pioneering holistic mindfulness education program designed to integrate mindful awareness into everyday learning.</p>
+        <p class="fs-5">We combine ancient wisdom with modern neuroscience to help children develop emotional intelligence, focus, and resilience from an early age.</p>
+        <div class="badge bg-peach text-white fs-5 px-4 py-3 mt-4 rounded-pill">10+ Years • 500+ Families • 95% Satisfaction</div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <img src="https://www.skillpointtherapy.com/wp-content/uploads/2025/03/emotional_regulation_for_children.jpg" class="img-fluid rounded-4 shadow-lg" alt="Mindful children group">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Invest in Your Child's Future - Benefits -->
+<section id="benefits" class="section-padding" style="background: var(--mint-sage);">
+  <div class="container">
+    <h2 class="text-center display-5 mb-5" data-aos="fade-up">Invest in Your Child's Future</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card p-4 text-center">
+          <div class="benefit-icon"><i class="bi bi-rocket-takeoff"></i></div>
+          <h4>Improved Focus & Attention</h4>
+          <p>Enhanced concentration for better academic performance</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card p-4 text-center">
+          <div class="benefit-icon"><i class="bi bi-emoji-smile-fill"></i></div>
+          <h4>Better Emotional Regulation</h4>
+          <p>Manage feelings with greater ease and empathy</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="glass-card p-4 text-center">
+          <div class="benefit-icon"><i class="bi bi-shield-lock-fill"></i></div>
+          <h4>Increased Resilience</h4>
+          <p>Bounce back stronger from challenges</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="glass-card p-4 text-center">
+          <div class="benefit-icon">
+            <i class="bi bi-person-raised-hand"></i>
+          </div>
+          <h4>Stronger Relationships</h4>
+          <p>Deeper connections with family & friends</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+        <div class="glass-card p-4 text-center">
+          <div class="benefit-icon"><i class="bi bi-emoji-laughing-fill"></i></div>
+          <h4>Reduced Anxiety & Stress</h4>
+          <p>Calmer mind for happier daily life</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+        <div class="glass-card p-4 text-center">
+          <div class="benefit-icon"><i class="bi bi-cloud-moon-fill"></i></div>
+          <h4>Greater Self-Awareness</h4>
+          <p>Understand thoughts & emotions better</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What is Mindfulness -->
+<section id="what" class="section-padding bg-white">
+  <div class="container text-center" data-aos="fade-up">
+    <h2 class="display-5 mb-5">What is Mindfulness?</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <p class="fs-4 text-muted lh-lg">Mindfulness is the gentle practice of being fully present and aware in each moment — observing thoughts, feelings, and surroundings without judgment.</p>
+        <p class="fs-5 mt-4">It is a return to the here and now, cultivating peace, clarity, and compassion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why is Mindfulness Important -->
+<section id="why" class="section-padding" style="background: var(--lavender);">
+  <div class="container">
+    <h2 class="text-center display-5 mb-5" data-aos="fade-up">Why Mindfulness Matters</h2>
+    <div class="row g-5 text-center">
+      <div class="col-md-3" data-aos="zoom-in">
+        <h3 class="display-4 fw-bold text-peach">78%</h3>
+        <p class="fs-5">of children show improved focus after regular practice</p>
+      </div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="150">
+        <h3 class="display-4 fw-bold text-peach">65%</h3>
+        <p class="fs-5">reduction in stress & anxiety symptoms</p>
+      </div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+        <h3 class="display-4 fw-bold text-peach">82%</h3>
+        <p class="fs-5">parents report better emotional regulation</p>
+      </div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="450">
+        <h3 class="display-4 fw-bold text-peach">71%</h3>
+        <p class="fs-5">improvement in social skills & empathy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How to Self-Imbibe Mindfulness -->
+<section id="how" class="section-padding bg-white">
+  <div class="container">
+    <h2 class="text-center display-5 mb-5" data-aos="fade-up">How to Cultivate Mindfulness at Home</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card p-4">
+          <h4>1. Start with Breath</h4>
+          <p>Practice 1-2 minutes of conscious breathing daily.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card p-4">
+          <h4>2. Body Scan</h4>
+          <p>Notice sensations from head to toe without judgment.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="glass-card p-4">
+          <h4>3. Mindful Listening</h4>
+          <p>Truly listen during conversations without planning response.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="glass-card p-4">
+          <h4>4. Gratitude Moments</h4>
+          <p>Name 3 things you're grateful for each day.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+        <div class="glass-card p-4">
+          <h4>5. Nature Connection</h4>
+          <p>Spend time outdoors observing surroundings mindfully.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Preview -->
+<section id="blog" class="section-padding" style="background: var(--mint-sage);">
+  <div class="container">
+    <h2 class="text-center display-5 mb-5" data-aos="fade-up">From Our Blog</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="https://www.skillpointtherapy.com/wp-content/uploads/2025/03/calm_parenting_techniques_guide.jpg" class="card-img-top" alt="Blog 1">
+          <div class="card-body">
+            <h5>Building Emotional Resilience in Children</h5>
+            <p class="card-text text-muted">Practical strategies parents can use daily...</p>
+          </div>
+        </div>
+      </div>
+      <!-- Add 2 more blog cards with different images -->
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="py-5 text-center" style="background: linear-gradient(135deg, var(--peach), #f2c8b2); color: #3d2a1f;">
+  <div class="container py-5" data-aos="zoom-in">
+    <h2 class="display-5 mb-4">Join Our Mindful Community</h2>
+    <p class="lead mb-4">Get weekly mindfulness tips, parent stories & exclusive updates</p>
+    <form class="col-lg-6 mx-auto">
+      <div class="input-group input-group-lg">
+        <input type="email" class="form-control rounded-pill-start" placeholder="Your email address">
+        <button class="btn btn-light rounded-pill-end px-5 fw-semibold" type="submit">Subscribe Now</button>
+      </div>
+      <small class="d-block mt-3">Join 2,000+ parents already growing with us</small>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark text-white">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-4">
+        <h5>Lightworks Mindfulness</h5>
+        <p class="text-white-50">India's first holistic mindfulness education program nurturing emotionally intelligent young minds.</p>
+      </div>
+      <div class="col-md-2">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white-50">Home</a></li>
+          <li><a href="#about" class="text-white-50">About</a></li>
+          <li><a href="#benefits" class="text-white-50">Benefits</a></li>
+          <li><a href="#blog" class="text-white-50">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h5>Contact</h5>
+        <p class="text-white-50">Khardi, Pune, Maharashtra<br>info@lightworks.com<br>+91 98231 3273</p>
+      </div>
+      <div class="col-md-3">
+        <h5>Follow Us</h5>
+        <div class="d-flex gap-3 fs-4">
+          <a href="#" class="text-white">FB</a>
+          <a href="#" class="text-white">IG</a>
+          <a href="#" class="text-white">YT</a>
+          <a href="#" class="text-white">X</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5 pt-4 border-top border-secondary">
+      <small>© 2025 Lightworks Mindfulness. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 900, once: true });
+
+  // Loader
+  window.addEventListener('load', () => {
+    document.getElementById('page-loader').classList.add('hidden');
+  });
+
+  // Sticky navbar effect
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 100) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Theme toggle
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-bs-theme');
+    html.setAttribute('data-bs-theme', current === 'dark' ? 'light' : 'dark');
+  });
+</script>
+</body>
+</html>

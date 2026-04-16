@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightWorks - Empowering Children Through Holistic Mindfulness</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="./style.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        .myanimate.show span {
+	animation: ani2 1.6s linear forwards;
+	transform: translate( -100px,0) scale(0);
+    /* opacity: 0; */
+}
+
+
+.myanimate span {opacity: 0; display: inline-block;}
+.myanimate.show span:nth-of-type(1) {animation-delay: 0s;}
+.myanimate.show span:nth-of-type(2) {animation-delay: .5s;}
+.myanimate.show span:nth-of-type(3) {animation-delay: 1s;}
+.myanimate.show span:nth-of-type(4) {animation-delay: 1.5s;}
+.myanimate.show span:nth-of-type(5) {animation-delay: 2s;}
+
+
+@keyframes ani2 {
+	60% {transform: translate(20px,0) scale(1); }
+	80% {transform: translate(20px,0) scale(1);  }
+	99% {transform: translate(0)  }
+	100% {transform: translate(0) scale(1);  opacity: 1;}
+}
+
+.mywave-text span {
+    display: inline-block;
+    /* font-size: 4rem; */
+    animation: wave 2s ease-in-out infinite;
+    padding: 1px;
+}
+
+.mywave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.mywave-text span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.mywave-text span:nth-child(3) {
+    animation-delay: 0.5s;
+}
+.mywave-text span:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+@keyframes wave {
+    0%{
+        transform: translateY(0px);
+    }
+   
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+    @font-face {
+  font-family: myheadingFont;
+  src: url(./RobotoMono-Regular.ttf);
+}
+    @font-face {
+  font-family: myheadingFont1;
+  src: url(./Rubik-Regular.ttf);
+}
+    @font-face {
+  font-family: myheadingFont2;
+  src: url(./Rubik-Medium.ttf);
+}
+.mynewheadingFont{
+    font-family: myheadingFont;
+}
+.mynewheadingFont1{
+    font-family: myheadingFont1;
+}
+.mynewheadingFont2{
+    font-family: myheadingFont2;
+}
+.headingAnimation{
+    animation: heading_anim 2s linear infinite;
+    line-height: 1.2
+}
+
+@keyframes heading_anim {
+    0%,100%{
+        font-family: myheadingFont1;
+        opacity: 1;
+        scale: 1;
+    }
+
+    50%{
+        font-family: myheadingFont2;
+        opacity: 0.3;
+        scale: 1.1;
+    }
+
+
+
+    
+}
+
+    </style>
+</head>
+<body data-bs-theme="light">
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm ">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#home" data-aos="fade-down" data-aos-duration="2000">
+                <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/logo.png"/> 
+                <span style="margin-left: 0.5rem;" >LightWorks</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center" >
+                    <li class="nav-item"><a class="nav-link" href="#about" style="font-weight: bold;font-size: 1rem;">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features" style="font-weight: bold;font-size: 1rem;">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mindfulness" style="font-weight: bold;font-size: 1rem;">Mindfulness</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog" style="font-weight: bold;font-size: 1rem;">Blog</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-sm btn-outline-secondary ms-2" id="themeToggle">
+                            <i class="fas fa-moon"></i> Dark
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-success ms-2" href="#newsletter">Get Started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section py-5 overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="display-3 fw-bold mb-3 hero-title myanimate"><span>Give</span><span> Your</span><span> Child</span><span> the Gift of</span><span> Inner Peace</span></h1>
+                    <p class="lead text-muted mb-4">Transform your child's life through mindfulness. Our holistic approach develops emotional intelligence, reduces stress, and fosters inner peace from childhood.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#about" class="btn btn-success btn-lg px-4 py-2 mywave-text"><span>Start</span><span> Free</span><span> Course</span></a>
+                        <a href="#features" class="btn btn-outline-success btn-lg px-4 py-2">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="hero-image-container">
+                        <!-- <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&h=500&fit=crop" alt="Child meditating" class="img-fluid rounded-lg shadow-lg hero-img-animation"> -->
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/gallery/ind_2.jpg" class="img-fluid rounded-lg shadow-lg hero-img-animation"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5 bg-light-secondary">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="800">
+                <h2 class="section-title fw-bold ">Empowering Children Through <span class="headingAnimation">Holistic Mindfulness</span></h2>
+                <p class="section-subtitle text-muted">Comprehensive programs designed to nurture emotional well-being</p>
+            </div>
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6 containertoanimate"  >
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/blog/ind_1.jpg" alt="Children in meditation" class="img-fluid rounded-lg shadow-lg">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                    <h3 class="fw-bold mb-4">Why Choose LightWorks?</h3>
+                    <div class="feature-list">
+                        <div class="feature-item mb-3 p-3 rounded-lg bg-white shadow-sm hover-lift">
+                            <div class="d-flex gap-3">
+                                <div class="icon-box bg-success bg-opacity-10 rounded-lg p-3">
+                                    <i class="fas fa-brain text-success fs-5"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-2">Holistic Mind Approach</h5>
+                                    <p class="text-muted small mb-0">Evidence-based techniques combining neuroscience and mindfulness.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-item mb-3 p-3 rounded-lg bg-white shadow-sm hover-lift">
+                            <div class="d-flex gap-3">
+                                <div class="icon-box bg-success bg-opacity-10 rounded-lg p-3">
+                                    <i class="fas fa-user-tie text-success fs-5"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-2">Expert Instructors</h5>
+                                    <p class="text-muted small mb-0">Trained professionals with years of experience in child psychology.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-item mb-3 p-3 rounded-lg bg-white shadow-sm hover-lift">
+                            <div class="d-flex gap-3">
+                                <div class="icon-box bg-success bg-opacity-10 rounded-lg p-3">
+                                    <i class="fas fa-star text-success fs-5"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-2">Proven Results</h5>
+                                    <p class="text-muted small mb-0">98% of parents report improved emotional well-being in their children.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success mt-4">Explore Programs</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="800">
+                <h2 class="section-title fw-bold mywave-text "><span>Invest</span><span> in Your Child's</span><span> Future</span></h2>
+                <p class="section-subtitle text-muted">Six core benefits of mindfulness training</p>
+            </div>
+            <div class="row g-4 feature-card-gsap">
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="0">
+                    <div class="feature-card h-100 p-4 rounded-lg shadow-sm hover-lift-lg transition">
+                        <div class="icon-circle bg-success bg-opacity-10 rounded-circle p-3 mb-3">
+                            <i class="fas fa-heart text-success fs-4"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Emotional Balance</h4>
+                        <p class="text-muted">Develop emotional resilience and healthier ways to manage feelings.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
+                    <div class="feature-card h-100 p-4 rounded-lg shadow-sm hover-lift-lg transition">
+                        <div class="icon-circle bg-success bg-opacity-10 rounded-circle p-3 mb-3">
+                            <i class="fas fa-brain text-success fs-4"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Improved Focus</h4>
+                        <p class="text-muted">Enhance concentration and cognitive abilities for better academic performance.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+                    <div class="feature-card h-100 p-4 rounded-lg shadow-sm hover-lift-lg transition">
+                        <div class="icon-circle bg-success bg-opacity-10 rounded-circle p-3 mb-3">
+                            <i class="fas fa-peace text-success fs-4"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Stress Reduction</h4>
+                        <p class="text-muted">Learn proven techniques to manage anxiety and create inner calm.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
+                    <div class="feature-card h-100 p-4 rounded-lg shadow-sm hover-lift-lg transition">
+                        <div class="icon-circle bg-success bg-opacity-10 rounded-circle p-3 mb-3">
+                            <i class="fas fa-handshake text-success fs-4"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Social Confidence</h4>
+                        <p class="text-muted">Build healthy relationships and improve social interaction skills.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+                    <div class="feature-card h-100 p-4 rounded-lg shadow-sm hover-lift-lg transition">
+                        <div class="icon-circle bg-success bg-opacity-10 rounded-circle p-3 mb-3">
+                            <i class="fas fa-lightbulb text-success fs-4"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Self-Awareness</h4>
+                        <p class="text-muted">Develop a deeper understanding of thoughts and emotions.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="500">
+                    <div class="feature-card h-100 p-4 rounded-lg shadow-sm hover-lift-lg transition">
+                        <div class="icon-circle bg-success bg-opacity-10 rounded-circle p-3 mb-3">
+                            <i class="fas fa-moon text-success fs-4"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Better Sleep</h4>
+                        <p class="text-muted">Improve sleep quality and establish healthy sleep routines.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-duration="800">
+                <button class="btn btn-success btn-lg px-5">Start Your Free Trial</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mindfulness Section -->
+    <section id="mindfulness" class="mindfulness-section py-5 bg-light-secondary">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="section-title fw-bold mb-4 mywave-text "><span>What is</span><span> Mindfulness?</span></h2>
+                    <p class="text-muted mb-3">Mindfulness is the practice of bringing full awareness to the present moment without judgment. It's about noticing your thoughts, feelings, and sensations as they happen.</p>
+                    <p class="text-muted mb-4">For children, mindfulness creates a foundation for emotional intelligence, resilience, and inner peace that lasts a lifetime.</p>
+                    
+                    <div class="mindfulness-points">
+                        <div class="point-item mb-3 p-3 rounded-lg bg-white shadow-sm">
+                            <h5 class="text-success fw-bold mb-2"><i class="fas fa-check-circle text-success me-2"></i>The Essence of Mindfulness</h5>
+                            <p class="text-muted small mb-0">Present moment awareness without judgment or distraction.</p>
+                        </div>
+                        <div class="point-item mb-3 p-3 rounded-lg bg-white shadow-sm">
+                            <h5 class="text-success fw-bold mb-2"><i class="fas fa-check-circle text-success me-2"></i>Key Benefits</h5>
+                            <p class="text-muted small mb-0">Reduced anxiety, better focus, improved emotional regulation.</p>
+                        </div>
+                        <div class="point-item mb-3 p-3 rounded-lg bg-white shadow-sm">
+                            <h5 class="text-success fw-bold mb-2"><i class="fas fa-check-circle text-success me-2"></i>Lifelong Skills</h5>
+                            <p class="text-muted small mb-0">Tools your child can use throughout their entire life.</p>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-success mt-4">Learn More</button>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&h=500&fit=crop" alt="Woman practicing mindfulness" class="img-fluid rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="stats-section py-5 bg-light-tertiary">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="800">
+                <h2 class="section-title fw-bold">Why is Mindfulness Important?</h2>
+                <p class="section-subtitle text-muted">Research shows mindfulness has transformative effects on child development</p>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+                    <div class="stat-card p-4 rounded-lg bg-white shadow-sm text-center hover-lift transition" data-target="78">
+                        <h3 class="stat-number text-success fw-bold mb-2">0</h3>
+                        <p class="stat-label text-muted">Cognitive Development</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="stat-card p-4 rounded-lg bg-white shadow-sm text-center hover-lift transition"data-target="65">
+                        <h3 class="stat-number text-success fw-bold mb-2">0</h3>
+                        <p class="stat-label text-muted">Emotional Intelligence</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="stat-card p-4 rounded-lg bg-white shadow-sm text-center hover-lift transition" data-target="82">
+                        <h3 class="stat-number text-success fw-bold mb-2">0</h3>
+                        <p class="stat-label text-muted">Academic Success</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="stat-card p-4 rounded-lg bg-white shadow-sm text-center hover-lift transition" data-target="71">
+                        <h3 class="stat-number text-success fw-bold mb-2">0</h3>
+                        <p class="stat-label text-muted">Social Connections</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 benefit-card-gsap">
+                <div class="col-md-6" data-aos="zoom-in" data-aos-duration="800">
+                    <div class="benefit-card p-4 rounded-lg bg-white shadow-sm hover-lift transition">
+                        <h5 class="fw-bold mb-3 text-success"><i class="fas fa-graduation-cap me-2"></i>Cognitive Development</h5>
+                        <p class="text-muted small">Mindfulness enhances memory, attention span, and problem-solving abilities in children.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
+                    <div class="benefit-card p-4 rounded-lg bg-white shadow-sm hover-lift transition">
+                        <h5 class="fw-bold mb-3 text-success"><i class="fas fa-heart me-2"></i>Emotional Intelligence</h5>
+                        <p class="text-muted small">Children develop better emotional regulation and deeper self-understanding.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+                    <div class="benefit-card p-4 rounded-lg bg-white shadow-sm hover-lift transition">
+                        <h5 class="fw-bold mb-3 text-success"><i class="fas fa-book me-2"></i>Academic Success</h5>
+                        <p class="text-muted small">Better focus and reduced anxiety lead to improved grades and learning outcomes.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
+                    <div class="benefit-card p-4 rounded-lg bg-white shadow-sm hover-lift transition">
+                        <h5 class="fw-bold mb-3 text-success"><i class="fas fa-handshake me-2"></i>Social Connection</h5>
+                        <p class="text-muted small">Improved empathy and communication skills strengthen relationships with peers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Self-Imbibe Section -->
+    <section id="self-imbibe" class="self-imbibe-section py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="800">
+                <h2 class="section-title fw-bold">How to Self-Imbibe Mindfulness?</h2>
+                <p class="section-subtitle text-muted">Simple practices parents and children can do together</p>
+            </div>
+
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                    <img src="https://ayushdce2.github.io/demo_theme/lightworks_demo/lightworks/assets/img/bg/ind_Imbibe1.jpg" alt="Yoga and mindfulness" class="img-fluid rounded-lg shadow-lg">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="practice-list">
+                        <div class="practice-item mb-4 p-4 rounded-lg bg-light-secondary hover-lift transition">
+                            <div class="d-flex gap-3">
+                                <div class="practice-number bg-success text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 40px; height: 40px;">1</div>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Start a Breath Awareness</h5>
+                                    <p class="text-muted small mb-0">Begin with just 2-3 minutes of focused breathing exercises daily.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="practice-item mb-4 p-4 rounded-lg bg-light-secondary hover-lift transition">
+                            <div class="d-flex gap-3">
+                                <div class="practice-number bg-success text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 40px; height: 40px;">2</div>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Practice Mindful Eating</h5>
+                                    <p class="text-muted small mb-0">Encourage children to notice tastes, textures, and smells while eating.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="practice-item mb-4 p-4 rounded-lg bg-light-secondary hover-lift transition">
+                            <div class="d-flex gap-3">
+                                <div class="practice-number bg-success text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 40px; height: 40px;">3</div>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Create a Quiet Moment</h5>
+                                    <p class="text-muted small mb-0">Designate a calm, peaceful space for daily meditation practice.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="practice-item mb-4 p-4 rounded-lg bg-light-secondary hover-lift transition">
+                            <div class="d-flex gap-3">
+                                <div class="practice-number bg-success text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 40px; height: 40px;">4</div>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Guided Meditations</h5>
+                                    <p class="text-muted small mb-0">Use our library of age-appropriate guided meditation recordings.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="practice-item mb-4 p-4 rounded-lg bg-light-secondary hover-lift transition">
+                            <div class="d-flex gap-3">
+                                <div class="practice-number bg-success text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 40px; height: 40px;">5</div>
+                                <div>
+                                    <h5 class="fw-bold mb-2">Mindful Walking</h5>
+                                    <p class="text-muted small mb-0">Take slow, intentional walks while observing your surroundings.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success mt-4">Get Free Guide</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section py-5 bg-light-secondary">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="800">
+                <h2 class="section-title fw-bold">From Our Blog</h2>
+                <p class="section-subtitle text-muted">Insights, tips, and stories about mindfulness for children</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+                    <div class="blog-card rounded-lg overflow-hidden shadow-sm hover-lift-lg transition h-100">
+                        <div class="blog-image" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-leaf text-white" style="font-size: 60px;"></i>
+                        </div>
+                        <div class="blog-content p-4">
+                            <span class="badge bg-success mb-2">Mindfulness</span>
+                            <h5 class="fw-bold mb-3">5 Easy Mindfulness Techniques for Busy Families</h5>
+                            <p class="text-muted small mb-3">Discover simple practices that fit into your daily routine and bring peace to your family.</p>
+                            <a href="#" class="text-success fw-bold text-decoration-none">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="blog-card rounded-lg overflow-hidden shadow-sm hover-lift-lg transition h-100">
+                        <div class="blog-image" style="background: linear-gradient(135deg, #29B6F6 0%, #0288D1 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-book text-white" style="font-size: 60px;"></i>
+                        </div>
+                        <div class="blog-content p-4">
+                            <span class="badge bg-info mb-2">Education</span>
+                            <h5 class="fw-bold mb-3">The Science Behind Children's Mindfulness</h5>
+                            <p class="text-muted small mb-3">Explore the neurological benefits of meditation and mindfulness training for developing brains.</p>
+                            <a href="#" class="text-success fw-bold text-decoration-none">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="blog-card rounded-lg overflow-hidden shadow-sm hover-lift-lg transition h-100">
+                        <div class="blog-image" style="background: linear-gradient(135deg, #FFA726 0%, #FF9800 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-heart text-white" style="font-size: 60px;"></i>
+                        </div>
+                        <div class="blog-content p-4">
+                            <span class="badge bg-warning mb-2">Wellness</span>
+                            <h5 class="fw-bold mb-3">Real Stories: How Mindfulness Changed Our Lives</h5>
+                            <p class="text-muted small mb-3">Hear from parents and children about their transformative mindfulness journeys.</p>
+                            <a href="#" class="text-success fw-bold text-decoration-none">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-duration="800">
+                <button class="btn btn-success btn-lg px-5">View All Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter-section py-5 bg-success text-white">
+        <div class="container" data-aos="fade-up" data-aos-duration="800">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="display-5 fw-bold mb-3">Stay Connected with LightWorks</h2>
+                    <p class="lead" style="color: #2c3e50;">Subscribe to our newsletter for exclusive mindfulness tips, free resources, and updates about our programs.</p>
+                </div>
+                <div class="col-lg-6">
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control py-3" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-light text-success fw-bold px-4">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 opacity-50">
+            <div class="row text-center g-4 mt-4">
+                <div class="col-sm-6 col-md-3">
+                    <h5 class="fw-bold">5,000+</h5>
+                    <p style="color: #2c3e50;">Happy Families</p>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h5 class="fw-bold">Weekly</h5>
+                    <p style="color: #2c3e50;">Free Meditations</p>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h5 class="fw-bold">100%</h5>
+                    <p style="color: #2c3e50;">Money Back</p>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h5 class="fw-bold">24/7</h5>
+                    <p style="color: #2c3e50;">Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">LightWorks</h5>
+                    <p class="small">Empowering children through mindfulness and holistic development.</p>
+                    <div class="social-links">
+                        <a href="#" class=" me-2"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class=" me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class=" me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class=""><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Resources</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">Blog</a></li>
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">Guides</a></li>
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">Community</a></li>
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">About Us</a></li>
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">Contact</a></li>
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">Careers</a></li>
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled small ">
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">Terms of Service</a></li>
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">Cookie Policy</a></li>
+                        <li class="mb-2"><a href="#" class=" text-decoration-none" style="color:var(--text-light)">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 opacity-25">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="small  mb-0">&copy; 2026 LightWorks. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small  mb-0">Designed with <i class="fas fa-heart text-danger"></i> for mindful families.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="./script.js"></script>
+    <script>
+        const myanimate = document.querySelector(".myanimate");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      myanimate.classList.remove("show");
+
+      // force reflow to restart animation
+      void myanimate.offsetWidth;
+
+      myanimate.classList.add("show");
+    } else {
+      myanimate.classList.remove("show");
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
+observer.observe(myanimate);
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.timeline({
+  scrollTrigger: {
+    trigger: ".containertoanimate",
+    start: "center center",
+    // end: "+=200%",
+    pin: true,
+    scrub: true,
+    pinSpacing: true,
+    // markers: true // 👈 helpful for debugging
+  }
+})
+// .fromTo(".containertoanimate .imagetoanimate",
+//   { scale: 1 },
+//   { scale: 1, ease: "none",transformOrigin: "center center " }
+// );
+
+
+    gsap.fromTo(
+      ".practice-item",
+      { y: 260, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: "power3.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: ".practice-list",
+          start: "top 70%",
+          toggleActions: "play reverse play reverse",
+        //    end: "+=200%",
+          // once: true,
+        //   markers: true // 🔴 remove after confirming
+        }
+      }
+    );
+
+
+gsap.fromTo(
+      ".benefit-card",
+      { y: 260, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: "power3.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: ".benefit-card-gsap",
+          start: "top 70%",
+          toggleActions: "play reverse play reverse",
+        //    end: "+=200%",
+          // once: true,
+        //   markers: true // 🔴 remove after confirming
+        }
+      }
+    );
+
+gsap.fromTo(
+      ".feature-card",
+      { y: 260, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: "power3.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: ".feature-card-gsap",
+          start: "top 70%",
+          toggleActions: "play reverse play reverse",
+        //    end: "+=200%",
+          // once: true,
+        //   markers: true // 🔴 remove after confirming
+        }
+      }
+    );
+
+
+//     gsap.utils.toArray(".stat-card").forEach((el) => {
+//     const numberEl = el.querySelector(".stat-number");
+//     const target = parseInt(el.getAttribute("data-target"));
+
+//     // Animate the stat item (slide up + fade in)
+//     gsap.to(el, {
+//       y: 0,
+//       opacity: 1,
+//       duration: 0.8,
+//       ease: "power3.out",
+//       scrollTrigger: {
+//         trigger: el,
+//         start: "top 85%",
+//         toggleActions: "play reverse play reverse",
+//       },
+//       onStart: () => {
+//         // Animate a plain object for the counter
+//         const counterObj = { val: 0 };
+//         gsap.to(counterObj, {
+//           val: target,
+//           duration: 2,
+//           ease: "power1.out",
+//           onUpdate: () => {
+//             numberEl.textContent = Math.floor(counterObj.val).toLocaleString();
+//           }
+//         });
+//       }
+//     });
+//   });
+
+gsap.utils.toArray(".stat-card").forEach((el) => { 
+  const numberEl = el.querySelector(".stat-number");
+  const target = parseInt(el.getAttribute("data-target"));
+
+  // Animate the stat card (slide up + fade in)
+  gsap.to(el, {
+    y: 0,
+    opacity: 1,
+    duration: 0.8,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: el,
+      start: "top 85%",
+      toggleActions: "play reverse play reverse", // Animate card up/down on scroll
+    }
+  });
+
+  // Animate the counter every time scroll enters or leaves
+  ScrollTrigger.create({
+    trigger: el,
+    start: "top 85%",
+    end: "bottom 15%",
+    toggleActions: "play reverse play reverse",
+    onEnter: () => animateCounter(numberEl, target),
+    onEnterBack: () => animateCounter(numberEl, target),
+    onLeave: () => numberEl.textContent = "0",      // Reset when leaving
+    onLeaveBack: () => numberEl.textContent = "0"   // Reset when leaving back
+  });
+});
+
+// Function to animate counter
+function animateCounter(el, target) {
+  const counterObj = { val: 0 };
+  gsap.to(counterObj, {
+    val: target,
+    duration: 2,
+    ease: "power1.out",
+    onUpdate: () => {
+      el.textContent = Math.floor(counterObj.val).toLocaleString();
+    }
+  });
+}
+
+    </script>
+</body>
+</html>
