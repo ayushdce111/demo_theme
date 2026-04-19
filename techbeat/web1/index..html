@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ALP Group India | HR, Staffing & Business Consulting</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div class="top-contact d-flex gap-3 flex-wrap">
+        <a href="tel:+919999999999"><i class="fas fa-phone-alt me-1"></i>+91-99999 99999</a>
+        <a href="mailto:info@alpgroupindia.com"><i class="fas fa-envelope me-1"></i>info@alpgroupindia.com</a>
+      </div>
+      <div class="top-social d-flex gap-2">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY HEADER -->
+<nav class="navbar navbar-expand-lg sticky-top main-navbar" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <div class="brand-logo">
+        <span class="logo-alp">ALP</span>
+        <span class="logo-sub">GROUP</span>
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">ALP Group India</div>
+        <div class="brand-tagline">HR | Consulting | Legal</div>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#why">Why Choose Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#vision">Vision</a></li>
+        <li class="nav-item"><a class="nav-link" href="#leadership">Leadership</a></li>
+        <li class="nav-item"><a class="nav-link nav-cta" href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SLIDER -->
+<section id="home" class="hero-section">
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="hero-slide slide-1">
+          <div class="hero-overlay"></div>
+          <div class="container hero-content">
+            <div class="hero-badge">Infrastructure & Construction Specialists</div>
+            <h1 class="hero-title">Building India's <span class="text-accent">Workforce</span><br>One Talent at a Time</h1>
+            <p class="hero-subtitle">Premier Staffing, HR & Business Consulting solutions with 17+ years of industry expertise</p>
+            <div class="hero-btns d-flex gap-3 flex-wrap">
+              <a href="#services" class="btn btn-hero-primary">Explore Services</a>
+              <a href="#contact" class="btn btn-hero-outline">Get In Touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="hero-slide slide-2">
+          <div class="hero-overlay"></div>
+          <div class="container hero-content">
+            <div class="hero-badge">17+ Years of Excellence</div>
+            <h1 class="hero-title">Your Trusted <span class="text-accent">HR Partner</span><br>for Growth</h1>
+            <p class="hero-subtitle">Connecting the right talent with the right opportunities across Infrastructure & Construction industries</p>
+            <div class="hero-btns d-flex gap-3 flex-wrap">
+              <a href="#about" class="btn btn-hero-primary">Our Legacy</a>
+              <a href="#why" class="btn btn-hero-outline">Why Choose Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="hero-slide slide-3">
+          <div class="hero-overlay"></div>
+          <div class="container hero-content">
+            <div class="hero-badge">Legal & Compliance Solutions</div>
+            <h1 class="hero-title">Comprehensive <span class="text-accent">Legal</span><br>& Consulting Services</h1>
+            <p class="hero-subtitle">Triple expertise in Recruitment, HR Strategy and Legal Compliance for your organization</p>
+            <div class="hero-btns d-flex gap-3 flex-wrap">
+              <a href="#services" class="btn btn-hero-primary">Our Services</a>
+              <a href="#contact" class="btn btn-hero-outline">Consult Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</section>
+
+<!-- COMPANY OVERVIEW -->
+<section id="about" class="overview-section section-pad">
+  <div class="container">
+    <div class="row align-items-center g-2 g-md-5 g-lg-5">
+      <div class="col-lg-6 fade-in-left">
+        <div class="section-label">About ALP Group</div>
+        <h2 class="section-heading">Company <span class="text-accent">Overview</span></h2>
+        <div class="red-divider"></div>
+        <p class="section-text mt-3">ALP Group draws its vision and inspiration from the late <strong>Sh. Achchhe Lal Priyadarshi (ALP)</strong>, a distinguished scholar, educationist, social reformer and passionate visionary. Though he is no longer with us, his ideals and principles continue to live on, guiding and transforming both the Group and society at large.</p>
+        <p class="section-text">ALP Group, led by <strong>Ms. Annu Kumari (M.Sc., B.Ed.)</strong> with <strong>Mr. Guru Bandhu (MBA, LL.B.)</strong> serving as Chief Advisor and Independent Consultant, is a new-age HR, Business Consulting and Legal Consulting firm bringing over <strong>17 years of industry expertise</strong>.</p>
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          <a href="#services" class="btn btn-primary-alp">Our Services</a>
+          <a href="#contact" class="btn btn-outline-alp">Get Consultation</a>
+        </div>
+      </div>
+      <div class="col-lg-6 fade-in-right">
+        <div class="overview-img-wrap">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80" alt="Infrastructure Project" class="img-fluid overview-img"/>
+          <div class="overview-badge">
+            <div class="badge-num">17+</div>
+            <div class="badge-text">Years of Expertise</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS COUNTER SECTION -->
+<section class="stats-section">
+  <div class="stats-overlay"></div>
+  <div class="container position-relative">
+    <div class="row g-2 g-md-4 g-lg-5 text-center">
+      <div class="col-6 col-md-3 fade-in-up">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-building"></i></div>
+          <div class="stat-num" data-target="50">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Clients Served</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 fade-in-up" style="animation-delay:.1s">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-num" data-target="500">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Placements Made</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 fade-in-up" style="animation-delay:.2s">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="stat-num" data-target="17">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 fade-in-up" style="animation-delay:.3s">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-award"></i></div>
+          <div class="stat-num" data-target="10">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Industries Covered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="services-section section-pad">
+  <div class="container">
+    <div class="text-center mb-5 fade-in-up">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-heading">Our <span class="text-accent">Services</span></h2>
+      <div class="red-divider mx-auto"></div>
+      <p class="section-sub mt-3">Comprehensive solutions tailored for Infrastructure & Construction industries</p>
+    </div>
+    <div class="row g-2 g-md-4 g-lg-4">
+
+      <!-- FLAGSHIP SERVICE -->
+      <div class="col-12 fade-in-up">
+        <div class="service-card service-featured">
+          <div class="row align-items-center g-0">
+            <div class="col-md-7 p-4 p-md-5">
+              <div class="service-flag">Primary Service</div>
+              <div class="service-icon-wrap"><i class="fas fa-users-cog"></i></div>
+              <h3 class="service-title">Staffing / Recruitment Solutions</h3>
+              <p class="service-text">Our flagship service — we help organizations bridge talent gaps by attracting, hiring, and retaining top-quality professionals. Backed by an in-house dynamic team and a strong network of independent recruitment professionals, we deliver the right candidates at the right time, consistently meeting and exceeding client expectations.</p>
+              <ul class="service-list">
+                <li><i class="fas fa-check-circle me-2"></i>Executive & Mid-level Recruitment</li>
+                <li><i class="fas fa-check-circle me-2"></i>Mass Hiring & Project Staffing</li>
+                <li><i class="fas fa-check-circle me-2"></i>Contract & Permanent Placement</li>
+                <li><i class="fas fa-check-circle me-2"></i>Infrastructure & Construction Specialists</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary-alp mt-3">Get Staffing Solutions</a>
+            </div>
+            <div class="col-md-5 service-featured-img">
+              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="Staffing Solutions" class="img-fluid h-100 w-100" style="object-fit:cover;min-height:320px"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay:.1s">
+        <div class="service-card">
+          <div class="service-img-wrap">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&q=80" alt="HR Solutions"/>
+            <div class="service-overlay"><i class="fas fa-external-link-alt"></i></div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon-sm"><i class="fas fa-sitemap"></i></div>
+            <h4 class="service-title-sm">HR Solutions</h4>
+            <p class="service-text-sm">Comprehensive HR shared services, policy design, HR systems setup, compliance management, and organizational development consulting.</p>
+            <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay:.2s">
+        <div class="service-card">
+          <div class="service-img-wrap">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80" alt="Business Development"/>
+            <div class="service-overlay"><i class="fas fa-external-link-alt"></i></div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon-sm"><i class="fas fa-chart-line"></i></div>
+            <h4 class="service-title-sm">Business Development Consulting</h4>
+            <p class="service-text-sm">Strategic business development consulting services to streamline growth efforts, build partnerships, and achieve organizational objectives.</p>
+            <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay:.3s">
+        <div class="service-card">
+          <div class="service-img-wrap">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&q=80" alt="Career Counseling"/>
+            <div class="service-overlay"><i class="fas fa-external-link-alt"></i></div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon-sm"><i class="fas fa-graduation-cap"></i></div>
+            <h4 class="service-title-sm">Career Counseling & Training</h4>
+            <p class="service-text-sm">Professional career counseling, corporate training programs, and skill development services designed to empower individuals and teams.</p>
+            <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay:.4s">
+        <div class="service-card">
+          <div class="service-img-wrap">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=500&q=80" alt="Legal Solutions"/>
+            <div class="service-overlay"><i class="fas fa-external-link-alt"></i></div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon-sm"><i class="fas fa-balance-scale"></i></div>
+            <h4 class="service-title-sm">Comprehensive Legal Solutions</h4>
+            <p class="service-text-sm">Backed by a reputed full-service law firm, we provide legal compliance, contract management, and labor law advisory services.</p>
+            <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay:.5s">
+        <div class="service-card">
+          <div class="service-img-wrap">
+            <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=500&q=80" alt="IT Services"/>
+            <div class="service-overlay"><i class="fas fa-external-link-alt"></i></div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon-sm"><i class="fas fa-laptop-code"></i></div>
+            <h4 class="service-title-sm">IT Services</h4>
+            <p class="service-text-sm">Technology consulting and IT staffing solutions supporting digital transformation and technical project requirements across sectors.</p>
+            <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why" class="why-section section-pad">
+  <div class="container">
+    <div class="row g-2 g-md-5 g-lg-5 align-items-center">
+      <div class="col-lg-5 fade-in-left">
+        <div class="section-label">Our Strengths</div>
+        <h2 class="section-heading">Why <span class="text-accent">Choose Us?</span></h2>
+        <div class="red-divider"></div>
+        <p class="section-text mt-3">With 17+ years of combined industry expertise, ALP Group India delivers measurable results through a unique blend of Recruitment, HR, and Legal capabilities tailored for Infrastructure & Construction companies.</p>
+        <div class="why-features mt-4">
+          <div class="why-feat-item">
+            <div class="why-feat-icon"><i class="fas fa-layer-group"></i></div>
+            <div>
+              <h5>Triple Expertise</h5>
+              <p>Strong command over Recruitment, HR strategy and legal compliance — all under one roof.</p>
+            </div>
+          </div>
+          <div class="why-feat-item">
+            <div class="why-feat-icon"><i class="fas fa-hard-hat"></i></div>
+            <div>
+              <h5>Industry Specialization</h5>
+              <p>Proven track record in Infrastructure & Construction companies across India.</p>
+            </div>
+          </div>
+          <div class="why-feat-item">
+            <div class="why-feat-icon"><i class="fas fa-bullseye"></i></div>
+            <div>
+              <h5>Result-Oriented Approach</h5>
+              <p>Focused on timely, cost-effective, and quality deliverables with measurable outcomes.</p>
+            </div>
+          </div>
+          <div class="why-feat-item">
+            <div class="why-feat-icon"><i class="fas fa-network-wired"></i></div>
+            <div>
+              <h5>Trusted Network</h5>
+              <p>Backed by a reputed full-service law firm for comprehensive legal coverage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 fade-in-right">
+        <div class="exp-timeline">
+          <h4 class="timeline-title mb-4">Professional Exposure</h4>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-role">Independent Consultant – HR, Legal & Contracts</div>
+              <div class="tl-company">ALP Group India (ALP)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-role">Independent Consultant – HR, Legal & Contracts</div>
+              <div class="tl-company">M.G. Contractors Pvt. Ltd. (MGCPL)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-role">Independent Consultant – HR, Legal & Contracts</div>
+              <div class="tl-company">Consulting Engineers Group Ltd (CEG)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-role">DGM – HR (Recruitments)</div>
+              <div class="tl-company">Intercontinental Consultants & Technocrats Pvt. Ltd. (ICT)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-role">Manager – HR (Head HR)</div>
+              <div class="tl-company">KPSG Infra Solutions Pvt. Ltd.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-role">Deputy Manager – HR</div>
+              <div class="tl-company">Gaussons Group (I.P. Estates Pvt. Ltd.)</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-role">Sr. Executive – HR</div>
+              <div class="tl-company">SNC Lavalin Infrastructure Pvt. Ltd. | MBL Infrastructure Ltd.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-role">Executive – HR</div>
+              <div class="tl-company">SEW Infrastructure Ltd.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK LINKS CARDS -->
+<section class="quick-cards-section section-pad-sm">
+  <div class="container">
+    <div class="row g-2 g-md-4 g-lg-4">
+      <div class="col-md-4 fade-in-up">
+        <div class="quick-card">
+          <div class="qc-img">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Staffing"/>
+          </div>
+          <div class="qc-body">
+            <div class="qc-icon"><i class="fas fa-users-cog"></i></div>
+            <h5>Staffing & Recruitment</h5>
+            <a href="#services">Explore <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-in-up" style="animation-delay:.1s">
+        <div class="quick-card">
+          <div class="qc-img">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Projects"/>
+          </div>
+          <div class="qc-body">
+            <div class="qc-icon"><i class="fas fa-project-diagram"></i></div>
+            <h5>HR & Business Consulting</h5>
+            <a href="#services">Explore <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-in-up" style="animation-delay:.2s">
+        <div class="quick-card">
+          <div class="qc-img">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Team"/>
+          </div>
+          <div class="qc-body">
+            <div class="qc-icon"><i class="fas fa-user-tie"></i></div>
+            <h5>Leadership Profile</h5>
+            <a href="#leadership">Explore <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION / MISSION -->
+<section id="vision" class="vision-section section-pad">
+  <div class="container">
+    <div class="text-center mb-5 fade-in-up">
+      <div class="section-label">Our Purpose</div>
+      <h2 class="section-heading">Our Vision <span class="text-accent">For The Future</span></h2>
+      <div class="red-divider mx-auto"></div>
+    </div>
+    <div class="row g-2 g-md-4 g-lg-4">
+      <div class="col-md-4 fade-in-up">
+        <div class="vision-card">
+          <div class="vision-icon"><i class="fas fa-rocket"></i></div>
+          <h4>Our Mission</h4>
+          <p>To become the most trusted partner for Infrastructure and Construction companies by delivering efficient, transparent, and result-oriented staffing solutions, thereby enabling organizations to build strong, future-ready teams.</p>
+        </div>
+      </div>
+      <div class="col-md-4 fade-in-up" style="animation-delay:.1s">
+        <div class="vision-card vision-card-featured">
+          <div class="vision-icon"><i class="fas fa-eye"></i></div>
+          <h4>Our Vision</h4>
+          <p>ALP Group India accepts new challenges and drives efficiency through proven processes. With a legacy of 17 years of professional expertise and technically competent teams across all levels, we are known for reliability and excellence.</p>
+          <div class="vision-quote">"Closing the Critical Opening at Given Time Frame"</div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-in-up" style="animation-delay:.2s">
+        <div class="vision-card">
+          <div class="vision-icon"><i class="fas fa-handshake"></i></div>
+          <h4>Our Commitment</h4>
+          <p>ALP Group India is committed to deliver quality, value-driven, and cost-effective services within defined timelines. We provide strategic HR, staffing, business, Training & Legal support solutions that foster organizational growth and success.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership" class="leadership-section section-pad">
+  <div class="container">
+    <div class="text-center mb-5 fade-in-up">
+      <div class="section-label">The Team</div>
+      <h2 class="section-heading">Leadership &amp; <span class="text-accent">Advisory</span></h2>
+      <div class="red-divider mx-auto"></div>
+    </div>
+    <div class="row g-2 g-md-4 g-lg-4 justify-content-center">
+      <div class="col-md-6 col-lg-4 fade-in-up">
+        <div class="leader-card">
+          <div class="leader-img">
+            <div class="leader-avatar"><i class="fas fa-user-circle"></i></div>
+            <div class="leader-badge">Proprietor</div>
+          </div>
+          <div class="leader-body">
+            <h4>Ms. Annu Kumari</h4>
+            <div class="leader-cred">B.Sc. (Hons.), M.Sc., B.Ed.</div>
+            <p>A seasoned business leader committed to delivering high-quality staffing solutions and guiding ALP Group India towards its mission of excellence.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay:.1s">
+        <div class="leader-card leader-featured">
+          <div class="leader-img">
+            <div class="leader-avatar"><i class="fas fa-user-circle"></i></div>
+            <div class="leader-badge">Chief Advisor</div>
+          </div>
+          <div class="leader-body">
+            <h4>Sh. Guru Bandhu</h4>
+            <div class="leader-cred">MBA (HR & Marketing), Post-MBA Int'l HRM, LL.B.</div>
+            <p>17+ years of industry exposure in Infrastructure, Construction & Engineering. Expert in HR, Recruitment, Business Development, and Legal Solutions for Indian and multinational organizations.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay:.2s">
+        <div class="leader-card">
+          <div class="leader-img">
+            <div class="leader-avatar team-avatar"><i class="fas fa-users"></i></div>
+            <div class="leader-badge">Our Team</div>
+          </div>
+          <div class="leader-body">
+            <h4>Expert Consulting Team</h4>
+            <div class="leader-cred">HR Professionals, Recruiters & Legal Experts</div>
+            <p>A team of highly experienced HR professionals, corporate trainers, and business development experts supported by a network of senior consultants, freelancers, academicians, and partner institutions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGACY SECTION -->
+<section class="legacy-section section-pad">
+  <div class="legacy-overlay"></div>
+  <div class="container position-relative">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center fade-in-up">
+        <div class="legacy-icon"><i class="fas fa-star"></i></div>
+        <h2 class="legacy-title">Our Legacy</h2>
+        <div class="red-divider mx-auto my-3"></div>
+        <h4 class="legacy-name">Late Sh. Achchhe Lal Priyadarshi (ALP)</h4>
+        <div class="legacy-qual">MA, B.Ed. & LL. B.</div>
+        <p class="legacy-text mt-3">A distinguished scholar, educationist, social reformer, passionate visionary and the voice of thousands. Though he is no longer with us, his ideals and principles continue to live on, guiding and transforming both the Group and society at large. His legacy remains a constant source of inspiration for our endeavours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / ADDRESS -->
+<section id="contact" class="contact-section section-pad">
+  <div class="container">
+    <div class="text-center mb-5 fade-in-up">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-heading">Contact <span class="text-accent">Us</span></h2>
+      <div class="red-divider mx-auto"></div>
+    </div>
+    <div class="row g-2 g-md-4 g-lg-5">
+      <div class="col-lg-5 fade-in-left">
+        <h4 class="mb-4">Address & Contact</h4>
+        <div class="contact-info-card">
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <strong>Registered Office</strong><br/>
+              New Delhi, India
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="fas fa-phone-alt"></i></div>
+            <div>
+              <strong>Phone</strong><br/>
+              <a href="tel:+919999999999">+91-99999 99999</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <strong>Email</strong><br/>
+              <a href="mailto:info@alpgroupindia.com">info@alpgroupindia.com</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <strong>Business Hours</strong><br/>
+              Mon to Fri – 10:00 to 6:30
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 fade-in-right">
+        <div class="contact-form-card">
+          <h4 class="mb-4">Send Us a Message</h4>
+          <div class="row g-2 g-md-3 g-lg-5">
+            <div class="col-md-6">
+              <input type="text" class="form-control alp-input" placeholder="Your Name"/>
+            </div>
+            <div class="col-md-6">
+              <input type="email" class="form-control alp-input" placeholder="Email Address"/>
+            </div>
+            <div class="col-md-6">
+              <input type="tel" class="form-control alp-input" placeholder="Phone Number"/>
+            </div>
+            <div class="col-md-6">
+              <select class="form-select alp-input">
+                <option value="">I would like to discuss...</option>
+                <option>Staffing / Recruitment</option>
+                <option>HR Solutions</option>
+                <option>Business Development</option>
+                <option>Career Counseling & Training</option>
+                <option>Legal Solutions</option>
+                <option>IT Services</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <textarea class="form-control alp-input" rows="4" placeholder="Your Message"></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary-alp w-100">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <h3>Looking for quality and affordable Staffing Solutions?</h3>
+        <p>Let ALP Group India help you build strong, future-ready teams.</p>
+      </div>
+      <div class="col-md-4 text-md-end mt-3 mt-md-0">
+        <a href="#contact" class="btn btn-cta">Request a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="container pt-5 pb-4">
+    <div class="row g-2 g-md-4 g-lg-5 ">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand d-flex align-items-center gap-2 mb-3">
+          <div class="brand-logo">
+            <span class="logo-alp">ALP</span>
+            <span class="logo-sub">GROUP</span>
+          </div>
+          <div>
+            <div class="brand-name text-white">ALP Group India</div>
+          </div>
+        </div>
+        <p class="footer-text">ALP Group India is a new-age HR, Business Consulting and Legal Consulting firm bringing over 17 years of industry expertise in Infrastructure & Construction sectors.</p>
+        <div class="footer-social d-flex gap-2 mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-6">
+        <h6 class="footer-heading">Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-6">
+        <h6 class="footer-heading">Our Services</h6>
+        <ul class="footer-links">
+          <li><a href="#services">Staffing / Recruitment</a></li>
+          <li><a href="#services">HR Solutions</a></li>
+          <li><a href="#services">Business Development</a></li>
+          <li><a href="#services">Career Counseling</a></li>
+          <li><a href="#services">Legal Solutions</a></li>
+          <li><a href="#services">IT Services</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h6 class="footer-heading">Get In Touch</h6>
+        <ul class="footer-contact-list">
+          <li><i class="fas fa-map-marker-alt"></i> New Delhi, India</li>
+          <li><i class="fas fa-phone-alt"></i> <a href="tel:+919999999999">+91-99999 99999</a></li>
+          <li><i class="fas fa-clock"></i> Mon to Fri – 10:00 to 6:30</li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:info@alpgroupindia.com">info@alpgroupindia.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p>© 2025 ALP Group India. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p>Inspired by the legacy of Sh. Achchhe Lal Priyadarshi</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
