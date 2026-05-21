@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | ALP Group India</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"/>
+  <style>
+/* ============================================================
+   VARIABLES & RESET
+   ============================================================ */
+:root{
+  --red:#c0392b;--red-dark:#9b2335;--red-light:#e74c3c;
+  --dark:#1a1a2e;--dark-2:#16213e;--charcoal:#2c3e50;
+  --white:#fff;--off-white:#f8f9fa;--gray:#6c757d;
+  --light-gray:#e9ecef;--gold:#d4a852;
+  --fh:'Playfair Display',serif;--fb:'DM Sans',sans-serif;
+  --sh:0 2px 14px rgba(0,0,0,.08);
+  --sm:0 8px 32px rgba(0,0,0,.13);
+  --sl:0 20px 60px rgba(0,0,0,.18);
+  --r:6px;--rl:14px;
+  --tr:all .35s cubic-bezier(.4,0,.2,1)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--charcoal);background:#fff;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.sp{padding:90px 0}
+.sp-sm{padding:60px 0}
+.bg-off{background:var(--off-white)!important}
+.bg-dark-alp{background:var(--dark)!important}
+
+/* ---- UTILITIES ---- */
+.text-accent{color:var(--red)}
+.section-label{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.section-heading{font-family:var(--fh);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--dark);line-height:1.2}
+.section-text{font-size:.97rem;color:#555;line-height:1.8}
+.section-sub{font-size:1rem;color:var(--gray);max-width:600px;margin:0 auto}
+.red-divider{width:52px;height:3px;background:var(--red);margin-top:14px;position:relative}
+.red-divider::after{content:'';position:absolute;left:62px;top:0;width:16px;height:3px;background:var(--red);opacity:.4}
+.red-divider.center{margin-left:auto!important;margin-right:auto!important}
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+.top-bar{background:var(--dark);padding:8px 0;font-size:.82rem}
+.top-bar a{color:#ccc;transition:var(--tr)}
+.top-bar a:hover{color:var(--red-light)}
+.top-contact a{display:flex;align-items:center;gap:4px}
+.top-social a{width:28px;height:28px;background:rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--tr);font-size:.72rem}
+.top-social a:hover{background:var(--red);color:#fff}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.main-navbar{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.08);padding:14px 0;transition:var(--tr);z-index:1000}
+.main-navbar.scrolled{padding:8px 0;box-shadow:0 4px 30px rgba(0,0,0,.14)}
+.brand-logo{background:var(--red);color:#fff;width:52px;height:52px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:var(--tr)}
+.brand-logo:hover{background:var(--red-dark);transform:scale(1.04)}
+.logo-alp{font-family:var(--fh);font-size:1.05rem;font-weight:700;line-height:1}
+.logo-sub{font-size:.5rem;letter-spacing:2px;font-weight:600;opacity:.85;margin-top:1px}
+.brand-name-txt{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:var(--dark);line-height:1.1}
+.brand-tagline{font-size:.68rem;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
+.nav-link{font-size:.88rem!important;font-weight:500!important;color:var(--charcoal)!important;padding:8px 14px!important;position:relative;transition:var(--tr)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:2px;background:var(--red);transform:scaleX(0);transition:transform .3s ease}
+.nav-link:hover::after,.nav-link.active::after{transform:scaleX(1)}
+.nav-link:hover,.nav-link.active{color:var(--red)!important}
+.nav-cta{background:var(--red)!important;color:#fff!important;border-radius:4px;padding:9px 20px!important}
+.nav-cta::after{display:none}
+.nav-cta:hover{background:var(--red-dark)!important;color:#fff!important}
+.navbar-toggler{border:1px solid rgba(192,57,43,.3)}
+
+/* ============================================================
+   PAGE HERO
+   ============================================================ */
+.page-hero{position:relative;min-height:380px;background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=70') center/cover no-repeat;display:flex;align-items:center;padding:80px 0 60px}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(26,26,46,.95) 0%,rgba(44,62,80,.85) 55%,rgba(192,57,43,.3) 100%)}
+.page-hero-content{position:relative;z-index:2}
+.page-hero-title{font-family:var(--fh);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:12px}
+.page-hero-sub{font-size:1.05rem;color:rgba(255,255,255,.75);margin-bottom:20px;max-width:520px;font-style:italic}
+.page-breadcrumb{background:none;padding:0;margin:0}
+.page-breadcrumb .breadcrumb-item a{color:rgba(255,255,255,.7);font-size:.85rem;transition:var(--tr)}
+.page-breadcrumb .breadcrumb-item a:hover{color:var(--red-light)}
+.page-breadcrumb .breadcrumb-item.active{color:var(--red-light);font-size:.85rem}
+.page-breadcrumb .breadcrumb-item+.breadcrumb-item::before{color:rgba(255,255,255,.4)}
+.hero-scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.5);font-size:.9rem;animation:bounce 1.5s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ============================================================
+   SERVICE NAV TABS (sticky pills)
+   ============================================================ */
+.svc-nav{
+  background:#fff;
+  box-shadow:0 4px 24px rgba(0,0,0,.08);
+  position:sticky;top:72px;z-index:900;
+  padding:0;
+  border-bottom:2px solid var(--light-gray);
+}
+.svc-nav-inner{
+  display:flex;
+  overflow-x:auto;
+  gap:0;
+  scrollbar-width:none;
+}
+.svc-nav-inner::-webkit-scrollbar{display:none}
+.svc-tab{
+  display:flex;align-items:center;gap:8px;
+  padding:16px 22px;
+  font-size:.85rem;font-weight:600;color:var(--gray);
+  white-space:nowrap;cursor:pointer;
+  border-bottom:3px solid transparent;
+  transition:var(--tr);flex-shrink:0;
+}
+.svc-tab i{font-size:1rem;transition:var(--tr)}
+.svc-tab:hover{color:var(--red);border-bottom-color:rgba(192,57,43,.3)}
+.svc-tab.active{color:var(--red);border-bottom-color:var(--red);background:rgba(192,57,43,.04)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-primary-alp{background:var(--red);color:#fff!important;border:2px solid var(--red);padding:12px 28px;font-weight:600;font-size:.9rem;border-radius:3px;letter-spacing:.5px;transition:var(--tr);display:inline-flex;align-items:center;gap:8px}
+.btn-primary-alp:hover{background:var(--red-dark);border-color:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(192,57,43,.35);color:#fff!important}
+.btn-outline-alp{background:transparent;color:var(--red)!important;border:2px solid var(--red);padding:11px 28px;font-weight:600;font-size:.88rem;border-radius:3px;transition:var(--tr);display:inline-flex;align-items:center;gap:8px}
+.btn-outline-alp:hover{background:var(--red);color:#fff!important;transform:translateY(-2px)}
+.btn-cta{background:transparent;color:#fff!important;border:2px solid rgba(255,255,255,.7);padding:13px 28px;font-weight:600;font-size:.88rem;border-radius:3px;transition:var(--tr);display:inline-flex;align-items:center;gap:8px}
+.btn-cta:hover{background:#fff;color:var(--red)!important;border-color:#fff}
+.btn-dark-alp{background:var(--dark);color:#fff!important;border:2px solid var(--dark);padding:12px 28px;font-weight:600;font-size:.9rem;border-radius:3px;transition:var(--tr);display:inline-flex;align-items:center;gap:8px}
+.btn-dark-alp:hover{background:var(--charcoal);border-color:var(--charcoal);transform:translateY(-2px);color:#fff!important}
+
+/* ============================================================
+   S1 — SERVICES INTRO / OVERVIEW STRIP
+   ============================================================ */
+.svc-overview-strip{background:var(--dark);padding:54px 0}
+.sov-item{text-align:center;padding:10px 20px;border-right:1px solid rgba(255,255,255,.08);transition:var(--tr)}
+.sov-item:last-child{border-right:none}
+.sov-item:hover{background:rgba(192,57,43,.12)}
+.sov-icon{font-size:2rem;color:var(--red-light);margin-bottom:12px}
+.sov-title{font-family:var(--fh);font-size:1rem;font-weight:700;color:#fff;margin-bottom:4px}
+.sov-desc{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.5}
+
+/* ============================================================
+   S2 — FLAGSHIP SERVICE: STAFFING / RECRUITMENT
+   ============================================================ */
+.flagship-section{background:#fff}
+.flagship-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(90deg,var(--red),var(--red-dark));
+  color:#fff;font-size:.72rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:6px 18px;border-radius:2px;
+  margin-bottom:18px;
+}
+.flagship-badge i{font-size:.9rem}
+.feature-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.feature-list li{display:flex;align-items:flex-start;gap:12px;font-size:.93rem;color:#444;line-height:1.65}
+.feature-list li i{color:var(--red);flex-shrink:0;margin-top:3px;font-size:.9rem}
+.flagship-img-wrap{position:relative}
+.flagship-img{border-radius:var(--rl);overflow:hidden;box-shadow:var(--sl)}
+.flagship-img img{width:100%;height:460px;object-fit:cover;transition:transform .6s ease}
+.flagship-img:hover img{transform:scale(1.04)}
+.flagship-stat-card{
+  position:absolute;bottom:-20px;left:-20px;
+  background:var(--dark);color:#fff;
+  border-radius:var(--rl);padding:20px 24px;
+  box-shadow:var(--sm);min-width:160px;text-align:center;
+}
+.fsc-num{font-family:var(--fh);font-size:2.6rem;font-weight:700;color:var(--red-light);line-height:1}
+.fsc-label{font-size:.78rem;color:rgba(255,255,255,.6);margin-top:4px}
+.process-steps{margin-top:32px}
+.process-steps h5{font-family:var(--fh);font-size:1.05rem;color:var(--dark);margin-bottom:16px}
+.step-row{display:flex;gap:0;flex-wrap:wrap}
+.step-item{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  flex:1;min-width:80px;position:relative;padding:0 8px;
+}
+.step-item::after{
+  content:'';position:absolute;top:18px;right:-1px;
+  width:50%;height:2px;background:var(--light-gray);z-index:0
+}
+.step-item::before{
+  content:'';position:absolute;top:18px;left:-1px;
+  width:50%;height:2px;background:var(--light-gray);z-index:0
+}
+.step-item:first-child::before,.step-item:last-child::after{display:none}
+.step-num{
+  width:38px;height:38px;background:var(--red);color:#fff;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:.82rem;font-weight:700;margin-bottom:8px;position:relative;z-index:1;
+  flex-shrink:0;
+}
+.step-label{font-size:.75rem;color:#666;line-height:1.4}
+
+/* ============================================================
+   S3 — HR SOLUTIONS
+   ============================================================ */
+.hr-section{background:var(--off-white)}
+.hr-card{
+  background:#fff;border-radius:var(--rl);padding:28px 24px;
+  height:100%;box-shadow:var(--sh);transition:var(--tr);
+  border-top:3px solid transparent;position:relative;overflow:hidden;
+}
+.hr-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(192,57,43,0) 60%,rgba(192,57,43,.04) 100%);
+  transition:var(--tr);
+}
+.hr-card:hover{border-top-color:var(--red);box-shadow:var(--sl);transform:translateY(-6px)}
+.hr-card:hover::before{background:linear-gradient(135deg,rgba(192,57,43,0) 40%,rgba(192,57,43,.07) 100%)}
+.hrc-icon{
+  width:56px;height:56px;background:rgba(192,57,43,.1);color:var(--red);
+  border-radius:var(--r);display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:16px;transition:var(--tr);
+}
+.hr-card:hover .hrc-icon{background:var(--red);color:#fff;transform:rotate(-5deg) scale(1.1)}
+.hrc-title{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:8px}
+.hrc-text{font-size:.87rem;color:#666;line-height:1.75;margin:0}
+.hrc-num{position:absolute;top:14px;right:16px;font-family:var(--fh);font-size:3.2rem;font-weight:700;color:rgba(0,0,0,.04);line-height:1}
+
+/* ============================================================
+   S4 — BUSINESS DEVELOPMENT CONSULTING
+   ============================================================ */
+.bizdev-section{background:#fff}
+.bizdev-img{border-radius:var(--rl);overflow:hidden;box-shadow:var(--sm)}
+.bizdev-img img{width:100%;height:100%;min-height:420px;object-fit:cover;transition:transform .6s}
+.bizdev-img:hover img{transform:scale(1.04)}
+.bizdev-pillars{display:flex;flex-direction:column;gap:16px;margin-top:24px}
+.bdp-item{
+  display:flex;align-items:flex-start;gap:16px;
+  background:var(--off-white);padding:18px 20px;
+  border-radius:var(--rl);transition:var(--tr);border-left:3px solid transparent;
+}
+.bdp-item:hover{border-left-color:var(--red);box-shadow:var(--sh);transform:translateX(6px)}
+.bdp-icon{
+  width:44px;height:44px;background:rgba(192,57,43,.1);color:var(--red);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;transition:var(--tr);
+}
+.bdp-item:hover .bdp-icon{background:var(--red);color:#fff}
+.bdp-item h6{font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:3px}
+.bdp-item p{font-size:.84rem;color:#666;margin:0;line-height:1.6}
+
+/* ============================================================
+   S5 — CAREER COUNSELING & TRAINING
+   ============================================================ */
+.career-section{background:var(--off-white)}
+.career-tabs .nav-pills{gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.career-tabs .nav-link{
+  background:var(--light-gray);color:var(--charcoal);
+  border-radius:var(--r)!important;padding:10px 20px;
+  font-size:.85rem;font-weight:600;transition:var(--tr);border:none;
+}
+.career-tabs .nav-link.active,.career-tabs .nav-link:hover{background:var(--red);color:#fff}
+.career-tab-pane{display:none}
+.career-tab-pane.active{display:block;animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.career-pane-img{border-radius:var(--rl);overflow:hidden;box-shadow:var(--sm);margin-bottom:20px}
+.career-pane-img img{width:100%;height:220px;object-fit:cover;transition:transform .5s}
+.career-pane-img:hover img{transform:scale(1.04)}
+.career-pane-body h4{font-family:var(--fh);font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:10px}
+.career-pane-body p{font-size:.9rem;color:#555;line-height:1.8;margin-bottom:14px}
+.career-pane-body ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.career-pane-body li{display:flex;align-items:flex-start;gap:8px;font-size:.87rem;color:#444}
+.career-pane-body li i{color:var(--red);flex-shrink:0;margin-top:3px}
+.audience-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.aud-tag{background:rgba(192,57,43,.1);color:var(--red);font-size:.78rem;font-weight:600;padding:5px 14px;border-radius:20px;border:1px solid rgba(192,57,43,.2)}
+
+/* ============================================================
+   S6 — LEGAL SOLUTIONS
+   ============================================================ */
+.legal-section{background:#fff}
+.legal-hero-card{
+  background:var(--dark);border-radius:var(--rl);overflow:hidden;
+  position:relative;padding:44px 40px;
+}
+.legal-hero-card::before{
+  content:'';position:absolute;top:-80px;right:-80px;
+  width:280px;height:280px;background:rgba(192,57,43,.1);border-radius:50%;
+}
+.legal-hero-card::after{
+  content:'';position:absolute;bottom:-60px;left:-60px;
+  width:200px;height:200px;background:rgba(192,57,43,.06);border-radius:50%;
+}
+.lhc-content{position:relative;z-index:1}
+.lhc-icon{
+  width:68px;height:68px;background:rgba(192,57,43,.2);color:var(--red-light);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;margin-bottom:20px;
+}
+.lhc-title{font-family:var(--fh);font-size:1.7rem;font-weight:700;color:#fff;margin-bottom:12px}
+.lhc-text{font-size:.93rem;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:20px}
+.legal-service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
+.lsg-item{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;gap:10px;
+  transition:var(--tr);
+}
+.lsg-item:hover{background:rgba(192,57,43,.2);border-color:var(--red)}
+.lsg-item i{color:var(--red-light);font-size:1rem;flex-shrink:0}
+.lsg-item span{color:rgba(255,255,255,.8);font-size:.84rem;font-weight:500}
+
+.legal-stats{display:flex;flex-direction:column;gap:20px}
+.lstat-item{
+  background:var(--off-white);border-radius:var(--rl);padding:24px;
+  display:flex;align-items:center;gap:18px;transition:var(--tr);
+  border-left:3px solid transparent;
+}
+.lstat-item:hover{border-left-color:var(--red);box-shadow:var(--sm);transform:translateX(5px)}
+.lstat-icon{
+  width:52px;height:52px;background:var(--red);color:#fff;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;flex-shrink:0;
+}
+.lstat-num{font-family:var(--fh);font-size:2rem;font-weight:700;color:var(--dark);line-height:1}
+.lstat-label{font-size:.82rem;color:#666;margin-top:3px}
+
+/* ============================================================
+   S7 — IT SERVICES
+   ============================================================ */
+.it-section{background:var(--dark)}
+.it-section .section-heading{color:#fff}
+.it-section .section-text{color:rgba(255,255,255,.7)}
+.it-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--rl);padding:28px 24px;height:100%;
+  transition:var(--tr);text-align:center;
+}
+.it-card:hover{background:rgba(192,57,43,.15);border-color:var(--red);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.it-icon{
+  width:68px;height:68px;background:rgba(192,57,43,.2);color:var(--red-light);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;margin:0 auto 18px;transition:var(--tr);
+}
+.it-card:hover .it-icon{background:var(--red);color:#fff}
+.it-card h5{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:10px}
+.it-card p{font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.75;margin:0}
+
+/* ============================================================
+   S8 — SERVICE COMPARISON TABLE
+   ============================================================ */
+.comparison-section{background:var(--off-white)}
+.comp-table-wrap{border-radius:var(--rl);overflow:hidden;box-shadow:var(--sm)}
+.comp-table{width:100%;border-collapse:collapse;background:#fff}
+.comp-table thead th{
+  background:var(--dark);color:#fff;font-family:var(--fh);
+  font-size:.9rem;font-weight:700;padding:18px 20px;
+  text-align:center;border:none;
+}
+.comp-table thead th:first-child{text-align:left;background:var(--charcoal)}
+.comp-table thead th.highlight{background:var(--red)}
+.comp-table tbody tr{border-bottom:1px solid var(--light-gray);transition:var(--tr)}
+.comp-table tbody tr:last-child{border-bottom:none}
+.comp-table tbody tr:hover{background:rgba(192,57,43,.04)}
+.comp-table tbody td{padding:14px 20px;font-size:.88rem;color:var(--charcoal);text-align:center;vertical-align:middle}
+.comp-table tbody td:first-child{text-align:left;font-weight:600;color:var(--dark);background:rgba(0,0,0,.02)}
+.comp-table tbody td.highlight{background:rgba(192,57,43,.06)}
+.ct-yes{color:#27ae60;font-size:1.1rem}
+.ct-no{color:#bbb;font-size:1.1rem}
+.ct-partial{color:#f39c12;font-size:1.1rem}
+
+/* ============================================================
+   S9 — WHY CHOOSE US (service page version)
+   ============================================================ */
+.why-svc-section{background:#fff}
+.why-svc-card{
+  background:var(--off-white);border-radius:var(--rl);
+  padding:32px 28px;height:100%;text-align:center;
+  transition:var(--tr);border-bottom:3px solid transparent;
+  position:relative;overflow:hidden;
+}
+.why-svc-card:hover{border-bottom-color:var(--red);box-shadow:var(--sl);transform:translateY(-6px)}
+.why-svc-card-dark{background:var(--dark)}
+.why-svc-card-dark h5,.why-svc-card-dark p{color:rgba(255,255,255,.85)}
+.wsc-num{position:absolute;top:14px;right:18px;font-family:var(--fh);font-size:4rem;font-weight:700;color:rgba(0,0,0,.04);line-height:1}
+.why-svc-card-dark .wsc-num{color:rgba(255,255,255,.05)}
+.wsc-icon{
+  width:64px;height:64px;background:rgba(192,57,43,.1);color:var(--red);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;margin:0 auto 18px;transition:var(--tr);
+}
+.why-svc-card:hover .wsc-icon,.why-svc-card-dark .wsc-icon{background:var(--red);color:#fff}
+.why-svc-card h5{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:10px}
+.why-svc-card p{font-size:.88rem;color:#666;line-height:1.75;margin:0}
+
+/* ============================================================
+   INDUSTRIES SERVED MARQUEE
+   ============================================================ */
+.industries-section{background:var(--dark);overflow:hidden;padding:40px 0}
+.ind-label{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);text-align:center;margin-bottom:20px}
+.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 30s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ind-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.75);font-size:.82rem;font-weight:500;
+  padding:10px 22px;border-radius:30px;white-space:nowrap;margin-right:12px;
+  transition:var(--tr);flex-shrink:0;
+}
+.ind-pill i{color:var(--red-light);font-size:.9rem}
+.marquee-track:hover .ind-pill:hover{background:rgba(192,57,43,.2);border-color:var(--red);color:#fff}
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+.cta-full{
+  position:relative;padding:100px 0;
+  background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=60') center/cover no-repeat;
+}
+.cta-full-overlay{position:absolute;inset:0;background:rgba(26,26,46,.92)}
+.cta-full-content{position:relative;z-index:2;text-align:center}
+.cta-full h2{font-family:var(--fh);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:#fff;margin-bottom:14px}
+.cta-full p{font-size:1rem;color:rgba(255,255,255,.72);max-width:560px;margin:0 auto 32px;line-height:1.8}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer.site-footer{background:var(--dark-2,#16213e)}
+.footer-text{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.8}
+.ftr-heading{color:#fff;font-family:var(--fh);font-size:1rem;font-weight:700;margin-bottom:18px;position:relative;padding-bottom:10px}
+.ftr-heading::after{content:'';position:absolute;bottom:0;left:0;width:30px;height:2px;background:var(--red)}
+.ftr-links{list-style:none;padding:0;margin:0}
+.ftr-links li{padding:5px 0}
+.ftr-links a{color:rgba(255,255,255,.55);font-size:.86rem;transition:var(--tr);display:flex;align-items:center;gap:6px}
+.ftr-links a::before{content:'›';color:var(--red);font-size:1.1rem}
+.ftr-links a:hover{color:var(--red-light);padding-left:4px}
+.ftr-contact{list-style:none;padding:0;margin:0}
+.ftr-contact li{padding:7px 0;color:rgba(255,255,255,.55);font-size:.86rem;display:flex;gap:12px;align-items:flex-start}
+.ftr-contact li i{color:var(--red);flex-shrink:0;margin-top:3px}
+.ftr-contact a{color:rgba(255,255,255,.55);transition:var(--tr)}
+.ftr-contact a:hover{color:var(--red-light)}
+.ftr-social a{width:34px;height:34px;background:rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.82rem;transition:var(--tr)}
+.ftr-social a:hover{background:var(--red);color:#fff;transform:translateY(-2px)}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;margin-top:10px}
+.ftr-bottom p{margin:0;font-size:.82rem;color:rgba(255,255,255,.4)}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.btt{position:fixed;bottom:30px;right:30px;width:46px;height:46px;background:var(--red);color:#fff;border:none;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(192,57,43,.4);opacity:0;visibility:hidden;transition:var(--tr);z-index:9999}
+.btt.visible{opacity:1;visibility:visible}
+.btt:hover{background:var(--red-dark);transform:translateY(-3px)}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.fi-up,.fi-left,.fi-right{opacity:0;transition:opacity .65s ease,transform .65s ease}
+.fi-up{transform:translateY(32px)}
+.fi-left{transform:translateX(-40px)}
+.fi-right{transform:translateX(40px)}
+.fi-up.on,.fi-left.on,.fi-right.on{opacity:1;transform:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:991.98px){
+  .flagship-stat-card{position:static;margin-top:20px;display:inline-block}
+  .flagship-img img{height:340px}
+  .bizdev-img img{min-height:280px}
+  .legal-service-grid{grid-template-columns:1fr}
+  .comp-table{font-size:.82rem}
+  .comp-table thead th,.comp-table tbody td{padding:12px 14px}
+}
+@media(max-width:767.98px){
+  .sp{padding:64px 0}
+  .page-hero{min-height:260px;padding:60px 0 50px}
+  .page-hero-title{font-size:2rem}
+  .svc-nav{top:60px}
+  .sov-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
+  .sov-item:last-child{border-bottom:none}
+  .legal-hero-card{padding:28px 22px}
+  .legal-service-grid{grid-template-columns:1fr}
+  .comp-table-wrap{overflow-x:auto}
+  .comp-table{min-width:600px}
+  .step-label{font-size:.7rem}
+  .cta-btns{flex-direction:column;align-items:center}
+}
+@media(max-width:575.98px){
+  .flagship-img img{height:260px}
+  .svc-tab{padding:14px 14px;font-size:.78rem}
+  .service-checks{grid-template-columns:1fr}
+}
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div class="top-contact d-flex gap-3 flex-wrap">
+        <a href="tel:+919999999999"><i class="fas fa-phone-alt me-1"></i>+91-99999 99999</a>
+        <a href="mailto:info@alpgroupindia.com"><i class="fas fa-envelope me-1"></i>info@alpgroupindia.com</a>
+      </div>
+      <div class="top-social d-flex gap-2">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top main-navbar" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <div class="brand-logo"><span class="logo-alp">ALP</span><span class="logo-sub">GROUP</span></div>
+      <div class="ms-1">
+        <div class="brand-name-txt">ALP Group India</div>
+        <div class="brand-tagline">HR | Consulting | Legal</div>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="./about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link active" href="./services.html">Services</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="index.html#why">Why Choose Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#vision">Vision</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#leadership">Leadership</a></li> -->
+        <li class="nav-item"><a class="nav-link nav-cta" href="./contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-overlay"></div>
+  <div class="container position-relative">
+    <div class="page-hero-content fi-up">
+      <h1 class="page-hero-title">Our <span class="text-accent">Services</span></h1>
+      <p class="page-hero-sub">End-to-end solutions in Staffing, HR, Legal, Business Development & IT — tailored for Infrastructure &amp; Construction.</p>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb page-breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+          <li class="breadcrumb-item active">Services</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="hero-scroll"><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- SERVICE NAV TABS -->
+<div class="svc-nav" id="svcNav">
+  <div class="container">
+    <div class="svc-nav-inner">
+      <a href="#staffing" class="svc-tab active" data-target="staffing"><i class="fas fa-users-cog"></i>Staffing &amp; Recruitment</a>
+      <a href="#hr" class="svc-tab" data-target="hr"><i class="fas fa-sitemap"></i>HR Solutions</a>
+      <a href="#bizdev" class="svc-tab" data-target="bizdev"><i class="fas fa-chart-line"></i>Business Development</a>
+      <a href="#career" class="svc-tab" data-target="career"><i class="fas fa-graduation-cap"></i>Career &amp; Training</a>
+      <a href="#legal" class="svc-tab" data-target="legal"><i class="fas fa-balance-scale"></i>Legal Solutions</a>
+      <a href="#it" class="svc-tab" data-target="it"><i class="fas fa-laptop-code"></i>IT Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW STRIP -->
+<section class="svc-overview-strip fi-up">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-6 col-md-4 col-lg-2 fi-up"><div class="sov-item"><div class="sov-icon"><i class="fas fa-users-cog"></i></div><div class="sov-title">Staffing</div><div class="sov-desc">Flagship Service</div></div></div>
+      <div class="col-6 col-md-4 col-lg-2 fi-up" style="transition-delay:.06s"><div class="sov-item"><div class="sov-icon"><i class="fas fa-sitemap"></i></div><div class="sov-title">HR Solutions</div><div class="sov-desc">End-to-End HR</div></div></div>
+      <div class="col-6 col-md-4 col-lg-2 fi-up" style="transition-delay:.12s"><div class="sov-item"><div class="sov-icon"><i class="fas fa-chart-line"></i></div><div class="sov-title">Biz Dev</div><div class="sov-desc">Growth Strategy</div></div></div>
+      <div class="col-6 col-md-4 col-lg-2 fi-up" style="transition-delay:.18s"><div class="sov-item"><div class="sov-icon"><i class="fas fa-graduation-cap"></i></div><div class="sov-title">Training</div><div class="sov-desc">Career Counseling</div></div></div>
+      <div class="col-6 col-md-4 col-lg-2 fi-up" style="transition-delay:.24s"><div class="sov-item"><div class="sov-icon"><i class="fas fa-balance-scale"></i></div><div class="sov-title">Legal</div><div class="sov-desc">Compliance &amp; Law</div></div></div>
+      <div class="col-6 col-md-4 col-lg-2 fi-up" style="transition-delay:.30s"><div class="sov-item"><div class="sov-icon"><i class="fas fa-laptop-code"></i></div><div class="sov-title">IT Services</div><div class="sov-desc">Tech Consulting</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     S1: STAFFING / RECRUITMENT (FLAGSHIP)
+     =================================================== -->
+<section id="staffing" class="flagship-section sp">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+
+      <div class="col-lg-6 fi-left">
+        <div class="flagship-badge"><i class="fas fa-star"></i> Primary &amp; Flagship Service</div>
+        <div class="section-label">Service 01</div>
+        <h2 class="section-heading">Staffing &amp; <span class="text-accent">Recruitment Solutions</span></h2>
+        <div class="red-divider"></div>
+        <p class="section-text mt-3">Our core competency. We help organisations bridge talent gaps by attracting, evaluating, and placing the right professionals at the right time. Backed by a dynamic in-house team and a wide network of independent recruitment experts, we consistently deliver quality talent — faster and more cost-effectively than conventional methods.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i><span><strong>Executive &amp; Senior-Level Recruitment</strong> — C-suite, VP, GM, and DGM-level talent for infrastructure and construction leadership roles</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong>Mid-Level &amp; Technical Hiring</strong> — Site engineers, project managers, quantity surveyors, and domain specialists</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong>Mass Hiring &amp; Project Staffing</strong> — Large-scale manpower mobilization for time-bound infrastructure projects</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong>Contract, Temp &amp; Permanent Placement</strong> — Flexible engagement models tailored to project lifecycle needs</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong>Outplacement &amp; Campus Recruitment</strong> — Graduate-level intake and structured transition programs</span></li>
+        </ul>
+
+        <div class="process-steps mt-4">
+          <h5>Our Recruitment Process</h5>
+          <div class="step-row">
+            <div class="step-item"><div class="step-num">1</div><div class="step-label">Understand Brief</div></div>
+            <div class="step-item"><div class="step-num">2</div><div class="step-label">Talent Search</div></div>
+            <div class="step-item"><div class="step-num">3</div><div class="step-label">Screen &amp; Assess</div></div>
+            <div class="step-item"><div class="step-num">4</div><div class="step-label">Client Interview</div></div>
+            <div class="step-item"><div class="step-num">5</div><div class="step-label">Offer &amp; Onboard</div></div>
+          </div>
+        </div>
+
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          <a href="contact.html" class="btn-primary-alp"><i class="fas fa-paper-plane"></i>Request Staffing</a>
+          <a href="contact.html" class="btn-outline-alp"><i class="fas fa-phone-alt"></i>Speak to Advisor</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 fi-right">
+        <div class="flagship-img-wrap">
+          <div class="flagship-img">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&q=80" alt="Staffing &amp; Recruitment"/>
+          </div>
+          <div class="flagship-stat-card">
+            <div class="fsc-num">500+</div>
+            <div class="fsc-label">Successful Placements</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     S2: HR SOLUTIONS
+     =================================================== -->
+<section id="hr" class="hr-section sp">
+  <div class="container">
+    <div class="text-center mb-5 fi-up">
+      <div class="section-label">Service 02</div>
+      <h2 class="section-heading">HR <span class="text-accent">Solutions</span></h2>
+      <div class="red-divider center"></div>
+      <p class="section-sub mt-3">Comprehensive HR consulting services that build robust people systems, streamline compliance, and enable your organisation to scale with confidence.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 fi-up">
+        <div class="hr-card h-100">
+          <div class="hrc-num">01</div>
+          <div class="hrc-icon"><i class="fas fa-file-alt"></i></div>
+          <div class="hrc-title">HR Policy Design</div>
+          <p class="hrc-text">Crafting comprehensive HR policies, employee handbooks, and governance frameworks aligned with Indian labour law and your organisational culture.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.07s">
+        <div class="hr-card h-100">
+          <div class="hrc-num">02</div>
+          <div class="hrc-icon"><i class="fas fa-users"></i></div>
+          <div class="hrc-title">HR Shared Services</div>
+          <p class="hrc-text">End-to-end HR operations support including payroll advisory, HRIS setup, attendance management, and HR administration outsourcing.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.14s">
+        <div class="hr-card h-100">
+          <div class="hrc-num">03</div>
+          <div class="hrc-icon"><i class="fas fa-chart-bar"></i></div>
+          <div class="hrc-title">Workforce Planning</div>
+          <p class="hrc-text">Strategic headcount planning, skill gap analysis, and succession planning to future-proof your workforce against project and business demands.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.21s">
+        <div class="hr-card h-100">
+          <div class="hrc-num">04</div>
+          <div class="hrc-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="hrc-title">Compliance Management</div>
+          <p class="hrc-text">Ensuring full statutory compliance under EPF, ESIC, Gratuity Act, Contract Labour Act, and other applicable regulations for construction firms.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.28s">
+        <div class="hr-card h-100">
+          <div class="hrc-num">05</div>
+          <div class="hrc-icon"><i class="fas fa-star"></i></div>
+          <div class="hrc-title">Performance Management</div>
+          <p class="hrc-text">Designing KPI frameworks, performance appraisal systems, reward &amp; recognition programs, and employee engagement initiatives.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.35s">
+        <div class="hr-card h-100">
+          <div class="hrc-num">06</div>
+          <div class="hrc-icon"><i class="fas fa-handshake"></i></div>
+          <div class="hrc-title">Employee Relations</div>
+          <p class="hrc-text">Managing workplace grievances, disciplinary procedures, POSH compliance, and building a healthy, productive organisational culture.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5 fi-up">
+      <a href="contact.html" class="btn-primary-alp"><i class="fas fa-paper-plane"></i>Enquire About HR Solutions</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     S3: BUSINESS DEVELOPMENT CONSULTING
+     =================================================== -->
+<section id="bizdev" class="bizdev-section sp">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+
+      <div class="col-lg-5 fi-left">
+        <div class="bizdev-img h-100">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Business Development"/>
+        </div>
+      </div>
+
+      <div class="col-lg-7 fi-right">
+        <div class="section-label">Service 03</div>
+        <h2 class="section-heading">Business Development <span class="text-accent">Consulting</span></h2>
+        <div class="red-divider"></div>
+        <p class="section-text mt-3">Strategic consulting that accelerates growth, builds valuable market relationships, and streamlines how your organisation captures and converts new business opportunities — particularly within the competitive infrastructure and construction landscape.</p>
+
+        <div class="bizdev-pillars">
+          <div class="bdp-item">
+            <div class="bdp-icon"><i class="fas fa-search"></i></div>
+            <div>
+              <h6>Market Research &amp; Opportunity Mapping</h6>
+              <p>Identifying viable tenders, project pipelines, and emerging opportunities in the infrastructure and construction space.</p>
+            </div>
+          </div>
+          <div class="bdp-item">
+            <div class="bdp-icon"><i class="fas fa-handshake"></i></div>
+            <div>
+              <h6>Partnership &amp; Alliance Building</h6>
+              <p>Facilitating strategic tie-ups with contractors, consultants, and government bodies to expand project reach.</p>
+            </div>
+          </div>
+          <div class="bdp-item">
+            <div class="bdp-icon"><i class="fas fa-file-contract"></i></div>
+            <div>
+              <h6>Proposal &amp; Bid Management</h6>
+              <p>End-to-end support for preparing competitive bids, technical proposals, and pre-qualification documents.</p>
+            </div>
+          </div>
+          <div class="bdp-item">
+            <div class="bdp-icon"><i class="fas fa-bullseye"></i></div>
+            <div>
+              <h6>Sales Strategy &amp; Key Account Management</h6>
+              <p>Developing structured sales pipelines, account development plans, and client retention frameworks.</p>
+            </div>
+          </div>
+          <div class="bdp-item">
+            <div class="bdp-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+              <h6>Business Process Optimisation</h6>
+              <p>Streamlining workflows, removing operational bottlenecks, and improving efficiency across business units.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="contact.html" class="btn-primary-alp mt-4"><i class="fas fa-paper-plane"></i>Request Consultation</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     S4: CAREER COUNSELING & TRAINING
+     =================================================== -->
+<section id="career" class="career-section sp">
+  <div class="container">
+    <div class="text-center mb-5 fi-up">
+      <div class="section-label">Service 04</div>
+      <h2 class="section-heading">Career Counseling &amp; <span class="text-accent">Training Services</span></h2>
+      <div class="red-divider center"></div>
+      <p class="section-sub mt-3">Empowering individuals and organisations through structured career guidance, skill development, and corporate training programs.</p>
+    </div>
+
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-4 fi-left">
+        <div class="career-tabs">
+          <ul class="nav nav-pills flex-column gap-2" id="careerTabList" role="tablist">
+            <li class="nav-item"><button class="nav-link active w-100 text-start" id="t1" data-tab="cp1"><i class="fas fa-user-graduate me-2"></i>Career Counseling</button></li>
+            <li class="nav-item"><button class="nav-link w-100 text-start" id="t2" data-tab="cp2"><i class="fas fa-chalkboard-teacher me-2"></i>Corporate Training</button></li>
+            <li class="nav-item"><button class="nav-link w-100 text-start" id="t3" data-tab="cp3"><i class="fas fa-tools me-2"></i>Skill Development</button></li>
+            <li class="nav-item"><button class="nav-link w-100 text-start" id="t4" data-tab="cp4"><i class="fas fa-briefcase me-2"></i>Placement Support</button></li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <a href="contact.html" class="btn-primary-alp w-100 justify-content-center"><i class="fas fa-paper-plane"></i>Enrol Now</a>
+        </div>
+      </div>
+
+      <div class="col-lg-8 fi-right">
+
+        <div class="career-tab-pane active" id="cp1">
+          <div class="career-pane-img"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80" alt="Career Counseling"/></div>
+          <div class="career-pane-body">
+            <h4>Professional Career Counseling</h4>
+            <p>One-on-one and group career counseling sessions that help individuals identify their strengths, map career trajectories, and make informed decisions about professional advancement.</p>
+            <ul>
+              <li><i class="fas fa-check-circle"></i>Career assessment and personality profiling</li>
+              <li><i class="fas fa-check-circle"></i>Goal-setting and career roadmap creation</li>
+              <li><i class="fas fa-check-circle"></i>Interview preparation and CV review</li>
+              <li><i class="fas fa-check-circle"></i>Industry-specific career guidance (Infrastructure, Construction, IT, Legal)</li>
+              <li><i class="fas fa-check-circle"></i>Mid-career transition support</li>
+            </ul>
+            <div class="audience-tags mt-3">
+              <span class="aud-tag">Fresh Graduates</span>
+              <span class="aud-tag">Mid-Career Professionals</span>
+              <span class="aud-tag">Senior Executives</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="career-tab-pane" id="cp2">
+          <div class="career-pane-img"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=700&q=80" alt="Corporate Training"/></div>
+          <div class="career-pane-body">
+            <h4>Corporate Training Programs</h4>
+            <p>Customised training programs designed for organisational teams — from frontline workers to senior management — addressing functional, behavioural, and leadership competencies.</p>
+            <ul>
+              <li><i class="fas fa-check-circle"></i>Leadership &amp; Management Development</li>
+              <li><i class="fas fa-check-circle"></i>HR &amp; People Management for Line Managers</li>
+              <li><i class="fas fa-check-circle"></i>Workplace Communication &amp; Soft Skills</li>
+              <li><i class="fas fa-check-circle"></i>Labour Law &amp; Statutory Compliance awareness</li>
+              <li><i class="fas fa-check-circle"></i>Safety, Health &amp; Environment (SHE) Orientation</li>
+            </ul>
+            <div class="audience-tags mt-3">
+              <span class="aud-tag">Management Teams</span>
+              <span class="aud-tag">Project Teams</span>
+              <span class="aud-tag">Field Supervisors</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="career-tab-pane" id="cp3">
+          <div class="career-pane-img"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700&q=80" alt="Skill Development"/></div>
+          <div class="career-pane-body">
+            <h4>Skill Development &amp; Up-Skilling</h4>
+            <p>Structured skill-building programs aligned with industry demands, helping individuals remain competitive and organisations maintain a high-performance workforce.</p>
+            <ul>
+              <li><i class="fas fa-check-circle"></i>Technical skills for Infrastructure &amp; Civil Engineering roles</li>
+              <li><i class="fas fa-check-circle"></i>Project Management certifications guidance (PMP, PRINCE2)</li>
+              <li><i class="fas fa-check-circle"></i>MS Office, AutoCAD, and project software training</li>
+              <li><i class="fas fa-check-circle"></i>Digital literacy and workplace technology adoption</li>
+              <li><i class="fas fa-check-circle"></i>Business writing and professional communication</li>
+            </ul>
+            <div class="audience-tags mt-3">
+              <span class="aud-tag">Engineers</span>
+              <span class="aud-tag">Site Supervisors</span>
+              <span class="aud-tag">Admin Staff</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="career-tab-pane" id="cp4">
+          <div class="career-pane-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80" alt="Placement Support"/></div>
+          <div class="career-pane-body">
+            <h4>Placement Assistance &amp; Job Support</h4>
+            <p>End-to-end placement support services connecting job-ready candidates with the right employers — backed by our extensive network in the Infrastructure and Construction sector.</p>
+            <ul>
+              <li><i class="fas fa-check-circle"></i>Resume building and LinkedIn profile optimisation</li>
+              <li><i class="fas fa-check-circle"></i>Mock interview sessions with expert feedback</li>
+              <li><i class="fas fa-check-circle"></i>Job matching through our recruitment database</li>
+              <li><i class="fas fa-check-circle"></i>Salary negotiation coaching</li>
+              <li><i class="fas fa-check-circle"></i>Post-placement follow-up and onboarding support</li>
+            </ul>
+            <div class="audience-tags mt-3">
+              <span class="aud-tag">Job Seekers</span>
+              <span class="aud-tag">Career Changers</span>
+              <span class="aud-tag">Re-entrants</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     S5: LEGAL SOLUTIONS
+     =================================================== -->
+<section id="legal" class="legal-section sp">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <div class="col-lg-7 fi-left">
+        <div class="legal-hero-card">
+          <div class="lhc-content">
+            <div class="lhc-icon"><i class="fas fa-balance-scale"></i></div>
+            <div class="section-label" style="color:rgba(255,255,255,.5)">Service 05</div>
+            <div class="lhc-title">Comprehensive Legal Solutions</div>
+            <p class="lhc-text">Backed by a reputed full-service law firm, ALP Group India provides end-to-end legal advisory services focused on HR compliance, contract management, and labour law — ensuring your organisation stays protected, compliant, and litigation-free.</p>
+            <div class="legal-service-grid">
+              <div class="lsg-item"><i class="fas fa-file-contract"></i><span>Contract Drafting &amp; Review</span></div>
+              <div class="lsg-item"><i class="fas fa-gavel"></i><span>Labour Law Advisory</span></div>
+              <div class="lsg-item"><i class="fas fa-shield-alt"></i><span>HR Compliance Audit</span></div>
+              <div class="lsg-item"><i class="fas fa-users"></i><span>Employment Agreements</span></div>
+              <div class="lsg-item"><i class="fas fa-building"></i><span>Contract Labour Compliance</span></div>
+              <div class="lsg-item"><i class="fas fa-exclamation-triangle"></i><span>Dispute Resolution</span></div>
+              <div class="lsg-item"><i class="fas fa-female"></i><span>POSH Compliance</span></div>
+              <div class="lsg-item"><i class="fas fa-clipboard-check"></i><span>Statutory Registrations</span></div>
+            </div>
+            <a href="contact.html" class="btn-primary-alp mt-4"><i class="fas fa-paper-plane"></i>Legal Inquiry</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 fi-right">
+        <div class="section-label">Why Legal Matters</div>
+        <h2 class="section-heading">Stay <span class="text-accent">Compliant,</span><br>Stay Protected</h2>
+        <div class="red-divider"></div>
+        <p class="section-text mt-3">Infrastructure and construction companies face complex legal landscapes — from contract disputes and labour law compliance to statutory registrations and employment litigation. Our legal team handles it all.</p>
+
+        <div class="legal-stats mt-4">
+          <div class="lstat-item">
+            <div class="lstat-icon"><i class="fas fa-file-contract"></i></div>
+            <div>
+              <div class="lstat-num">200+</div>
+              <div class="lstat-label">Contracts Reviewed &amp; Drafted</div>
+            </div>
+          </div>
+          <div class="lstat-item">
+            <div class="lstat-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <div class="lstat-num">100%</div>
+              <div class="lstat-label">Compliance Success Rate</div>
+            </div>
+          </div>
+          <div class="lstat-item">
+            <div class="lstat-icon"><i class="fas fa-gavel"></i></div>
+            <div>
+              <div class="lstat-num">15+</div>
+              <div class="lstat-label">Labour Law Acts Covered</div>
+            </div>
+          </div>
+          <div class="lstat-item">
+            <div class="lstat-icon"><i class="fas fa-handshake"></i></div>
+            <div>
+              <div class="lstat-num">Full‑Service</div>
+              <div class="lstat-label">Law Firm Partnership Backing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     S6: IT SERVICES
+     =================================================== -->
+<section id="it" class="it-section sp">
+  <div class="container">
+    <div class="text-center mb-5 fi-up">
+      <div class="section-label" style="color:var(--red-light)">Service 06</div>
+      <h2 class="section-heading" style="color:#fff">IT <span class="text-accent">Services</span></h2>
+      <div class="red-divider center"></div>
+      <p class="section-sub mt-3" style="color:rgba(255,255,255,.6)">Technology consulting and IT staffing solutions to support your digital transformation journey and technical project requirements.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 fi-up">
+        <div class="it-card">
+          <div class="it-icon"><i class="fas fa-users-cog"></i></div>
+          <h5>IT Staffing &amp; Talent</h5>
+          <p>Sourcing and placing skilled IT professionals — developers, architects, data analysts, and project managers — for both contract and permanent roles.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.07s">
+        <div class="it-card">
+          <div class="it-icon"><i class="fas fa-project-diagram"></i></div>
+          <h5>HRIS Implementation Support</h5>
+          <p>Assisting organisations in selecting, configuring, and implementing HR information systems (HRIS) and payroll platforms suited to their scale.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.14s">
+        <div class="it-card">
+          <div class="it-icon"><i class="fas fa-digital-tachograph"></i></div>
+          <h5>Digital Transformation Advisory</h5>
+          <p>Guiding organisations through technology adoption — from automation of HR workflows to digital document management and ERP integration.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.21s">
+        <div class="it-card">
+          <div class="it-icon"><i class="fas fa-laptop-code"></i></div>
+          <h5>Software &amp; Tools Training</h5>
+          <p>Training teams on industry-relevant software: MS Project, AutoCAD, ERP platforms, project management tools, and productivity suites.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.28s">
+        <div class="it-card">
+          <div class="it-icon"><i class="fas fa-shield-alt"></i></div>
+          <h5>IT Compliance &amp; Audit</h5>
+          <p>Reviewing IT systems for data privacy compliance, IT policy frameworks, and cyber security awareness programs for infrastructure firms.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.35s">
+        <div class="it-card">
+          <div class="it-icon"><i class="fas fa-cloud"></i></div>
+          <h5>Tech Consulting &amp; Advisory</h5>
+          <p>Strategic advice on technology investments, vendor selection, and building scalable IT infrastructure aligned with business growth objectives.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5 fi-up">
+      <a href="contact.html" class="btn-primary-alp"><i class="fas fa-paper-plane"></i>Discuss IT Requirements</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     INDUSTRIES SERVED (MARQUEE)
+     =================================================== -->
+<section class="industries-section">
+  <div class="ind-label">Industries We Serve</div>
+  <div style="overflow:hidden">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="ind-pill"><i class="fas fa-road"></i>Roads &amp; Highways</span>
+      <span class="ind-pill"><i class="fas fa-archway"></i>Bridges &amp; Tunnels</span>
+      <span class="ind-pill"><i class="fas fa-city"></i>Urban Development</span>
+      <span class="ind-pill"><i class="fas fa-water"></i>Water &amp; Wastewater</span>
+      <span class="ind-pill"><i class="fas fa-train"></i>Railways &amp; Metro</span>
+      <span class="ind-pill"><i class="fas fa-bolt"></i>Power &amp; Energy</span>
+      <span class="ind-pill"><i class="fas fa-hard-hat"></i>Construction &amp; EPC</span>
+      <span class="ind-pill"><i class="fas fa-drafting-compass"></i>Engineering Consultancy</span>
+      <span class="ind-pill"><i class="fas fa-building"></i>Real Estate &amp; Infra</span>
+      <span class="ind-pill"><i class="fas fa-laptop-code"></i>IT &amp; Technology</span>
+      <span class="ind-pill"><i class="fas fa-balance-scale"></i>Legal &amp; Compliance</span>
+      <span class="ind-pill"><i class="fas fa-graduation-cap"></i>Education &amp; Training</span>
+      <!-- duplicate for infinite loop -->
+      <span class="ind-pill"><i class="fas fa-road"></i>Roads &amp; Highways</span>
+      <span class="ind-pill"><i class="fas fa-archway"></i>Bridges &amp; Tunnels</span>
+      <span class="ind-pill"><i class="fas fa-city"></i>Urban Development</span>
+      <span class="ind-pill"><i class="fas fa-water"></i>Water &amp; Wastewater</span>
+      <span class="ind-pill"><i class="fas fa-train"></i>Railways &amp; Metro</span>
+      <span class="ind-pill"><i class="fas fa-bolt"></i>Power &amp; Energy</span>
+      <span class="ind-pill"><i class="fas fa-hard-hat"></i>Construction &amp; EPC</span>
+      <span class="ind-pill"><i class="fas fa-drafting-compass"></i>Engineering Consultancy</span>
+      <span class="ind-pill"><i class="fas fa-building"></i>Real Estate &amp; Infra</span>
+      <span class="ind-pill"><i class="fas fa-laptop-code"></i>IT &amp; Technology</span>
+      <span class="ind-pill"><i class="fas fa-balance-scale"></i>Legal &amp; Compliance</span>
+      <span class="ind-pill"><i class="fas fa-graduation-cap"></i>Education &amp; Training</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     SERVICE COMPARISON TABLE
+     =================================================== -->
+<section class="comparison-section sp">
+  <div class="container">
+    <div class="text-center mb-5 fi-up">
+      <div class="section-label">Service Overview</div>
+      <h2 class="section-heading">What's Included in <span class="text-accent">Each Service</span></h2>
+      <div class="red-divider center"></div>
+    </div>
+    <div class="comp-table-wrap fi-up" style="transition-delay:.1s">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Feature / Capability</th>
+            <th class="highlight">Staffing</th>
+            <th>HR Solutions</th>
+            <th>Biz Dev</th>
+            <th>Career</th>
+            <th>Legal</th>
+            <th>IT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dedicated Account Manager</td>
+            <td class="highlight"><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-minus-circle ct-no"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+          </tr>
+          <tr>
+            <td>Pan-India Talent Network</td>
+            <td class="highlight"><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-minus-circle ct-no"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-minus-circle ct-no"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+          </tr>
+          <tr>
+            <td>Legal Compliance Backing</td>
+            <td class="highlight"><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-adjust ct-partial"></i></td>
+            <td><i class="fas fa-minus-circle ct-no"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-minus-circle ct-no"></i></td>
+          </tr>
+          <tr>
+            <td>Customised Deliverables</td>
+            <td class="highlight"><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+          </tr>
+          <tr>
+            <td>Infra Sector Specialisation</td>
+            <td class="highlight"><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-adjust ct-partial"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-adjust ct-partial"></i></td>
+          </tr>
+          <tr>
+            <td>Available for Individuals</td>
+            <td class="highlight"><i class="fas fa-minus-circle ct-no"></i></td>
+            <td><i class="fas fa-minus-circle ct-no"></i></td>
+            <td><i class="fas fa-minus-circle ct-no"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-adjust ct-partial"></i></td>
+            <td><i class="fas fa-minus-circle ct-no"></i></td>
+          </tr>
+          <tr>
+            <td>On-site Delivery Option</td>
+            <td class="highlight"><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-adjust ct-partial"></i></td>
+            <td><i class="fas fa-check-circle ct-yes"></i></td>
+            <td><i class="fas fa-adjust ct-partial"></i></td>
+            <td><i class="fas fa-adjust ct-partial"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="text-center mt-3" style="font-size:.8rem;color:var(--gray)">
+      <i class="fas fa-check-circle" style="color:#27ae60"></i> Included &nbsp;
+      <i class="fas fa-adjust" style="color:#f39c12"></i> Partial / Advisory &nbsp;
+      <i class="fas fa-minus-circle" style="color:#bbb"></i> Not Applicable
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     WHY CHOOSE ALP FOR SERVICES
+     =================================================== -->
+<section class="why-svc-section sp bg-off">
+  <div class="container">
+    <div class="text-center mb-5 fi-up">
+      <div class="section-label">Our Advantage</div>
+      <h2 class="section-heading">Why Choose <span class="text-accent">ALP Group India?</span></h2>
+      <div class="red-divider center"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3 fi-up">
+        <div class="why-svc-card">
+          <div class="wsc-num">01</div>
+          <div class="wsc-icon"><i class="fas fa-layer-group"></i></div>
+          <h5>Triple Expertise</h5>
+          <p>Recruitment + HR Strategy + Legal Compliance — all under one roof, eliminating coordination overhead.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 fi-up" style="transition-delay:.08s">
+        <div class="why-svc-card why-svc-card-dark">
+          <div class="wsc-num">02</div>
+          <div class="wsc-icon"><i class="fas fa-hard-hat"></i></div>
+          <h5>Sector Depth</h5>
+          <p>17+ years exclusively serving Infrastructure &amp; Construction — we understand your talent landscape better than generalists.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 fi-up" style="transition-delay:.16s">
+        <div class="why-svc-card">
+          <div class="wsc-num">03</div>
+          <div class="wsc-icon"><i class="fas fa-clock"></i></div>
+          <h5>On-Time Delivery</h5>
+          <p>Our expertise: closing critical openings at the given time frame. Timely delivery is not a promise — it's our reputation.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 fi-up" style="transition-delay:.24s">
+        <div class="why-svc-card">
+          <div class="wsc-num">04</div>
+          <div class="wsc-icon"><i class="fas fa-rupee-sign"></i></div>
+          <h5>Cost-Effective</h5>
+          <p>Value-driven pricing with transparent deliverables. Maximum ROI on every engagement, from single hire to full HR setup.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-full">
+  <div class="cta-full-overlay"></div>
+  <div class="container cta-full-content fi-up">
+    <h2>Ready to Transform Your <span class="text-accent">Organisation?</span></h2>
+    <p>Whether you need one specialist or a full HR system overhaul, ALP Group India delivers the expertise, speed, and commitment you deserve.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-primary-alp"><i class="fas fa-paper-plane"></i>Request a Proposal</a>
+      <a href="tel:+919999999999" class="btn-cta"><i class="fas fa-phone-alt"></i>Call Us Now</a>
+      <a href="about.html" class="btn-dark-alp"><i class="fas fa-info-circle"></i>Learn About Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4 pt-5 pb-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <div class="brand-logo"><span class="logo-alp">ALP</span><span class="logo-sub">GROUP</span></div>
+          <div class="brand-name-txt" style="color:#fff">ALP Group India</div>
+        </div>
+        <p class="footer-text">ALP Group India is a new-age HR, Business Consulting and Legal Consulting firm with over 17 years of industry expertise in Infrastructure &amp; Construction sectors.</p>
+        <div class="d-flex gap-2 mt-3 ftr-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-6">
+        <h6 class="ftr-heading">Quick Links</h6>
+        <ul class="ftr-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="index.html#why">Why Choose Us</a></li>
+          <li><a href="index.html#vision">Vision</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-6">
+        <h6 class="ftr-heading">Our Services</h6>
+        <ul class="ftr-links">
+          <li><a href="#staffing">Staffing / Recruitment</a></li>
+          <li><a href="#hr">HR Solutions</a></li>
+          <li><a href="#bizdev">Business Development</a></li>
+          <li><a href="#career">Career Counseling</a></li>
+          <li><a href="#legal">Legal Solutions</a></li>
+          <li><a href="#it">IT Services</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h6 class="ftr-heading">Get In Touch</h6>
+        <ul class="ftr-contact">
+          <li><i class="fas fa-map-marker-alt"></i><span>New Delhi, India</span></li>
+          <li><i class="fas fa-phone-alt"></i><a href="tel:+919999999999">+91-99999 99999</a></li>
+          <li><i class="fas fa-clock"></i><span>Mon – Fri: 10:00 to 6:30</span></li>
+          <li><i class="fas fa-envelope"></i><a href="mailto:info@alpgroupindia.com">info@alpgroupindia.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p>© 2025 ALP Group India. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-end"><p>Inspired by the legacy of Sh. Achchhe Lal Priyadarshi</p></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="btt" id="btt"><i class="fas fa-chevron-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+
+  /* ---- REFS ---- */
+  const nav = document.getElementById('mainNav');
+  const btt = document.getElementById('btt');
+  const els = document.querySelectorAll('.fi-up,.fi-left,.fi-right');
+
+  /* ---- SCROLL REVEAL ---- */
+  function reveal(){
+    els.forEach(el=>{
+      if(el.getBoundingClientRect().top < window.innerHeight - 70) el.classList.add('on');
+    });
+  }
+
+  /* ---- SCROLL HANDLER ---- */
+  function onScroll(){
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+    btt.classList.toggle('visible', window.scrollY > 400);
+    reveal();
+    updateSvcNav();
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  reveal();
+
+  /* ---- BACK TO TOP ---- */
+  btt.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+  /* ---- MOBILE MENU CLOSE ---- */
+  document.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{
+    const c = document.querySelector('#navbarNav');
+    if(c?.classList.contains('show')) bootstrap.Collapse.getInstance(c)?.hide();
+  }));
+
+  /* ---- SERVICE NAV TAB ACTIVE STATE ---- */
+  const svcSections = ['staffing','hr','bizdev','career','legal','it'];
+  const svcTabs = document.querySelectorAll('.svc-tab');
+
+  function updateSvcNav(){
+    let current = '';
+    svcSections.forEach(id=>{
+      const sec = document.getElementById(id);
+      if(sec){
+        const top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight * 0.5) current = id;
+      }
+    });
+    svcTabs.forEach(tab=>{
+      tab.classList.toggle('active', tab.dataset.target === current);
+    });
+  }
+
+  /* Service tab smooth scroll */
+  svcTabs.forEach(tab=>{
+    tab.addEventListener('click', e=>{
+      e.preventDefault();
+      const target = document.getElementById(tab.dataset.target);
+      if(target){
+        const offset = (nav.offsetHeight||80) + (document.querySelector('.svc-nav')?.offsetHeight||52) + 12;
+        window.scrollTo({top: target.getBoundingClientRect().top + window.scrollY - offset, behavior:'smooth'});
+      }
+    });
+  });
+
+  /* ---- CAREER TAB SWITCHER ---- */
+  document.querySelectorAll('[data-tab]').forEach(btn=>{
+    btn.addEventListener('click', function(){
+      // deactivate all
+      document.querySelectorAll('[data-tab]').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.career-tab-pane').forEach(p=>p.classList.remove('active'));
+      // activate clicked
+      this.classList.add('active');
+      const pane = document.getElementById(this.dataset.tab);
+      if(pane) pane.classList.add('active');
+    });
+  });
+
+  /* ---- SMOOTH SCROLL for anchor links ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const href = a.getAttribute('href');
+      if(href.length > 1){
+        const target = document.querySelector(href);
+        if(target){
+          e.preventDefault();
+          const offset = (nav.offsetHeight||80) + (document.querySelector('.svc-nav')?.offsetHeight||52) + 12;
+          window.scrollTo({top: target.getBoundingClientRect().top + window.scrollY - offset, behavior:'smooth'});
+        }
+      }
+    });
+  });
+
+  /* ---- HR CARD RIPPLE ---- */
+  document.querySelectorAll('.hr-card').forEach(card=>{
+    card.addEventListener('mouseenter', function(){
+      this.style.transition='all .35s cubic-bezier(.4,0,.2,1)';
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
