@@ -3,9 +3,9 @@
    ============================================ */
 
 :root {
-  --red: #063e88;
-  --red-dark: #043370;
-  --red-light: #065ac8;
+  --red: #c0392b;
+  --red-dark: #9b2335;
+  --red-light: #e74c3c;
   --dark: #1a1a2e;
   --dark-2: #16213e;
   --charcoal: #2c3e50;
@@ -173,8 +173,7 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   position: relative;
 }
-.slide-1 { background-image: url('https://www.casta.co.in/images/main_planing.jpg'); }
-/* .slide-1 { background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80'); } */
+.slide-1 { background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80'); }
 .slide-2 { background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80'); }
 .slide-3 { background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80'); }
 .hero-overlay {
@@ -241,7 +240,7 @@ a { text-decoration: none; color: inherit; }
 .carousel-control-prev,
 .carousel-control-next {
   width: 50px; height: 50px;
-  background: #063e88;
+  background: rgba(192,57,43,0.75);
   border-radius: 50%;
   top: 50%; transform: translateY(-50%);
   opacity: 1;
@@ -310,9 +309,7 @@ a { text-decoration: none; color: inherit; }
 .stats-section {
   position: relative;
   padding: 80px 0;
-  /* background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=60') center/cover no-repeat; */
-  background: url('https://www.casta.co.in/images/main_planing.jpg') center/cover no-repeat;
-  
+  background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=60') center/cover no-repeat;
 }
 .stats-overlay {
   position: absolute; inset: 0;
@@ -385,7 +382,7 @@ a { text-decoration: none; color: inherit; }
 .service-card:hover .service-img-wrap img { transform: scale(1.08); }
 .service-overlay {
   position: absolute; inset: 0;
-  background: #063e88;
+  background: rgba(192,57,43,0.7);
   display: flex; align-items: center; justify-content: center;
   color: #fff; font-size: 1.5rem;
   opacity: 0; transition: var(--transition);
