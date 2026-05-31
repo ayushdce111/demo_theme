@@ -20,6 +20,12 @@
   font-family: heading_font;
   src: url("./assets/font/Poppins/Poppins-Regular.ttf");
 }
+
+@font-face {
+  font-family: cursive;
+  src: url("./assets/font/Angkor/Angkor-Regular.ttf");
+}
+
 .heading_font_class{
 font-family: heading_font;
 }
