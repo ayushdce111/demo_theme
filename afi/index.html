@@ -11,27 +11,27 @@
 </head>
 <body>
 
-<!-- ── TOP BAR ── -->
+<!-- TOP BAR -->
 <div id="topbar">
   <div class="container">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-      <div class="d-flex flex-wrap gap-3">
+      <div class="d-flex flex-wrap gap-3 align-items-center justify-content-around">
         <a href="mailto:info@afisystems.in"><i class="fas fa-envelope me-1"></i>info@afisystems.in</a>
         <a href="tel:+919818251017"><i class="fas fa-phone me-1"></i>+91 98182 51017</a>
         <span><i class="fas fa-map-marker-alt me-1" style="color:var(--green)"></i>Delhi NCR, India</span>
       </div>
       <div class="d-flex gap-2 align-items-center">
-        <span><span class="pulse-dot"></span>Open Mon–Sat, 10AM–7PM</span>
+        <span><span class="pulse-dot"></span>Open Mon–Sat · 10 AM – 7 PM</span>
         <a href="https://wa.me/919818251017" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i>WhatsApp Us</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ── NAVBAR ── -->
-<nav class="navbar navbar-expand-lg">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
   <div class="container">
-    <a class="navbar-brand" href="#hero"><img src="logo.jpg" alt="AFI Systems Logo"/></a>
+    <a class="navbar-brand" href="#hero"><img src="logo.png" alt="AFI Systems"/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -44,8 +44,8 @@
         <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
         <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        <li class="nav-item ms-2">
-          <a class="nav-link btn-nav-cta" href="https://wa.me/919818251017?text=Hi%20AFI%20Systems%2C%20I%27d%20like%20to%20get%20a%20quote!" target="_blank">
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link btn-nav-cta" href="https://wa.me/919818251017?text=Hi%20AFI%20Systems%2C%20I%27d%20like%20a%20quote!" target="_blank">
             <i class="fab fa-whatsapp me-1"></i>Get Quote
           </a>
         </li>
@@ -54,468 +54,352 @@
   </div>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-bg-anim"><span></span><span></span><span></span></div>
+  <div class="hero-accent-circle"></div>
+  <div class="hero-accent-circle"></div>
   <div class="container">
-    <div class="row align-items-center gy-4">
+    <div class="row align-items-center gy-5">
       <div class="col-lg-6 hero-content">
-        <div class="hero-badge"><i class="fas fa-star me-2"></i>Trusted Furniture Brand – Delhi NCR</div>
-        <h1 class="hero-title">Smart Furniture<br>for <span class="highlight">Every Space</span></h1>
-        <p class="hero-sub">From offices to homes and commercial setups, we deliver smart, functional, and stylish furniture solutions tailored to your needs.</p>
-        <div class="d-flex flex-wrap gap-3">
-          <a href="#featured" class="btn-hero-primary"><i class="fas fa-th-large"></i>Explore Products</a>
-          <a href="#contact" class="btn-hero-outline"><i class="fas fa-phone-alt"></i>Get a Quote</a>
+        <div class="hero-eyebrow"><i class="fas fa-shield-alt"></i>AFI · Trusted Furniture Brand · Delhi NCR</div>
+        <h1 class="hero-title">Smart Furniture for<br> <span class="grad-text">Every Space</span></h1>
+        <p class="hero-sub">From offices to homes and commercial setups, we deliver smart, functional, and stylish furniture solutions tailored to your exact needs.</p>
+        <div class="d-flex flex-wrap gap-3 my-5">
+          <a href="#featured" class="btn-primary-cta"><i class="fas fa-th-large"></i>Explore Products</a>
+          <a href="#contact" class="btn-outline-cta"><i class="fas fa-phone-alt"></i>Get a Quote</a>
         </div>
         <div class="hero-stats">
-          <div class="hero-stat-item"><div class="num">500+</div><div class="lbl">Projects Done</div></div>
-          <div class="hero-stat-item"><div class="num">12+</div><div class="lbl">Years Exp.</div></div>
-          <div class="hero-stat-item"><div class="num">1000+</div><div class="lbl">Happy Clients</div></div>
-          <div class="hero-stat-item"><div class="num">9</div><div class="lbl">Categories</div></div>
+          <div class="hero-stat"><span class="num">500+</span><span class="lbl">Projects Done</span></div>
+          <div class="hero-stat"><span class="num">12+</span><span class="lbl">Years Exp.</span></div>
+          <div class="hero-stat"><span class="num">1000+</span><span class="lbl">Clients</span></div>
+          <div class="hero-stat"><span class="num">9</span><span class="lbl">Categories</span></div>
         </div>
       </div>
-      <div class="col-lg-6 hero-img-wrap">
-        <div class="hero-img-card">
+      <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end">
+        <!-- <div class="hero-right-card w-100" style="max-width:90%;"> -->
+          <div class=" w-100" style="max-width:100%;">
+          <!-- <p style="color:#6a8090;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;">What We Offer</p> -->
           <div class="furniture-grid">
-            <div class="item"><i class="fas fa-chair"></i><p>Office Chairs</p></div>
-            <div class="item"><i class="fas fa-desktop"></i><p>Workstations</p></div>
-            <div class="item"><i class="fas fa-couch"></i><p>Sofa & Lounge</p></div>
-            <div class="item"><i class="fas fa-door-closed"></i><p>Wardrobes</p></div>
+            <div class="fg-item" >
+              <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=75&fit=crop" style="border-radius: 12px;"/>
+              <!-- <p>Office Chairsww</p> -->
+            </div>
+            <div class="fg-item" style="grid-row-start: 1; grid-row-end: 3;">
+              <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&q=75&fit=crop" style="border-radius: 12px;"/>
+              <!-- <p>Office Chairsww</p> -->
+            </div>
+            <div class="fg-item">
+              <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&q=75&fit=crop" style="border-radius: 12px;"/>
+              <!-- <p>Office Chairsww</p> -->
+            </div>
+            <!-- <div class="fg-item">
+              <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=75&fit=crop"/>
+            </div> -->
+            <!-- <div class="fg-item"><i class="fas fa-chair"></i><p>Office Chairsww</p></div>
+            <div class="fg-item"><i class="fas fa-desktop"></i><p>Workstations</p></div>
+            <div class="fg-item"><i class="fas fa-couch"></i><p>Sofa & Lounge</p></div>
+            <div class="fg-item"><i class="fas fa-door-closed"></i><p>Wardrobes</p></div> -->
           </div>
-          <div class="mt-3 text-center" style="color:#cde;font-size:.82rem;opacity:.6">Hover to explore</div>
+          <div class="mt-4 pt-3" style="border-top:1px solid rgba(255,255,255,.07);">
+            <div class="d-flex align-items-center gap-2">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--green);animation:dotPulse 1.8s infinite;"></div>
+              <span style="color:#6a8090;font-size:.76rem;">Retail &amp; Bulk · Custom Manufacturing · Pan-Delhi NCR</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── HERO CTA STRIP ── -->
-<div class="hero-cta-strip">
+<!-- CTA STRIP -->
+<div class="cta-strip">
   <div class="container">
-    <div class="strip-inner">
-      <p><i class="fab fa-whatsapp me-2"></i>Get your free furniture consultation today — <strong>No charges, No obligations!</strong></p>
-      <a href="https://wa.me/919818251017?text=Hi%2C%20I%20need%20a%20free%20furniture%20consultation!" target="_blank" class="btn-strip-cta">
+    <div class="inner">
+      <p><i class="fab fa-whatsapp me-2"></i>Get a <strong>free furniture consultation</strong> — no charges, no obligations!</p>
+      <a href="https://wa.me/919818251017?text=Hi%2C%20I%20need%20a%20free%20furniture%20consultation!" target="_blank" class="btn-cta-strip">
         <i class="fab fa-whatsapp" style="color:#25D366"></i>Chat on WhatsApp
       </a>
     </div>
   </div>
 </div>
 
-<!-- ── MARQUEE ── -->
+<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track" id="marqueeTrack"></div>
 </div>
 
-<!-- ── ABOUT ── -->
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="row align-items-center gy-5">
       <div class="col-lg-5 reveal">
-        <div class="about-img-wrap pe-lg-4">
-          <div class="about-img-frame">
-            <img src="logo.jpg" alt="AFI Systems" style="background:#f4f8fb;padding:40px;"/>
+        <div class="about-img-wrap pe-lg-3">
+          <div class="about-img-box">
+            <img src="https://sognoofficefurniture.com/wp-content/uploads/2022/06/Workstation-348.png" alt="AFI Systems" style="background:#f4f8fb;padding:24px;border-radius: 12px;"/>
           </div>
-          <div class="about-badge">
+          <div class="about-badge-box">
             <div class="big">12+</div>
             <div class="sm">Years of Excellence</div>
           </div>
         </div>
       </div>
       <div class="col-lg-7 reveal">
-        <div class="section-tag">About Us</div>
-        <h2 class="section-title">Crafting <span>Spaces That Inspire</span></h2>
-        <div class="divider-line"></div>
-        <p class="section-sub mb-4">AFI Systems — Affordable Furniture Interiors Systems — is a leading retail and manufacturing brand in Delhi NCR. We design, manufacture, and supply premium furniture for offices, homes, cafés, labs, and commercial setups across India.</p>
-        <div class="about-feature">
-          <div class="about-feature-icon"><i class="fas fa-industry"></i></div>
-          <div><h6>Own Manufacturing Unit</h6><p>We design and manufacture furniture in-house, ensuring quality at every step and competitive pricing.</p></div>
+        <div class="sec-eyebrow"><i class="fas fa-info-circle"></i>About Us</div>
+        <h2 class="sec-title">Crafting Spaces <span class="grad-text">That Inspire</span></h2>
+        <div class="divider"></div>
+        <p class="sec-sub mb-4">AFI Systems — Affordable Furniture Interiors Systems — is a leading retail and manufacturing brand in Delhi NCR. We design, manufacture, and supply premium furniture for offices, homes, cafés, labs, and commercial setups across India.</p>
+        <div class="about-feat">
+          <div class="about-feat-ico"><i class="fas fa-industry"></i></div>
+          <div>
+            <h6>Own Manufacturing Unit</h6>
+            <p>We design and manufacture furniture in-house, ensuring quality at every step and competitive pricing.</p>
+          </div>
         </div>
-        <div class="about-feature">
-          <div class="about-feature-icon"><i class="fas fa-store"></i></div>
-          <div><h6>Retail & Bulk Supply</h6><p>Whether you need one piece or an entire office fit-out, we cater to both retail buyers and bulk orders.</p></div>
+        <div class="about-feat">
+          <div class="about-feat-ico"><i class="fas fa-store"></i></div>
+          <div>
+            <h6>Retail &amp; Bulk Supply</h6>
+            <p>Whether you need one piece or an entire office fit-out, we cater to both retail buyers and bulk orders.</p>
+          </div>
         </div>
-        <div class="about-feature">
-          <div class="about-feature-icon"><i class="fas fa-tools"></i></div>
-          <div><h6>End-to-End Solutions</h6><p>From design consultation and customisation to delivery and installation — we handle everything.</p></div>
+        <div class="about-feat">
+          <div class="about-feat-ico"><i class="fas fa-tools"></i></div>
+          <div>
+            <h6>End-to-End Solutions</h6>
+            <p>From design consultation and customisation to delivery and installation — we handle everything.</p>
+          </div>
         </div>
         <div class="d-flex flex-wrap gap-3 mt-4">
-          <a href="#contact" class="btn-hero-primary"><i class="fas fa-phone-alt"></i>Contact Us</a>
-          <a href="#categories" class="btn-hero-outline" style="border-color:var(--green);color:var(--dark);"><i class="fas fa-th-large"></i>Our Products</a>
+          <a href="#contact" class="btn-primary-cta"><i class="fas fa-phone-alt"></i>Contact Us</a>
+          <a href="#categories" class="btn-outline-cta" style="border-color:var(--border);color:var(--dark);">
+            <i class="fas fa-th-large" style="color:var(--green)"></i>Our Products
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── SERVICES ── -->
+<!-- SERVICES -->
 <section id="services">
   <div class="container">
     <div class="row justify-content-center text-center mb-5 reveal">
       <div class="col-lg-7">
-        <div class="section-tag">Our Services</div>
-        <h2 class="section-title">What We <span>Offer</span></h2>
-        <div class="divider-line mx-auto"></div>
-        <p class="section-sub mx-auto">Complete furniture solutions for every need — from concept to completion.</p>
+        <div class="sec-eyebrow"><i class="fas fa-concierge-bell"></i>Our Services</div>
+        <h2 class="sec-title">What We <span class="grad-text">Offer</span></h2>
+        <div class="divider mx-auto"></div>
+        <p class="sec-sub mx-auto">Complete furniture solutions for every need — from concept to completion.</p>
       </div>
     </div>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-building"></i></div>
-          <h5>Office Furniture Supply</h5>
-          <p>Complete office interiors including workstations, reception desks, conference tables, executive chairs and storage solutions.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-home"></i></div>
-          <h5>Home Interiors</h5>
-          <p>Stylish wardrobes, sofa sets, LED panels, kitchen units and modular furniture to elevate your living spaces.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-industry"></i></div>
-          <h5>Custom Manufacturing</h5>
-          <p>Bespoke furniture as per your drawings, dimensions and finish requirements. B2B and bulk orders welcome.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-coffee"></i></div>
-          <h5>Café & Commercial Setup</h5>
-          <p>Modern café chairs, tables, and lounge furniture for restaurants, co-working spaces, and commercial interiors.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-school"></i></div>
-          <h5>Institutional Furniture</h5>
-          <p>Student benches, computer lab furniture, library setups and auditorium seating for schools, colleges, and institutes.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-truck"></i></div>
-          <h5>Delivery & Installation</h5>
-          <p>Pan-Delhi NCR delivery with professional on-site assembly and installation by trained technicians.</p>
-        </div>
-      </div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="svc-card"><div class="svc-ico-wrap"><i class="fas fa-building"></i></div><h5>Office Furniture Supply</h5><p>Complete office interiors including workstations, reception desks, conference tables, executive chairs and storage solutions.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="svc-card"><div class="svc-ico-wrap"><i class="fas fa-home"></i></div><h5>Home Interiors</h5><p>Stylish wardrobes, sofa sets, LED panels, kitchen units and modular furniture to elevate your living spaces.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="svc-card"><div class="svc-ico-wrap"><i class="fas fa-industry"></i></div><h5>Custom Manufacturing</h5><p>Bespoke furniture as per your drawings, dimensions and finish requirements. B2B and bulk orders welcome.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="svc-card"><div class="svc-ico-wrap"><i class="fas fa-coffee"></i></div><h5>Café &amp; Commercial Setup</h5><p>Modern café chairs, tables, and lounge furniture for restaurants, co-working spaces, and commercial interiors.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="svc-card"><div class="svc-ico-wrap"><i class="fas fa-school"></i></div><h5>Institutional Furniture</h5><p>Student benches, computer lab furniture, library setups and auditorium seating for schools and institutes.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="svc-card"><div class="svc-ico-wrap"><i class="fas fa-truck"></i></div><h5>Delivery &amp; Installation</h5><p>Pan-Delhi NCR delivery with professional on-site assembly and installation by trained technicians.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ── WHY CHOOSE US ── -->
+<!-- WHY CHOOSE US -->
 <section id="why">
   <div class="container">
     <div class="row justify-content-center text-center mb-5 reveal">
       <div class="col-lg-7">
-        <div class="section-tag">Why Choose Us</div>
-        <h2 class="section-title" style="color:#fff;">Reasons to <span>Trust AFI</span></h2>
-        <div class="divider-line mx-auto"></div>
-        <p class="section-sub mx-auto">We combine quality craftsmanship, affordability, and personalised service to deliver furniture you'll love for years.</p>
+        <div class="sec-eyebrow" style="background:rgba(90,173,34,.12);border-color:rgba(90,173,34,.25);color:var(--green);"><i class="fas fa-star"></i>Why Choose Us</div>
+        <h2 class="sec-title" style="color:#fff;">Reasons to <span class="grad-text">Trust AFI</span></h2>
+        <div class="divider mx-auto"></div>
+        <p class="sec-sub mx-auto" style="color:#607080;">We combine quality craftsmanship, affordability, and personalised service to deliver furniture you'll love for years.</p>
       </div>
     </div>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="why-card">
-          <div class="why-icon" style="color:var(--green)"><i class="fas fa-medal"></i></div>
-          <h5>Premium Quality</h5>
-          <p>ISI-grade materials, precision manufacturing, and rigorous QC ensure furniture that lasts decades.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="why-card">
-          <div class="why-icon" style="color:var(--teal)"><i class="fas fa-tag"></i></div>
-          <h5>Affordable Pricing</h5>
-          <p>Direct from manufacturer prices. No middlemen. Best value furniture for all budgets.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="why-card">
-          <div class="why-icon" style="color:var(--blue)"><i class="fas fa-pencil-ruler"></i></div>
-          <h5>Fully Customisable</h5>
-          <p>Choose your dimensions, colours, fabrics, and finishes. We build exactly what you envision.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="why-card">
-          <div class="why-icon" style="color:var(--accent)"><i class="fas fa-headset"></i></div>
-          <h5>Dedicated Support</h5>
-          <p>From first inquiry to post-delivery support, our team is always available on WhatsApp and phone.</p>
-        </div>
-      </div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="why-card"><div class="why-ico"><i class="fas fa-medal"></i></div><h5>Premium Quality</h5><p>ISI-grade materials, precision manufacturing, and rigorous QC ensure furniture that lasts decades.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="why-card"><div class="why-ico"><i class="fas fa-tag"></i></div><h5>Affordable Pricing</h5><p>Direct from manufacturer prices. No middlemen. Best value furniture for all budgets.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="why-card"><div class="why-ico"><i class="fas fa-pencil-ruler"></i></div><h5>Fully Customisable</h5><p>Choose your dimensions, colours, fabrics, and finishes. We build exactly what you envision.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="why-card"><div class="why-ico"><i class="fas fa-headset"></i></div><h5>Dedicated Support</h5><p>From first inquiry to post-delivery, our team is always available on WhatsApp and phone.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ── PRODUCT CATEGORIES ── -->
+<!-- PRODUCT CATEGORIES -->
 <section id="categories">
   <div class="container">
     <div class="row justify-content-center text-center mb-5 reveal">
       <div class="col-lg-7">
-        <div class="section-tag">Our Products</div>
-        <h2 class="section-title">Product <span>Categories</span></h2>
-        <div class="divider-line mx-auto"></div>
-        <p class="section-sub mx-auto">Browse our wide range of furniture across 9 key categories — all available for retail and bulk orders.</p>
+        <div class="sec-eyebrow"><i class="fas fa-th"></i>Our Products</div>
+        <h2 class="sec-title">Product <span class="grad-text">Categories</span></h2>
+        <div class="divider mx-auto"></div>
+        <p class="sec-sub mx-auto">Browse our wide range across 8 key categories — available for retail and bulk orders.</p>
       </div>
     </div>
     <div class="cat-grid reveal">
-      <div class="cat-item"><i class="fas fa-utensils cat-icon green"></i><div class="cat-label">Pantry & Kitchen</div></div>
-      <div class="cat-item"><i class="fas fa-door-closed cat-icon blue"></i><div class="cat-label">Wardrobes & LED Panels</div></div>
-      <div class="cat-item"><i class="fas fa-chair cat-icon teal"></i><div class="cat-label">Office & Executive Chairs</div></div>
-      <div class="cat-item"><i class="fas fa-graduation-cap cat-icon acc"></i><div class="cat-label">Student Benches & Chairs</div></div>
-      <div class="cat-item"><i class="fas fa-coffee cat-icon green"></i><div class="cat-label">Café Chairs & Tables</div></div>
-      <div class="cat-item"><i class="fas fa-couch cat-icon blue"></i><div class="cat-label">Sofa & Lounge</div></div>
-      <div class="cat-item"><i class="fas fa-concierge-bell cat-icon teal"></i><div class="cat-label">Reception & Director Desks</div></div>
-      <div class="cat-item"><i class="fas fa-desktop cat-icon acc"></i><div class="cat-label">Workstations & Conference</div></div>
-      <div class="cat-item"><i class="fas fa-archive cat-icon green"></i><div class="cat-label">Metal Storage & Lab</div></div>
+      <div class="cat-item">
+        <div class="cat-item-img"><img src="https://m.media-amazon.com/images/I/715rGRLelHL.jpg" alt="Pantry & Kitchen" loading="lazy"/></div>
+        <div class="cat-item-body"><div class="cat-lbl">Pantry &amp; Kitchen</div></div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-item-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=75&fit=crop" alt="Wardrobes" loading="lazy"/></div>
+        <div class="cat-item-body"><div class="cat-lbl">Wardrobes &amp; LED Panels</div></div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-item-img"><img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&q=75&fit=crop" alt="Office Chairs" loading="lazy"/></div>
+        <div class="cat-item-body"><div class="cat-lbl">Office &amp; Executive Chairs</div></div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-item-img"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=75&fit=crop" alt="Student Benches" loading="lazy"/></div>
+        <div class="cat-item-body"><div class="cat-lbl">Student Benches &amp; Chairs</div></div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-item-img"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&q=75&fit=crop" alt="Café Chairs" loading="lazy"/></div>
+        <div class="cat-item-body"><div class="cat-lbl">Café Chairs &amp; Tables</div></div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-item-img"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=75&fit=crop" alt="Sofa Lounge" loading="lazy"/></div>
+        <div class="cat-item-body"><div class="cat-lbl">Sofa &amp; Lounge</div></div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-item-img"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&q=75&fit=crop" alt="Reception Desks" loading="lazy"/></div>
+        <div class="cat-item-body"><div class="cat-lbl">Reception &amp; Director Desks</div></div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-item-img"><img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=75&fit=crop" alt="Workstations" loading="lazy"/></div>
+        <div class="cat-item-body"><div class="cat-lbl">Workstations &amp; Conference</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     PRODUCT SLIDER 1 — Office Furniture
-     (click-nav card format)
-══════════════════════════════════════════ -->
+<!-- PRODUCT SLIDER 1 — Office -->
 <section id="featured" class="prod-slider-section">
   <div class="container">
-    <div class="prod-slider-header reveal">
-      <h2><i class="fas fa-building me-2" style="color:var(--green)"></i>Office Furniture</h2>
-      <div class="prod-slider-controls">
+    <div class="prod-slider-hdr reveal">
+      <h2><i class="fas fa-building"></i>Office Furniture</h2>
+      <div class="slider-ctrl">
         <a href="#contact" class="btn-view-all"><i class="fab fa-whatsapp"></i>View All</a>
-        <button class="btn-slide-arrow" id="offPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-        <button class="btn-slide-arrow" id="offNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <button class="btn-arrow" id="offPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="btn-arrow" id="offNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
-    <div class="prod-slider-viewport">
-      <div class="prod-slider-track" id="officeTrack"></div>
+    <div class="prod-viewport">
+      <div class="prod-track" id="officeTrack"></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     PRODUCT SLIDER 2 — Home & Living
-══════════════════════════════════════════ -->
+<!-- PRODUCT SLIDER 2 — Home -->
 <section id="featured-home" class="prod-slider-section">
   <div class="container">
-    <div class="prod-slider-header reveal">
-      <h2><i class="fas fa-home me-2" style="color:var(--blue)"></i>Home & Living</h2>
-      <div class="prod-slider-controls">
+    <div class="prod-slider-hdr reveal">
+      <h2><i class="fas fa-home" style="color:var(--blue)"></i>Home &amp; Living</h2>
+      <div class="slider-ctrl">
         <a href="#contact" class="btn-view-all"><i class="fab fa-whatsapp"></i>View All</a>
-        <button class="btn-slide-arrow" id="homePrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-        <button class="btn-slide-arrow" id="homeNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <button class="btn-arrow" id="homePrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="btn-arrow" id="homeNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
-    <div class="prod-slider-viewport">
-      <div class="prod-slider-track" id="homeTrack"></div>
+    <div class="prod-viewport">
+      <div class="prod-track" id="homeTrack"></div>
     </div>
   </div>
 </section>
 
-<!-- ── HOW IT WORKS ── -->
+<!-- HOW IT WORKS -->
 <section id="process">
   <div class="container">
     <div class="row justify-content-center text-center mb-5 reveal">
       <div class="col-lg-7">
-        <div class="section-tag">How It Works</div>
-        <h2 class="section-title">Our Simple <span>Process</span></h2>
-        <div class="divider-line mx-auto"></div>
+        <div class="sec-eyebrow"><i class="fas fa-route"></i>How It Works</div>
+        <h2 class="sec-title">Our Simple <span class="grad-text">Process</span></h2>
+        <div class="divider mx-auto"></div>
       </div>
     </div>
     <div class="row g-4 position-relative">
-      <div class="col-md-3 reveal">
-        <div class="process-step">
-          <div class="process-num">01</div>
-          <h5>Consultation</h5>
-          <p>Share your requirements via WhatsApp or visit our showroom for a free consultation.</p>
-          <div class="process-connector d-none d-md-block"></div>
-        </div>
-      </div>
-      <div class="col-md-3 reveal">
-        <div class="process-step">
-          <div class="process-num">02</div>
-          <h5>Design & Quote</h5>
-          <p>We prepare a custom design plan and transparent price quote within 24 hours.</p>
-          <div class="process-connector d-none d-md-block"></div>
-        </div>
-      </div>
-      <div class="col-md-3 reveal">
-        <div class="process-step">
-          <div class="process-num">03</div>
-          <h5>Manufacturing</h5>
-          <p>Your furniture is crafted in our own factory with quality checks at every stage.</p>
-          <div class="process-connector d-none d-md-block"></div>
-        </div>
-      </div>
-      <div class="col-md-3 reveal">
-        <div class="process-step">
-          <div class="process-num">04</div>
-          <h5>Delivery & Install</h5>
-          <p>On-time delivery with professional installation so your space is ready to use.</p>
-        </div>
-      </div>
+      <div class="col-md-3 reveal"><div class="step-wrap"><div class="step-num">01</div><h5>Consultation</h5><p>Share your requirements via WhatsApp or visit our showroom for a free consultation.</p><div class="step-connector d-none d-md-block"></div></div></div>
+      <div class="col-md-3 reveal"><div class="step-wrap"><div class="step-num">02</div><h5>Design &amp; Quote</h5><p>We prepare a custom design plan and transparent price quote within 24 hours.</p><div class="step-connector d-none d-md-block"></div></div></div>
+      <div class="col-md-3 reveal"><div class="step-wrap"><div class="step-num">03</div><h5>Manufacturing</h5><p>Your furniture is crafted in our own factory with quality checks at every stage.</p><div class="step-connector d-none d-md-block"></div></div></div>
+      <div class="col-md-3 reveal"><div class="step-wrap"><div class="step-num">04</div><h5>Delivery &amp; Install</h5><p>On-time delivery with professional installation so your space is ready to use.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ── COUNTER ── -->
+<!-- COUNTER -->
 <section id="counter">
   <div class="container">
     <div class="row g-4 text-center">
-      <div class="col-6 col-lg-3"><div class="counter-item"><span class="num" data-target="500">0</span><span style="color:#fff;font-size:1.5rem;font-weight:900;">+</span><div class="lbl">Projects Completed</div></div></div>
-      <div class="col-6 col-lg-3"><div class="counter-item"><span class="num" data-target="1000">0</span><span style="color:#fff;font-size:1.5rem;font-weight:900;">+</span><div class="lbl">Happy Clients</div></div></div>
-      <div class="col-6 col-lg-3"><div class="counter-item"><span class="num" data-target="12">0</span><span style="color:#fff;font-size:1.5rem;font-weight:900;">+</span><div class="lbl">Years Experience</div></div></div>
-      <div class="col-6 col-lg-3"><div class="counter-item"><span class="num" data-target="9">0</span><span style="color:#fff;font-size:1.5rem;font-weight:900;">+</span><div class="lbl">Product Categories</div></div></div>
+      <div class="col-6 col-lg-3"><div class="count-item"><span class="cnt" data-target="500">0</span><span style="color:#fff;font-size:1.4rem;font-weight:900;line-height:1;">+</span><span class="cnt-lbl">Projects Completed</span></div></div>
+      <div class="col-6 col-lg-3"><div class="count-item"><span class="cnt" data-target="1000">0</span><span style="color:#fff;font-size:1.4rem;font-weight:900;line-height:1;">+</span><span class="cnt-lbl">Happy Clients</span></div></div>
+      <div class="col-6 col-lg-3"><div class="count-item"><span class="cnt" data-target="12">0</span><span style="color:#fff;font-size:1.4rem;font-weight:900;line-height:1;">+</span><span class="cnt-lbl">Years Experience</span></div></div>
+      <div class="col-6 col-lg-3"><div class="count-item"><span class="cnt" data-target="9">0</span><span style="color:#fff;font-size:1.4rem;font-weight:900;line-height:1;">+</span><span class="cnt-lbl">Product Categories</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ── TESTIMONIALS ── -->
+<!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="container">
     <div class="row justify-content-center text-center mb-5 reveal">
       <div class="col-lg-7">
-        <div class="section-tag">Testimonials</div>
-        <h2 class="section-title" style="color:#fff;">What Our <span>Clients Say</span></h2>
-        <div class="divider-line mx-auto"></div>
+        <div class="sec-eyebrow" style="background:rgba(90,173,34,.12);border-color:rgba(90,173,34,.25);color:var(--green);"><i class="fas fa-quote-left"></i>Testimonials</div>
+        <h2 class="sec-title" style="color:#fff;">What Our <span class="grad-text">Clients Say</span></h2>
+        <div class="divider mx-auto"></div>
       </div>
     </div>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="testi-card">
-          <div class="stars">★★★★★</div>
-          <p class="testi-text">"Ordered complete office furniture for our 30-seater office. The workstations are sturdy and the chairs are extremely comfortable. Delivery was on time and installation was smooth."</p>
-          <div class="testi-author">
-            <div class="testi-avatar">RS</div>
-            <div><div class="testi-name">Rahul Sharma</div><div class="testi-role">IT Company, Noida</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="testi-card">
-          <div class="stars">★★★★★</div>
-          <p class="testi-text">"Got my entire kitchen pantry and wardrobe done. The finish quality is excellent and they accommodated all my custom size requirements. Highly recommend AFI Systems!"</p>
-          <div class="testi-author">
-            <div class="testi-avatar">PM</div>
-            <div><div class="testi-name">Priya Mehta</div><div class="testi-role">Homeowner, Ghaziabad</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="testi-card">
-          <div class="stars">★★★★★</div>
-          <p class="testi-text">"We furnished our café with chairs and tables from AFI. The designs are modern and the pricing was very competitive compared to others. Great after-sales support too!"</p>
-          <div class="testi-author">
-            <div class="testi-avatar">AK</div>
-            <div><div class="testi-name">Arjun Kapoor</div><div class="testi-role">Café Owner, Delhi</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="testi-card">
-          <div class="stars">★★★★★</div>
-          <p class="testi-text">"Bulk order of student benches and chairs for our school. Quality was exactly as shown. The school looks completely transformed. Students love the new furniture!"</p>
-          <div class="testi-author">
-            <div class="testi-avatar">SG</div>
-            <div><div class="testi-name">Sunita Gupta</div><div class="testi-role">School Principal, Faridabad</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="testi-card">
-          <div class="stars">★★★★★</div>
-          <p class="testi-text">"Excellent service from order to delivery. The sofa set and lounge chairs for our reception area have received so many compliments from our clients. Worth every rupee!"</p>
-          <div class="testi-author">
-            <div class="testi-avatar">VB</div>
-            <div><div class="testi-name">Vikram Bhatia</div><div class="testi-role">Corporate Office, Gurugram</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="testi-card">
-          <div class="stars">★★★★★</div>
-          <p class="testi-text">"Metal storage cabinets for our lab were fabricated exactly to spec. Robust build, clean finish, and delivered ahead of schedule. AFI is our go-to vendor now!"</p>
-          <div class="testi-author">
-            <div class="testi-avatar">NR</div>
-            <div><div class="testi-name">Neha Rastogi</div><div class="testi-role">Research Institute, Delhi</div></div>
-          </div>
-        </div>
-      </div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Ordered complete office furniture for our 30-seater office. The workstations are sturdy and chairs extremely comfortable. Delivery was on time and installation was smooth."</p><div class="testi-author"><div class="testi-avatar">RS</div><div><div class="testi-name">Rahul Sharma</div><div class="testi-role">IT Company, Noida</div></div></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Got my entire kitchen pantry and wardrobe done. The finish quality is excellent and they accommodated all my custom size requirements. Highly recommend AFI Systems!"</p><div class="testi-author"><div class="testi-avatar">PM</div><div><div class="testi-name">Priya Mehta</div><div class="testi-role">Homeowner, Ghaziabad</div></div></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"We furnished our café with chairs and tables from AFI. The designs are modern and pricing was very competitive compared to others. Great after-sales support too!"</p><div class="testi-author"><div class="testi-avatar">AK</div><div><div class="testi-name">Arjun Kapoor</div><div class="testi-role">Café Owner, Delhi</div></div></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Bulk order of student benches for our school. Quality was exactly as shown. The school looks completely transformed. Students love the new furniture!"</p><div class="testi-author"><div class="testi-avatar">SG</div><div><div class="testi-name">Sunita Gupta</div><div class="testi-role">School Principal, Faridabad</div></div></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"The sofa set and lounge chairs for our reception area have received so many compliments from clients. Excellent service from order to delivery. Worth every rupee!"</p><div class="testi-author"><div class="testi-avatar">VB</div><div><div class="testi-name">Vikram Bhatia</div><div class="testi-role">Corporate Office, Gurugram</div></div></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Metal storage cabinets for our lab were fabricated exactly to spec. Robust build, clean finish, and delivered ahead of schedule. AFI is our go-to vendor now!"</p><div class="testi-author"><div class="testi-avatar">NR</div><div><div class="testi-name">Neha Rastogi</div><div class="testi-role">Research Institute, Delhi</div></div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ── CERTIFICATES ── -->
+<!-- CERTIFICATES -->
 <section id="certificates">
   <div class="container">
     <div class="row justify-content-center text-center mb-5 reveal">
       <div class="col-lg-7">
-        <div class="section-tag">Certifications</div>
-        <h2 class="section-title">Our <span>Credentials</span></h2>
-        <div class="divider-line mx-auto"></div>
-        <p class="section-sub mx-auto">AFI Systems holds industry-recognised certifications that validate our commitment to quality, safety, and environmental responsibility.</p>
+        <div class="sec-eyebrow"><i class="fas fa-certificate"></i>Certifications</div>
+        <h2 class="sec-title">Our <span class="grad-text">Credentials</span></h2>
+        <div class="divider mx-auto"></div>
+        <p class="sec-sub mx-auto">Industry-recognised certifications that validate our commitment to quality, safety, and environmental responsibility.</p>
       </div>
     </div>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="cert-card">
-          <div class="cert-icon" style="color:var(--green)"><i class="fas fa-certificate"></i></div>
-          <h5>ISO 9001:2015</h5>
-          <p>Quality Management System certified for consistent furniture manufacturing standards.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="cert-card">
-          <div class="cert-icon" style="color:var(--blue)"><i class="fas fa-award"></i></div>
-          <h5>MSME Registered</h5>
-          <p>Officially registered under the Ministry of Micro, Small & Medium Enterprises, Govt of India.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="cert-card">
-          <div class="cert-icon" style="color:var(--teal)"><i class="fas fa-leaf"></i></div>
-          <h5>Eco-Friendly Materials</h5>
-          <p>Committed to using sustainable and eco-friendly materials in our furniture production.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="cert-card">
-          <div class="cert-icon" style="color:var(--accent)"><i class="fas fa-shield-alt"></i></div>
-          <h5>GST Registered</h5>
-          <p>Fully GST compliant. Proper invoicing and tax documentation provided for all orders.</p>
-        </div>
-      </div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="cert-card"><div class="cert-ico-wrap"><i class="fas fa-certificate"></i></div><h5>ISO 9001:2015</h5><p>Quality Management System certified for consistent furniture manufacturing standards.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="cert-card"><div class="cert-ico-wrap"><i class="fas fa-award"></i></div><h5>MSME Registered</h5><p>Officially registered under the Ministry of Micro, Small &amp; Medium Enterprises, Govt of India.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="cert-card"><div class="cert-ico-wrap"><i class="fas fa-leaf"></i></div><h5>Eco-Friendly</h5><p>Committed to using sustainable and eco-friendly materials in our furniture production.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="cert-card"><div class="cert-ico-wrap"><i class="fas fa-file-invoice"></i></div><h5>GST Registered</h5><p>Fully GST compliant. Proper invoicing and tax documentation provided for all orders.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     BLOG SECTION  (improved layout)
-══════════════════════════════════════════ -->
+<!-- BLOG -->
 <section id="blog">
   <div class="container">
     <div class="row justify-content-center text-center mb-5 reveal">
       <div class="col-lg-7">
-        <div class="section-tag">Tips & Insights</div>
-        <h2 class="section-title">Furniture <span>Guides & Blog</span></h2>
-        <div class="divider-line mx-auto"></div>
-        <p class="section-sub mx-auto">Expert advice on choosing, placing, and maintaining furniture for homes and offices.</p>
+        <div class="sec-eyebrow"><i class="fas fa-newspaper"></i>Tips &amp; Insights</div>
+        <h2 class="sec-title">Furniture <span class="grad-text">Guides &amp; Blog</span></h2>
+        <div class="divider mx-auto"></div>
+        <p class="sec-sub mx-auto">Expert advice on choosing, placing, and maintaining furniture for homes and offices.</p>
       </div>
     </div>
 
-    <!-- Row 1: Featured + side cards -->
-    <div class="blog-grid-featured reveal mb-4">
-      <!-- Featured large card -->
-      <div class="blog-card-featured">
-        <div class="blog-thumb-lg" style="background:linear-gradient(135deg,#6abf2e,#2d7ec4)">
-          <i class="fas fa-building"></i>
+    <!-- Row 1: Featured + side -->
+    <div class="blog-featured-grid reveal mb-4">
+      <div class="blog-card-lg">
+        <div class="blog-thumb-lg">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=75&fit=crop" alt="Office Layout" loading="lazy"/>
         </div>
-        <div class="blog-body-featured">
-          <span class="blog-tag"><i class="fas fa-tag me-1"></i>Office Setup</span>
+        <div class="blog-body-lg">
+          <span class="blog-cat-tag"><i class="fas fa-tag me-1"></i>Office Setup</span>
           <h5>How to Plan Your Office Furniture Layout for Maximum Productivity</h5>
           <p>Smart furniture placement can boost focus and collaboration. Discover expert tips on workstation spacing, ergonomic chair placement, and optimising your office for workflow efficiency.</p>
-          <div class="blog-meta mb-3">
+          <div class="blog-meta">
             <span><i class="fas fa-calendar-alt"></i> May 2025</span>
             <span><i class="fas fa-clock"></i> 5 min read</span>
             <span><i class="fas fa-eye"></i> 1.2k views</span>
@@ -524,119 +408,105 @@
         </div>
       </div>
 
-      <!-- Side small cards -->
-      <div class="blog-side-cards">
-        <div class="blog-card-small">
-          <div class="blog-thumb-sm" style="background:linear-gradient(135deg,#1ac8bf,#2d7ec4)">
-            <i class="fas fa-couch"></i>
-          </div>
+      <div class="blog-side">
+        <div class="blog-card-sm">
+          <div class="blog-thumb-sm"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=75&fit=crop" alt="Wardrobe" loading="lazy"/></div>
           <div class="blog-body-sm">
-            <span class="blog-tag"><i class="fas fa-tag me-1"></i>Home Interior</span>
-            <h6>Top 5 Wardrobe Design Trends in 2025 for Modern Indian Homes</h6>
-            <p>Sliding, hinged or walk-in — the latest wardrobe styles transforming Indian bedrooms.</p>
-            <a href="#contact" class="blog-read-more" style="font-size:.78rem;">Read More <i class="fas fa-arrow-right"></i></a>
+            <span class="blog-cat-tag" style="font-size:.65rem;"><i class="fas fa-tag me-1"></i>Home Interior</span>
+            <h6>Top 5 Wardrobe Design Trends in 2025</h6>
+            <p>Sliding, hinged or walk-in — the latest styles transforming Indian bedrooms.</p>
+            <a href="#contact" class="blog-read-more" style="font-size:.76rem;">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-        <div class="blog-card-small">
-          <div class="blog-thumb-sm" style="background:linear-gradient(135deg,#f7a800,#6abf2e)">
-            <i class="fas fa-chair"></i>
-          </div>
+        <div class="blog-card-sm">
+          <div class="blog-thumb-sm"><img src="https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=300&q=75&fit=crop" alt="Ergonomic Chair" loading="lazy"/></div>
           <div class="blog-body-sm">
-            <span class="blog-tag"><i class="fas fa-tag me-1"></i>Ergonomics</span>
+            <span class="blog-cat-tag" style="font-size:.65rem;"><i class="fas fa-tag me-1"></i>Ergonomics</span>
             <h6>Choosing the Right Ergonomic Chair — A Complete Guide</h6>
-            <p>Long hours at a desk demand the right chair. We break down what to look for and avoid.</p>
-            <a href="#contact" class="blog-read-more" style="font-size:.78rem;">Read More <i class="fas fa-arrow-right"></i></a>
+            <p>Long hours at a desk demand the right chair. What to look for and what to avoid.</p>
+            <a href="#contact" class="blog-read-more" style="font-size:.76rem;">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-        <div class="blog-card-small">
-          <div class="blog-thumb-sm" style="background:linear-gradient(135deg,#2d7ec4,#1ac8bf)">
-            <i class="fas fa-coffee"></i>
-          </div>
+        <div class="blog-card-sm">
+          <div class="blog-thumb-sm"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=300&q=75&fit=crop" alt="Café" loading="lazy"/></div>
           <div class="blog-body-sm">
-            <span class="blog-tag"><i class="fas fa-tag me-1"></i>Commercial</span>
+            <span class="blog-cat-tag" style="font-size:.65rem;"><i class="fas fa-tag me-1"></i>Commercial</span>
             <h6>7 Café Furniture Ideas That Attract More Customers</h6>
-            <p>The right seating and table design can dramatically improve footfall and dwell time in your café.</p>
-            <a href="#contact" class="blog-read-more" style="font-size:.78rem;">Read More <i class="fas fa-arrow-right"></i></a>
+            <p>The right seating can dramatically improve footfall and dwell time.</p>
+            <a href="#contact" class="blog-read-more" style="font-size:.76rem;">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Row 2: three equal cards -->
-    <div class="row g-4 reveal">
+    <!-- Row 2 -->
+    <!-- <div class="row g-4 reveal">
       <div class="col-md-4">
-        <div class="blog-card-featured">
-          <div class="blog-thumb-lg" style="background:linear-gradient(135deg,#e74c3c,#f7a800);height:160px;">
-            <i class="fas fa-archive"></i>
-          </div>
-          <div class="blog-body-featured">
-            <span class="blog-tag"><i class="fas fa-tag me-1"></i>Storage</span>
-            <h5 style="font-size:.93rem;">Metal vs. Wooden Storage — Which is Best for Your Office?</h5>
-            <p style="font-size:.83rem;">We compare durability, cost, and aesthetics of metal and wooden office storage solutions.</p>
-            <a href="#contact" class="blog-read-more" style="font-size:.8rem;">Read More <i class="fas fa-arrow-right"></i></a>
+        <div class="blog-card-md">
+          <div class="blog-thumb-md"><img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&q=75&fit=crop" alt="Storage" loading="lazy"/></div>
+          <div class="blog-body-md">
+            <span class="blog-cat-tag"><i class="fas fa-tag me-1"></i>Storage</span>
+            <h6>Metal vs. Wooden Storage — Which is Best for Your Office?</h6>
+            <p>We compare durability, cost, and aesthetics of metal and wooden office storage solutions.</p>
+            <a href="#contact" class="blog-read-more mt-2" style="font-size:.79rem;">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="blog-card-featured">
-          <div class="blog-thumb-lg" style="background:linear-gradient(135deg,#6abf2e,#1ac8bf);height:160px;">
-            <i class="fas fa-school"></i>
-          </div>
-          <div class="blog-body-featured">
-            <span class="blog-tag"><i class="fas fa-tag me-1"></i>Institutional</span>
-            <h5 style="font-size:.93rem;">How to Furnish a School Classroom on a Budget</h5>
-            <p style="font-size:.83rem;">Practical tips on selecting durable, cost-effective furniture for classrooms and study halls.</p>
-            <a href="#contact" class="blog-read-more" style="font-size:.8rem;">Read More <i class="fas fa-arrow-right"></i></a>
+        <div class="blog-card-md">
+          <div class="blog-thumb-md"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=75&fit=crop" alt="School" loading="lazy"/></div>
+          <div class="blog-body-md">
+            <span class="blog-cat-tag"><i class="fas fa-tag me-1"></i>Institutional</span>
+            <h6>How to Furnish a School Classroom on a Budget</h6>
+            <p>Practical tips on selecting durable, cost-effective furniture for classrooms and study halls.</p>
+            <a href="#contact" class="blog-read-more mt-2" style="font-size:.79rem;">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="blog-card-featured">
-          <div class="blog-thumb-lg" style="background:linear-gradient(135deg,#2d7ec4,#6abf2e);height:160px;">
-            <i class="fas fa-tools"></i>
-          </div>
-          <div class="blog-body-featured">
-            <span class="blog-tag"><i class="fas fa-tag me-1"></i>Maintenance</span>
-            <h5 style="font-size:.93rem;">5 Easy Tips to Extend the Life of Your Office Furniture</h5>
-            <p style="font-size:.83rem;">Simple maintenance habits that keep chairs, desks, and cabinets looking new for years.</p>
-            <a href="#contact" class="blog-read-more" style="font-size:.8rem;">Read More <i class="fas fa-arrow-right"></i></a>
+        <div class="blog-card-md">
+          <div class="blog-thumb-md"><img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=75&fit=crop" alt="Office" loading="lazy"/></div>
+          <div class="blog-body-md">
+            <span class="blog-cat-tag"><i class="fas fa-tag me-1"></i>Maintenance</span>
+            <h6>5 Easy Tips to Extend the Life of Your Office Furniture</h6>
+            <p>Simple habits that keep chairs, desks, and cabinets looking new for years.</p>
+            <a href="#contact" class="blog-read-more mt-2" style="font-size:.79rem;">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
-    </div>
-
+    </div> -->
   </div>
 </section>
 
-<!-- ── BRANDS / CLIENTS ── -->
+<!-- BRANDS -->
 <section id="brands">
   <div class="container">
-    <div class="text-center mb-4 reveal">
-      <div class="section-tag">Our Clients</div>
-      <h2 class="section-title">Trusted By <span>Leading Sectors</span></h2>
-      <div class="divider-line mx-auto"></div>
+    <div class="text-center mb-5 reveal">
+      <div class="sec-eyebrow"><i class="fas fa-handshake"></i>Our Clients</div>
+      <h2 class="sec-title">Trusted By <span class="grad-text">Leading Sectors</span></h2>
+      <div class="divider mx-auto"></div>
     </div>
     <div class="brand-logos reveal">
-      <div class="brand-logo-item">Schools & Colleges</div>
-      <div class="brand-logo-item">IT Companies</div>
-      <div class="brand-logo-item">Hospitals & Clinics</div>
-      <div class="brand-logo-item">Retail Chains</div>
-      <div class="brand-logo-item">Co-working Spaces</div>
-      <div class="brand-logo-item">Restaurants & Cafés</div>
-      <div class="brand-logo-item">Government Offices</div>
-      <div class="brand-logo-item">Research Labs</div>
+      <div class="brand-pill">Schools &amp; Colleges</div>
+      <div class="brand-pill">IT Companies</div>
+      <div class="brand-pill">Hospitals &amp; Clinics</div>
+      <div class="brand-pill">Retail Chains</div>
+      <div class="brand-pill">Co-working Spaces</div>
+      <div class="brand-pill">Restaurants &amp; Cafés</div>
+      <div class="brand-pill">Government Offices</div>
+      <div class="brand-pill">Research Labs</div>
     </div>
   </div>
 </section>
 
-<!-- ── MAP ── -->
+<!-- MAP -->
 <section id="map-section">
   <div class="container">
     <div class="row justify-content-center text-center mb-5 reveal">
-      <div class="col-lg-7">
-        <div class="section-tag">Find Us</div>
-        <h2 class="section-title">Our <span>Location</span></h2>
-        <div class="divider-line mx-auto"></div>
+      <div class="col-lg-6">
+        <div class="sec-eyebrow"><i class="fas fa-map-marker-alt"></i>Find Us</div>
+        <h2 class="sec-title">Our <span class="grad-text">Location</span></h2>
+        <div class="divider mx-auto"></div>
       </div>
     </div>
     <div class="row g-4 align-items-stretch">
@@ -646,27 +516,14 @@
         </div>
       </div>
       <div class="col-lg-4 reveal">
-        <div class="contact-info-card">
+        <div class="cinfo-card">
           <h4><i class="fas fa-map-marker-alt me-2" style="color:var(--green)"></i>AFI Systems</h4>
-          <div class="info-item">
-            <div class="info-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div><h6>Address</h6><p>Delhi NCR, India<br>Serving Pan-Delhi NCR</p></div>
-          </div>
-          <div class="info-item">
-            <div class="info-item-icon"><i class="fas fa-phone"></i></div>
-            <div><h6>Phone</h6><a href="tel:+919818251017">+91 98182 51017</a></div>
-          </div>
-          <div class="info-item">
-            <div class="info-item-icon"><i class="fab fa-whatsapp"></i></div>
-            <div><h6>WhatsApp</h6><a href="https://wa.me/919818251017" target="_blank">Chat Now →</a></div>
-          </div>
-          <div class="info-item">
-            <div class="info-item-icon"><i class="fas fa-clock"></i></div>
-            <div><h6>Working Hours</h6><p>Mon – Sat: 10 AM – 7 PM<br>Sunday: Closed</p></div>
-          </div>
-          <a href="https://wa.me/919818251017?text=I%20want%20to%20visit%20your%20showroom" target="_blank"
-             class="btn-hero-primary mt-3 d-flex justify-content-center" style="text-decoration:none;">
-            <i class="fab fa-whatsapp"></i> Get Directions
+          <div class="cinfo-row"><div class="cinfo-ico"><i class="fas fa-map-marker-alt"></i></div><div><h6>Address</h6><p>Delhi NCR, India<br>Serving Pan-Delhi NCR</p></div></div>
+          <div class="cinfo-row"><div class="cinfo-ico"><i class="fas fa-phone"></i></div><div><h6>Phone</h6><a href="tel:+919818251017">+91 98182 51017</a></div></div>
+          <div class="cinfo-row"><div class="cinfo-ico"><i class="fab fa-whatsapp"></i></div><div><h6>WhatsApp</h6><a href="https://wa.me/919818251017" target="_blank">Chat Now →</a></div></div>
+          <div class="cinfo-row"><div class="cinfo-ico"><i class="fas fa-clock"></i></div><div><h6>Working Hours</h6><p>Mon–Sat: 10 AM – 7 PM<br>Sunday: Closed</p></div></div>
+          <a href="https://wa.me/919818251017?text=I%20want%20to%20visit%20your%20showroom" target="_blank" class="btn-primary-cta mt-3 w-100 justify-content-center">
+            <i class="fab fa-whatsapp"></i>Get Directions
           </a>
         </div>
       </div>
@@ -674,20 +531,20 @@
   </div>
 </section>
 
-<!-- ── CONTACT FORM ── -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="row justify-content-center text-center mb-5 reveal">
-      <div class="col-lg-7">
-        <div class="section-tag">Contact Us</div>
-        <h2 class="section-title">Get in <span>Touch</span></h2>
-        <div class="divider-line mx-auto"></div>
-        <p class="section-sub mx-auto">Fill the form and your query will be sent directly to our WhatsApp — no wait, no backend!</p>
+      <div class="col-lg-6">
+        <div class="sec-eyebrow"><i class="fas fa-envelope"></i>Contact Us</div>
+        <h2 class="sec-title">Get in <span class="grad-text">Touch</span></h2>
+        <div class="divider mx-auto"></div>
+        <p class="sec-sub mx-auto">Fill the form and your query will be sent directly to our WhatsApp — instant, private, no backend.</p>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8 reveal">
-        <div class="contact-form-card">
+        <div class="form-card">
           <form id="contactForm" novalidate>
             <div class="row g-3">
               <div class="col-md-6">
@@ -706,15 +563,15 @@
                 <label class="form-label">Product Category *</label>
                 <select id="cf_category" class="form-select" required>
                   <option value="">— Select Category —</option>
-                  <option>Pantry & Kitchen</option>
-                  <option>Wardrobes & LED Panels</option>
-                  <option>Office & Executive Chairs</option>
-                  <option>Student Benches & Chairs</option>
-                  <option>Café Chairs & Tables</option>
-                  <option>Sofa & Lounge</option>
-                  <option>Reception & Director Desks</option>
-                  <option>Workstations & Conference Tables</option>
-                  <option>Metal Storage & Lab Collection</option>
+                  <option>Pantry &amp; Kitchen</option>
+                  <option>Wardrobes &amp; LED Panels</option>
+                  <option>Office &amp; Executive Chairs</option>
+                  <option>Student Benches &amp; Chairs</option>
+                  <option>Café Chairs &amp; Tables</option>
+                  <option>Sofa &amp; Lounge</option>
+                  <option>Reception &amp; Director Desks</option>
+                  <option>Workstations &amp; Conference Tables</option>
+                  <option>Metal Storage &amp; Lab Collection</option>
                   <option>Other / Multiple Items</option>
                 </select>
               </div>
@@ -738,16 +595,16 @@
                 </select>
               </div>
               <div class="col-12">
-                <label class="form-label">Your Message / Requirements *</label>
+                <label class="form-label">Your Requirements *</label>
                 <textarea id="cf_message" class="form-control" rows="4" placeholder="Describe your furniture requirements in detail..." required></textarea>
               </div>
               <div class="col-12">
                 <button type="submit" class="btn-submit">
-                  <i class="fab fa-whatsapp me-2"></i>Send Query via WhatsApp
+                  <i class="fab fa-whatsapp"></i>Send Query via WhatsApp
                 </button>
-                <div class="wa-note">
-                  <i class="fab fa-whatsapp" style="color:#25D366;font-size:1.2rem"></i>
-                  Your details will open directly in WhatsApp — instant, private, and no data stored anywhere.
+                <div class="wa-info-note">
+                  <i class="fab fa-whatsapp" style="color:#25D366;font-size:1.1rem;flex-shrink:0"></i>
+                  Your details open directly in WhatsApp — instant, private, no data stored anywhere.
                 </div>
               </div>
             </div>
@@ -758,20 +615,20 @@
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-4">
-        <div class="footer-brand">
-          <img src="logo.jpg" alt="AFI Systems"/>
+        <div class="foot-brand">
+          <img src="./logo.png" alt="AFI Systems"/>
           <p>From offices to homes and commercial setups, we deliver smart, functional, and stylish furniture solutions tailored to your needs across Delhi NCR.</p>
-          <div class="social-links mt-3">
-            <a href="https://wa.me/919818251017" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <div class="foot-social">
+            <a href="https://wa.me/919818251017" target="_blank" class="foot-soc-link"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="foot-soc-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="foot-soc-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="foot-soc-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="foot-soc-link"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
       </div>
@@ -789,10 +646,10 @@
       <div class="col-md-4 col-lg-3">
         <h6>Our Products</h6>
         <ul>
-          <li><a href="#categories"><i class="fas fa-chevron-right"></i>Pantry & Kitchen</a></li>
-          <li><a href="#categories"><i class="fas fa-chevron-right"></i>Wardrobes & LED Panels</a></li>
+          <li><a href="#categories"><i class="fas fa-chevron-right"></i>Pantry &amp; Kitchen</a></li>
+          <li><a href="#categories"><i class="fas fa-chevron-right"></i>Wardrobes &amp; LED Panels</a></li>
           <li><a href="#categories"><i class="fas fa-chevron-right"></i>Office Chairs</a></li>
-          <li><a href="#categories"><i class="fas fa-chevron-right"></i>Sofa & Lounge</a></li>
+          <li><a href="#categories"><i class="fas fa-chevron-right"></i>Sofa &amp; Lounge</a></li>
           <li><a href="#categories"><i class="fas fa-chevron-right"></i>Workstations</a></li>
           <li><a href="#categories"><i class="fas fa-chevron-right"></i>Metal Storage</a></li>
         </ul>
@@ -800,238 +657,170 @@
       <div class="col-md-4 col-lg-3">
         <h6>Contact Info</h6>
         <ul>
-          <li><a href="tel:+919818251017"><i class="fas fa-phone" style="color:var(--green);width:18px"></i>+91 98182 51017</a></li>
-          <li><a href="https://wa.me/919818251017" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366;width:18px"></i>WhatsApp Now</a></li>
-          <li><a href="mailto:info@afisystems.in"><i class="fas fa-envelope" style="color:var(--teal);width:18px"></i>info@afisystems.in</a></li>
-          <li style="color:#8aabb8;font-size:.88rem;padding-left:0;display:flex;align-items:center;gap:6px;">
-            <i class="fas fa-map-marker-alt" style="color:var(--accent);width:18px"></i>Delhi NCR, India
+          <li><a href="tel:+919818251017"><i class="fas fa-phone" style="color:var(--green);width:16px"></i>+91 98182 51017</a></li>
+          <li><a href="https://wa.me/919818251017" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366;width:16px"></i>WhatsApp Now</a></li>
+          <li><a href="mailto:info@afisystems.in"><i class="fas fa-envelope" style="color:var(--teal);width:16px"></i>info@afisystems.in</a></li>
+          <li style="color:#44566a;font-size:.86rem;display:flex;align-items:center;gap:6px;margin-bottom:9px;">
+            <i class="fas fa-map-marker-alt" style="color:var(--accent);width:16px"></i>Delhi NCR, India
           </li>
-          <li style="color:#8aabb8;font-size:.88rem;padding-left:0;display:flex;align-items:center;gap:6px;">
-            <i class="fas fa-clock" style="color:var(--blue);width:18px"></i>Mon–Sat: 10AM–7PM
+          <li style="color:#44566a;font-size:.86rem;display:flex;align-items:center;gap:6px;">
+            <i class="fas fa-clock" style="color:var(--blue);width:16px"></i>Mon–Sat: 10 AM – 7 PM
           </li>
         </ul>
         <a href="https://wa.me/919818251017?text=Hi%2C%20I%20need%20furniture!" target="_blank"
-           class="btn-strip-cta mt-3 d-inline-flex" style="background:var(--grad);color:#fff;text-decoration:none;padding:10px 22px;border-radius:20px;font-weight:700;font-size:.88rem;gap:8px;">
+           class="btn-primary-cta mt-3 d-inline-flex" style="font-size:.82rem;padding:9px 20px;">
           <i class="fab fa-whatsapp"></i>Quick Enquiry
         </a>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="foot-bottom">
     <div class="container">
-      <p>© 2025 <a href="#">AFI Systems™</a> — Affordable Furniture Interiors Systems. All rights reserved. | Designed with ❤️ for Delhi NCR</p>
+      <p>© 2026 <a href="#">AFI Systems™</a> — Affordable Furniture Interiors Systems. All rights reserved. | Delhi NCR, India</p>
     </div>
   </div>
 </footer>
 
-<!-- FLOATING WA -->
+<!-- Floating WhatsApp -->
 <a href="https://wa.me/919818251017?text=Hi%20AFI%20Systems%2C%20I%27m%20interested%20in%20your%20furniture!" target="_blank" class="wa-float" title="Chat on WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- BACK TO TOP -->
-<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+<!-- Back to top -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">
   <i class="fas fa-chevron-up"></i>
 </button>
 
-<!-- SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 <script>
-/* ════════════════════════════════════
-   MARQUEE
-════════════════════════════════════ */
-const marqueeItems = [
-  "Office Furniture","Pantry & Kitchen","Wardrobes & LED Panels","Executive Chairs",
-  "Student Benches","Café Chairs & Tables","Sofa & Lounge","Reception Desks",
-  "Workstations","Conference Tables","Metal Storage","Lab Collection",
-  "Custom Manufacturing","Bulk Orders Welcome","Delhi NCR Delivery","Free Consultation"
-];
-const track = document.getElementById('marqueeTrack');
-const dbl = [...marqueeItems,...marqueeItems];
-track.innerHTML = dbl.map(i=>`<span class="marquee-item"><i class="fas fa-check-circle"></i>${i}</span>`).join('');
+/* ─── MARQUEE ─── */
+const mItems = ["Office Furniture","Pantry & Kitchen","Wardrobes & LED Panels","Executive Chairs","Student Benches","Café Chairs & Tables","Sofa & Lounge","Reception Desks","Workstations","Conference Tables","Metal Storage","Lab Collection","Custom Manufacturing","Bulk Orders Welcome","Delhi NCR Delivery","Free Consultation"];
+const mTrack = document.getElementById('marqueeTrack');
+[...mItems,...mItems].forEach(t => {
+  const s = document.createElement('span');
+  s.className = 'marquee-item';
+  s.innerHTML = `<i class="fas fa-circle-dot"></i>${t}`;
+  mTrack.appendChild(s);
+});
 
-/* ════════════════════════════════════
-   PRODUCT DATA
-════════════════════════════════════ */
-const officeProducts = [
-  { icon:'fas fa-chair',      name:'Executive High-Back Chair',  old:'₹12,500', price:'₹8,999',  disc:'28% OFF', badge:'new',  color:'#6abf2e', bg:'#f0fae4' },
-  { icon:'fas fa-desktop',    name:'L-Shape Workstation Desk',   old:'₹22,000', price:'₹15,499', disc:'30% OFF', badge:'sale', color:'#2d7ec4', bg:'#e8f2fb' },
-  { icon:'fas fa-table',      name:'12-Seater Conference Table', old:'₹58,000', price:'₹42,000', disc:'28% OFF', badge:'',     color:'#1ac8bf', bg:'#e4faf9' },
-  { icon:'fas fa-concierge-bell', name:'L-Shape Reception Desk',old:'₹35,000', price:'₹24,999', disc:'29% OFF', badge:'new',  color:'#f7a800', bg:'#fff8e1' },
-  { icon:'fas fa-archive',    name:'4-Door Metal Locker',        old:'₹9,500',  price:'₹6,999',  disc:'26% OFF', badge:'',     color:'#6abf2e', bg:'#f0fae4' },
-  { icon:'fas fa-laptop',     name:'Computer Table with Shelf',  old:'₹8,200',  price:'₹5,499',  disc:'33% OFF', badge:'sale', color:'#2d7ec4', bg:'#e8f2fb' },
-  { icon:'fas fa-chair',      name:'Mesh Ergonomic Chair',       old:'₹7,800',  price:'₹5,299',  disc:'32% OFF', badge:'new',  color:'#1ac8bf', bg:'#e4faf9' },
-  { icon:'fas fa-book',       name:'3-Drawer File Cabinet',      old:'₹6,500',  price:'₹4,799',  disc:'26% OFF', badge:'',     color:'#f7a800', bg:'#fff8e1' },
+/* ─── PRODUCT DATA — real Unsplash images ─── */
+const officeProds = [
+  {img:'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=440&q=75&fit=crop', name:'Executive High-Back Chair',   old:'₹12,500', price:'₹8,999',  disc:'28% OFF', badge:'new'},
+  {img:'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=440&q=75&fit=crop', name:'L-Shape Workstation Desk',    old:'₹22,000', price:'₹15,499', disc:'30% OFF', badge:'sale'},
+  {img:'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=440&q=75&fit=crop', name:'12-Seater Conference Table',  old:'₹58,000', price:'₹42,000', disc:'28% OFF', badge:''},
+  {img:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=440&q=75&fit=crop', name:'L-Shape Reception Desk',      old:'₹35,000', price:'₹24,999', disc:'29% OFF', badge:'new'},
+  {img:'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=440&q=75&fit=crop',    name:'4-Door Metal Locker',         old:'₹9,500',  price:'₹6,999',  disc:'26% OFF', badge:''},
+  {img:'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=440&q=75&fit=crop',    name:'Computer Table with Shelf',   old:'₹8,200',  price:'₹5,499',  disc:'33% OFF', badge:'sale'},
+  {img:'https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=440&q=75&fit=crop', name:'Mesh Ergonomic Chair',        old:'₹7,800',  price:'₹5,299',  disc:'32% OFF', badge:'new'},
+  {img:'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=440&q=75&fit=crop', name:'3-Drawer File Cabinet',       old:'₹6,500',  price:'₹4,799',  disc:'26% OFF', badge:''},
 ];
-
-const homeProducts = [
-  { icon:'fas fa-couch',      name:'3-Seater Fabric Sofa Set',   old:'₹28,000', price:'₹19,999', disc:'29% OFF', badge:'new',  color:'#6abf2e', bg:'#f0fae4' },
-  { icon:'fas fa-door-closed',name:'6-Door Sliding Wardrobe',    old:'₹38,000', price:'₹26,500', disc:'30% OFF', badge:'sale', color:'#2d7ec4', bg:'#e8f2fb' },
-  { icon:'fas fa-utensils',   name:'Modular Kitchen Unit',       old:'₹45,000', price:'₹32,000', disc:'29% OFF', badge:'',     color:'#1ac8bf', bg:'#e4faf9' },
-  { icon:'fas fa-bed',        name:'Queen Bed with Storage',     old:'₹22,000', price:'₹15,999', disc:'27% OFF', badge:'new',  color:'#f7a800', bg:'#fff8e1' },
-  { icon:'fas fa-coffee',     name:'Café 4-Seater Table Set',    old:'₹12,000', price:'₹8,499',  disc:'29% OFF', badge:'sale', color:'#6abf2e', bg:'#f0fae4' },
-  { icon:'fas fa-graduation-cap','name':'2-Seater Student Bench',old:'₹3,800',  price:'₹2,599',  disc:'32% OFF', badge:'',     color:'#2d7ec4', bg:'#e8f2fb' },
-  { icon:'fas fa-couch',      name:'Lounge Recliner Chair',      old:'₹15,000', price:'₹10,499', disc:'30% OFF', badge:'new',  color:'#1ac8bf', bg:'#e4faf9' },
-  { icon:'fas fa-lightbulb',  name:'LED Panel Wardrobe (4-Door)',old:'₹32,000', price:'₹22,999', disc:'28% OFF', badge:'sale', color:'#f7a800', bg:'#fff8e1' },
+const homeProds = [
+  {img:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=440&q=75&fit=crop',    name:'3-Seater Fabric Sofa Set',    old:'₹28,000', price:'₹19,999', disc:'29% OFF', badge:'new'},
+  {img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=440&q=75&fit=crop',    name:'6-Door Sliding Wardrobe',     old:'₹38,000', price:'₹26,500', disc:'30% OFF', badge:'sale'},
+  {img:'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=440&q=75&fit=crop',    name:'Modular Kitchen Unit',        old:'₹45,000', price:'₹32,000', disc:'29% OFF', badge:''},
+  {img:'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=440&q=75&fit=crop', name:'Queen Bed with Storage',      old:'₹22,000', price:'₹15,999', disc:'27% OFF', badge:'new'},
+  {img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=440&q=75&fit=crop', name:'Café 4-Seater Table Set',     old:'₹12,000', price:'₹8,499',  disc:'29% OFF', badge:'sale'},
+  {img:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=440&q=75&fit=crop', name:'2-Seater Student Bench',      old:'₹3,800',  price:'₹2,599',  disc:'32% OFF', badge:''},
+  {img:'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=440&q=75&fit=crop', name:'Lounge Recliner Chair',       old:'₹15,000', price:'₹10,499', disc:'30% OFF', badge:'new'},
+  {img:'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=440&q=75&fit=crop', name:'LED Panel Wardrobe (4-Door)', old:'₹32,000', price:'₹22,999', disc:'28% OFF', badge:'sale'},
 ];
 
-/* ════════════════════════════════════
-   BUILD PRODUCT CARD HTML
-════════════════════════════════════ */
 function buildCard(p) {
-  const badgeHTML = p.badge === 'new'
-    ? `<div class="prod-badge-new">NEW</div>`
-    : p.badge === 'sale'
-    ? `<div class="prod-badge-sale">SALE</div>`
-    : '';
-
-  const waMsg = encodeURIComponent(`Hi AFI Systems, I'm interested in: *${p.name}* (Price: ${p.price}). Please share details.`);
-
-  return `
-    <div class="prod-card">
-      <div class="prod-card-img" style="background:${p.bg};">
-        ${badgeHTML}
-        <i class="${p.icon}" style="color:${p.color}"></i>
+  const badge = p.badge === 'new' ? `<div class="badge-new">NEW</div>` : p.badge === 'sale' ? `<div class="badge-sale">SALE</div>` : '';
+  const msg = encodeURIComponent(`Hi AFI Systems, I'm interested in: *${p.name}* (${p.price}). Please share details.`);
+  return `<div class="prod-card">
+    <div class="prod-img">
+      ${badge}
+      <img src="${p.img}" alt="${p.name}" loading="lazy"/>
+    </div>
+    <div class="prod-body">
+      <h6>${p.name}</h6>
+      <div class="prod-stars"><span class="s-ico">★★★★<span style="color:#ddd">★</span></span><span class="s-cnt">(222)</span></div>
+      <div class="prod-price">
+        <span class="price-old">${p.old}</span>
+        <span class="price-new">${p.price}</span>
+        <span class="price-disc">${p.disc}</span>
       </div>
-      <div class="prod-card-body">
-        <h6>${p.name}</h6>
-        <div class="prod-card-stars">
-          <span class="stars-ico">★★★★<span style="color:#ddd">★</span></span>
-          <span class="review-count">(222)</span>
-        </div>
-        <div class="prod-card-price">
-          <span class="prod-price-old">${p.old}</span>
-          <span class="prod-price-new">${p.price}</span>
-          <span class="prod-discount-badge">${p.disc}</span>
-        </div>
-        <a href="https://wa.me/919818251017?text=${waMsg}" target="_blank" class="prod-card-enquire">
-          <i class="fab fa-whatsapp me-1"></i>Enquire Now
-        </a>
-      </div>
-    </div>`;
+      <a href="https://wa.me/919818251017?text=${msg}" target="_blank" class="btn-enquire">
+        <i class="fab fa-whatsapp"></i>Enquire Now
+      </a>
+    </div>
+  </div>`;
 }
 
-/* ════════════════════════════════════
-   SLIDER ENGINE  (click nav)
-════════════════════════════════════ */
 function initSlider(trackId, prevId, nextId, items) {
-  const trackEl = document.getElementById(trackId);
-  trackEl.innerHTML = items.map(buildCard).join('');
-
-  const cards    = trackEl.querySelectorAll('.prod-card');
-  let   current  = 0;
-
-  // Determine how many visible at once based on viewport
-  function visibleCount() {
-    const vw = window.innerWidth;
-    if (vw >= 1200) return 5;
-    if (vw >= 992)  return 4;
-    if (vw >= 768)  return 3;
-    if (vw >= 480)  return 2;
-    return 1;
+  const t = document.getElementById(trackId);
+  t.innerHTML = items.map(buildCard).join('');
+  let cur = 0;
+  const cards = t.querySelectorAll('.prod-card');
+  function vis(){ const w=window.innerWidth; return w>=1200?5:w>=992?4:w>=768?3:w>=480?2:1; }
+  function cw(){ return cards[0]?(cards[0].offsetWidth+18):234; }
+  function clamp(){ cur=Math.max(0,Math.min(cur,items.length-vis())); }
+  function go(){
+    clamp();
+    t.style.transform=`translateX(-${cur*cw()}px)`;
+    document.getElementById(prevId).disabled=cur<=0;
+    document.getElementById(nextId).disabled=cur>=items.length-vis();
   }
-
-  function getCardWidth() {
-    if (!cards[0]) return 240;
-    return cards[0].offsetWidth + 20; // card + gap
-  }
-
-  function clampIndex() {
-    const maxIndex = Math.max(0, items.length - visibleCount());
-    current = Math.max(0, Math.min(current, maxIndex));
-  }
-
-  function slide() {
-    clampIndex();
-    trackEl.style.transform = `translateX(-${current * getCardWidth()}px)`;
-    document.getElementById(prevId).disabled = current <= 0;
-    document.getElementById(nextId).disabled = current >= items.length - visibleCount();
-  }
-
-  document.getElementById(prevId).addEventListener('click', () => { current--; slide(); });
-  document.getElementById(nextId).addEventListener('click', () => { current++; slide(); });
-
-  window.addEventListener('resize', () => { clampIndex(); slide(); });
-  slide(); // init state
+  document.getElementById(prevId).addEventListener('click',()=>{cur--;go();});
+  document.getElementById(nextId).addEventListener('click',()=>{cur++;go();});
+  window.addEventListener('resize',()=>{clamp();go();});
+  go();
 }
+initSlider('officeTrack','offPrev','offNext',officeProds);
+initSlider('homeTrack','homePrev','homeNext',homeProds);
 
-initSlider('officeTrack', 'offPrev', 'offNext', officeProducts);
-initSlider('homeTrack',   'homePrev','homeNext', homeProducts);
+/* ─── SCROLL REVEAL ─── */
+document.querySelectorAll('.reveal').forEach(el=>{
+  new IntersectionObserver(([e])=>{ if(e.isIntersecting) el.classList.add('visible'); },{threshold:.1}).observe(el);
+});
 
-/* ════════════════════════════════════
-   SCROLL REVEAL
-════════════════════════════════════ */
-const reveals = document.querySelectorAll('.reveal');
-new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: .1 }).observe
-? (()=>{ reveals.forEach(r => new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:.12}).observe(r)); })()
-: reveals.forEach(r => r.classList.add('visible'));
-
-/* ════════════════════════════════════
-   BACK TO TOP
-════════════════════════════════════ */
+/* ─── BACK TO TOP ─── */
 const btt = document.getElementById('backToTop');
-window.addEventListener('scroll', () => { btt.classList.toggle('show', window.scrollY > 400); });
+window.addEventListener('scroll',()=> btt.classList.toggle('show', window.scrollY>450));
 
-/* ════════════════════════════════════
-   COUNTER
-════════════════════════════════════ */
-function animateCounter(el, target, dur=1800) {
-  let start=0, step=target/(dur/16);
-  const t = setInterval(()=>{
-    start+=step;
-    if(start>=target){el.textContent=target;clearInterval(t);return;}
-    el.textContent=Math.floor(start);
-  },16);
-}
-let counterDone=false;
-new IntersectionObserver(entries=>{
-  if(entries[0].isIntersecting && !counterDone){
-    counterDone=true;
-    document.querySelectorAll('.counter-item .num').forEach(el=>animateCounter(el,parseInt(el.dataset.target)));
+/* ─── NAVBAR SCROLL CLASS ─── */
+window.addEventListener('scroll',()=> document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60));
+
+/* ─── COUNTER ─── */
+let cdone=false;
+new IntersectionObserver(([e])=>{
+  if(e.isIntersecting&&!cdone){
+    cdone=true;
+    document.querySelectorAll('.cnt[data-target]').forEach(el=>{
+      const t=parseInt(el.dataset.target); let s=0; const st=t/(1800/16);
+      const tm=setInterval(()=>{ s+=st; if(s>=t){el.textContent=t;clearInterval(tm);}else el.textContent=Math.floor(s); },16);
+    });
   }
 },{threshold:.3}).observe(document.getElementById('counter'));
 
-/* ════════════════════════════════════
-   CONTACT FORM → WHATSAPP
-════════════════════════════════════ */
+/* ─── CONTACT FORM → WA ─── */
 document.getElementById('contactForm').addEventListener('submit',function(e){
   e.preventDefault();
-  const name     = document.getElementById('cf_name').value.trim();
-  const phone    = document.getElementById('cf_phone').value.trim();
-  const email    = document.getElementById('cf_email').value.trim();
-  const category = document.getElementById('cf_category').value;
-  const type     = document.getElementById('cf_type').value;
-  const budget   = document.getElementById('cf_budget').value;
-  const message  = document.getElementById('cf_message').value.trim();
-  if(!name||!phone||!category||!message){ alert('Please fill all required fields.'); return; }
-  if(!/^[6-9]\d{9}$/.test(phone)){ alert('Enter a valid 10-digit Indian mobile number.'); return; }
-  const text = `*New Enquiry — AFI Systems Website*\n\n`
-    +`👤 *Name:* ${name}\n`
-    +`📞 *Phone:* ${phone}\n`
-    +(email?`📧 *Email:* ${email}\n`:'')
-    +`🛋️ *Category:* ${category}\n`
-    +`📦 *Order Type:* ${type}\n`
-    +`💰 *Budget:* ${budget}\n`
-    +`📝 *Message:*\n${message}`;
-  window.open(`https://wa.me/919818251017?text=${encodeURIComponent(text)}`,'_blank');
+  const n=document.getElementById('cf_name').value.trim();
+  const p=document.getElementById('cf_phone').value.trim();
+  const em=document.getElementById('cf_email').value.trim();
+  const cat=document.getElementById('cf_category').value;
+  const typ=document.getElementById('cf_type').value;
+  const bud=document.getElementById('cf_budget').value;
+  const msg=document.getElementById('cf_message').value.trim();
+  if(!n||!p||!cat||!msg){alert('Please fill all required fields.');return;}
+  if(!/^[6-9]\d{9}$/.test(p)){alert('Enter a valid 10-digit Indian mobile number.');return;}
+  const txt=`*New Enquiry — AFI Systems*\n\n👤 *Name:* ${n}\n📞 *Phone:* ${p}\n`
+    +(em?`📧 *Email:* ${em}\n`:'')
+    +`🛋️ *Category:* ${cat}\n📦 *Order Type:* ${typ}\n💰 *Budget:* ${bud}\n📝 *Message:*\n${msg}`;
+  window.open(`https://wa.me/919818251017?text=${encodeURIComponent(txt)}`,'_blank');
   this.reset();
   alert("Opening WhatsApp with your query. We'll respond shortly!");
 });
 
-/* ════════════════════════════════════
-   ACTIVE NAV
-════════════════════════════════════ */
-const navSections = document.querySelectorAll('section[id]');
+/* ─── ACTIVE NAV ─── */
+const navSecs=document.querySelectorAll('section[id]');
 window.addEventListener('scroll',()=>{
   let cur='';
-  navSections.forEach(s=>{ if(window.scrollY>=s.offsetTop-120) cur=s.id; });
+  navSecs.forEach(s=>{ if(window.scrollY>=s.offsetTop-130) cur=s.id; });
   document.querySelectorAll('.nav-link').forEach(l=>{
-    l.classList.remove('active');
-    if(l.getAttribute('href')==='#'+cur) l.classList.add('active');
+    l.classList.toggle('active', l.getAttribute('href')==='#'+cur);
   });
 });
 </script>
