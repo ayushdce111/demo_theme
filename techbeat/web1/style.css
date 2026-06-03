@@ -174,10 +174,12 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   position: relative;
 }
-.slide-1 { background-image: url('https://www.casta.co.in/images/main_planing.jpg'); }
+.slide-1 { background-image: url('https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1200?w=1600&q=80'); }
 /* .slide-1 { background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80'); } */
 .slide-2 { background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80'); }
 .slide-3 { background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80'); }
+.slide-4 { background-image: url('https://images.pexels.com/photos/3183144/pexels-photo-3183144.jpeg?w=1600&q=80'); }
+.slide-5 { background-image: url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?w=1600&q=80'); }
 .hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(90deg, rgba(26,26,46,0.88) 0%, rgba(26,26,46,0.55) 60%, rgba(26,26,46,0.2) 100%);
