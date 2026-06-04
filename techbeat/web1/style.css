@@ -174,6 +174,7 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   position: relative;
 }
+.slide-0{ background-image: url("./asset/banner/banner0.jpg?w=1600&q=80");}
 .slide-1 { background-image: url('https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1200?w=1600&q=80'); }
 /* .slide-1 { background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80'); } */
 .slide-2 { background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80'); }
@@ -511,15 +512,15 @@ a { text-decoration: none; color: inherit; }
 .vision-card-featured h4, .vision-card-featured p { color: rgba(255,255,255,0.9); }
 .vision-icon {
   width: 56px; height: 56px;
-  background: rgba(192,57,43,0.12);
+  background: rgba(200, 199, 199, 0.12);
   color: var(--red);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: 1.4rem;
   margin-bottom: 18px;
 }
-.vision-card-featured .vision-icon { background: rgba(192,57,43,0.3); }
-.vision-card h4 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; margin-bottom: 14px; color: var(--dark); }
+.vision-card-featured .vision-icon { background: #ddd; }
+.vision-card h4 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; margin-bottom: 14px; color: #ddd; }
 .vision-card p { font-size: 0.9rem; line-height: 1.8; color: #555; }
 .vision-quote {
   font-family: var(--font-heading);
@@ -559,7 +560,7 @@ a { text-decoration: none; color: inherit; }
 .team-avatar { font-size: 3rem; }
 .leader-badge {
   position: absolute;
-  bottom: -14px; left: 50%; transform: translateX(-50%);
+  bottom: -14px; left: 18%; transform: translateX(-50%);
   background: var(--red);
   color: #fff;
   font-size: 0.72rem;
@@ -569,6 +570,7 @@ a { text-decoration: none; color: inherit; }
   padding: 5px 16px;
   border-radius: 20px;
   white-space: nowrap;
+  min-width: 7rem;
 }
 .leader-body { padding: 32px 24px 24px; }
 .leader-body h4 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
@@ -618,7 +620,7 @@ a { text-decoration: none; color: inherit; }
 }
 .contact-info-item:last-child { border-bottom: none; }
 .ci-icon {
-  width: 42px; height: 42px;
+  width: 1.5rem; height: 1.5rem;
   background: var(--red);
   color: #fff;
   border-radius: 50%;
