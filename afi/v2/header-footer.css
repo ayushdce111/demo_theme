@@ -29,7 +29,7 @@
 }
 #topbar a:hover { color: var(--cyan); } /* cyan hover */
 
-.tb-links { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+.tb-links { display:flex; gap:15px; align-items:center; flex-wrap:wrap; }
 .tb-right  { display:flex; gap:8px;  align-items:center; flex-wrap:wrap; }
 
 /* WhatsApp pill — always WA green */
@@ -160,7 +160,7 @@
 /* Mobile nav */
 .mob-bar { padding:10px 0; border-top:1px solid var(--border); }
 .mob-bar a {
-  display:block; padding:9px 0;
+  display:block; padding:9px 9px;
   font-family:var(--font-b); font-weight:600; font-size:.9rem;
   color:var(--dark); transition:color .2s;
 }
@@ -265,4 +265,7 @@ footer ul li a:hover { color:var(--cyan); padding-left:4px; }
 }
 @media(max-width:575px) {
   .tb-links .hide-xs { display:none; }
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833,37,41,0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
