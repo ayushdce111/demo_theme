@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARV International – Global Sourcing & Manufacturing</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" /> -->
+
+  <style>
+    :root {
+      --navy:   #0b1f3a;
+      --navy2:  #122952;
+      --gold:   #c8973a;
+      --gold2:  #e8b84b;
+      --steel:  #3a6b9e;
+      --light:  #f4f7fb;
+      --white:  #ffffff;
+      --text:   #1e2d40;
+      --muted:  #6b7e95;
+      --transition: .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Syne', sans-serif; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+html, body {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+  /* nav#mainNav {
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+  } */
+    /* ── Navbar ── */
+    #mainNav {
+      background: transparent;
+      transition: background var(--transition), box-shadow var(--transition);
+      padding: 1rem 0;
+    }
+    #mainNav.scrolled {
+      background: var(--navy) !important;
+      box-shadow: 0 4px 30px rgba(0,0,0,.3);
+      padding: .6rem 0;
+    }
+    .navbar-brand img { height: 46px; }
+    .navbar-brand span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--white);
+      letter-spacing: .05em;
+    }
+    .navbar-brand span em { color: var(--gold); font-style: normal; }
+    .nav-link {
+      color: rgba(255,255,255,.85) !important;
+      font-weight: 500;
+      font-size: .9rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .4rem 1rem !important;
+      position: relative;
+      transition: color var(--transition);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 1rem; right: 1rem;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: left;
+    }
+    .nav-link:hover { color: var(--gold2) !important; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .navbar-toggler { border-color: rgba(255,255,255,.3); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ── Hero ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3d6e 60%, #0d2a4e 100%);
+      overflow: hidden;
+    }
+    #hero .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=1600&q=80') center/cover no-repeat;
+      opacity: .12;
+    }
+    .hero-grid-overlay {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,151,58,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,151,58,.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(200,151,58,.15);
+      border: 1px solid var(--gold);
+      color: var(--gold2);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .35rem 1rem;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+    #hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    #hero h1 span { color: var(--gold); }
+    #hero p.lead {
+      color: rgba(255,255,255,.72);
+      font-size: 1.1rem;
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-size: .82rem;
+      padding: .8rem 2rem;
+      border: none;
+      border-radius: 2px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-gold:hover {
+      background: var(--gold2);
+      color: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(200,151,58,.4);
+    }
+    .btn-outline-white {
+      border: 1.5px solid rgba(255,255,255,.4);
+      color: var(--white);
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-size: .82rem;
+      padding: .8rem 2rem;
+      border-radius: 2px;
+      background: transparent;
+      transition: all var(--transition);
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,.1);
+      border-color: var(--white);
+      color: var(--white);
+    }
+    .hero-stat-bar {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .hero-stat strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+    }
+    .hero-stat span {
+      font-size: .8rem;
+      color: rgba(255,255,255,.55);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .hero-img-wrap {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-img-wrap img {
+      border-radius: 4px;
+      box-shadow: 0 40px 80px rgba(0,0,0,.5);
+    }
+    .hero-floating-card {
+      position: absolute;
+      background: var(--white);
+      border-radius: 6px;
+      padding: .8rem 1.2rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,.25);
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .hero-floating-card .icon { font-size: 1.6rem; color: var(--gold); }
+    .hero-floating-card strong { display: block; font-weight: 700; font-size: .95rem; color: var(--navy); }
+    .hero-floating-card small { color: var(--muted); font-size: .76rem; }
+    .card-top-left { top: 10%; left: -8%; animation: floatY 4s ease-in-out infinite; }
+    .card-bottom-right { bottom: 10%; right: -8%; animation: floatY 4s ease-in-out infinite .8s; }
+    @keyframes floatY {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* ── Section Shared ── */
+    section { padding: 80px 0; }
+    .section-label {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .5rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .section-title span { color: var(--gold); }
+    .section-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin: 1rem 0 1.5rem;
+      border-radius: 2px;
+    }
+    .section-divider.centered { margin-left: auto; margin-right: auto; }
+
+    /* ── Marquee Ticker ── */
+    .ticker-wrap {
+      background: var(--gold);
+      padding: .6rem 0;
+      overflow: hidden;
+      width: 100vw;
+    }
+    .ticker-inner {
+      display: flex;
+      white-space: nowrap;
+      animation: tickerScroll 30s linear infinite;
+    }
+    .ticker-inner span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      padding: 0 2rem;
+    }
+    .ticker-inner span::before { content: '◆'; margin-right: 1rem; }
+    @keyframes tickerScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── Industries / Service Cards ── */
+    .ind-card {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 3/4;
+    }
+    .ind-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .ind-card:hover img { transform: scale(1.08); }
+    .ind-card .ind-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(11,31,58,.92) 0%, transparent 55%);
+    }
+    .ind-card .ind-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.2rem;
+    }
+    .ind-card .ind-label h5 {
+      color: var(--white);
+      font-size: .9rem;
+      font-weight: 700;
+      margin: 0 0 .3rem;
+    }
+    .ind-card .ind-label ul {
+      list-style: none;
+      padding: 0; margin: 0;
+      color: rgba(255,255,255,.65);
+      font-size: .72rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem;
+    }
+    .ind-card .ind-label ul li::before { content: '— '; color: var(--gold); }
+    .ind-category-tab {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      background: var(--navy2);
+      color: var(--gold);
+      font-family: 'Syne', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: .8rem .4rem;
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+    }
+
+    /* ── Why Choose / Feature Cards ── */
+    .feature-card {
+      background: var(--white);
+      border: 1px solid #e2eaf5;
+      border-radius: 6px;
+      padding: 2rem 1.6rem;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      height: 100%;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(11,31,58,.1);
+      border-color: var(--gold);
+    }
+    .feature-icon {
+      width: 56px; height: 56px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(200,151,58,.15), rgba(200,151,58,.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .feature-card h5 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .6rem;
+    }
+    .feature-card p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── Stats Section ── */
+    #stats {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #stats::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=1600&q=80') center/cover;
+      opacity: .06;
+    }
+    .stat-box {
+      text-align: center;
+      padding: 2rem;
+      border-right: 1px solid rgba(255,255,255,.08);
+    }
+    .stat-box:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-top: .4rem;
+    }
+
+    /* ── Services ── */
+    .service-card {
+      background: var(--navy);
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(11,31,58,.35);
+    }
+    .service-card img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+      transition: transform .6s ease;
+      opacity: .85;
+    }
+    .service-card:hover img { transform: scale(1.06); opacity: 1; }
+    .service-card .service-body {
+      padding: 1.5rem;
+    }
+    .service-card h5 {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: .6rem;
+    }
+    .service-card p {
+      color: rgba(255,255,255,.65);
+      font-size: .85rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .service-card .service-tag {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .25rem .7rem;
+      border-radius: 2px;
+    }
+
+    /* ── Process Steps ── */
+    #process { background: var(--light); }
+    .process-step {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .process-num {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .process-step h6 { font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
+    .process-step p { color: var(--muted); font-size: .87rem; margin: 0; line-height: 1.6; }
+    .process-cycle {
+      position: relative;
+      width: 300px; height: 300px;
+      margin: auto;
+    }
+    .process-cycle-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      border: 2px solid rgba(200,151,58,.3);
+      position: relative;
+      animation: rotateSlow 18s linear infinite;
+    }
+    .process-node {
+      position: absolute;
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--gold);
+      box-shadow: 0 8px 20px rgba(0,0,0,.2);
+    }
+    .n1 { top: -32px; left: 50%; transform: translateX(-50%); }
+    .n2 { right: -32px; top: 50%; transform: translateY(-50%); }
+    .n3 { bottom: -32px; left: 50%; transform: translateX(-50%); }
+    .n4 { left: -32px; top: 50%; transform: translateY(-50%); }
+    .process-center {
+      position: absolute;
+      inset: 20%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      box-shadow: 0 12px 40px rgba(11,31,58,.3);
+    }
+    .process-center span {
+      font-family: 'Syne', sans-serif;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* ── Testimonials ── */
+    .testi-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 2rem;
+      border: 1px solid #e2eaf5;
+      transition: transform var(--transition), box-shadow var(--transition);
+      height: 100%;
+    }
+    .testi-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(11,31,58,.08);
+    }
+    .testi-stars { color: var(--gold); font-size: 1rem; margin-bottom: .8rem; }
+    .testi-text { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
+    .testi-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-weight: 700; font-size: .9rem;
+    }
+    .testi-name { font-weight: 700; color: var(--navy); font-size: .9rem; }
+    .testi-role { color: var(--muted); font-size: .78rem; }
+
+    /* ── Contact Section ── */
+    #contact { background: linear-gradient(135deg, #0b1f3a 0%, #122952 100%); }
+    .contact-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      padding: 2.5rem;
+      backdrop-filter: blur(10px);
+    }
+    .form-label { color: rgba(255,255,255,.8); font-size: .85rem; font-weight: 500; margin-bottom: .4rem; }
+    .form-control, .form-select {
+      background: rgba(255,255,255,.06) !important;
+      border: 1px solid rgba(255,255,255,.15) !important;
+      color: var(--white) !important;
+      border-radius: 4px;
+      font-size: .9rem;
+      padding: .75rem 1rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .form-control::placeholder { color: rgba(255,255,255,.3) !important; }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--gold) !important;
+      box-shadow: 0 0 0 3px rgba(200,151,58,.15) !important;
+      outline: none;
+    }
+    .form-select option { background: var(--navy); color: var(--white); }
+    .contact-info-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .ci-icon {
+      width: 44px; height: 44px;
+      border-radius: 6px;
+      background: rgba(200,151,58,.15);
+      border: 1px solid rgba(200,151,58,.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .ci-text strong { display: block; color: var(--white); font-size: .9rem; font-weight: 600; }
+    .ci-text span { color: rgba(255,255,255,.55); font-size: .85rem; }
+    .form-feedback {
+      display: none;
+      padding: 1rem 1.5rem;
+      border-radius: 4px;
+      font-size: .9rem;
+      margin-top: 1rem;
+    }
+    .form-feedback.success { background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3); color: #4ade80; }
+    .form-feedback.error { background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.3); color: #f87171; }
+
+    /* ── Footer ── */
+    footer {
+      background: #060f1c;
+      color: rgba(255,255,255,.55);
+      font-size: .85rem;
+    }
+    footer h6 {
+      color: var(--white);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      letter-spacing: .06em;
+      margin-bottom: 1rem;
+    }
+    footer a { color: rgba(255,255,255,.5); text-decoration: none; transition: color var(--transition); display: block; margin-bottom: .4rem; }
+    footer a:hover { color: var(--gold); }
+    .footer-logo span { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--white); }
+    .footer-logo span em { color: var(--gold); font-style: normal; }
+    .footer-divider { border-color: rgba(255,255,255,.08); margin: 2rem 0 1.5rem; }
+    .social-link {
+      width: 36px; height: 36px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,.12);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.5) !important;
+      font-size: 1rem;
+      transition: all var(--transition);
+      margin-right: .5rem;
+    }
+    .social-link:hover { border-color: var(--gold); color: var(--gold) !important; background: rgba(200,151,58,.1); }
+
+    /* ── Scroll Animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-left.visible { opacity: 1; transform: none; }
+    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-right.visible { opacity: 1; transform: none; }
+    [data-delay="1"] { transition-delay: .1s; }
+    [data-delay="2"] { transition-delay: .2s; }
+    [data-delay="3"] { transition-delay: .3s; }
+    [data-delay="4"] { transition-delay: .4s; }
+    [data-delay="5"] { transition-delay: .5s; }
+
+    /* ── Back to Top ── */
+    #backToTop {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 44px; height: 44px;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all var(--transition);
+      z-index: 999;
+      box-shadow: 0 8px 24px rgba(200,151,58,.4);
+    }
+    #backToTop.show { opacity: 1; transform: none; }
+    #backToTop:hover { background: var(--gold2); transform: translateY(-2px); }
+
+    /* ── Loading overlay ── */
+    #pageLoader {
+      position: fixed; inset: 0;
+      background: var(--navy);
+      z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity .6s ease, visibility .6s;
+    }
+    #pageLoader.done { opacity: 0; visibility: hidden; }
+    .loader-ring {
+      width: 60px; height: 60px;
+      border: 3px solid rgba(200,151,58,.2);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Responsive tweaks ── */
+    @media (max-width: 768px) {
+      .hero-floating-card { display: none; }
+      .hero-stat-bar { gap: 1.5rem; }
+      .stat-box { border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); }
+      .stat-box:last-child { border-bottom: none; }
+    }
+  </style>
+  <style>
+    .navbar_logo_wrapper{
+      width: 7rem;
+      background-color: #fff;
+      border-radius: 0.6rem;
+      padding: 0.5rem;
+    }
+    .navbar_logo_wrapper img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .about_year_excellence{
+  position:absolute; 
+  bottom:-24px; 
+  right:-24px; 
+  background:var(--gold); 
+  color:var(--navy); 
+  font-family:'Syne',sans-serif; 
+  font-weight:800; 
+  font-size:1rem; 
+  padding:1.5rem 2rem; 
+  border-radius:4px; 
+  box-shadow: 0 16px 40px rgba(200,151,58,.3);
+}
+@media only screen and (max-width:767px){
+  .about_year_excellence{
+    bottom:0px;
+    right:0px;
+  }
+  .hero-stat-bar{
+        flex-wrap: wrap;
+    justify-content: center;
+  }
+  #navContent{
+      background-color:#0b1f3a;
+      padding:1rem;
+    }
+}
+  </style>
+</head>
+<body>
+
+<!-- Page Loader -->
+<div id="pageLoader">
+  <div class="loader-ring"></div>
+</div>
+
+<!-- Back to Top -->
+<button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<!-- ══════════════════ NAVBAR ══════════════════ -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <!-- <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <span>ARV<em>.</em></span>
+    </a> -->
+    <div class="navbar_logo_wrapper">
+      <img src="./logo.png"/>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navContent">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#industries">Industries</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>        
+        <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <a href="tel:+918178046582" class="btn btn-gold ms-3" style="font-size:.78rem; padding:.5rem 1.2rem;">
+        <i class="bi bi-telephone-fill me-1"></i> Call Now
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="container position-relative z-2">
+    <div class="row align-items-center g-md-5">
+      <div class="col-lg-6">
+        <div class="hero-badge reveal mt-5">Global Sourcing Partner Since 2015</div>
+        <h1 class="reveal" data-delay="1">
+          Your Trusted <span>International</span><br>Sourcing & Manufacturing Partner
+        </h1>
+        <p class="lead reveal" data-delay="2">
+          ARV International connects Indian manufacturers with global markets. From casting to forging, we deliver end-to-end sourcing with uncompromising quality.
+        </p>
+        <div class="d-flex flex-wrap gap-3 reveal" data-delay="3">
+          <a href="#contact" class="btn btn-gold">Get a Quote</a>
+          <a href="#services" class="btn btn-outline-white">Our Services</a>
+        </div>
+        <div class="hero-stat-bar reveal " data-delay="4">
+          <div class="hero-stat">
+            <strong class="counter" data-target="72">0</strong>
+            <span>References</span>
+          </div>
+          <div class="hero-stat">
+            <strong class="counter" data-target="20">0</strong>
+            <span>Commodities</span>
+          </div>
+          <div class="hero-stat">
+            <strong class="counter" data-target="100">0</strong>
+            <span>Suppliers</span>
+          </div>
+          <div class="hero-stat">
+            <strong class="counter" data-target="15">0</strong>
+            <span>Years Exp.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="hero-img-wrap reveal-right">
+          <img src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=700&q=80" alt="Industrial facility" class="img-fluid w-100" style="border-radius:6px;" />
+          <div class="hero-floating-card card-top-left">
+            <div class="icon"><i class="bi bi-patch-check-fill"></i></div>
+            <div>
+              <strong>ISO Certified</strong>
+              <small>Quality Guaranteed</small>
+            </div>
+          </div>
+          <div class="hero-floating-card card-bottom-right">
+            <div class="icon"><i class="bi bi-globe2"></i></div>
+            <div>
+              <strong>Global Delivery</strong>
+              <small>50+ Countries</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ TICKER ══════════════════ -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span>Sand Casting</span><span>Die Casting</span><span>Machined Parts</span>
+    <span>Sheet Metal Fabrication</span><span>Forging</span><span>Agricultural Equipment</span>
+    <span>Hydraulic Parts</span><span>Oil & Power</span><span>Contract Manufacturing</span>
+    <span>ARV Smart</span><span>Global Sourcing</span><span>Quality Inspection</span>
+    <!-- duplicate for seamless loop -->
+    <span>Sand Casting</span><span>Die Casting</span><span>Machined Parts</span>
+    <span>Sheet Metal Fabrication</span><span>Forging</span><span>Agricultural Equipment</span>
+    <span>Hydraulic Parts</span><span>Oil & Power</span><span>Contract Manufacturing</span>
+    <span>ARV Smart</span><span>Global Sourcing</span><span>Quality Inspection</span>
+  </div>
+</div>
+
+<!-- ══════════════════ ABOUT ══════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="row align-items-center g-md-5">
+      <div class="col-lg-6 reveal-left">
+        <div class="position-relative">
+          <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=700&q=80" alt="Factory" class="img-fluid rounded-3 shadow-lg" />
+          <div class="about_year_excellence" style="">
+            15+ Years of<br>Excellence
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 ps-lg-5 reveal-right">
+        <div class="section-label">About ARV International</div>
+        <h2 class="section-title">International & Global <span>Strategies</span></h2>
+        <div class="section-divider"></div>
+        <p class="mb-3" style="color:var(--muted); line-height:1.8;">
+          ARV Sourcing is a full-service One-stop sourcing company in India. We work with global buyers to find reliable Indian manufacturers, ensure top quality, and deliver seamlessly — all under one roof.
+        </p>
+        <ul class="list-unstyled mb-4">
+          <li class="d-flex align-items-center gap-2 mb-2">
+            <i class="bi bi-check-circle-fill text-warning"></i>
+            <span style="color:var(--text);">Satisfaction Value for Money Solutions</span>
+          </li>
+          <li class="d-flex align-items-center gap-2 mb-2">
+            <i class="bi bi-check-circle-fill text-warning"></i>
+            <span style="color:var(--text);">Business Accounting Management</span>
+          </li>
+          <li class="d-flex align-items-center gap-2 mb-2">
+            <i class="bi bi-check-circle-fill text-warning"></i>
+            <span style="color:var(--text);">Inventory Management Tracking System</span>
+          </li>
+          <li class="d-flex align-items-center gap-2 mb-2">
+            <i class="bi bi-check-circle-fill text-warning"></i>
+            <span style="color:var(--text);">End-to-End Supply Chain Visibility</span>
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn-gold">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ INDUSTRIES ══════════════════ -->
+<section id="industries" style="background:var(--light);">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-label">What We Cover</div>
+      <h2 class="section-title">Delivering Innovation <span>Sustainability</span></h2>
+      <div class="section-divider centered"></div>
+      <p style="color:var(--muted); max-width:540px; margin:auto;">From heavy casting to precision machined parts — we specialize across every major manufacturing vertical.</p>
+    </div>
+
+    <!-- Row 1: Casting / Machining / Fabrication / Forging -->
+    <div class="row g-md-3 mb-3">
+      <!-- Casting -->
+      <div class="col-md-3 reveal" data-delay="1">
+        <div class="ind-card" style="aspect-ratio:1/1.1">
+          <span class="ind-category-tab">Casting</span>
+          <img src="https://catalyst-sourcing.com/wp-content/uploads/2025/05/castingnew-scaled-450x210.jpg?w=400&q=80" alt="Casting" />
+          <div class="ind-overlay"></div>
+          <div class="ind-label" style="padding-left:2rem;">
+            <h5>Casting</h5>
+            <ul>
+              <li>Sand Casting</li><li>Die Casting</li>
+              <li>Centrifugal Casting</li><li>Lost Wax</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Machining -->
+      <div class="col-md-3 reveal" data-delay="2">
+        <div class="ind-card" style="aspect-ratio:1/1.1">
+          <span class="ind-category-tab">Machining</span>
+          <img src="https://catalyst-sourcing.com/wp-content/uploads/2025/05/machiningnew-scaled-450x210.jpg?w=400&q=80" alt="Machining" />
+          <div class="ind-overlay"></div>
+          <div class="ind-label" style="padding-left:2rem;">
+            <h5>Machining</h5>
+            <ul>
+              <li>Lathe / Milling</li><li>Second Bearing</li>
+              <li>CNC Turning</li><li>Precision Boring</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Fabrication -->
+      <div class="col-md-3 reveal" data-delay="3">
+        <div class="ind-card" style="aspect-ratio:1/1.1">
+          <span class="ind-category-tab">Fabrication</span>
+          <img src="https://catalyst-sourcing.com/wp-content/uploads/2025/05/fabricationnew-scaled-450x210.jpg?w=400&q=80" alt="Fabrication" />
+          <div class="ind-overlay"></div>
+          <div class="ind-label" style="padding-left:2rem;">
+            <h5>Fabrication</h5>
+            <ul>
+              <li>Cutting</li><li>Rolling</li>
+              <li>Shearing</li><li>Stamping</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Forging -->
+      <div class="col-md-3 reveal" data-delay="4">
+        <div class="ind-card" style="aspect-ratio:1/1.1">
+          <span class="ind-category-tab">Forging</span>
+          <img src="https://catalyst-sourcing.com/wp-content/uploads/2025/05/forgingsnew-scaled-450x210.jpg?w=400&q=80" alt="Forging" />
+          <div class="ind-overlay"></div>
+          <div class="ind-label" style="padding-left:2rem;">
+            <h5>Forging</h5>
+            <ul>
+              <li>Open Die Forging</li><li>Closed Die Forging</li>
+              <li>Ring Rolling</li><li>Warm Forging</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-md-3 mb-3">
+      <!-- Casting -->
+      <div class="col-md-3 reveal" data-delay="1">
+        <div class="ind-card" style="aspect-ratio:1/1.1">
+          <span class="ind-category-tab">Electricals</span>
+          <img src="https://catalyst-sourcing.com/wp-content/uploads/2025/05/electricalnew-scaled-450x210.jpg?w=400&q=80" alt="Casting" />
+          <div class="ind-overlay"></div>
+          <div class="ind-label" style="padding-left:2rem;">
+            <h5>Electricals</h5>
+            <ul>
+              <li>Back Lights</li><li>Electrical Spare Parts</li>
+              <li>Industrial Sensors</li><li>Electric Motors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Machining -->
+      <div class="col-md-3 reveal" data-delay="2">
+        <div class="ind-card" style="aspect-ratio:1/1.1">
+          <span class="ind-category-tab">Bearings</span>
+          <img src="https://catalyst-sourcing.com/wp-content/uploads/2025/05/bearings2-scaled-450x210.jpg?w=400&q=80" alt="Machining" />
+          <div class="ind-overlay"></div>
+          <div class="ind-label" style="padding-left:2rem;">
+            <h5>Bearings</h5>
+            <ul>
+              <li>Slewing Bearings</li><li>Sealed Bearing</li>
+              <li>Bearing Housings</li><li>Thrust Bearing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Fabrication -->
+      <div class="col-md-3 reveal" data-delay="3">
+        <div class="ind-card" style="aspect-ratio:1/1.1">
+          <span class="ind-category-tab">Fasteners</span>
+          <img src="https://catalyst-sourcing.com/wp-content/uploads/2025/05/fastneres-scaled-450x210.jpg?w=400&q=80" alt="Fabrication" />
+          <div class="ind-overlay"></div>
+          <div class="ind-label" style="padding-left:2rem;">
+            <h5>Fasteners</h5>
+            <ul>
+              <li>Arbor Bolts</li><li>Penta head Screw</li>
+              <li>T Bolts</li><li>Flat Head Rivet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Forging -->
+      <div class="col-md-3 reveal" data-delay="4">
+        <div class="ind-card" style="aspect-ratio:1/1.1">
+          <span class="ind-category-tab">Mouldings</span>
+          <img src="https://catalyst-sourcing.com/wp-content/uploads/2025/05/mouldingnew-scaled-450x210.jpg?w=400&q=80" alt="Forging" />
+          <div class="ind-overlay"></div>
+          <div class="ind-label" style="padding-left:2rem;">
+            <h5>Mouldings</h5>
+            <ul>
+              <li>Blow Moulding Parts</li><li>Plastic Parts</li>
+              <li>Automobile Parts</li><li>Blow Moulding Parts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Served Sectors -->
+    <div class="row g-md-3 mt-2 reveal" data-delay="2">
+      <div class="col-6 col-md-3">
+        <div class="feature-card text-center py-3">
+          <div class="feature-icon mx-auto mb-2"><i class="bi bi-truck"></i></div>
+          <h5 style="font-size:.9rem;">Automotive</h5>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="feature-card text-center py-3">
+          <div class="feature-icon mx-auto mb-2"><i class="bi bi-tree"></i></div>
+          <h5 style="font-size:.9rem;">Agricultural Equipment</h5>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="feature-card text-center py-3">
+          <div class="feature-icon mx-auto mb-2"><i class="bi bi-gear"></i></div>
+          <h5 style="font-size:.9rem;">Hydraulic Parts</h5>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="feature-card text-center py-3">
+          <div class="feature-icon mx-auto mb-2"><i class="bi bi-lightning-charge"></i></div>
+          <h5 style="font-size:.9rem;">Oil & Power</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .products-section {
+    background: #f5f7fa;
+}
+
+.section-tag {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #c9962e;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #0d2346;
+}
+
+.highlight {
+    color: #c9962e;
+}
+
+.title-line {
+    width: 70px;
+    height: 4px;
+    background: #c9962e;
+    margin-top: 15px;
+    border-radius: 50px;
+}
+
+.section-desc {
+    max-width: 700px;
+    margin: auto;
+    font-size: 18px;
+    color: #64748b;
+    line-height: 1.8;
+}
+
+.product-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    height: 350px;
+    cursor: pointer;
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.product-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(13,35,70,.95),
+        rgba(13,35,70,.2)
+    );
+    z-index: 1;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    padding: 25px;
+    color: #fff;
+}
+
+.overlay h4 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 14px;
+    line-height: 1.7;
+    opacity: .9;
+}
+
+/* Responsive */
+
+@media(max-width:991px){
+
+    .section-title{
+        font-size:2.4rem;
+    }
+
+    .product-card{
+        height:320px;
+    }
+}
+
+@media(max-width:767px){
+
+    .section-title{
+        font-size:2rem;
+        line-height:1.3;
+    }
+
+    .section-desc{
+        font-size:16px;
+    }
+
+    .product-card{
+        height:280px;
+    }
+}
+</style>
+
+<section class="products-section py-5" id="products">
+    <div class="container">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-5">
+            <span class="section-tag">WHAT WE OFFER</span>
+
+            <h2 class="section-title mt-3">
+                Quality Products for
+                <span class="highlight">Modern Living</span>
+            </h2>
+
+            <div class="title-line mx-auto"></div>
+
+            <p class="section-desc mt-4">
+                From practical household essentials to innovative lifestyle products,
+                we deliver quality solutions designed for convenience, functionality,
+                and everyday comfort.
+            </p>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="row g-md-4">
+
+            <!-- Product 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card">
+                    <img src="https://res.cloudinary.com/diuhckuxe/image/upload/v1771994979/anozmd4qtdsgjza9vn0b.jpg" alt="">
+                    <div class="overlay">
+                        <h4>Household Products</h4>
+                        <p>
+                            Smart and space-saving solutions designed to improve
+                            home organization and daily convenience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card">
+                    <img src="https://res.cloudinary.com/diuhckuxe/image/upload/v1771411659/sqpqznqvuwa9ssonimsq.jpg" alt="">
+                    <div class="overlay">
+                        <h4>Small Electronics</h4>
+                        <p>
+                            Innovative electronic products combining functionality,
+                            efficiency, and modern design.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card">
+                    <img src="https://res.cloudinary.com/diuhckuxe/image/upload/v1771407162/r5sxqe6glyfjprxww7fe.jpg" alt="">
+                    <div class="overlay">
+                        <h4>Stationery Products</h4>
+                        <p>
+                            Creative and practical stationery solutions for learning,
+                            productivity, and organization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card">
+                    <img src="https://res.cloudinary.com/diuhckuxe/image/upload/v1771413595/qg7raudx8z9hgigadj22.jpg" alt="">
+                    <div class="overlay">
+                        <h4>Daily Need Products</h4>
+                        <p>
+                            Reliable everyday essentials developed to meet routine
+                            requirements with value and quality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card">
+                    <img src="https://res.cloudinary.com/diuhckuxe/image/upload/v1771401802/jgm5azk7befmlrpgopdl.jpg" alt="">
+                    <div class="overlay">
+                        <h4>Wall Clocks</h4>
+                        <p>
+                            Stylish timepieces blending accurate performance with
+                            elegant interior décor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card">
+                    <img src="https://res.cloudinary.com/diuhckuxe/image/upload/v1771055747/bgi85xs7jiitreduvegi.jpg" alt="">
+                    <div class="overlay">
+                        <h4>Bathroom Accessories</h4>
+                        <p>
+                            Contemporary bathroom solutions designed for convenience,
+                            hygiene, and modern living.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+<!-- ══════════════════ STATS ══════════════════ -->
+<section id="stats" class="py-5">
+  <div class="container position-relative z-2">
+    <div class="row text-center gx-0">
+      <div class="col-6 col-md-3 reveal" data-delay="1">
+        <div class="stat-box">
+          <div class="stat-num"><span class="counter2" data-target="72">0</span>+</div>
+          <div class="stat-label">References Developed</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal" data-delay="2">
+        <div class="stat-box">
+          <div class="stat-num"><span class="counter2" data-target="20">0</span>+</div>
+          <div class="stat-label">Commodities</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal" data-delay="3">
+        <div class="stat-box">
+          <div class="stat-num"><span class="counter2" data-target="100">0</span>+</div>
+          <div class="stat-label">Suppliers Developed</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal" data-delay="4">
+        <div class="stat-box">
+          <div class="stat-num"><span class="counter2" data-target="50">0</span>+</div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SERVICES ══════════════════ -->
+<section id="services">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">We Specialize In All Your <span>Global Sourcing</span> Needs</h2>
+      <div class="section-divider centered"></div>
+    </div>
+    <div class="row g-md-4">
+      <div class="col-md-6 col-lg-3 reveal" data-delay="1">
+        <div class="service-card">
+          <span class="service-tag">Core</span>
+          <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=500&q=80" alt="Consulting" />
+          <div class="service-body">
+            <h5>Consulting</h5>
+            <p>We identify the most suitable factory for virtually any part or component, no matter the complexity or volume.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal" data-delay="2">
+        <div class="service-card">
+          <span class="service-tag">Core</span>
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80" alt="Contract Manufacturing" />
+          <div class="service-body">
+            <h5>Contract Manufacturing</h5>
+            <p>We can almost sample a product new molds and delivered to your factory, or can set up at our chosen shop.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal" data-delay="3">
+        <div class="service-card">
+          <span class="service-tag">Core</span>
+          <img src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=500&q=80" alt="Sourcing" />
+          <div class="service-body">
+            <h5>Sourcing</h5>
+            <p>Sourcing and production monitoring to consolidating vendors and order skills, guaranteeing product quality.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal" data-delay="4">
+        <div class="service-card">
+          <span class="service-tag">Smart</span>
+          <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=500&q=80" alt="ARV Smart" />
+          <div class="service-body">
+            <h5>ARV Smart</h5>
+            <p>A unique service that offers one window solutions specifically designed for SMEs and growing businesses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ WHY ARV ══════════════════ -->
+<section style="background:var(--light);">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-label">Our Advantage</div>
+      <h2 class="section-title">Why Choose <span>ARV</span> International?</h2>
+      <div class="section-divider centered"></div>
+    </div>
+    <div class="row g-md-4">
+      <div class="col-md-4 reveal" data-delay="1">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+          <h5>Quality Assurance</h5>
+          <p>Rigorous pre-shipment inspections, factory audits, and third-party quality checks at every stage of production.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal" data-delay="2">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-clock-history"></i></div>
+          <h5>On-Time Delivery</h5>
+          <p>We monitor production timelines closely and manage logistics to ensure your goods arrive when promised.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal" data-delay="3">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-currency-dollar"></i></div>
+          <h5>Competitive Pricing</h5>
+          <p>Deep market knowledge and strong supplier relationships enable us to negotiate the best possible prices for you.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal" data-delay="2">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-people"></i></div>
+          <h5>Dedicated Support</h5>
+          <p>A dedicated account manager for every client ensures seamless communication and rapid issue resolution.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal" data-delay="3">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-bar-chart-line"></i></div>
+          <h5>Real-Time Tracking</h5>
+          <p>Our inventory management system gives you full visibility into production status and shipment tracking.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal" data-delay="4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-globe-asia-australia"></i></div>
+          <h5>Global Network</h5>
+          <p>Trusted relationships with 100+ verified suppliers across India delivering to 50+ countries worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PROCESS ══════════════════ -->
+<section id="process">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Our End-To-End <span>Sourcing Process</span></h2>
+      <div class="section-divider centered"></div>
+    </div>
+    <div class="row align-items-center g-md-5">
+      <div class="col-lg-4 reveal-left">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div>
+            <h6>Feasibility & Supplier Identification</h6>
+            <p>We establish a solid baseline by assessing requirements and mapping the best-fit suppliers from our vetted network.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div>
+            <h6>Quotation & Finalization</h6>
+            <p>Transparent pricing with multiple competitive quotes, evaluated for quality and delivery timelines.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div>
+            <h6>Product Development</h6>
+            <p>Prototyping, sampling, design iterations — we manage the entire product development lifecycle.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 reveal d-flex justify-content-center">
+        <div class="process-cycle">
+          <div class="process-cycle-inner">
+            <div class="process-node n1"><i class="bi bi-search"></i></div>
+            <div class="process-node n2"><i class="bi bi-box-seam"></i></div>
+            <div class="process-node n3"><i class="bi bi-truck"></i></div>
+            <div class="process-node n4"><i class="bi bi-check2-circle"></i></div>
+          </div>
+          <div class="process-center">
+            <i class="bi bi-layers" style="color:var(--gold); font-size:2rem;"></i>
+            <span>OUR</span>
+            <span>PROCESS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 reveal-right">
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <div>
+            <h6>Quality Control & Inspection</h6>
+            <p>Multi-stage inspection protocol with AQL sampling, on-site audits and pre-shipment checks.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">05</div>
+          <div>
+            <h6>Logistics & Delivery</h6>
+            <p>End-to-end logistics management — sea, air, road — with real-time shipment tracking and customs support.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">06</div>
+          <div>
+            <h6>Full Control & Transparency</h6>
+            <p>Complete documentation, traceability reports, and after-delivery support for every order.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ TESTIMONIALS ══════════════════ -->
+<!-- <section style="background:var(--light);">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-label">Client Words</div>
+      <h2 class="section-title">What Our <span>Clients</span> Say</h2>
+      <div class="section-divider centered"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 reveal" data-delay="1">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"ARV International simplified our entire sourcing process. Their quality control is exceptional and communication is always transparent."</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="testi-avatar">MH</div>
+            <div>
+              <div class="testi-name">Mark Henderson</div>
+              <div class="testi-role">Procurement Director, UK</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal" data-delay="2">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"We reduced our sourcing cost by 22% in the first year. ARV's supplier network and negotiation expertise is unmatched in the industry."</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="testi-avatar">LS</div>
+            <div>
+              <div class="testi-name">Lars Svensson</div>
+              <div class="testi-role">Operations Head, Sweden</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal" data-delay="3">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Their ARV Smart service was perfect for us as an SME. We now have a reliable supply chain in India without the overhead of a local team."</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="testi-avatar">AP</div>
+            <div>
+              <div class="testi-name">Amit Patel</div>
+              <div class="testi-role">CEO, Auto Parts Co., USA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- ══════════════════ CONTACT ══════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-label" style="color:var(--gold2);">Get In Touch</div>
+      <h2 class="section-title" style="color:var(--white);">Ready to Start <span>Sourcing Smarter?</span></h2>
+      <div class="section-divider centered"></div>
+      <p style="color:rgba(255,255,255,.6); max-width:500px; margin:auto;">Fill out the form and our team will get back to you within 24 hours with a tailored solution.</p>
+    </div>
+
+    <div class="row g-md-5 align-items-start">
+      <!-- Contact Info -->
+      <div class="col-lg-4 reveal-left">
+        <div class="contact-card">
+          <h5 style="color:var(--white); font-weight:700; margin-bottom:1.5rem;">ARV Sourcing Pvt. Ltd.</h5>
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div class="ci-text">
+              <strong>Head Office</strong>
+              <span>1090, Gaur City Mall, Gr. Noida, 201009</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div class="ci-text">
+              <strong>Email</strong>
+              <span>info@arvinternational.com</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div class="ci-text">
+              <strong>Phone</strong>
+              <span>+91 8178046582</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-clock-fill"></i></div>
+            <div class="ci-text">
+              <strong>Working Hours</strong>
+              <span>Mon–Sat: 9:00 AM – 6:00 PM IST</span>
+            </div>
+          </div>
+          <hr style="border-color:rgba(255,255,255,.1); margin:1.5rem 0;" />
+          <h6 style="color:rgba(255,255,255,.7); font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; margin-bottom:1rem;">Follow Us</h6>
+          <div>
+            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-lg-8 reveal-right">
+        <div class="contact-card">
+          <h5 style="color:var(--white); font-weight:700; margin-bottom:1.5rem;">Send Us a Message</h5>
+          <form id="contactForm" novalidate>
+            <div class="row g-md-3">
+              <div class="col-md-6">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-control" name="name" placeholder="Enter Full Name" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email Address *</label>
+                <input type="email" class="form-control" name="email" placeholder="Enter Email Address" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Phone / WhatsApp</label>
+                <input type="tel" class="form-control" name="phone" placeholder="+1 234 567 8900" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Country</label>
+                <input type="text" class="form-control" name="country" placeholder="India" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Company Name</label>
+                <input type="text" class="form-control" name="company" placeholder="Your Company Ltd." />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Service Interested In</label>
+                <select class="form-select" name="service">
+                  <option value="">Select a service…</option>
+                  <option>Consulting</option>
+                  <option>Contract Manufacturing</option>
+                  <option>Sourcing</option>
+                  <option>Quality Inspection</option>
+                  <option>Logistics & Delivery</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Message *</label>
+                <textarea class="form-control" name="message" rows="5" placeholder="Describe your requirements, product type, quantity, target price, timeline…" required></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-gold px-5" id="submitBtn">
+                  <span class="btn-text"><i class="bi bi-send-fill me-2"></i>Send Message</span>
+                  <span class="btn-loading d-none"><span class="spinner-border spinner-border-sm me-2"></span>Sending…</span>
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="form-feedback success" id="formSuccess">
+            <i class="bi bi-check-circle-fill me-2"></i> Thank you! Your message has been sent. We'll respond within 24 hours.
+          </div>
+          <div class="form-feedback error" id="formError">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i> <span id="formErrorMsg">Something went wrong. Please try again or email us directly.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="pt-5 pb-3">
+  <div class="container">
+    <div class="row g-md-4 mb-4">
+      <div class="col-lg-4">
+        <!-- <div class="footer-logo mb-3"><span>ARV<em>.</em></span></div> -->
+    
+        <div class="navbar_logo_wrapper mb-3">
+      <img src="./logo.png"/>
+    </div>
+
+        <p style="line-height:1.7; max-width:300px;">Full-service sourcing & manufacturing partner connecting global buyers with India's best manufacturers.</p>
+        <div class="mt-3">
+          <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Quick Links</h6>
+        <a href="#about">About Us</a>
+        <a href="#industries">Industries</a>
+        <a href="#services">Services</a>
+        <a href="#process">Our Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Services</h6>
+        <a href="#">Consulting</a>
+        <a href="#">Contract Mfg.</a>
+        <a href="#">Sourcing</a>
+        <a href="#">ARV Smart</a>
+        <a href="#">QC & Inspection</a>
+      </div>
+      <div class="col-lg-4">
+        <h6>Contact Details</h6>
+        <p class="mb-1"><i class="bi bi-geo-alt me-2" style="color:var(--gold);"></i>1090, Gaur City Mall, Gr. Noida, 201009</p>
+        <p class="mb-1"><i class="bi bi-envelope me-2" style="color:var(--gold);"></i>info@arvinternational.com</p>
+        <p class="mb-3"><i class="bi bi-telephone me-2" style="color:var(--gold);"></i>+91 8178046582</p>
+        <a href="#contact" class="btn btn-gold" style="font-size:.78rem; padding:.5rem 1.4rem;">Get Free Quote</a>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span>© 2026 ARV Sourcing Pvt. Ltd. All rights reserved.</span>
+      <span>Designed with <i class="bi bi-heart-fill" style="color:var(--gold);"></i> by Ayush</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// ── Page Loader ──
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('pageLoader').classList.add('done'), 600);
+});
+
+// ── Navbar scroll ──
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+
+  const btn = document.getElementById('backToTop');
+  btn.classList.toggle('show', window.scrollY > 400);
+});
+document.getElementById('backToTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ── Scroll reveal ──
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// ── Counter animation ──
+function animateCounter(el) {
+  const target = +el.dataset.target;
+  const duration = 1800;
+  const start = performance.now();
+  const update = (now) => {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(ease * target);
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.counter, .counter2').forEach(animateCounter);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('#hero, #stats').forEach(s => counterObserver.observe(s));
+
+// ── Contact Form ──
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = this;
+  const btn = document.getElementById('submitBtn');
+  const successEl = document.getElementById('formSuccess');
+  const errorEl = document.getElementById('formError');
+  const errorMsg = document.getElementById('formErrorMsg');
+
+  // Basic validation
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+
+  // Toggle loading state
+  btn.querySelector('.btn-text').classList.add('d-none');
+  btn.querySelector('.btn-loading').classList.remove('d-none');
+  btn.disabled = true;
+  successEl.style.display = 'none';
+  errorEl.style.display = 'none';
+
+  const data = new FormData(form);
+
+  try {
+    const res = await fetch('contact.php', {
+      method: 'POST',
+      body: data
+    });
+    const json = await res.json();
+    if (json.success) {
+      successEl.style.display = 'block';
+      form.reset();
+    } else {
+      errorMsg.textContent = json.message || 'Something went wrong. Please try again.';
+      errorEl.style.display = 'block';
+    }
+  } catch (err) {
+    errorMsg.textContent = 'Network error. Please email us directly at info@arvinternational.com';
+    errorEl.style.display = 'block';
+  } finally {
+    btn.querySelector('.btn-text').classList.remove('d-none');
+    btn.querySelector('.btn-loading').classList.add('d-none');
+    btn.disabled = false;
+  }
+});
+
+// ── Active nav link highlight ──
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 100;
+  sections.forEach(sec => {
+    if (scrollY >= sec.offsetTop && scrollY < sec.offsetTop + sec.offsetHeight) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav-link[href="#${sec.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+});
+</script>
+</body>
+</html>
