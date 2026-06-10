@@ -717,7 +717,7 @@ a { text-decoration: none; color: inherit; }
 .footer-social a:hover { background: var(--red); color: #fff; transform: translateY(-2px); }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 22px 0;
+  padding: 22px 0 0 0;
   margin-top: 10px;
 }
 .footer-bottom p { margin: 0; font-size: 0.82rem; color: rgba(255,255,255,0.4); }
@@ -785,7 +785,7 @@ a { text-decoration: none; color: inherit; }
    ============================================ */
 @media (max-width: 991.98px) {
   .hero-slide { min-height: 500px; }
-  .hero-content { padding: 60px 0; }
+  .hero-content { padding: 60px 1rem; }
   .overview-badge { bottom: -10px; right: 10px; }
   .exp-timeline { padding: 24px; }
   .contact-form-card { padding: 28px; }
@@ -896,4 +896,10 @@ a { text-decoration: none; color: inherit; }
 .modal-footer{
     border-top:1px solid #eee;
     padding:20px 30px;
+}
+
+@media only screen and (max-width:767px){
+  .brand-tagline{
+    font-size: 0.6rem;
+  }
 }
