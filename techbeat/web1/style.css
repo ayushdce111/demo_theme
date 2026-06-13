@@ -795,7 +795,7 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 767.98px) {
   .section-pad { padding: 64px 0; }
   .hero-slide { min-height: 420px; }
-  .hero-title { font-size: 1.8rem; }
+  .hero-title { font-size: 1.8rem; min-height: 10rem;}
   .top-bar .top-contact { flex-direction: column; gap: 4px; }
   .overview-badge { display: none; }
   .service-featured .col-md-5 { display: none; }
@@ -913,6 +913,9 @@ a { text-decoration: none; color: inherit; }
 }
 .nav-link {
     font-size: 0.8rem;
+}
+.service-flag {
+  font-size: 1rem;
 }
 
 }
