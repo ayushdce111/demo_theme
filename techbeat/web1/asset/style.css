@@ -175,7 +175,7 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   position: relative;
 }
-.slide-0{ background-image: url("./asset/banner/banner0.jpg?w=1600&q=80");}
+.slide-0{ background-image: url("./banner/banner0.jpg?w=1600&q=80");}
 .slide-1 { background-image: url('https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1200?w=1600&q=80'); }
 /* .slide-1 { background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80'); } */
 .slide-2 { background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80'); }

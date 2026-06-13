@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ALP Group India | HR, Staffing & Business Consulting</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/> -->
+   <link rel="stylesheet" href="./asset/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+   <!-- <link rel="stylesheet" href="./asset/all.min.css"/> -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"/>
   <!-- Bootstrap Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="style.css"/>
+ <!-- <link rel="stylesheet" href="./asset/bootstrap-icons.min.css"/> -->
+  <link rel="stylesheet" href="./asset/style.css"/>
 </head>
 <body>
 
@@ -37,7 +40,7 @@
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
       <div class="brand-logo">
-        <img src="https://alpgroupindia.com/alp1.jpg" />
+        <img src="./asset/alp1.jpg" />
         <!-- <span class="logo-alp">ALP</span>
         <span class="logo-sub">GROUP</span> -->
       </div>
@@ -56,16 +59,16 @@
         <!-- <li class="nav-item"><a class="nav-link fw-bold" href="#services">SERVICES</a></li> -->
         <li class="nav-item">
         <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <button class="btn  dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #073e88;">
     <a class="fw-bold" href="#">SERVICES</a>
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Staffing / Recruitment Service</a></li>
-    <li><a class="dropdown-item" href="#">HR Shared Services</a></li>
-    <li><a class="dropdown-item" href="#">Business Development & Business Solutions</a></li>
-    <li><a class="dropdown-item" href="#">Career Counselling & Training</a></li>
-    <li><a class="dropdown-item" href="#">Comprehensive Legal Services</a></li>
-    <li><a class="dropdown-item" href="#">IT Services</a></li>
+    <li><a class="dropdown-item" href="#StaffingRecruitmentService">Staffing / Recruitment Service</a></li>
+    <li><a class="dropdown-item" href="#HRSharedServices">HR Shared Services</a></li>
+    <li><a class="dropdown-item" href="#BusinessDevelopment&BusinessSolutions">Business Development & Business Solutions</a></li>
+    <li><a class="dropdown-item" href="#CareerCounselling&Training">Career Counselling & Training</a></li>
+    <li><a class="dropdown-item" href="#ComprehensiveLegalServices">Comprehensive Legal Services</a></li>
+    <li><a class="dropdown-item" href="#ITServices">IT Services</a></li>
   </ul>
 </div>
 </li>
@@ -87,9 +90,9 @@
           <div class="hero-overlay"></div>
           <div class="container hero-content">
             <!-- <div class="hero-badge">Integrated Business & Compliance Solutions</div> -->
-            <h1 class="hero-title" style="font-size: 3rem;text-align: justify;width: 92%;">A Trusted & Reliable Partner in Staffing / Recruitment solutions, HR Solutions, Business Development Consulting Services, Career Counseling & Training Services and Comprehensive Legal Solutions</h1>
-            <!-- <p class="hero-subtitle">A trusted and reliable partner delivering expertise in Recruitment, HR Solutions, Business Development Consulting, Career Counseling & Training, and Comprehensive Legal Solutions.</p> -->
-            <div class="hero-btns d-flex gap-3 flex-wrap">
+            <h1 class="hero-title" style="font-size: 3rem;text-align: center;width: 92%;">A Trusted & Reliable Partner in Staffing / Recruitment solutions, HR Solutions, Business Development Consulting Services, Career Counseling & Training Services and Comprehensive Legal Solutions</h1>
+            <p class="hero-subtitle text-center" style="max-width: unset;">We have 17 Years of Industry Excellence — A Legacy of Trust and Performance.</p>
+            <div class="hero-btns d-flex gap-3 flex-wrap justify-content-center">
               <a href="#services" class="btn btn-hero-primary">Know Our Services</a>
               <a href="#contact" class="btn btn-hero-primary">Consult Now</a>
             </div>
@@ -443,7 +446,7 @@
 
       <!-- FLAGSHIP SERVICE -->
       <div class="col-12 fade-in-up">
-        <div class="service-card service-featured">
+        <div class="service-card service-featured" id="StaffingRecruitmentService">
           <div class="row align-items-center g-0">
             <div class="col-md-7 p-4 p-md-5">
               <div class="service-flag"><span class="fs-5">ALP Talent Solutions</span> | An Unit of ALP Group India</div>
@@ -467,7 +470,7 @@
       </div>
 
       <div class="col-12 fade-in-up">
-        <div class="service-card service-featured">
+        <div class="service-card service-featured" id="HRSharedServices">
           <div class="row align-items-center g-0">
             
             <div class="col-md-7 p-4 p-md-5">
@@ -493,7 +496,7 @@
         </div>
       </div>
       <div class="col-12 fade-in-up">
-        <div class="service-card service-featured">
+        <div class="service-card service-featured" id="BusinessDevelopment&BusinessSolutions">
           <div class="row align-items-center g-0">
             <div class="col-md-7 p-4 p-md-5">
               <div class="service-flag">Service</div>
@@ -518,7 +521,7 @@
         </div>
       </div>
       <div class="col-12 fade-in-up">
-        <div class="service-card service-featured">
+        <div class="service-card service-featured" id="CareerCounselling&Training">
           <div class="row align-items-center g-0">
             
             <div class="col-md-7 p-4 p-md-5">
@@ -544,7 +547,7 @@
         </div>
       </div>
       <div class="col-12 fade-in-up">
-        <div class="service-card service-featured">
+        <div class="service-card service-featured" id="ComprehensiveLegalServices">
           <div class="row align-items-center g-0">
             <div class="col-md-7 p-4 p-md-5">
               <div class="service-flag"><span class="fs-5">ALP Legal Services</span> | An Unit of ALP Group India<br/><span class="">(Advocates & Legal Consulatnts)</span></div>
@@ -570,7 +573,7 @@
         </div>
       </div>
       <div class="col-12 fade-in-up">
-        <div class="service-card service-featured">
+        <div class="service-card service-featured" id="ITServices">
           <div class="row align-items-center g-0">
                   
             <div class="col-md-7 p-4 p-md-5">
@@ -1083,7 +1086,7 @@
 
             <!-- Country -->
             <div class="d-flex align-items-center mb-4">
-                <img src="https://flagcdn.com/w40/in.png"
+                <img src="./asset/in.png"
                      alt="India"
                      style="width:40px;height:auto;">
                 <span class="ms-3 fw-normal fs-3" style="color:#1a1a1a;">
@@ -1182,35 +1185,38 @@
         </div>
       </div>
       <div class="col-lg-7 fade-in-right">
+        
         <div class="contact-form-card">
           <h4 class="mb-4">Send Us a Message</h4>
           <div class="row g-2">
+            <form action="mailto:business@alpgroupindia.com" method="post" enctype="text/plain">
             <div class="col-md-6">
-              <input type="text" class="form-control alp-input" placeholder="Your Name"/>
+              <input type="text" class="form-control alp-input" placeholder="Your Name" name="name"/>
             </div>
             <div class="col-md-6">
-              <input type="email" class="form-control alp-input" placeholder="Email Address"/>
+              <input type="email" class="form-control alp-input" placeholder="Email Address" name="email"/>
             </div>
             <div class="col-md-6">
-              <input type="tel" class="form-control alp-input" placeholder="Phone Number"/>
+              <input type="tel" class="form-control alp-input" placeholder="Phone Number" name="phone"/>
             </div>
             <div class="col-md-6">
               <select class="form-select alp-input">
-                <option value="">I would like to discuss...</option>
-                <option>Staffing / Recruitment</option>
-                <option>HR Solutions</option>
-                <option>Business Development</option>
-                <option>Career Counseling & Training</option>
-                <option>Legal Solutions</option>
-                <option>IT Services</option>
+                <option value="Iwouldliketodiscuss">I would like to discuss...</option>
+                <option value="staffingRecruitment">Staffing / Recruitment</option>
+                <option value="HRSolutions">HR Solutions</option>
+                <option value="BusinessDevelopment">Business Development</option>
+                <option value="CareerCounseling&Training">Career Counseling & Training</option>
+                <option value="LegalSolutions">Legal Solutions</option>
+                <option value="ITServices">IT Services</option>
               </select>
             </div>
             <div class="col-12">
-              <textarea class="form-control alp-input" rows="4" placeholder="Your Message"></textarea>
+              <textarea class="form-control alp-input" rows="4" placeholder="Your Message" name="message"></textarea>
             </div>
             <div class="col-12">
-              <button class="btn btn-primary-alp w-100">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+              <button class="btn btn-primary-alp w-100" type="submit">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
             </div>
+            </form>
           </div>
         </div>
       </div>
@@ -1240,7 +1246,7 @@
       <div class="col-lg-4 col-md-6">
         <div class="footer-brand d-flex align-items-center gap-2 mb-3">
           <div class="brand-logo" style="padding: 0.2rem; background-color: #fff;">
-            <img src="https://alpgroupindia.com/alp1.jpg"/>
+            <img src="./asset/alp1.jpg"/>
             <!-- <span class="logo-alp">ALP</span>
             <span class="logo-sub">GROUP</span> -->
           </div>
@@ -1969,7 +1975,8 @@
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+ <script src="./asset/bootstrap.bundle.min.js"></script>
+<script src="./asset/script.js"></script>
 </body>
 </html>

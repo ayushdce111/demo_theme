@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALP Talent Solutions - HR, Staffing & Legal Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #1a3d7a;
+            --secondary: #e6a513;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #d1940f;
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: #152c5e;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+        }
+        
+        .logo-text .alp {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+        
+        .logo-text .talent-solutions {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--secondary);
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .legacy-section {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .legacy-section h3 {
+            color: white;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Specialization Grid */
+        .specialization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .specialty-card {
+            background-color: #fff;
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        /* Legal Services */
+        .legal-services {
+            background-color: var(--light);
+        }
+        
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .legal-card {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        /* Leadership Section */
+        .leadership {
+            background-color: var(--light);
+        }
+        
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .leader-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .leader-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--primary);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--light);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 20px;
+            color: var(--primary);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo .logo-text .alp {
+            color: #fff;
+        }
+        
+        .footer-links h4, .footer-services h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h4:after, .footer-services h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links ul, .footer-services ul {
+            list-style: none;
+        }
+        
+        .footer-links li, .footer-services li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a, .footer-services a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover, .footer-services a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+        
+        .developer-credit {
+            margin-top: 10px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text">
+                    <div class="alp">ALP</div>
+		    <div class="talent-solutions">GROUP INDIA</div>
+                </div>
+            </div>
+            
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#legal">Legal Services</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>A Trusted & Reliable Partner in Staffing/ Recruitment solutions , HR Solutions, Business Development, Career Counselling & Training and Legal Solutions.</h1>
+            <p>ALP Talent Solutions delivers comprehensive HR, staffing, recruitment and legal consulting services with over 17 years of industry experience.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn">Hire Talent</a>
+                <a href="#contact" class="btn btn-primary">Legal Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About ALP Talent Solutions</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>ALP Talent Solutions</strong> (An unit of <strong>ALP Group India</strong>) is your trusted partner in HR, Staffing/Recruitment & Legal Solutions.</p>
+                    
+                    <div class="legacy-section">
+                        <h3>Our Legacy</h3>
+                        <p><strong>ALP Group</strong> draws its vision and inspiration from the late <strong>SH. ACHCHHE LAL PRIYADARSHI (ALP)</strong>, (MA, B.Ed. & LL. B.), a distinguished scholar, educationist, social reformer, passionate visionary and the voice of thousands. Though he is no longer with us, his ideals and principles continue to live on, guiding and transforming both the Group and society at large. His legacy remains a constant source of inspiration for our endeavours.</p>
+                    </div>
+                    
+                    <p><strong>ALP Group</strong>, led by <strong>Ms. Annu Kumari (M.Sc., B.Ed.)</strong> with <strong>Mr. Guru Bandhu (MBA, LL.B.)</strong> as Chief Advisor and Independent Consultant, is a new-age HR and Legal Consulting firm with over 17 years of industry experience.</p>
+                    
+                    <p>We go beyond conventional HR services by helping organizations attract, hire and retain high-quality talent efficiently and cost-effectively. Backed by a dynamic team and a strong network of independent recruitment professionals, we deliver the right candidates at the right time to meet and exceed client expectations.</p>
+                    
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ALP Talent Solutions">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Premium Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Staffing & Recruitment Solutions</h3>
+                    <p>Comprehensive talent acquisition solutions including executive search, technical & non-technical staffing, and project-based recruitment.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Consulting HR Shared Services</h3>
+                    <p>Strategic HR advisory and support services including performance management, training, compensation, and payroll management.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Legal Solutions</h3>
+                    <p>Expert legal consultation and services including civil litigation, arbitration, corporate law, and dispute resolution.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Business Development Consulting</h3>
+                    <p>Business development assistance, system analysis, tender preparation, and manpower planning services.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 60px;">
+                <h3 class="section-title">Our Staffing & Recruitment Services</h3>
+                
+                <h4 style="color: var(--primary); margin-top: 30px;">Non-IT Recruitment (Highly Specialized in Infrastructure, Construction & Engineering Industry)</h4>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+                    <div>
+                        <h5 style="color: var(--secondary); margin-bottom: 15px;">Technical Talent Solutions</h5>
+                        <div class="specialization-grid">
+                            <div class="specialty-card">
+                                <h5>Highways</h5>
+                            </div>
+                            <div class="specialty-card">
+                                <h5>Bridges</h5>
+                            </div>
+                            <div class="specialty-card">
+                                <h5>Tunnel (NATM & TBM)</h5>
+                            </div>
+                            <div class="specialty-card">
+                                <h5>Railways</h5>
+                            </div>
+                            <div class="specialty-card">
+                                <h5>Building & Real Estate</h5>
+                            </div>
+                            <div class="specialty-card">
+                                <h5>Metro</h5>
+                            </div>
+                            <div class="specialty-card">
+                                <h5>Sewerage & Water Supply</h5>
+                            </div>
+                            <div class="specialty-card">
+                                <h5>Urban Infrastructure</h5>
+                            </div>
+                            <div class="specialty-card">
+                                <h5>Supervisors (Technical)</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h5 style="color: var(--secondary); margin-bottom: 15px;">Non-Technical Talent Solutions</h5>
+                        <div class="specialization-grid">
+                            <div class="specialty-card">
+                                <h5>HR & Administration</h5>
+                            </div>
+                            <div class="specialty-card">
+                                <h5>Finance & Accounts</h5>
+                            </div>
+                            <div class="specialty-card">
+                                <h5>Operation Section</h5>
+                            </div>
+                            <div class="specialty-card">
+                                <h5>Clerks Supervisor (Non-Technical)</h5>
+                            </div>
+                        </div>
+                        
+                        <h5 style="color: var(--secondary); margin: 30px 0 15px;">IT Recruitment Services</h5>
+                        <div class="specialty-card">
+                            <h5>Coming Soon...</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Services Section -->
+    <section class="legal-services" id="legal">
+        <div class="container">
+            <h2 class="section-title">Advocate & Legal Services</h2>
+            <p class="text-center" style="font-size: 1.2rem; margin-bottom: 40px; font-style: italic;">"Your Problem, My Solution."</p>
+            
+            <div class="legal-grid">
+                <div class="legal-card">
+                    <h4>Civil Litigation</h4>
+                    <p>Contracts, Commercial, Property Disputes, Recovery, Injunctions, Defamation etc.</p>
+                </div>
+                
+                <div class="legal-card">
+                    <h4>Arbitration & Dispute Resolution</h4>
+                    <p>Domestic & International Arbitration (Institutional & Ad Hoc).</p>
+                </div>
+                
+                <div class="legal-card">
+                    <h4>Corporate & Commercial Law</h4>
+                    <p>Drafting/Vetting Agreements, Joint Ventures, NDAs, Regulatory Compliance.</p>
+                </div>
+                
+                <div class="legal-card">
+                    <h4>Real Estate & Property Laws</h4>
+                    <p>Due Diligence, Title Verification, RERA Compliance.</p>
+                </div>
+                
+                <div class="legal-card">
+                    <h4>Consumer Protection</h4>
+                    <p>Representation before Forums & Commissions.</p>
+                </div>
+                
+                <div class="legal-card">
+                    <h4>Writs & Constitutional Matters</h4>
+                    <p>Filing before High Courts & Supreme Court.</p>
+                </div>
+                
+                <div class="legal-card">
+                    <h4>Criminal Law</h4>
+                    <p>Bail Matters, FIR Quashing, White-Collar Crimes, Cybercrime Cases.</p>
+                </div>
+                
+                <div class="legal-card">
+                    <h4>Banking & Financial Laws</h4>
+                    <p>SARFAESI, DRT, Cheque Dishonour etc.</p>
+                </div>
+                
+                <div class="legal-card">
+                    <h4>Taxation Laws</h4>
+                    <p>GST, Direct & Indirect Tax Litigation & Appeals.</p>
+                </div>
+                
+                <div class="legal-card">
+                    <h4>Employment & Labor Laws</h4>
+                    <p>Employment Contracts, HR Policy Compliance, Industrial Disputes.</p>
+                </div>
+                
+                <div class="legal-card">
+                    <h4>Family & Matrimonial Disputes</h4>
+                    <p>Divorce, Maintenance, Custody, Domestic Violence Cases etc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HR Consulting Services -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Consulting HR Shared Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Performance Management System</h3>
+                    <p>Comprehensive performance evaluation and management systems.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Training & Development</h3>
+                    <p>Soft skills training and development programs through our training agency.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Compensation & Benefit Module</h3>
+                    <p>Structured compensation and benefits programs.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Time Office & Payroll Management</h3>
+                    <p>Efficient time tracking and payroll processing services.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Wages & Salary Administration</h3>
+                    <p>Comprehensive wage and salary structure management.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Statutory Compliances</h3>
+                    <p>EPF, ESIC, GPA, GMC and other statutory compliance management.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Contract Labour Management</h3>
+                    <p>End-to-end contract labour management and administration.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Administrative Advisory</h3>
+                    <p>Guidance on general administration and operational efficiency.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>SOP Formulating Services</h3>
+                    <p>Development and implementation of Standard Operating Procedures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership" id="leadership">
+        <div class="container">
+            <h2 class="section-title">Our Leadership</h2>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Ms. Annu Kumari</h3>
+                    <p><strong>Proprietor</strong></p>
+                    <p>M.Sc., B.Ed.</p>
+                    <p>A seasoned business leader committed to delivering high-quality HR and staffing solutions with a focus on client satisfaction and industry excellence.</p>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Mr. Guru Bandhu</h3>
+                    <p><strong>Chief Advisor & Independent Consultant</strong></p>
+                    <p>MBA, LL.B.</p>
+                    <p>A highly accomplished HR strategist and legal consultant with 17 years of industry exposure in Infrastructure & Construction, guiding ALP Talent Solutions with strategic vision and industry insight.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Reach out to us for all your HR, staffing, recruitment and legal consulting needs. We're here to help you find the right talent or provide expert legal solutions.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Registered Office</h4>
+                            <p>27A, South Ganesh Nagar, Delhi-110092</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>business@alpgroupindia.com</p>
+                            <p>hr@alpgroupindia.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91-9899202646 (WhatsApp)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <h4>Website</h4>
+                            <p>www.alpgroupindia.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form action="mailto:business@alpgroupindia.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" class="form-control" name="phone" placeholder="Your Phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <select class="form-control" name="service" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="staffing">Staffing & Recruitment</option>
+                                <option value="hr">HR Consulting</option>
+                                <option value="legal">Legal Solutions</option>
+                                <option value="business">Business Development</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <div class="logo-text">
+                            <div class="alp">ALP</div>
+                            <div class="talent-solutions">TALENT SOLUTIONS</div>
+                        </div>
+                    </div>
+                    <p>Your Trusted & Reliable Partner in HR, Staffing & Legal Solutions</p>
+                    <p>An unit of <strong>ALP Group India</strong></p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#legal">Legal Services</a></li>
+                        <li><a href="#leadership">Leadership</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">Staffing & Recruitment</a></li>
+                        <li><a href="#services">HR Consulting</a></li>
+                        <li><a href="#legal">Legal Solutions</a></li>
+                        <li><a href="#services">Business Development</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ALP Talent Solutions. All Rights Reserved. | An Unit of ALP Group India</p>
+                <p>Your Trusted & Reliable Partner in HR, Staffing/ Recruitment & Legal Solution</p>
+                <p class="developer-credit">Website designed and developed by Abhishek Kumar Lalu</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // Skip email links
+                if(this.getAttribute('href').startsWith('mailto:')) return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
