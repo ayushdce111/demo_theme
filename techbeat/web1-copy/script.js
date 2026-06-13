@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const top = sec.offsetTop - 100;
       if (window.scrollY >= top) current = sec.getAttribute('id');
     });
-    // navLinks.forEach(link => {
-    //   link.classList.remove('active');
-    //   const href = link.getAttribute('href');
-    //   if (href && href === '#' + current) link.classList.add('active');
-    // });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href');
+      if (href && href === '#' + current) link.classList.add('active');
+    });
   }
 
   // ---- SMOOTH SCROLL FOR NAV LINKS ----

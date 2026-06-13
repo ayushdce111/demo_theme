@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Legal Solutions – Advocates & Legal Consultants | ALP Group India</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"/>
+<style>
+:root{--red:#c0392b;--red-dark:#9b2335;--red-light:#e74c3c;--dark:#1a1a2e;--dark-2:#16213e;--charcoal:#2c3e50;--white:#fff;--off-white:#f8f9fa;--gray:#6c757d;--light-gray:#e9ecef;--gold:#d4a852;--fh:'Playfair Display',serif;--fb:'DM Sans',sans-serif;--sh:0 2px 14px rgba(0,0,0,.08);--sm:0 8px 32px rgba(0,0,0,.13);--sl:0 20px 60px rgba(0,0,0,.18);--r:6px;--rl:14px;--tr:all .35s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--fb);color:var(--charcoal);background:#fff;overflow-x:hidden}img{max-width:100%;display:block}a{text-decoration:none;color:inherit}.sp{padding:90px 0}.sp-sm{padding:60px 0}.bg-off{background:var(--off-white)!important}
+.text-accent{color:var(--red)}.section-label{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px}.section-heading{font-family:var(--fh);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--dark);line-height:1.2}.section-text{font-size:.97rem;color:#555;line-height:1.8}.section-sub{font-size:1rem;color:var(--gray);max-width:600px;margin:0 auto}.red-divider{width:52px;height:3px;background:var(--red);margin-top:14px;position:relative}.red-divider::after{content:'';position:absolute;left:62px;top:0;width:16px;height:3px;background:var(--red);opacity:.4}.red-divider.center{margin-left:auto!important;margin-right:auto!important}
+.top-bar{background:var(--dark);padding:8px 0;font-size:.82rem}.top-bar a{color:#ccc;transition:var(--tr)}.top-bar a:hover{color:var(--red-light)}.top-contact a{display:flex;align-items:center;gap:4px}.top-social a{width:28px;height:28px;background:rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--tr);font-size:.72rem}.top-social a:hover{background:var(--red);color:#fff}
+.main-navbar{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.08);padding:14px 0;transition:var(--tr);z-index:1000}.main-navbar.scrolled{padding:8px 0;box-shadow:0 4px 30px rgba(0,0,0,.14)}.brand-logo{background:var(--red);color:#fff;width:52px;height:52px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:var(--tr)}.brand-logo:hover{background:var(--red-dark);transform:scale(1.04)}.logo-alp{font-family:var(--fh);font-size:1.05rem;font-weight:700;line-height:1}.logo-sub{font-size:.5rem;letter-spacing:2px;font-weight:600;opacity:.85;margin-top:1px}.brand-name-txt{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:var(--dark);line-height:1.1}.brand-tagline{font-size:.68rem;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
+.nav-link{font-size:.88rem!important;font-weight:500!important;color:var(--charcoal)!important;padding:8px 14px!important;position:relative;transition:var(--tr)}.nav-link::after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:2px;background:var(--red);transform:scaleX(0);transition:transform .3s ease}.nav-link:hover::after,.nav-link.active::after{transform:scaleX(1)}.nav-link:hover,.nav-link.active{color:var(--red)!important}.nav-cta{background:var(--red)!important;color:#fff!important;border-radius:4px;padding:9px 20px!important}.nav-cta::after{display:none}.nav-cta:hover{background:var(--red-dark)!important;color:#fff!important}.navbar-toggler{border:1px solid rgba(192,57,43,.3)}
+.btn-primary-alp{background:var(--red);color:#fff!important;border:2px solid var(--red);padding:12px 28px;font-weight:600;font-size:.9rem;border-radius:3px;letter-spacing:.5px;transition:var(--tr);display:inline-flex;align-items:center;gap:8px}.btn-primary-alp:hover{background:var(--red-dark);border-color:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(192,57,43,.35)}.btn-outline-alp{background:transparent;color:var(--red)!important;border:2px solid var(--red);padding:11px 26px;font-weight:600;font-size:.88rem;border-radius:3px;transition:var(--tr);display:inline-flex;align-items:center;gap:8px}.btn-outline-alp:hover{background:var(--red);color:#fff!important;transform:translateY(-2px)}.btn-cta{background:transparent;color:#fff!important;border:2px solid rgba(255,255,255,.7);padding:12px 26px;font-weight:600;font-size:.88rem;border-radius:3px;transition:var(--tr);display:inline-flex;align-items:center;gap:8px}.btn-cta:hover{background:#fff;color:var(--red)!important;border-color:#fff}
+/* HERO */
+.page-hero{position:relative;min-height:420px;background:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=75') center/cover no-repeat;display:flex;align-items:center;padding:90px 0 70px}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(26,26,46,.96) 0%,rgba(44,62,80,.88) 55%,rgba(192,57,43,.25) 100%)}
+.page-hero-content{position:relative;z-index:2}.hero-service-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:2px;margin-bottom:16px}.page-hero-title{font-family:var(--fh);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px}.page-hero-sub{font-size:1rem;color:rgba(255,255,255,.78);margin-bottom:24px;max-width:580px;line-height:1.75}.page-breadcrumb{background:none;padding:0;margin:0}.page-breadcrumb .breadcrumb-item a{color:rgba(255,255,255,.65);font-size:.85rem;transition:var(--tr)}.page-breadcrumb .breadcrumb-item a:hover{color:var(--red-light)}.page-breadcrumb .breadcrumb-item.active{color:var(--red-light);font-size:.85rem}.page-breadcrumb .breadcrumb-item+.breadcrumb-item::before{color:rgba(255,255,255,.4)}.hero-stats{display:flex;gap:32px;margin-top:28px;flex-wrap:wrap}.hero-stat-num{font-family:var(--fh);font-size:2rem;font-weight:700;color:#fff;line-height:1}.hero-stat-num span{color:var(--red-light)}.hero-stat-label{font-size:.75rem;color:rgba(255,255,255,.55);letter-spacing:1px;text-transform:uppercase;margin-top:4px}.hero-scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.5);font-size:.9rem;animation:bounce 1.5s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.check-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:.93rem;color:#444;line-height:1.65}.check-list li i{color:var(--red);flex-shrink:0;margin-top:3px}
+/* LEGAL SERVICE GRID */
+.legal-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lgs-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:16px 18px;display:flex;align-items:flex-start;gap:12px;transition:var(--tr)}
+.lgs-item:hover{background:rgba(192,57,43,.2);border-color:var(--red)}
+.lgs-item i{color:var(--red-light);font-size:1.1rem;flex-shrink:0;margin-top:2px}
+.lgs-item span{color:rgba(255,255,255,.82);font-size:.87rem;font-weight:500;line-height:1.4}
+/* PRACTICE AREA CARDS */
+.practice-card{background:#fff;border-radius:var(--rl);padding:28px 24px;height:100%;box-shadow:var(--sh);transition:var(--tr);border-left:3px solid transparent;position:relative;overflow:hidden}
+.practice-card:hover{border-left-color:var(--red);box-shadow:var(--sl);transform:translateY(-5px)}
+.pc-num{position:absolute;top:12px;right:16px;font-family:var(--fh);font-size:3rem;font-weight:700;color:rgba(0,0,0,.04);line-height:1}
+.pc-icon{width:52px;height:52px;background:rgba(192,57,43,.1);color:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:14px;transition:var(--tr)}
+.practice-card:hover .pc-icon{background:var(--red);color:#fff}
+.pc-title{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:8px}
+.pc-text{font-size:.87rem;color:#666;line-height:1.75;margin:0}
+/* STAT CARDS */
+.stat-card{background:var(--off-white);border-radius:var(--rl);padding:28px 24px;text-align:center;transition:var(--tr);border-bottom:3px solid transparent}
+.stat-card:hover{border-bottom-color:var(--red);box-shadow:var(--sm);transform:translateY(-5px)}
+.sc-icon{width:56px;height:56px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 14px}
+.sc-num{font-family:var(--fh);font-size:2.2rem;font-weight:700;color:var(--dark);line-height:1}
+.sc-label{font-size:.8rem;color:var(--gray);margin-top:5px}
+/* DARK FEATURE BLOCK */
+.dark-feature{background:var(--dark);border-radius:var(--rl);padding:40px;position:relative;overflow:hidden}
+.dark-feature::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:rgba(192,57,43,.1);border-radius:50%}
+.dark-feature::after{content:'';position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;background:rgba(192,57,43,.07);border-radius:50%}
+.dark-feature-inner{position:relative;z-index:1}
+/* ACTS COVERED */
+.act-pill{display:inline-flex;align-items:center;gap:8px;background:var(--off-white);border:1px solid var(--light-gray);color:var(--charcoal);font-size:.82rem;font-weight:600;padding:9px 16px;border-radius:30px;transition:var(--tr)}
+.act-pill:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.act-pill i{color:var(--red);font-size:.85rem}
+.act-pill:hover i{color:#fff}
+/* FAQ */
+.faq-item{background:#fff;border-radius:var(--rl);box-shadow:var(--sh);margin-bottom:12px;overflow:hidden}.faq-question{padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;transition:var(--tr)}.faq-question:hover{background:rgba(192,57,43,.04)}.faq-question.open{background:var(--dark)}.fq-text{font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--dark);line-height:1.3}.faq-question.open .fq-text{color:#fff}.fq-icon{width:28px;height:28px;background:rgba(192,57,43,.1);color:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;transition:var(--tr)}.faq-question.open .fq-icon{background:var(--red);color:#fff;transform:rotate(45deg)}.faq-answer{display:none;padding:0 22px 18px;font-size:.9rem;color:#555;line-height:1.8}.faq-answer.open{display:block}
+/* CTA */
+.cta-full{position:relative;padding:100px 0;background:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400&q=55') center/cover no-repeat}.cta-full-overlay{position:absolute;inset:0;background:rgba(26,26,46,.94)}.cta-full-content{position:relative;z-index:2;text-align:center}.cta-full h2{font-family:var(--fh);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:#fff;margin-bottom:14px}.cta-full p{font-size:1rem;color:rgba(255,255,255,.72);max-width:560px;margin:0 auto 32px;line-height:1.8}.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* OTHER SERVICES */
+.os-card{background:#fff;border-radius:var(--rl);padding:22px;display:flex;align-items:center;gap:14px;box-shadow:var(--sh);transition:var(--tr);text-decoration:none;color:inherit;height:100%}.os-card:hover{box-shadow:var(--sl);transform:translateY(-4px)}.os-icon{width:46px;height:46px;background:rgba(192,57,43,.1);color:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;transition:var(--tr)}.os-card:hover .os-icon{background:var(--red);color:#fff}.os-title{font-family:var(--fh);font-size:.92rem;font-weight:700;color:var(--dark);margin-bottom:2px}.os-arrow{margin-left:auto;color:var(--red);flex-shrink:0;transition:var(--tr)}.os-card:hover .os-arrow{transform:translateX(4px)}
+/* FOOTER */
+footer.site-footer{background:var(--dark-2,#16213e)}.footer-text{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.8}.ftr-heading{color:#fff;font-family:var(--fh);font-size:1rem;font-weight:700;margin-bottom:18px;position:relative;padding-bottom:10px}.ftr-heading::after{content:'';position:absolute;bottom:0;left:0;width:30px;height:2px;background:var(--red)}.ftr-links{list-style:none;padding:0;margin:0}.ftr-links li{padding:5px 0}.ftr-links a{color:rgba(255,255,255,.55);font-size:.86rem;transition:var(--tr);display:flex;align-items:center;gap:6px}.ftr-links a::before{content:'›';color:var(--red);font-size:1.1rem}.ftr-links a:hover{color:var(--red-light);padding-left:4px}.ftr-contact{list-style:none;padding:0;margin:0}.ftr-contact li{padding:7px 0;color:rgba(255,255,255,.55);font-size:.86rem;display:flex;gap:12px;align-items:flex-start}.ftr-contact li i{color:var(--red);flex-shrink:0;margin-top:3px}.ftr-contact a{color:rgba(255,255,255,.55);transition:var(--tr)}.ftr-contact a:hover{color:var(--red-light)}.ftr-social a{width:34px;height:34px;background:rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.82rem;transition:var(--tr)}.ftr-social a:hover{background:var(--red);color:#fff;transform:translateY(-2px)}.ftr-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;margin-top:10px}.ftr-bottom p{margin:0;font-size:.82rem;color:rgba(255,255,255,.4)}
+.btt{position:fixed;bottom:30px;right:30px;width:46px;height:46px;background:var(--red);color:#fff;border:none;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(192,57,43,.4);opacity:0;visibility:hidden;transition:var(--tr);z-index:9999}.btt.visible{opacity:1;visibility:visible}.btt:hover{background:var(--red-dark);transform:translateY(-3px)}
+.fi-up,.fi-left,.fi-right{opacity:0;transition:opacity .65s ease,transform .65s ease}.fi-up{transform:translateY(32px)}.fi-left{transform:translateX(-40px)}.fi-right{transform:translateX(40px)}.fi-up.on,.fi-left.on,.fi-right.on{opacity:1;transform:none}
+@media(max-width:767.98px){.sp{padding:64px 0}.page-hero{min-height:300px;padding:70px 0 50px}.page-hero-title{font-size:1.9rem}.hero-stats{gap:20px}.cta-btns{flex-direction:column;align-items:center}.legal-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<!-- TOP BAR -->
+<div class="top-bar"><div class="container"><div class="d-flex justify-content-between align-items-center flex-wrap gap-2"><div class="top-contact d-flex gap-3 flex-wrap"><a href="tel:+919999999999"><i class="fas fa-phone-alt me-1"></i>+91-99999 99999</a><a href="mailto:info@alpgroupindia.com"><i class="fas fa-envelope me-1"></i>info@alpgroupindia.com</a></div><div class="top-social d-flex gap-2"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div></div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top main-navbar" id="mainNav"><div class="container"><a class="navbar-brand d-flex align-items-center gap-2" href="index.html"><div class="brand-logo"><span class="logo-alp">ALP</span><span class="logo-sub">GROUP</span></div><div class="ms-1"><div class="brand-name-txt">ALP Group India</div><div class="brand-tagline">HR | Consulting | Legal</div></div></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li><li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li><li class="nav-item"><a class="nav-link" href="index.html#why">Why Choose Us</a></li><li class="nav-item"><a class="nav-link nav-cta" href="contact.html">Contact Us</a></li></ul></div></div></nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-overlay"></div>
+  <div class="container position-relative">
+    <div class="page-hero-content fi-up">
+      <div class="hero-service-badge"><i class="fas fa-balance-scale me-1"></i>Service 05</div>
+      <h1 class="page-hero-title">Legal Solutions: Advocates &amp;<span class="text-accent"> Legal Consultants</span></h1>
+      <p class="page-hero-sub">Comprehensive legal advisory backed by a reputed full-service law firm — keeping your organisation compliant, protected, and litigation-free in the complex world of Infrastructure &amp; Construction.</p>
+      <nav aria-label="breadcrumb"><ol class="breadcrumb page-breadcrumb mb-0"><li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Home</a></li><li class="breadcrumb-item"><a href="services.html">Services</a></li><li class="breadcrumb-item active">Legal Solutions</li></ol></nav>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">200<span>+</span></div><div class="hero-stat-label">Contracts Reviewed</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">15<span>+</span></div><div class="hero-stat-label">Labour Acts Covered</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">100<span>%</span></div><div class="hero-stat-label">Compliance Focus</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- INTRO -->
+<section class="sp">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 fi-left">
+        <div class="section-label">Our Legal Capability</div>
+        <h2 class="section-heading">Stay Protected. <span class="text-accent">Stay Compliant.</span></h2>
+        <div class="red-divider"></div>
+        <p class="section-text mt-3">ALP Group India's Legal Solutions service is unique — we combine deep HR and business knowledge with qualified legal expertise, backed by a reputed full-service law firm. This means you get practical, business-aware legal advice rather than purely academic guidance.</p>
+        <p class="section-text mt-2">Our Chief Advisor Sh. Guru Bandhu holds an LL.B. alongside his MBA, giving him a rare ability to integrate legal, HR, and business perspectives in a single engagement. Whether it's drafting employment contracts, navigating labour disputes, or ensuring statutory compliance — we handle it with precision.</p>
+        <ul class="check-list mt-4">
+          <li><i class="fas fa-check-circle"></i>Employment &amp; HR contract drafting and review</li>
+          <li><i class="fas fa-check-circle"></i>Labour law compliance management and audit</li>
+          <li><i class="fas fa-check-circle"></i>Construction and infrastructure contract advisory</li>
+          <li><i class="fas fa-check-circle"></i>Dispute resolution and pre-litigation support</li>
+          <li><i class="fas fa-check-circle"></i>Statutory registrations and compliance filings</li>
+        </ul>
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          <a href="contact.html" class="btn-primary-alp"><i class="fas fa-paper-plane"></i>Legal Inquiry</a>
+          <a href="contact.html" class="btn-outline-alp"><i class="fas fa-phone-alt"></i>Speak to Advisor</a>
+        </div>
+      </div>
+      <div class="col-lg-6 fi-right">
+        <div class="dark-feature">
+          <div class="dark-feature-inner">
+            <div style="width:64px;height:64px;background:rgba(192,57,43,.2);color:var(--red-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:20px"><i class="fas fa-balance-scale"></i></div>
+            <h3 style="font-family:var(--fh);color:#fff;font-size:1.5rem;margin-bottom:14px">Legal Services We Provide</h3>
+            <div class="legal-grid">
+              <div class="lgs-item"><i class="fas fa-file-contract"></i><span>Contract Drafting &amp; Review</span></div>
+              <div class="lgs-item"><i class="fas fa-gavel"></i><span>Labour Law Advisory</span></div>
+              <div class="lgs-item"><i class="fas fa-shield-alt"></i><span>HR Compliance Audit</span></div>
+              <div class="lgs-item"><i class="fas fa-users"></i><span>Employment Agreements</span></div>
+              <div class="lgs-item"><i class="fas fa-hard-hat"></i><span>Contract Labour Compliance</span></div>
+              <div class="lgs-item"><i class="fas fa-handshake"></i><span>Dispute Resolution</span></div>
+              <div class="lgs-item"><i class="fas fa-female"></i><span>POSH Compliance</span></div>
+              <div class="lgs-item"><i class="fas fa-clipboard-check"></i><span>Statutory Registrations</span></div>
+              <div class="lgs-item"><i class="fas fa-building"></i><span>Vendor &amp; Sub-Contractor Agreements</span></div>
+              <div class="lgs-item"><i class="fas fa-exclamation-triangle"></i><span>Notice &amp; Show-Cause Drafting</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE AREAS -->
+<section class="sp bg-off">
+  <div class="container">
+    <div class="text-center mb-5 fi-up">
+      <div class="section-label">Practice Areas</div>
+      <h2 class="section-heading">Key Legal <span class="text-accent">Practice Areas</span></h2>
+      <div class="red-divider center"></div>
+      <p class="section-sub mt-3">Specialised legal expertise aligned with the realities of Infrastructure, Construction &amp; HR in India</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 fi-up">
+        <div class="practice-card h-100">
+          <div class="pc-num">01</div><div class="pc-icon"><i class="fas fa-file-contract"></i></div>
+          <div class="pc-title">Employment &amp; HR Contracts</div>
+          <p class="pc-text">Drafting, reviewing, and standardising offer letters, appointment letters, service agreements, NDAs, non-compete clauses, and separation agreements aligned with Indian employment law.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.07s">
+        <div class="practice-card h-100">
+          <div class="pc-num">02</div><div class="pc-icon"><i class="fas fa-hard-hat"></i></div>
+          <div class="pc-title">Construction &amp; Project Contracts</div>
+          <p class="pc-text">Review and advisory on EPC contracts, work orders, sub-contractor agreements, scope-of-work documents, and dispute clauses for Infrastructure and Civil Engineering projects.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.14s">
+        <div class="practice-card h-100">
+          <div class="pc-num">03</div><div class="pc-icon"><i class="fas fa-gavel"></i></div>
+          <div class="pc-title">Labour Law Compliance</div>
+          <p class="pc-text">End-to-end compliance advisory covering the Industrial Disputes Act, Factories Act, Minimum Wages Act, Contract Labour Act, BOCW Act, and other applicable statutes.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.21s">
+        <div class="practice-card h-100">
+          <div class="pc-num">04</div><div class="pc-icon"><i class="fas fa-female"></i></div>
+          <div class="pc-title">POSH &amp; Workplace Law</div>
+          <p class="pc-text">Constituting Internal Complaints Committee (ICC), drafting complaint procedures, conducting awareness training, and preparing annual POSH reports as mandated by law.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.28s">
+        <div class="practice-card h-100">
+          <div class="pc-num">05</div><div class="pc-icon"><i class="fas fa-balance-scale-right"></i></div>
+          <div class="pc-title">Dispute Resolution &amp; Notices</div>
+          <p class="pc-text">Pre-litigation advisory, drafting legal notices, responding to show-cause notices, and supporting conciliation/arbitration proceedings to resolve workplace and contract disputes.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.35s">
+        <div class="practice-card h-100">
+          <div class="pc-num">06</div><div class="pc-icon"><i class="fas fa-clipboard-list"></i></div>
+          <div class="pc-title">Statutory Registrations &amp; Filings</div>
+          <p class="pc-text">Facilitating registrations under Shops &amp; Establishments Act, Contract Labour Act, BOCW, Professional Tax, and other applicable state and central statutes for new and existing establishments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTS & STATS -->
+<section class="sp" style="background:var(--dark)">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-6 fi-left">
+        <div class="section-label" style="color:var(--red-light)">Legislation We Cover</div>
+        <h2 class="section-heading" style="color:#fff">Labour &amp; Employment <span class="text-accent">Acts</span></h2>
+        <div class="red-divider"></div>
+        <p class="section-text mt-3" style="color:rgba(255,255,255,.7)">Our legal team is well-versed in all major Indian labour legislation applicable to Infrastructure, Construction and Manufacturing sectors.</p>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>Industrial Disputes Act</span>
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>Factories Act</span>
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>Contract Labour Act</span>
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>BOCW Act</span>
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>EPF &amp; MP Act</span>
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>ESI Act</span>
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>Minimum Wages Act</span>
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>Payment of Wages Act</span>
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>Gratuity Act</span>
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>Bonus Act</span>
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>POSH Act</span>
+          <span class="act-pill" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><i class="fas fa-gavel" style="color:var(--red-light)"></i>Shops &amp; Estab. Act</span>
+        </div>
+      </div>
+      <div class="col-lg-6 fi-right">
+        <div class="row g-4">
+          <div class="col-6 fi-up"><div class="stat-card"><div class="sc-icon"><i class="fas fa-file-contract"></i></div><div class="sc-num">200+</div><div class="sc-label">Contracts Reviewed &amp; Drafted</div></div></div>
+          <div class="col-6 fi-up" style="transition-delay:.08s"><div class="stat-card"><div class="sc-icon"><i class="fas fa-shield-alt"></i></div><div class="sc-num">100%</div><div class="sc-label">Compliance Success Rate</div></div></div>
+          <div class="col-6 fi-up" style="transition-delay:.16s"><div class="stat-card"><div class="sc-icon"><i class="fas fa-gavel"></i></div><div class="sc-num">15+</div><div class="sc-label">Labour Acts Covered</div></div></div>
+          <div class="col-6 fi-up" style="transition-delay:.24s"><div class="stat-card"><div class="sc-icon"><i class="fas fa-handshake"></i></div><div class="sc-num">Full</div><div class="sc-label">Law Firm Backing</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sp bg-off">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 fi-left">
+        <div class="section-label">Common Questions</div>
+        <h2 class="section-heading">Legal Services <span class="text-accent">FAQs</span></h2>
+        <div class="red-divider"></div>
+        <p class="section-text mt-3">Have a specific legal challenge? Talk to our advisor today.</p>
+        <a href="contact.html" class="btn-outline-alp mt-4"><i class="fas fa-envelope"></i>Contact Us</a>
+      </div>
+      <div class="col-lg-8 fi-right">
+        <div class="faq-item"><div class="faq-question"><span class="fq-text">Can you handle legal matters in states outside Delhi NCR?</span><div class="fq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-answer">Yes. Through our law firm partnership, we provide advisory services across India. For litigation-related matters requiring court appearances in other states, we coordinate with associated advocates in relevant jurisdictions to ensure seamless representation.</div></div>
+        <div class="faq-item"><div class="faq-question"><span class="fq-text">Do you handle individual employee legal disputes or only corporate matters?</span><div class="fq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-answer">Our primary focus is advisory for organisations — helping companies manage their legal obligations, contracts, and compliance. For individual employment disputes, we can provide guidance in the context of our broader HR consulting engagement with the relevant company.</div></div>
+        <div class="faq-item"><div class="faq-question"><span class="fq-text">Can you audit our existing contracts and compliance records?</span><div class="fq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-answer">Absolutely. Our Legal Compliance Audit service reviews your existing employment contracts, statutory registrations, compliance filings, and HR documentation to identify gaps, risks, and areas requiring immediate remediation — along with a prioritised action plan.</div></div>
+        <div class="faq-item"><div class="faq-question"><span class="fq-text">How is your legal service different from a standalone law firm?</span><div class="fq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-answer">We integrate legal advice with HR and business expertise — so when you get contract advice, it comes with an understanding of how it affects your hiring, workforce management, and operations. This holistic view prevents legal decisions that are technically correct but practically disruptive to your business.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER SERVICES -->
+<section class="sp-sm">
+  <div class="container">
+    <div class="text-center mb-4 fi-up"><div class="section-label">Explore More</div><h2 class="section-heading">Our Other <span class="text-accent">Services</span></h2><div class="red-divider center"></div></div>
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-4 fi-up"><a href="service-staffing.html" class="os-card"><div class="os-icon"><i class="fas fa-users-cog"></i></div><div><div class="os-title">Staffing &amp; Recruitment</div><div style="font-size:.8rem;color:var(--gray)">Flagship service</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div>
+      <div class="col-md-6 col-lg-4 fi-up"><a href="service-hr.html" class="os-card"><div class="os-icon"><i class="fas fa-sitemap"></i></div><div><div class="os-title">HR Solutions</div><div style="font-size:.8rem;color:var(--gray)">End-to-end HR consulting</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div>
+      <div class="col-md-6 col-lg-4 fi-up"><a href="service-bizdev.html" class="os-card"><div class="os-icon"><i class="fas fa-chart-line"></i></div><div><div class="os-title">Business Development</div><div style="font-size:.8rem;color:var(--gray)">Tender &amp; Bidding consulting</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div>
+      <div class="col-md-6 col-lg-4 fi-up"><a href="service-career.html" class="os-card"><div class="os-icon"><i class="fas fa-graduation-cap"></i></div><div><div class="os-title">Career Counseling &amp; Training</div><div style="font-size:.8rem;color:var(--gray)">Individual &amp; corporate programs</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div>
+      <div class="col-md-6 col-lg-4 fi-up"><a href="service-it.html" class="os-card"><div class="os-icon"><i class="fas fa-laptop-code"></i></div><div><div class="os-title">IT Services</div><div style="font-size:.8rem;color:var(--gray)">Tech consulting &amp; IT staffing</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div>
+      <div class="col-md-6 col-lg-4 fi-up"><a href="services.html" class="os-card"><div class="os-icon"><i class="fas fa-th-large"></i></div><div><div class="os-title">All Services Overview</div><div style="font-size:.8rem;color:var(--gray)">View complete services page</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-full"><div class="cta-full-overlay"></div><div class="container cta-full-content fi-up"><h2>Need Expert <span class="text-accent">Legal Guidance?</span></h2><p>Protect your organisation with practical, business-aware legal advisory from ALP Group India's qualified team.</p><div class="cta-btns"><a href="contact.html" class="btn-primary-alp"><i class="fas fa-paper-plane"></i>Submit Legal Inquiry</a><a href="tel:+919999999999" class="btn-cta"><i class="fas fa-phone-alt"></i>Call Us Now</a></div></div></section>
+
+<!-- FOOTER -->
+<footer class="site-footer"><div class="container"><div class="row g-4 pt-5 pb-4"><div class="col-lg-4 col-md-6"><div class="d-flex align-items-center gap-2 mb-3"><div class="brand-logo"><span class="logo-alp">ALP</span><span class="logo-sub">GROUP</span></div><div class="brand-name-txt" style="color:#fff">ALP Group India</div></div><p class="footer-text">ALP Group India — HR, Business Consulting and Legal Consulting with 17+ years expertise.</p><div class="d-flex gap-2 mt-3 ftr-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div><div class="col-lg-2 col-md-6 col-6"><h6 class="ftr-heading">Quick Links</h6><ul class="ftr-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="col-lg-3 col-md-6 col-6"><h6 class="ftr-heading">Our Services</h6><ul class="ftr-links"><li><a href="service-staffing.html">Staffing &amp; Recruitment</a></li><li><a href="service-hr.html">HR Solutions</a></li><li><a href="service-bizdev.html">Business Development</a></li><li><a href="service-career.html">Career Counseling</a></li><li><a href="service-legal.html">Legal Solutions</a></li><li><a href="service-it.html">IT Services</a></li></ul></div><div class="col-lg-3 col-md-6"><h6 class="ftr-heading">Get In Touch</h6><ul class="ftr-contact"><li><i class="fas fa-map-marker-alt"></i><span>New Delhi, India</span></li><li><i class="fas fa-phone-alt"></i><a href="tel:+919999999999">+91-99999 99999</a></li><li><i class="fas fa-clock"></i><span>Mon–Fri: 10:00–18:30</span></li><li><i class="fas fa-envelope"></i><a href="mailto:info@alpgroupindia.com">info@alpgroupindia.com</a></li></ul></div></div><div class="ftr-bottom"><div class="row align-items-center"><div class="col-md-6"><p>© 2025 ALP Group India. All rights reserved.</p></div><div class="col-md-6 text-md-end"><p>Inspired by the legacy of Sh. Achchhe Lal Priyadarshi</p></div></div></div></div></footer>
+<button class="btt" id="btt"><i class="fas fa-chevron-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>(function(){const nav=document.getElementById('mainNav'),btt=document.getElementById('btt'),els=document.querySelectorAll('.fi-up,.fi-left,.fi-right');function reveal(){els.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-70)el.classList.add('on')})}window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);btt.classList.toggle('visible',window.scrollY>400);reveal()},{passive:true});reveal();btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));document.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{const c=document.querySelector('#navbarNav');if(c?.classList.contains('show'))bootstrap.Collapse.getInstance(c)?.hide()}));document.querySelectorAll('.faq-question').forEach(q=>{q.addEventListener('click',function(){const ans=this.nextElementSibling;const isOpen=ans.classList.contains('open');document.querySelectorAll('.faq-answer').forEach(a=>a.classList.remove('open'));document.querySelectorAll('.faq-question').forEach(q=>q.classList.remove('open'));if(!isOpen){ans.classList.add('open');this.classList.add('open')}})});})();</script>
+</body>
+</html>

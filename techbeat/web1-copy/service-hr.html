@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HR Solutions | ALP Group India</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"/>
+<style>
+:root{--red:#c0392b;--red-dark:#9b2335;--red-light:#e74c3c;--dark:#1a1a2e;--dark-2:#16213e;--charcoal:#2c3e50;--white:#fff;--off-white:#f8f9fa;--gray:#6c757d;--light-gray:#e9ecef;--gold:#d4a852;--fh:'Playfair Display',serif;--fb:'DM Sans',sans-serif;--sh:0 2px 14px rgba(0,0,0,.08);--sm:0 8px 32px rgba(0,0,0,.13);--sl:0 20px 60px rgba(0,0,0,.18);--r:6px;--rl:14px;--tr:all .35s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--fb);color:var(--charcoal);background:#fff;overflow-x:hidden}img{max-width:100%;display:block}a{text-decoration:none;color:inherit}.sp{padding:90px 0}.sp-sm{padding:60px 0}.bg-off{background:var(--off-white)!important}
+.text-accent{color:var(--red)}.section-label{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px}.section-heading{font-family:var(--fh);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--dark);line-height:1.2}.section-text{font-size:.97rem;color:#555;line-height:1.8}.section-sub{font-size:1rem;color:var(--gray);max-width:600px;margin:0 auto}.red-divider{width:52px;height:3px;background:var(--red);margin-top:14px;position:relative}.red-divider::after{content:'';position:absolute;left:62px;top:0;width:16px;height:3px;background:var(--red);opacity:.4}.red-divider.center{margin-left:auto!important;margin-right:auto!important}
+.top-bar{background:var(--dark);padding:8px 0;font-size:.82rem}.top-bar a{color:#ccc;transition:var(--tr)}.top-bar a:hover{color:var(--red-light)}.top-contact a{display:flex;align-items:center;gap:4px}.top-social a{width:28px;height:28px;background:rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--tr);font-size:.72rem}.top-social a:hover{background:var(--red);color:#fff}
+.main-navbar{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.08);padding:14px 0;transition:var(--tr);z-index:1000}.main-navbar.scrolled{padding:8px 0;box-shadow:0 4px 30px rgba(0,0,0,.14)}.brand-logo{background:var(--red);color:#fff;width:52px;height:52px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:var(--tr)}.brand-logo:hover{background:var(--red-dark);transform:scale(1.04)}.logo-alp{font-family:var(--fh);font-size:1.05rem;font-weight:700;line-height:1}.logo-sub{font-size:.5rem;letter-spacing:2px;font-weight:600;opacity:.85;margin-top:1px}.brand-name-txt{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:var(--dark);line-height:1.1}.brand-tagline{font-size:.68rem;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
+.nav-link{font-size:.88rem!important;font-weight:500!important;color:var(--charcoal)!important;padding:8px 14px!important;position:relative;transition:var(--tr)}.nav-link::after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:2px;background:var(--red);transform:scaleX(0);transition:transform .3s ease}.nav-link:hover::after,.nav-link.active::after{transform:scaleX(1)}.nav-link:hover,.nav-link.active{color:var(--red)!important}.nav-cta{background:var(--red)!important;color:#fff!important;border-radius:4px;padding:9px 20px!important}.nav-cta::after{display:none}.nav-cta:hover{background:var(--red-dark)!important;color:#fff!important}.navbar-toggler{border:1px solid rgba(192,57,43,.3)}
+.btn-primary-alp{background:var(--red);color:#fff!important;border:2px solid var(--red);padding:12px 28px;font-weight:600;font-size:.9rem;border-radius:3px;letter-spacing:.5px;transition:var(--tr);display:inline-flex;align-items:center;gap:8px}.btn-primary-alp:hover{background:var(--red-dark);border-color:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(192,57,43,.35)}.btn-outline-alp{background:transparent;color:var(--red)!important;border:2px solid var(--red);padding:11px 26px;font-weight:600;font-size:.88rem;border-radius:3px;transition:var(--tr);display:inline-flex;align-items:center;gap:8px}.btn-outline-alp:hover{background:var(--red);color:#fff!important;transform:translateY(-2px)}.btn-cta{background:transparent;color:#fff!important;border:2px solid rgba(255,255,255,.7);padding:12px 26px;font-weight:600;font-size:.88rem;border-radius:3px;transition:var(--tr);display:inline-flex;align-items:center;gap:8px}.btn-cta:hover{background:#fff;color:var(--red)!important;border-color:#fff}
+.page-hero{position:relative;min-height:400px;background-size:cover;background-position:center;display:flex;align-items:center;padding:90px 0 70px}.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(26,26,46,.95) 0%,rgba(44,62,80,.85) 55%,rgba(192,57,43,.3) 100%)}.page-hero-content{position:relative;z-index:2}.hero-service-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:2px;margin-bottom:16px}.page-hero-title{font-family:var(--fh);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px}.page-hero-sub{font-size:1rem;color:rgba(255,255,255,.78);margin-bottom:24px;max-width:580px;line-height:1.75}.page-breadcrumb{background:none;padding:0;margin:0}.page-breadcrumb .breadcrumb-item a{color:rgba(255,255,255,.65);font-size:.85rem;transition:var(--tr)}.page-breadcrumb .breadcrumb-item a:hover{color:var(--red-light)}.page-breadcrumb .breadcrumb-item.active{color:var(--red-light);font-size:.85rem}.page-breadcrumb .breadcrumb-item+.breadcrumb-item::before{color:rgba(255,255,255,.4)}.hero-stats{display:flex;gap:32px;margin-top:28px;flex-wrap:wrap}.hero-stat-num{font-family:var(--fh);font-size:2rem;font-weight:700;color:#fff;line-height:1}.hero-stat-num span{color:var(--red-light)}.hero-stat-label{font-size:.75rem;color:rgba(255,255,255,.55);letter-spacing:1px;text-transform:uppercase;margin-top:4px}.hero-scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.5);font-size:.9rem;animation:bounce 1.5s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.check-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:.93rem;color:#444;line-height:1.65}.check-list li i{color:var(--red);flex-shrink:0;margin-top:3px}
+.feature-card{background:#fff;border-radius:var(--rl);padding:28px 24px;height:100%;box-shadow:var(--sh);transition:var(--tr);border-top:3px solid transparent;position:relative;overflow:hidden}.feature-card:hover{border-top-color:var(--red);box-shadow:var(--sl);transform:translateY(-6px)}.feature-card-dark{background:var(--dark)}.feature-card-dark h5,.feature-card-dark p{color:rgba(255,255,255,.85)}.fc-num{position:absolute;top:12px;right:16px;font-family:var(--fh);font-size:3.2rem;font-weight:700;color:rgba(0,0,0,.04);line-height:1}.feature-card-dark .fc-num{color:rgba(255,255,255,.05)}.fc-icon{width:54px;height:54px;background:rgba(192,57,43,.1);color:var(--red);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px;transition:var(--tr)}.feature-card:hover .fc-icon,.feature-card-dark .fc-icon{background:var(--red);color:#fff}.feature-card h5{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:8px}.feature-card p{font-size:.87rem;color:#666;line-height:1.75;margin:0}
+.info-row{display:flex;align-items:flex-start;gap:16px;background:var(--off-white);padding:20px;border-radius:var(--rl);transition:var(--tr);border-left:3px solid transparent;margin-bottom:14px}.info-row:hover{border-left-color:var(--red);box-shadow:var(--sh);transform:translateX(5px)}.ir-icon{width:46px;height:46px;background:rgba(192,57,43,.1);color:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;transition:var(--tr)}.info-row:hover .ir-icon{background:var(--red);color:#fff}.ir-title{font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:4px}.ir-text{font-size:.85rem;color:#666;margin:0;line-height:1.6}
+.dark-feature{background:var(--dark);border-radius:var(--rl);padding:36px;position:relative;overflow:hidden}.dark-feature::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:rgba(192,57,43,.1);border-radius:50%}.dark-feature::after{content:'';position:absolute;bottom:-40px;left:-40px;width:140px;height:140px;background:rgba(192,57,43,.06);border-radius:50%}.dark-feature-content{position:relative;z-index:1}.df-icon{width:68px;height:68px;background:rgba(192,57,43,.2);color:var(--red-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:20px}.df-title{font-family:var(--fh);font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:12px}.df-text{font-size:.92rem;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:18px}
+.tag-grid{display:flex;flex-wrap:wrap;gap:10px}.tag-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.8);font-size:.82rem;font-weight:500;padding:8px 16px;border-radius:30px;transition:var(--tr)}.tag-pill:hover{background:rgba(192,57,43,.2);border-color:var(--red);color:#fff}.tag-pill i{color:var(--red-light)}
+.stat-strip{background:var(--red);padding:0}.stat-strip-item{text-align:center;padding:36px 20px;border-right:1px solid rgba(255,255,255,.2)}.stat-strip-item:last-child{border-right:none}.stat-strip-item:hover{background:rgba(255,255,255,.1)}.ss-num{font-family:var(--fh);font-size:2.6rem;font-weight:700;color:#fff;line-height:1;display:inline}.ss-plus{font-family:var(--fh);font-size:1.6rem;color:rgba(255,255,255,.7);display:inline}.ss-label{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:8px;display:block}
+.cta-full{position:relative;padding:100px 0;background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=60') center/cover no-repeat}.cta-full-overlay{position:absolute;inset:0;background:rgba(26,26,46,.93)}.cta-full-content{position:relative;z-index:2;text-align:center}.cta-full h2{font-family:var(--fh);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:#fff;margin-bottom:14px}.cta-full p{font-size:1rem;color:rgba(255,255,255,.72);max-width:560px;margin:0 auto 32px;line-height:1.8}.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.os-card{background:#fff;border-radius:var(--rl);padding:22px;display:flex;align-items:center;gap:14px;box-shadow:var(--sh);transition:var(--tr);text-decoration:none;color:inherit;height:100%}.os-card:hover{box-shadow:var(--sl);transform:translateY(-4px);color:inherit}.os-icon{width:46px;height:46px;background:rgba(192,57,43,.1);color:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;transition:var(--tr)}.os-card:hover .os-icon{background:var(--red);color:#fff}.os-title{font-family:var(--fh);font-size:.92rem;font-weight:700;color:var(--dark);margin-bottom:2px}.os-arrow{margin-left:auto;color:var(--red);flex-shrink:0;transition:var(--tr)}.os-card:hover .os-arrow{transform:translateX(4px)}
+.faq-item{background:#fff;border-radius:var(--rl);box-shadow:var(--sh);margin-bottom:12px;overflow:hidden}.faq-question{padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;transition:var(--tr)}.faq-question:hover{background:rgba(192,57,43,.04)}.faq-question.open{background:var(--dark);color:#fff}.fq-text{font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--dark);line-height:1.3}.faq-question.open .fq-text{color:#fff}.fq-icon{width:28px;height:28px;background:rgba(192,57,43,.1);color:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;transition:var(--tr)}.faq-question.open .fq-icon{background:var(--red);color:#fff;transform:rotate(45deg)}.faq-answer{display:none;padding:0 22px 18px;font-size:.9rem;color:#555;line-height:1.8}.faq-answer.open{display:block}
+footer.site-footer{background:var(--dark-2,#16213e)}.footer-text{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.8}.ftr-heading{color:#fff;font-family:var(--fh);font-size:1rem;font-weight:700;margin-bottom:18px;position:relative;padding-bottom:10px}.ftr-heading::after{content:'';position:absolute;bottom:0;left:0;width:30px;height:2px;background:var(--red)}.ftr-links{list-style:none;padding:0;margin:0}.ftr-links li{padding:5px 0}.ftr-links a{color:rgba(255,255,255,.55);font-size:.86rem;transition:var(--tr);display:flex;align-items:center;gap:6px}.ftr-links a::before{content:'›';color:var(--red);font-size:1.1rem}.ftr-links a:hover{color:var(--red-light);padding-left:4px}.ftr-contact{list-style:none;padding:0;margin:0}.ftr-contact li{padding:7px 0;color:rgba(255,255,255,.55);font-size:.86rem;display:flex;gap:12px;align-items:flex-start}.ftr-contact li i{color:var(--red);flex-shrink:0;margin-top:3px}.ftr-contact a{color:rgba(255,255,255,.55);transition:var(--tr)}.ftr-contact a:hover{color:var(--red-light)}.ftr-social a{width:34px;height:34px;background:rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.82rem;transition:var(--tr)}.ftr-social a:hover{background:var(--red);color:#fff;transform:translateY(-2px)}.ftr-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;margin-top:10px}.ftr-bottom p{margin:0;font-size:.82rem;color:rgba(255,255,255,.4)}
+.btt{position:fixed;bottom:30px;right:30px;width:46px;height:46px;background:var(--red);color:#fff;border:none;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(192,57,43,.4);opacity:0;visibility:hidden;transition:var(--tr);z-index:9999}.btt.visible{opacity:1;visibility:visible}.btt:hover{background:var(--red-dark);transform:translateY(-3px)}
+.fi-up,.fi-left,.fi-right{opacity:0;transition:opacity .65s ease,transform .65s ease}.fi-up{transform:translateY(32px)}.fi-left{transform:translateX(-40px)}.fi-right{transform:translateX(40px)}.fi-up.on,.fi-left.on,.fi-right.on{opacity:1;transform:none}
+@media(max-width:767.98px){.sp{padding:64px 0}.page-hero{min-height:300px;padding:70px 0 50px}.page-hero-title{font-size:1.9rem}.hero-stats{gap:20px}.cta-btns{flex-direction:column;align-items:center}.stat-strip-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.2)}.stat-strip-item:last-child{border-bottom:none}}
+.page-hero{background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=75')}
+.pillar-list{display:flex;flex-direction:column;gap:14px}
+.pillar-item{display:flex;align-items:flex-start;gap:16px;background:#fff;padding:20px;border-radius:var(--rl);box-shadow:var(--sh);transition:var(--tr);border-left:3px solid transparent}
+.pillar-item:hover{border-left-color:var(--red);box-shadow:var(--sm);transform:translateX(6px)}
+.pi-icon{width:46px;height:46px;background:rgba(192,57,43,.1);color:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;transition:var(--tr)}
+.pillar-item:hover .pi-icon{background:var(--red);color:#fff}
+.pi-title{font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:4px}
+.pi-text{font-size:.84rem;color:#666;margin:0;line-height:1.6}
+.compliance-card{background:var(--dark);border-radius:var(--rl);padding:28px;height:100%;transition:var(--tr)}
+.compliance-card:hover{transform:translateY(-5px);box-shadow:var(--sl)}
+.cc-icon{width:54px;height:54px;background:rgba(192,57,43,.2);color:var(--red-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px;transition:var(--tr)}
+.compliance-card:hover .cc-icon{background:var(--red);color:#fff}
+.cc-title{font-family:var(--fh);font-size:1rem;font-weight:700;color:#fff;margin-bottom:8px}
+.cc-text{font-size:.86rem;color:rgba(255,255,255,.65);line-height:1.7;margin:0}
+</style>
+</head>
+<body>
+<div class="top-bar"><div class="container"><div class="d-flex justify-content-between align-items-center flex-wrap gap-2"><div class="top-contact d-flex gap-3 flex-wrap"><a href="tel:+919999999999"><i class="fas fa-phone-alt me-1"></i>+91-99999 99999</a><a href="mailto:info@alpgroupindia.com"><i class="fas fa-envelope me-1"></i>info@alpgroupindia.com</a></div><div class="top-social d-flex gap-2"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div></div>
+<nav class="navbar navbar-expand-lg sticky-top main-navbar" id="mainNav"><div class="container"><a class="navbar-brand d-flex align-items-center gap-2" href="index.html"><div class="brand-logo"><span class="logo-alp">ALP</span><span class="logo-sub">GROUP</span></div><div class="ms-1"><div class="brand-name-txt">ALP Group India</div><div class="brand-tagline">HR | Consulting | Legal</div></div></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li><li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li><li class="nav-item"><a class="nav-link" href="index.html#why">Why Choose Us</a></li><li class="nav-item"><a class="nav-link nav-cta" href="contact.html">Contact Us</a></li></ul></div></div></nav>
+<section class="page-hero">
+  <div class="page-hero-overlay"></div>
+  <div class="container position-relative">
+    <div class="page-hero-content fi-up">
+      <div class="hero-service-badge"><i class="fas fa-sitemap me-1"></i>Service 02</div>
+      <h1 class="page-hero-title">Shared HR <span class="text-accent">Solutions</span></h1>
+      <p class="page-hero-sub">Comprehensive HR consulting and shared services — building robust people systems, ensuring compliance, and empowering your workforce to perform at its best.</p>
+      <nav aria-label="breadcrumb"><ol class="breadcrumb page-breadcrumb mb-0"><li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Home</a></li><li class="breadcrumb-item"><a href="services.html">Services</a></li><li class="breadcrumb-item active">HR Solutions</li></ol></nav>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">17<span>+</span></div><div class="hero-stat-label">Years HR Experience</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">50<span>+</span></div><div class="hero-stat-label">Organisations Served</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">100<span>%</span></div><div class="hero-stat-label">Compliance Focus</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- INTRO -->
+<section class="sp">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 fi-left">
+        <div class="section-label">What We Offer</div>
+        <h2 class="section-heading">Strategic HR <span class="text-accent">Consulting</span></h2>
+        <div class="red-divider"></div>
+        <p class="section-text mt-3">ALP Group India's HR Solutions go far beyond recruitment. We partner with organisations to build the people systems, policies, and practices that enable sustainable growth — particularly in the demanding environment of Infrastructure and Construction.</p>
+        <p class="section-text mt-2">Whether you need a full HR department setup, a compliance audit, or targeted policy redesign, our team of experienced HR professionals delivers practical, results-oriented solutions tailored to your operational reality.</p>
+        <ul class="check-list mt-4">
+          <li><i class="fas fa-check-circle"></i>HR systems design and implementation from scratch</li>
+          <li><i class="fas fa-check-circle"></i>Full statutory and labour law compliance management</li>
+          <li><i class="fas fa-check-circle"></i>Performance management framework design</li>
+          <li><i class="fas fa-check-circle"></i>Employee engagement and retention strategies</li>
+          <li><i class="fas fa-check-circle"></i>HR process audits and gap analysis</li>
+        </ul>
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          <a href="contact.html" class="btn-primary-alp"><i class="fas fa-paper-plane"></i>Enquire Now</a>
+          <a href="contact.html" class="btn-outline-alp"><i class="fas fa-phone-alt"></i>Speak to Expert</a>
+        </div>
+      </div>
+      <div class="col-lg-6 fi-right">
+        <div style="border-radius:var(--rl);overflow:hidden;box-shadow:var(--sl)">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80" alt="HR Solutions" style="width:100%;height:440px;object-fit:cover"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HR SERVICE PILLARS -->
+<section class="sp bg-off">
+  <div class="container">
+    <div class="text-center mb-5 fi-up">
+      <div class="section-label">Core Offerings</div>
+      <h2 class="section-heading">HR Service <span class="text-accent">Areas</span></h2>
+      <div class="red-divider center"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 fi-up"><div class="feature-card h-100"><div class="fc-num">01</div><div class="fc-icon"><i class="fas fa-file-alt"></i></div><h5>HR Policy Design</h5><p>Comprehensive HR policies, employee handbooks, and governance frameworks aligned with Indian labour law and your organisational culture and values.</p></div></div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.07s"><div class="feature-card h-100"><div class="fc-num">02</div><div class="fc-icon"><i class="fas fa-users"></i></div><h5>HR Shared Services</h5><p>End-to-end HR operations support: payroll advisory, HRIS setup, attendance management, leave management, and full HR administration outsourcing.</p></div></div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.14s"><div class="feature-card h-100"><div class="fc-num">03</div><div class="fc-icon"><i class="fas fa-chart-bar"></i></div><h5>Workforce Planning</h5><p>Strategic headcount planning, skill gap analysis, and succession planning to future-proof your workforce against evolving project and business demands.</p></div></div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.21s"><div class="feature-card h-100"><div class="fc-num">04</div><div class="fc-icon"><i class="fas fa-star"></i></div><h5>Performance Management</h5><p>KPI frameworks, appraisal systems, 360-degree feedback mechanisms, reward &amp; recognition programs, and employee engagement initiatives.</p></div></div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.28s"><div class="feature-card h-100"><div class="fc-num">05</div><div class="fc-icon"><i class="fas fa-handshake"></i></div><h5>Employee Relations</h5><p>Workplace grievance management, disciplinary procedures, POSH compliance, and building a healthy, productive organisational culture at all levels.</p></div></div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.35s"><div class="feature-card h-100"><div class="fc-num">06</div><div class="fc-icon"><i class="fas fa-project-diagram"></i></div><h5>Organisational Development</h5><p>Restructuring advisory, role clarity exercises, competency framework development, and change management support for growing organisations.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section class="sp" style="background:var(--dark)">
+  <div class="container">
+    <div class="text-center mb-5 fi-up">
+      <div class="section-label" style="color:var(--red-light)">Statutory Compliance</div>
+      <h2 class="section-heading" style="color:#fff">Labour Law &amp; <span class="text-accent">Compliance</span></h2>
+      <div class="red-divider center"></div>
+      <p class="section-sub mt-3" style="color:rgba(255,255,255,.6)">Stay protected under all applicable employment and labour regulations</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 fi-up"><div class="compliance-card"><div class="cc-icon"><i class="fas fa-coins"></i></div><div class="cc-title">EPF &amp; ESIC Compliance</div><p class="cc-text">Registration, monthly filings, employee onboarding, and dispute resolution under Employees' Provident Fund and ESIC regulations.</p></div></div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.07s"><div class="compliance-card"><div class="cc-icon"><i class="fas fa-hard-hat"></i></div><div class="cc-title">Contract Labour Act</div><p class="cc-text">Registration under the Contract Labour (Regulation &amp; Abolition) Act, contractor compliance monitoring, and principal employer obligations.</p></div></div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.14s"><div class="compliance-card"><div class="cc-icon"><i class="fas fa-building"></i></div><div class="cc-title">Construction Worker Welfare</div><p class="cc-text">Compliance under the Building &amp; Other Construction Workers Act — registration, cess filings, and welfare benefit management.</p></div></div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.21s"><div class="compliance-card"><div class="cc-icon"><i class="fas fa-female"></i></div><div class="cc-title">POSH Compliance</div><p class="cc-text">ICC constitution, complaint mechanism, annual training programs, and reporting framework under the Sexual Harassment of Women at Workplace Act.</p></div></div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.28s"><div class="compliance-card"><div class="cc-icon"><i class="fas fa-file-invoice"></i></div><div class="cc-title">Gratuity &amp; Bonus</div><p class="cc-text">Advisory on gratuity calculation, funding, trust formation, and compliance under the Payment of Gratuity Act and Payment of Bonus Act.</p></div></div>
+      <div class="col-md-6 col-lg-4 fi-up" style="transition-delay:.35s"><div class="compliance-card"><div class="cc-icon"><i class="fas fa-clipboard-check"></i></div><div class="cc-title">HR Audit &amp; Health Check</div><p class="cc-text">Comprehensive HR audit identifying gaps in policies, records, compliance filings, and documentation — with a structured remediation roadmap.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY MODEL -->
+<section class="sp bg-off">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5 fi-left">
+        <div class="section-label">How We Deliver</div>
+        <h2 class="section-heading">Flexible Engagement <span class="text-accent">Models</span></h2>
+        <div class="red-divider"></div>
+        <p class="section-text mt-3">We understand that no two organisations are at the same stage of HR maturity. Our engagement models are designed to flex around your current needs — whether you need ongoing retainer support or a one-time project intervention.</p>
+        <a href="contact.html" class="btn-primary-alp mt-4"><i class="fas fa-paper-plane"></i>Discuss Your Needs</a>
+      </div>
+      <div class="col-lg-7 fi-right">
+        <div class="pillar-list">
+          <div class="pillar-item"><div class="pi-icon"><i class="fas fa-calendar-alt"></i></div><div><div class="pi-title">Monthly Retainer</div><p class="pi-text">Ongoing HR advisory and compliance management on a monthly retainer — ideal for organisations without a full-time HR head.</p></div></div>
+          <div class="pillar-item"><div class="pi-icon"><i class="fas fa-project-diagram"></i></div><div><div class="pi-title">Project-Based</div><p class="pi-text">Fixed-scope HR projects: policy design, compliance audit, HRIS implementation, or workforce planning exercise with defined deliverables.</p></div></div>
+          <div class="pillar-item"><div class="pi-icon"><i class="fas fa-user-clock"></i></div><div><div class="pi-title">Interim HR Support</div><p class="pi-text">Dedicated HR professional on deputation for a defined period — covering maternity, transitions, or urgent capacity gaps.</p></div></div>
+          <div class="pillar-item"><div class="pi-icon"><i class="fas fa-phone-square-alt"></i></div><div><div class="pi-title">Advisory Helpline</div><p class="pi-text">On-demand HR advisory for specific queries — labour law guidance, disciplinary procedure advice, and compliance clarifications.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sp">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 fi-left">
+        <div class="section-label">Common Questions</div>
+        <h2 class="section-heading">HR Solutions <span class="text-accent">FAQs</span></h2>
+        <div class="red-divider"></div>
+        <p class="section-text mt-3">Have more questions about our HR services? Get in touch with our team.</p>
+        <a href="contact.html" class="btn-outline-alp mt-4"><i class="fas fa-envelope"></i>Contact Us</a>
+      </div>
+      <div class="col-lg-8 fi-right">
+        <div class="faq-item"><div class="faq-question"><span class="fq-text">Can you set up an HR function from scratch for a new company?</span><div class="fq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-answer">Yes. We specialise in greenfield HR setups — designing the entire HR framework, policies, compliance registrations, and onboarding processes for newly formed or rapidly scaling organisations in Infrastructure and Construction.</div></div>
+        <div class="faq-item"><div class="faq-question"><span class="fq-text">Do you manage ongoing compliance or only provide advisory?</span><div class="fq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-answer">We offer both. Under our retainer model, we can manage monthly compliance filings (EPF, ESIC, professional tax, etc.) end-to-end. For advisory-only clients, we provide guidance, templates, and review support while your team handles execution.</div></div>
+        <div class="faq-item"><div class="faq-question"><span class="fq-text">Is your HR service limited to Infrastructure companies?</span><div class="fq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-answer">Our primary expertise is in Infrastructure and Construction, but we have served clients in IT, legal services, and general corporate sectors as well. Our HR expertise is transferable — while our sector depth is in Infra.</div></div>
+        <div class="faq-item"><div class="faq-question"><span class="fq-text">How quickly can you deploy an interim HR professional?</span><div class="fq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-answer">For interim HR roles, we typically deploy within 7–15 business days depending on the seniority level and location. We maintain a bench of experienced HR professionals available for short-notice assignments.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sp-sm bg-off"><div class="container"><div class="text-center mb-4 fi-up"><div class="section-label">Explore More</div><h2 class="section-heading">Our Other <span class="text-accent">Services</span></h2><div class="red-divider center"></div></div><div class="row g-3"><div class="col-md-6 col-lg-4 fi-up"><a href="service-staffing.html" class="os-card"><div class="os-icon"><i class="fas fa-users-cog"></i></div><div><div class="os-title">Staffing &amp; Recruitment</div><div style="font-size:.8rem;color:var(--gray)">Flagship service</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div><div class="col-md-6 col-lg-4 fi-up"><a href="service-hr.html" class="os-card"><div class="os-icon"><i class="fas fa-sitemap"></i></div><div><div class="os-title">HR Solutions</div><div style="font-size:.8rem;color:var(--gray)">End-to-end HR consulting</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div><div class="col-md-6 col-lg-4 fi-up"><a href="service-bizdev.html" class="os-card"><div class="os-icon"><i class="fas fa-chart-line"></i></div><div><div class="os-title">Business Development</div><div style="font-size:.8rem;color:var(--gray)">Tender &amp; Bidding consulting</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div><div class="col-md-6 col-lg-4 fi-up"><a href="service-career.html" class="os-card"><div class="os-icon"><i class="fas fa-graduation-cap"></i></div><div><div class="os-title">Career Counseling &amp; Training</div><div style="font-size:.8rem;color:var(--gray)">Individual &amp; corporate programs</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div><div class="col-md-6 col-lg-4 fi-up"><a href="service-legal.html" class="os-card"><div class="os-icon"><i class="fas fa-balance-scale"></i></div><div><div class="os-title">Legal Solutions</div><div style="font-size:.8rem;color:var(--gray)">Advocates &amp; legal consultants</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div><div class="col-md-6 col-lg-4 fi-up"><a href="service-it.html" class="os-card"><div class="os-icon"><i class="fas fa-laptop-code"></i></div><div><div class="os-title">IT Services</div><div style="font-size:.8rem;color:var(--gray)">Tech consulting &amp; IT staffing</div></div><i class="fas fa-arrow-right os-arrow"></i></a></div></div></div></section>
+<section class="cta-full"><div class="cta-full-overlay"></div><div class="container cta-full-content fi-up"><h2>Ready to Build a <span class="text-accent">Stronger HR Foundation?</span></h2><p>Let ALP Group India design, implement, and manage the HR systems your organisation needs to grow confidently.</p><div class="cta-btns"><a href="contact.html" class="btn-primary-alp"><i class="fas fa-paper-plane"></i>Request HR Consultation</a><a href="tel:+919999999999" class="btn-cta"><i class="fas fa-phone-alt"></i>Call Us Now</a></div></div></section>
+<footer class="site-footer"><div class="container"><div class="row g-4 pt-5 pb-4"><div class="col-lg-4 col-md-6"><div class="d-flex align-items-center gap-2 mb-3"><div class="brand-logo"><span class="logo-alp">ALP</span><span class="logo-sub">GROUP</span></div><div class="brand-name-txt" style="color:#fff">ALP Group India</div></div><p class="footer-text">ALP Group India — new-age HR, Business Consulting and Legal Consulting firm with 17+ years expertise.</p><div class="d-flex gap-2 mt-3 ftr-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div><div class="col-lg-2 col-md-6 col-6"><h6 class="ftr-heading">Quick Links</h6><ul class="ftr-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="col-lg-3 col-md-6 col-6"><h6 class="ftr-heading">Our Services</h6><ul class="ftr-links"><li><a href="service-staffing.html">Staffing &amp; Recruitment</a></li><li><a href="service-hr.html">HR Solutions</a></li><li><a href="service-bizdev.html">Business Development</a></li><li><a href="service-career.html">Career Counseling</a></li><li><a href="service-legal.html">Legal Solutions</a></li><li><a href="service-it.html">IT Services</a></li></ul></div><div class="col-lg-3 col-md-6"><h6 class="ftr-heading">Get In Touch</h6><ul class="ftr-contact"><li><i class="fas fa-map-marker-alt"></i><span>New Delhi, India</span></li><li><i class="fas fa-phone-alt"></i><a href="tel:+919999999999">+91-99999 99999</a></li><li><i class="fas fa-clock"></i><span>Mon–Fri: 10:00–18:30</span></li><li><i class="fas fa-envelope"></i><a href="mailto:info@alpgroupindia.com">info@alpgroupindia.com</a></li></ul></div></div><div class="ftr-bottom"><div class="row align-items-center"><div class="col-md-6"><p>© 2025 ALP Group India. All rights reserved.</p></div><div class="col-md-6 text-md-end"><p>Inspired by the legacy of Sh. Achchhe Lal Priyadarshi</p></div></div></div></div></footer><button class="btt" id="btt"><i class="fas fa-chevron-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  const nav=document.getElementById('mainNav'),btt=document.getElementById('btt'),els=document.querySelectorAll('.fi-up,.fi-left,.fi-right');
+  function reveal(){els.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-70)el.classList.add('on')})}
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);btt.classList.toggle('visible',window.scrollY>400);reveal()},{passive:true});
+  reveal();
+  btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  document.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{const c=document.querySelector('#navbarNav');if(c?.classList.contains('show'))bootstrap.Collapse.getInstance(c)?.hide()}));
+  document.querySelectorAll('.faq-question').forEach(q=>{q.addEventListener('click',function(){const ans=this.nextElementSibling;const isOpen=ans.classList.contains('open');document.querySelectorAll('.faq-answer').forEach(a=>a.classList.remove('open'));document.querySelectorAll('.faq-question').forEach(q=>q.classList.remove('open'));if(!isOpen){ans.classList.add('open');this.classList.add('open')}})});
+})();
+</script>
+</body></html>
