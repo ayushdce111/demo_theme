@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <link rel="stylesheet" href="./asset/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+   <!-- <link rel="stylesheet" href="./asset/all.min.css"/> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"/>
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="./asset/header_footer.css"/>
+  <style>
+    /* ── DESIGN TOKENS ── */
+    :root {
+      --alp-navy:      #0d2d6b;
+      --alp-navy-dark: #091d47;
+      --alp-gold:      #c9a84c;
+      --alp-gold-lt:   #f0d080;
+      --alp-light-bg:  #f4f7fc;
+      --alp-border:    #dde4f0;
+      --alp-text:      #2c3e50;
+      --alp-muted:     #6b7c93;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: var(--font-body); color: var(--alp-text); background: #fff; margin: 0; }
+
+    /* ── TYPOGRAPHY HELPERS ── */
+    .eyebrow {
+      display: inline-block; font-size: .72rem; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--alp-gold);
+      margin-bottom: 8px;
+    }
+    .sec-title {
+      font-size: clamp(1.55rem, 3vw, 2.1rem); font-weight: 700;
+      color: var(--alp-navy); line-height: 1.2; margin-bottom: 12px;
+    }
+    .gold-bar {
+      width: 48px; height: 3px; background: var(--alp-gold);
+      border-radius: 2px; margin-bottom: 20px;
+    }
+    .gold-bar.center { margin-left: auto; margin-right: auto; }
+
+    /* ── BUTTONS ── */
+    .btn-navy {
+      background: var(--alp-navy); color: #fff; border: none;
+      border-radius: 8px; font-weight: 600; font-size: .9rem;
+      padding: 11px 28px; transition: background .2s, transform .15s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-navy:hover { background: var(--alp-navy-dark); color: #fff; transform: translateY(-1px); }
+    .btn-gold {
+      background: var(--alp-gold); color: var(--alp-navy); border: none;
+      border-radius: 8px; font-weight: 700; font-size: .9rem;
+      padding: 11px 28px; transition: background .2s, transform .15s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-gold:hover { background: var(--alp-gold-lt); color: var(--alp-navy-dark); transform: translateY(-1px); }
+    .btn-outline-navy {
+      background: transparent; color: var(--alp-navy);
+      border: 1.5px solid var(--alp-navy); border-radius: 8px;
+      font-weight: 600; font-size: .88rem; padding: 10px 26px;
+      transition: background .2s, color .2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-outline-navy:hover { background: var(--alp-navy); color: #fff; }
+    .btn-outline-white {
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,.6); border-radius: 8px;
+      font-weight: 600; font-size: .9rem; padding: 11px 28px;
+      transition: background .2s, border-color .2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,.12); border-color: #fff; color: #fff; }
+
+    /* ══════════════════════════════════════
+       1. PAGE HEADER
+    ══════════════════════════════════════ */
+    .page-header {
+      background: linear-gradient(135deg, var(--alp-navy-dark) 0%, var(--alp-navy) 60%, #1a4a9e 100%);
+      padding: 80px 0 64px; position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-header .gold-rule { width: 60px; height: 3px; background: var(--alp-gold); border-radius: 2px; margin: 0 auto 18px; }
+    .page-header h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); font-weight: 700; color: #fff; letter-spacing: -.5px; }
+    .page-header .sub { color: rgba(255,255,255,.72); font-size: .97rem; max-width: 560px; margin: 0 auto 22px; }
+    .page-header .breadcrumb { background: transparent; padding: 0; margin: 0; justify-content: center; }
+    .page-header .breadcrumb-item,
+    .page-header .breadcrumb-item a { color: rgba(255,255,255,.6); font-size: .87rem; text-decoration: none; }
+    .page-header .breadcrumb-item.active { color: var(--alp-gold); }
+    .page-header .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,.35); }
+
+    /* ── unit badge ── */
+    .unit-badge {
+      display: inline-block;
+      background: var(--alp-navy); color: #fff;
+      font-size: .72rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; padding: 6px 18px; border-radius: 4px;
+      border-left: 4px solid var(--alp-gold); margin-bottom: 20px;
+    }
+
+    /* ══════════════════════════════════════
+       2. INTRO SECTION
+    ══════════════════════════════════════ */
+    .intro-img-wrap {
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 16px 48px rgba(13,45,107,.18);
+      position: relative;
+    }
+    .intro-img-bg {
+      background: linear-gradient(135deg, #1a4a9e 0%, var(--alp-navy) 100%);
+      min-height: 380px; display: flex; align-items: center; justify-content: center; position: relative;
+    }
+    .intro-img-bg img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .92; }
+    .intro-stat-pill {
+      position: absolute; bottom: 20px; left: 20px;
+      background: var(--alp-gold); color: var(--alp-navy);
+      border-radius: 10px; padding: 14px 20px; font-weight: 700;
+      box-shadow: 0 6px 20px rgba(0,0,0,.2); min-width: 140px; text-align: center;
+    }
+    .intro-stat-pill .big { font-size: 1.9rem; font-weight: 800; line-height: 1; }
+    .intro-stat-pill .lbl { font-size: .75rem; margin-top: 2px; }
+    .check-list { list-style: none; padding: 0; margin: 0; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .93rem; margin-bottom: 10px; color: var(--alp-text);
+    }
+    .check-list li i { color: var(--alp-navy); font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+
+    /* ══════════════════════════════════════
+       3. STATS BAND
+    ══════════════════════════════════════ */
+    .stats-band { background: var(--alp-navy); padding: 52px 0; }
+    .stat-num { font-size: 2.5rem; font-weight: 800; color: var(--alp-gold); line-height: 1; }
+    .stat-lbl { font-size: .82rem; color: rgba(255,255,255,.68); margin-top: 5px; }
+    .stat-divider { width: 1px; background: rgba(255,255,255,.12); }
+
+    /* ══════════════════════════════════════
+       4. CORE EXPERTISE TABS
+    ══════════════════════════════════════ */
+    .exp-tabs .nav-link {
+      color: var(--alp-navy); font-weight: 600; font-size: .88rem;
+      border-radius: 8px; padding: 10px 18px; border: 1.5px solid var(--alp-border);
+      margin: 4px; transition: all .2s; background: #fff;
+    }
+    .exp-tabs .nav-link:hover { border-color: var(--alp-navy); background: var(--alp-light-bg); }
+    .exp-tabs .nav-link.active {
+      background: var(--alp-navy); color: #fff;
+      border-color: var(--alp-navy);
+    }
+
+    /* ══════════════════════════════════════
+       5. EXPERTISE CARDS (general)
+    ══════════════════════════════════════ */
+    .exp-card {
+      border: 1.5px solid var(--alp-border); border-radius: 12px;
+      background: #fff; padding: 24px 20px; height: 100%;
+      transition: border-color .25s, box-shadow .25s, transform .2s;
+    }
+    .exp-card:hover {
+      border-color: var(--alp-navy); box-shadow: 0 8px 28px rgba(13,45,107,.1);
+      transform: translateY(-3px);
+    }
+    .exp-icon {
+      width: 48px; height: 48px; border-radius: 10px;
+      background: var(--alp-light-bg); color: var(--alp-navy);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; margin-bottom: 14px; flex-shrink: 0;
+    }
+    .exp-card h6 { font-size: .95rem; font-weight: 700; color: var(--alp-navy); margin-bottom: 8px; }
+    .exp-card p  { font-size: .83rem; color: var(--alp-muted); line-height: 1.55; margin: 0; }
+
+    /* ══════════════════════════════════════
+       6. SECTOR GRID (Technical talent)
+    ══════════════════════════════════════ */
+    .sector-chip {
+      display: flex; align-items: center; gap: 10px;
+      background: #fff; border: 1.5px solid var(--alp-border);
+      border-radius: 10px; padding: 14px 16px;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      cursor: default;
+    }
+    .sector-chip:hover {
+      border-color: var(--alp-navy); box-shadow: 0 4px 16px rgba(13,45,107,.1);
+      transform: translateY(-2px);
+    }
+    .sector-chip i { color: var(--alp-navy); font-size: 1.2rem; flex-shrink: 0; }
+    .sector-chip span { font-size: .84rem; font-weight: 600; color: var(--alp-text); }
+
+    /* ══════════════════════════════════════
+       7. POSITIONS WE HIRE – accordion table
+    ══════════════════════════════════════ */
+    .positions-accordion .accordion-button {
+      background: var(--alp-light-bg); color: var(--alp-navy);
+      font-weight: 700; font-size: .95rem; border-radius: 10px !important;
+      box-shadow: none;
+    }
+    .positions-accordion .accordion-button:not(.collapsed) {
+      background: var(--alp-navy); color: #fff;
+    }
+    .positions-accordion .accordion-button:not(.collapsed)::after {
+      filter: invert(1);
+    }
+    .positions-accordion .accordion-item {
+      border: 1.5px solid var(--alp-border); border-radius: 10px !important;
+      margin-bottom: 10px; overflow: hidden;
+    }
+    .positions-accordion .accordion-body { background: #fff; padding: 20px 24px; }
+    .pos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+    .pos-pill {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .83rem; color: var(--alp-text); padding: 8px 12px;
+      background: var(--alp-light-bg); border-radius: 8px;
+      border: 1px solid var(--alp-border);
+    }
+    .pos-pill i { color: var(--alp-gold); font-size: .75rem; flex-shrink: 0; }
+
+    /* ══════════════════════════════════════
+       8. PROCESS STEPS
+    ══════════════════════════════════════ */
+    .process-wrap { position: relative; }
+    .process-line {
+      position: absolute; top: 30px; left: 10%; right: 10%; height: 2px;
+      background: var(--alp-border); z-index: 0;
+    }
+    .process-line::after {
+      content: ''; position: absolute; right: -6px; top: -4px;
+      border: 5px solid transparent; border-left-color: var(--alp-gold);
+    }
+    .process-step { text-align: center; padding: 0 8px; position: relative; z-index: 1; }
+    .step-circle {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--alp-navy); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; font-weight: 700; margin: 0 auto 14px;
+      border: 3px solid #fff; box-shadow: 0 4px 14px rgba(13,45,107,.25);
+    }
+    .process-step h6 { font-size: .88rem; font-weight: 700; color: var(--alp-navy); margin-bottom: 4px; }
+    .process-step p  { font-size: .78rem; color: var(--alp-muted); margin: 0; }
+
+    /* ══════════════════════════════════════
+       9. WHY CHOOSE US CARDS
+    ══════════════════════════════════════ */
+    .why-card {
+      border: 1.5px solid var(--alp-border); border-radius: 12px;
+      background: #fff; padding: 28px 22px; height: 100%;
+      transition: border-color .25s, box-shadow .25s, transform .25s;
+    }
+    .why-card:hover {
+      border-color: var(--alp-navy); box-shadow: 0 8px 28px rgba(13,45,107,.1);
+      transform: translateY(-3px);
+    }
+    .why-icon {
+      width: 50px; height: 50px; border-radius: 12px;
+      background: var(--alp-light-bg); color: var(--alp-navy);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 14px;
+    }
+    .why-card h6 { font-size: .93rem; font-weight: 700; color: var(--alp-navy); margin-bottom: 7px; }
+    .why-card p  { font-size: .82rem; color: var(--alp-muted); line-height: 1.55; margin: 0; }
+
+    /* ══════════════════════════════════════
+       10. INDUSTRIES SERVED
+    ══════════════════════════════════════ */
+    .industry-pill {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px; background: #fff;
+      border: 1.5px solid var(--alp-border); border-radius: 10px;
+      font-size: .85rem; font-weight: 600; color: var(--alp-navy);
+      transition: all .2s;
+    }
+    .industry-pill:hover {
+      background: var(--alp-navy); color: #fff; border-color: var(--alp-navy);
+    }
+    .industry-pill:hover i { color: var(--alp-gold); }
+    .industry-pill i { color: var(--alp-navy); font-size: 1.1rem; transition: color .2s; }
+
+    /* ══════════════════════════════════════
+       11. CTA BAND
+    ══════════════════════════════════════ */
+    .cta-band {
+      background: linear-gradient(135deg, var(--alp-navy-dark) 0%, var(--alp-navy) 100%);
+      padding: 70px 0; position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0; opacity: .04;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* ══════════════════════════════════════
+       12. ENQUIRY MODAL
+    ══════════════════════════════════════ */
+    .modal-header.navy-hdr { background: var(--alp-navy); color: #fff; }
+    .modal-header.navy-hdr .btn-close { filter: invert(1); }
+    .enq-modal .form-label { font-size: .84rem; font-weight: 600; color: var(--alp-navy); }
+    .enq-modal .form-control,
+    .enq-modal .form-select {
+      border: 1.5px solid var(--alp-border); border-radius: 8px; font-size: .9rem;
+    }
+    .enq-modal .form-control:focus,
+    .enq-modal .form-select:focus {
+      border-color: var(--alp-navy); box-shadow: 0 0 0 3px rgba(13,45,107,.1);
+    }
+    .enq-success { display: none; text-align: center; padding: 36px 20px; }
+    .enq-success .check-circle {
+      width: 68px; height: 68px; border-radius: 50%;
+      background: #e8f5e9; color: #2e7d32;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.9rem; margin: 0 auto 14px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 767px) {
+      .page-header { padding: 56px 0 44px; }
+      .intro-stat-pill { position: static; margin-top: 12px; display: inline-block; }
+      .process-line { display: none; }
+      .pos-grid { grid-template-columns: 1fr 1fr; }
+      .stat-divider { display: none !important; }
+    }
+    @media (max-width: 480px) {
+      .pos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div class="top-contact d-flex gap-md-3 flex-wrap">
+        <a href="tel:+919899202646"><i class="fas fa-phone-alt me-1"></i>+91-9899202646</a>
+        <a href="mailto:info@alpgroupindia.com"><i class="fas fa-envelope me-1"></i>business@alpgroupindia.com</a>
+        <a href="mailto:hr@alpgroupindia.com"><i class="fas fa-envelope me-1"></i>hr@alpgroupindia.com</a>
+      </div>
+      <div class="top-social d-flex gap-2">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY HEADER -->
+<nav class="navbar navbar-expand-lg sticky-top main-navbar" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <div class="brand-logo">
+        <img src="./asset/alp1.jpg" />
+        <!-- <span class="logo-alp">ALP</span>
+        <span class="logo-sub">GROUP</span> -->
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">ALP Group India</div>
+        <div class="brand-tagline">HR <span style="font-weight: bold;">|</span> Business Consulting <span style="font-weight: bold;">|</span> Legal services</div>
+      </div>
+    </a>
+    <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link fw-bold " href="./index.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link fw-bold" href="#about">ABOUT US</a></li>
+        <!-- <li class="nav-item"><a class="nav-link fw-bold" href="#services">SERVICES</a></li> -->
+        <li class="nav-item ">
+        <div class="dropdown">
+  <button class="btn  dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #073e88;">
+    <a class="fw-bold active" href="#">SERVICES</a>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item active" href="./staffing-service.html">Staffing / Recruitment Service</a></li>
+    <li><a class="dropdown-item" href="./hr-shared-services.html">HR Shared Services</a></li>
+    <li><a class="dropdown-item" href="#BusinessDevelopment&BusinessSolutions">Business Development & Business Solutions</a></li>
+    <li><a class="dropdown-item" href="#CareerCounselling&Training">Career Counselling & Training</a></li>
+    <li><a class="dropdown-item" href="#ComprehensiveLegalServices">Comprehensive Legal Services</a></li>
+    <li><a class="dropdown-item" href="#ITServices">IT Services</a></li>
+  </ul>
+</div>
+</li>
+        <!-- <li class="nav-item"><a class="nav-link" href="index.html#why">Why Choose Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#vision">Vision</a></li>-->
+        <li class="nav-item"><a class="nav-link fw-bold" href="./careers.html">CAREER</a></li> 
+        <li class="nav-item"><a class="nav-link fw-bold" href="#contact">CONTACT US</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════
+     1. PAGE HEADER
+══════════════════════════════════════════════════ -->
+<section class="page-header">
+  <div class="container text-center position-relative">
+    <div class="gold-rule"></div>
+    <div class="unit-badge">ALP TALENT SOLUTIONS &nbsp;|&nbsp; An Unit of ALP Group India</div>
+    <h1 class="mb-3">Staffing &amp; Recruitment Service</h1>
+    <p class="sub">
+      Our flagship service — bridging talent gaps by attracting, hiring, and retaining top-quality professionals, consistently meeting and exceeding client expectations.
+    </p>
+    <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Services</a></li>
+        <li class="breadcrumb-item active">Staffing &amp; Recruitment</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     2. INTRO – overview + image
+══════════════════════════════════════════════════ -->
+<section class="py-5 bg-white">
+  <div class="container py-2">
+    <div class="row g-5 align-items-center">
+
+      <!-- Text -->
+      <div class="col-lg-6 order-2 order-lg-1">
+        <span class="eyebrow">Our Flagship Service</span>
+        <h2 class="sec-title">Staffing / Recruitment Service</h2>
+        <div class="gold-bar"></div>
+        <p style="font-size:.95rem;line-height:1.75;color:#4a5568;margin-bottom:22px;">
+          We help organisations bridge talent gaps by attracting, hiring, and retaining top-quality professionals. Backed by an in-house dynamic team and a strong network of independent recruitment professionals, we deliver the right candidates at the right time.
+        </p>
+
+        <ul class="check-list mb-4">
+          <li><i class="bi bi-check-circle-fill"></i>Executive &amp; Mid-level Recruitment</li>
+          <li><i class="bi bi-check-circle-fill"></i>Mass Hiring &amp; Project Staffing</li>
+          <li><i class="bi bi-check-circle-fill"></i>Contract &amp; Permanent Placement</li>
+          <li><i class="bi bi-check-circle-fill"></i>Infrastructure &amp; Construction Specialists</li>
+          <li><i class="bi bi-check-circle-fill"></i>International Recruitment &amp; Expatriate Hiring</li>
+          <li><i class="bi bi-check-circle-fill"></i>Skilled, Semi-skilled &amp; Unskilled Workforce Solutions</li>
+        </ul>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#enquiry" class="btn-navy" onclick="openEnquiry();return false;">
+            <i class="bi bi-telephone-fill"></i> Get Staffing Solutions
+          </a>
+          <a href="#expertise" class="btn-outline-navy">
+            <i class="bi bi-arrow-down-circle"></i> Explore Expertise
+          </a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="col-lg-6 order-1 order-lg-2">
+        <div class="intro-img-wrap">
+          <div class="intro-img-bg" style="min-height:360px;background:linear-gradient(135deg,#1a4a9e,var(--alp-navy));display:flex;align-items:center;justify-content:center;overflow:hidden;">
+            <!-- SVG illustration when no real image is available -->
+            <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:.18;position:absolute;inset:0;">
+              <rect width="520" height="360" fill="#1a4a9e"/>
+              <circle cx="260" cy="180" r="140" fill="none" stroke="#fff" stroke-width="1.5"/>
+              <circle cx="260" cy="180" r="90" fill="none" stroke="#fff" stroke-width="1"/>
+              <line x1="0" y1="180" x2="520" y2="180" stroke="#fff" stroke-width=".8"/>
+              <line x1="260" y1="0" x2="260" y2="360" stroke="#fff" stroke-width=".8"/>
+            </svg>
+            <!-- Visual card overlay -->
+            <div style="position:relative;z-index:2;text-align:center;padding:40px 30px;">
+              <div style="width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+                <i class="bi bi-people-fill" style="font-size:2.8rem;color:var(--alp-gold);"></i>
+              </div>
+              <div style="color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:6px;">India's Trusted Staffing Partner</div>
+              <div style="color:rgba(255,255,255,.65);font-size:.85rem;">Connecting talent with opportunity since 2004</div>
+              <div class="d-flex justify-content-center gap-4 mt-4">
+                <div style="text-align:center;">
+                  <div style="font-size:1.8rem;font-weight:800;color:var(--alp-gold);">500+</div>
+                  <div style="font-size:.72rem;color:rgba(255,255,255,.6);">Clients</div>
+                </div>
+                <div style="width:1px;background:rgba(255,255,255,.15);"></div>
+                <div style="text-align:center;">
+                  <div style="font-size:1.8rem;font-weight:800;color:var(--alp-gold);">10K+</div>
+                  <div style="font-size:.72rem;color:rgba(255,255,255,.6);">Placements</div>
+                </div>
+                <div style="width:1px;background:rgba(255,255,255,.15);"></div>
+                <div style="text-align:center;">
+                  <div style="font-size:1.8rem;font-weight:800;color:var(--alp-gold);">20+</div>
+                  <div style="font-size:.72rem;color:rgba(255,255,255,.6);">Years</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     3. STATS BAND
+══════════════════════════════════════════════════ -->
+<div class="stats-band">
+  <div class="container">
+    <div class="row g-4 text-center align-items-center">
+      <div class="col-6 col-md-3">
+        <div class="stat-num">20+</div>
+        <div class="stat-lbl">Years of Expertise</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">500+</div>
+        <div class="stat-lbl">Client Organisations</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">10K+</div>
+        <div class="stat-lbl">Successful Placements</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">30+</div>
+        <div class="stat-lbl">Industry Sectors</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
+     4. CORE RECRUITMENT EXPERTISE (Tabbed)
+══════════════════════════════════════════════════ -->
+<section id="expertise" class="py-5" style="background:var(--alp-light-bg);">
+  <div class="container py-2">
+    <div class="text-center mb-5">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="sec-title">Our Core Recruitment Expertise</h2>
+      <div class="gold-bar center"></div>
+      <p class="text-muted" style="max-width:580px;margin:0 auto;font-size:.93rem;">
+        From boardroom to shop floor — we source, screen, and place talent across every level and every industry.
+      </p>
+    </div>
+
+    <!-- Tab nav -->
+    <ul class="nav exp-tabs justify-content-center mb-4 flex-wrap" id="expertiseTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-hiring" type="button">
+          <i class="bi bi-person-check me-1"></i> Hiring Types
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-technical" type="button">
+          <i class="bi bi-tools me-1"></i> Technical Talent
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-nontechnical" type="button">
+          <i class="bi bi-briefcase me-1"></i> Non-Technical Talent
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+
+      <!-- TAB 1: Hiring Types -->
+      <div class="tab-pane fade show active" id="tab-hiring">
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-4">
+            <div class="exp-card">
+              <div class="exp-icon"><i class="bi bi-person-badge"></i></div>
+              <h6>Permanent Staffing</h6>
+              <p>Full-time placements with thorough screening, cultural fit assessments, and background verification for long-term organisational success.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="exp-card">
+              <div class="exp-icon"><i class="bi bi-star-fill"></i></div>
+              <h6>Executive Search &amp; CXO / Leadership Hiring</h6>
+              <p>Discreet, research-led search for C-suite and board-level appointments across sectors, leveraging our extensive senior network.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="exp-card">
+              <div class="exp-icon"><i class="bi bi-layers"></i></div>
+              <h6>Senior &amp; Middle-Level Hiring</h6>
+              <p>Targeted recruitment for GMs, VPs, Directors, and functional heads with competency-based interviews and panel assessments.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="exp-card">
+              <div class="exp-icon"><i class="bi bi-globe2"></i></div>
+              <h6>International Recruitment / Expatriate Hiring</h6>
+              <p>Cross-border talent acquisition for overseas assignments — managing visa, compliance, and relocation formalities end-to-end.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="exp-card">
+              <div class="exp-icon"><i class="bi bi-people"></i></div>
+              <h6>Skilled, Semi-skilled &amp; Unskilled Workforce</h6>
+              <p>High-volume workforce solutions for construction, manufacturing, and infrastructure projects — mobilised rapidly at scale.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="exp-card">
+              <div class="exp-icon"><i class="bi bi-calendar-check"></i></div>
+              <h6>Contract &amp; Project Staffing</h6>
+              <p>Flexible contract workforce for short-term projects, seasonal surges, and fixed-term assignments with seamless HR management.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Technical Talent -->
+      <div class="tab-pane fade" id="tab-technical">
+        <div class="mb-4">
+          <h5 style="color:var(--alp-navy);font-weight:700;font-size:1rem;margin-bottom:16px;">
+            <i class="bi bi-diagram-3-fill me-2" style="color:var(--alp-gold);"></i>Infrastructure &amp; Civil Engineering
+          </h5>
+          <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-arrow-left-right"></i><span>Highways</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-columns-gap"></i><span>Bridges</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-circle-half"></i><span>Tunnels (NATM &amp; TBM)</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-train-front"></i><span>Railways</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-train-lightrail-front"></i><span>Metro</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-house-fill"></i><span>Real Estate / Buildings</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-droplet-half"></i><span>Sewerage &amp; Water Resources</span></div>
+            </div>
+          </div>
+        </div>
+
+        <hr style="border-color:var(--alp-border);margin:28px 0;">
+
+        <div class="mb-4">
+          <h5 style="color:var(--alp-navy);font-weight:700;font-size:1rem;margin-bottom:16px;">
+            <i class="bi bi-buildings-fill me-2" style="color:var(--alp-gold);"></i>Urban Infrastructure &amp; Building Construction
+          </h5>
+          <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-building"></i><span>High Rise Buildings</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-shop"></i><span>Commercial Buildings</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-house-door"></i><span>Residential Buildings</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-gear"></i><span>Industrial Buildings</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-pencil-square"></i><span>Architecture &amp; Structural</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-truck"></i><span>Construction Equipment &amp; Machinery</span></div>
+            </div>
+          </div>
+        </div>
+
+        <hr style="border-color:var(--alp-border);margin:28px 0;">
+
+        <div>
+          <h5 style="color:var(--alp-navy);font-weight:700;font-size:1rem;margin-bottom:16px;">
+            <i class="bi bi-fire me-2" style="color:var(--alp-gold);"></i>Heavy Industry &amp; Energy
+          </h5>
+          <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-minecart-loaded"></i><span>Mining &amp; Metals</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-lightning-charge"></i><span>Power Plant</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-box-fill"></i><span>Steel Plant</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-inboxes"></i><span>Cement Plant</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-fuel-pump"></i><span>Refineries</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-water"></i><span>Dam &amp; Canal Projects</span></div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sector-chip"><i class="bi bi-train-lightrail-front"></i><span>Metro Elevated &amp; Underground</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 p-3 rounded-3" style="background:var(--alp-light-bg);border:1.5px solid var(--alp-border);">
+          <div class="d-flex gap-3 align-items-start">
+            <div class="exp-icon" style="flex-shrink:0;"><i class="bi bi-people-fill"></i></div>
+            <div>
+              <h6 style="color:var(--alp-navy);font-weight:700;margin-bottom:4px;">Non-Technical Support Staff</h6>
+              <p style="font-size:.85rem;color:var(--alp-muted);margin:0;">Security Guards · Electricians · Plumbers · Machine Operators · Drivers · Facility Executives · Facility Supervisors · Office Staff</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Non-Technical Talent -->
+      <div class="tab-pane fade" id="tab-nontechnical">
+        <div class="row g-4 mb-4">
+          <div class="col-sm-6 col-lg-3">
+            <div class="exp-card text-center">
+              <div class="exp-icon mx-auto"><i class="bi bi-people-fill"></i></div>
+              <h6>HR &amp; Administration</h6>
+              <p>HR Business Partners, HR Executives, Admin Managers, Office Coordinators &amp; more.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="exp-card text-center">
+              <div class="exp-icon mx-auto"><i class="bi bi-calculator"></i></div>
+              <h6>Finance &amp; Accounts</h6>
+              <p>CFOs, Finance Managers, Accountants, Auditors, Taxation Specialists &amp; Payroll Executives.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="exp-card text-center">
+              <div class="exp-icon mx-auto"><i class="bi bi-bar-chart-line"></i></div>
+              <h6>Operations</h6>
+              <p>Operations Managers, Supply Chain, Logistics, Procurement &amp; Warehouse Specialists.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="exp-card text-center">
+              <div class="exp-icon mx-auto"><i class="bi bi-file-earmark-text"></i></div>
+              <h6>Clerks &amp; Supervisors</h6>
+              <p>Data Entry Operators, Front-desk Staff, Field Supervisors &amp; Junior Executives across sectors.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-3" style="background:var(--alp-navy);color:#fff;">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <h6 style="color:var(--alp-gold);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">Technical Supervisors</h6>
+              <p style="font-size:.9rem;color:rgba(255,255,255,.8);margin:0;">
+                We also place <strong style="color:#fff;">Technical Supervisors</strong> who bridge field operations and management — covering site supervisors, foremen, QA/QC supervisors, safety officers, and plant supervisors across construction, manufacturing, and infrastructure projects.
+              </p>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+              <a href="#" class="btn-gold" onclick="openEnquiry();return false;">
+                <i class="bi bi-envelope-fill"></i> Enquire Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tab-content -->
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     5. POSITIONS WE HIRE – Accordion
+══════════════════════════════════════════════════ -->
+<section class="py-5 bg-white">
+  <div class="container py-2">
+    <div class="text-center mb-5">
+      <span class="eyebrow">Talent We Place</span>
+      <h2 class="sec-title">Positions We Hire</h2>
+      <div class="gold-bar center"></div>
+      <p class="text-muted" style="max-width:540px;margin:0 auto;font-size:.92rem;">
+        From Director-level leadership to site supervisors and support staff — we cover the full spectrum.
+      </p>
+    </div>
+
+    <div class="accordion positions-accordion" id="posAccordion">
+
+      <!-- SENIOR LEADERSHIP -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pos1">
+            <i class="bi bi-briefcase-fill me-2" style="color:var(--alp-gold);"></i> Senior Leadership &amp; Management
+          </button>
+        </h2>
+        <div id="pos1" class="accordion-collapse collapse show" data-bs-parent="#posAccordion">
+          <div class="accordion-body">
+            <div class="pos-grid">
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Director</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Sr. Vice President</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Vice President</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>General Manager</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Manager</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Team Leader</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENGINEERING SPECIALISTS -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pos2">
+            <i class="bi bi-tools me-2" style="color:var(--alp-gold);"></i> Senior Engineering Specialists
+          </button>
+        </h2>
+        <div id="pos2" class="accordion-collapse collapse" data-bs-parent="#posAccordion">
+          <div class="accordion-body">
+            <div class="pos-grid">
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Resident Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Sr. Highway Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Sr. Bridge Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Sr. Pavement Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Sr. Design Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Sr. Geotechnical Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Sr. Quality Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Sr. Tunnel Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Sr. Geologist</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Road Safety Expert</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Environmental Expert</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Social Expert</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MID-LEVEL ENGINEERS -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pos3">
+            <i class="bi bi-person-workspace me-2" style="color:var(--alp-gold);"></i> Mid-Level Engineers
+          </button>
+        </h2>
+        <div id="pos3" class="accordion-collapse collapse" data-bs-parent="#posAccordion">
+          <div class="accordion-body">
+            <div class="pos-grid">
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>MEP Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Assistant Resident Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Assistant Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Trainee Engineer</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Technical Supervisor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUPPORT & FIELD STAFF -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pos4">
+            <i class="bi bi-people me-2" style="color:var(--alp-gold);"></i> Support &amp; Field Staff
+          </button>
+        </h2>
+        <div id="pos4" class="accordion-collapse collapse" data-bs-parent="#posAccordion">
+          <div class="accordion-body">
+            <div class="pos-grid">
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Security Guard</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Electrician</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Plumber</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Machine Operators</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Drivers</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Facility Executive</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Facility Supervisor</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Office Staff</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NON-TECHNICAL ROLES -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pos5">
+            <i class="bi bi-briefcase me-2" style="color:var(--alp-gold);"></i> Non-Technical &amp; Corporate Roles
+          </button>
+        </h2>
+        <div id="pos5" class="accordion-collapse collapse" data-bs-parent="#posAccordion">
+          <div class="accordion-body">
+            <div class="pos-grid">
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>HR &amp; Administration</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Finance &amp; Accounts</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Operations</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Clerks &amp; Supervisors</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Business Development</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Sales &amp; Marketing</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Supply Chain &amp; Logistics</div>
+              <div class="pos-pill"><i class="bi bi-diamond-fill"></i>Legal &amp; Compliance</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /accordion -->
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     6. OUR RECRUITMENT PROCESS
+══════════════════════════════════════════════════ -->
+<section class="py-5" style="background:var(--alp-light-bg);">
+  <div class="container py-2">
+    <div class="text-center mb-5">
+      <span class="eyebrow">How We Work</span>
+      <h2 class="sec-title">Our Recruitment Process</h2>
+      <div class="gold-bar center"></div>
+    </div>
+
+    <!-- Desktop line + steps -->
+    <div class="process-wrap d-none d-md-block mb-2" style="position:relative;">
+      <div class="process-line"></div>
+      <div class="row g-0">
+        <div class="col process-step">
+          <div class="step-circle">1</div>
+          <h6>Requirement<br>Briefing</h6>
+          <p>Detailed JD workshop with hiring manager</p>
+        </div>
+        <div class="col process-step">
+          <div class="step-circle">2</div>
+          <h6>Talent<br>Mapping</h6>
+          <p>Research, database search &amp; headhunting</p>
+        </div>
+        <div class="col process-step">
+          <div class="step-circle">3</div>
+          <h6>Screening &amp;<br>Assessment</h6>
+          <p>Competency interviews &amp; skill tests</p>
+        </div>
+        <div class="col process-step">
+          <div class="step-circle">4</div>
+          <h6>Shortlist<br>Submission</h6>
+          <p>Curated profiles with detailed summary</p>
+        </div>
+        <div class="col process-step">
+          <div class="step-circle">5</div>
+          <h6>Client<br>Interviews</h6>
+          <p>Coordinate &amp; facilitate client rounds</p>
+        </div>
+        <div class="col process-step">
+          <div class="step-circle" style="background:var(--alp-gold);color:var(--alp-navy);">6</div>
+          <h6>Offer &amp;<br>Onboarding</h6>
+          <p>Offer negotiation &amp; joining support</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile steps (stacked) -->
+    <div class="d-md-none">
+      <div class="row g-3">
+        <div class="col-12" style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;">1</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Requirement Briefing</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Detailed JD workshop with hiring manager</p></div>
+        </div>
+        <div class="col-12" style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;">2</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Talent Mapping</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Research, database search &amp; headhunting</p></div>
+        </div>
+        <div class="col-12" style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;">3</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Screening &amp; Assessment</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Competency interviews &amp; skill tests</p></div>
+        </div>
+        <div class="col-12" style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;">4</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Shortlist Submission</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Curated profiles with detailed summary</p></div>
+        </div>
+        <div class="col-12" style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;">5</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Client Interviews</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Coordinate &amp; facilitate client rounds</p></div>
+        </div>
+        <div class="col-12" style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;background:var(--alp-gold);color:var(--alp-navy);">6</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Offer &amp; Onboarding</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Offer negotiation &amp; joining support</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     7. WHY CHOOSE ALP
+══════════════════════════════════════════════════ -->
+<section class="py-5 bg-white">
+  <div class="container py-2">
+    <div class="text-center mb-5">
+      <span class="eyebrow">Our Advantage</span>
+      <h2 class="sec-title">Why Choose ALP Talent Solutions?</h2>
+      <div class="gold-bar center"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-database-check"></i></div>
+          <h6>Deep Talent Database</h6>
+          <p>Access to 5 lakh+ pre-screened candidate profiles across sectors, updated in real time through our proprietary ATS.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+          <h6>Speed to Hire</h6>
+          <p>Our structured process and large talent network allow us to submit qualified shortlists within 48–72 hours of briefing.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-shield-check"></i></div>
+          <h6>Thorough Screening</h6>
+          <p>Multi-layered screening — technical tests, competency interviews, reference checks, and background verification included.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-globe2"></i></div>
+          <h6>Pan-India &amp; Global Reach</h6>
+          <p>Sourcing capabilities across India and abroad — including Middle East, Southeast Asia, and Africa for expat requirements.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-award"></i></div>
+          <h6>20+ Years of Domain Expertise</h6>
+          <p>Specialist knowledge in infrastructure, construction, manufacturing, and corporate functions built over two decades.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-headset"></i></div>
+          <h6>Dedicated Account Management</h6>
+          <p>A single point of contact for every client — ensuring consistent communication, SLA adherence, and after-placement support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     8. INDUSTRIES SERVED
+══════════════════════════════════════════════════ -->
+<section class="py-5" style="background:var(--alp-light-bg);">
+  <div class="container py-2">
+    <div class="text-center mb-5">
+      <span class="eyebrow">Sectors We Serve</span>
+      <h2 class="sec-title">Industries We Recruit For</h2>
+      <div class="gold-bar center"></div>
+    </div>
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-arrow-left-right"></i>Infrastructure &amp; Highways</div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-building"></i>Real Estate &amp; Construction</div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-train-front"></i>Railways &amp; Metro</div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-lightning-charge"></i>Power &amp; Energy</div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-minecart-loaded"></i>Mining &amp; Metals</div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-fuel-pump"></i>Oil, Gas &amp; Refineries</div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-gear-wide-connected"></i>Manufacturing</div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-bank2"></i>BFSI</div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-laptop"></i>IT &amp; Technology</div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-heart-pulse"></i>Healthcare &amp; Pharma</div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-bag-fill"></i>FMCG &amp; Retail</div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="industry-pill"><i class="bi bi-truck"></i>Logistics &amp; Supply Chain</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     9. CTA BAND
+══════════════════════════════════════════════════ -->
+<div class="cta-band">
+  <div class="container text-center position-relative">
+    <span class="eyebrow" style="color:rgba(255,255,255,.5);">Let's Work Together</span>
+    <h2 class="sec-title text-white mt-1 mb-3">Ready to Find Your Next<br class="d-none d-md-block"> Great Hire?</h2>
+    <p style="color:rgba(255,255,255,.7);max-width:500px;margin:0 auto 32px;font-size:.95rem;">
+      Share your hiring requirement and our specialist consultants will reach out within 24 hours with a tailored staffing plan.
+    </p>
+    <div class="d-flex flex-wrap gap-3 justify-content-center">
+      <a href="#" class="btn-gold" onclick="openEnquiry();return false;">
+        <i class="bi bi-send-fill"></i> Send Hiring Requirement
+      </a>
+      <a href="tel:+911234567890" class="btn-outline-white">
+        <i class="bi bi-telephone-fill"></i> Call Us Now
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="container pt-5">
+    <div class="row g-2 g-md-4 g-lg-5 ">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand d-flex align-items-center gap-2 mb-3">
+          <div class="brand-logo" style="padding: 0.2rem; background-color: #fff;">
+            <img src="./asset/alp1.jpg"/>
+            <!-- <span class="logo-alp">ALP</span>
+            <span class="logo-sub">GROUP</span> -->
+          </div>
+          <div>
+            <div class="brand-name text-white">ALP Group India</div>
+          </div>
+        </div>
+        <p class="footer-text">ALP Group India is a new-age HR, Business Consulting and Legal Consulting firm bringing over 20 years of industry expertise in Infrastructure & Construction sectors.</p>
+        <div class="footer-social d-flex gap-2 mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-6">
+        <h6 class="footer-heading">Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-6">
+        <h6 class="footer-heading">Our Services</h6>
+        <ul class="footer-links">
+          <li><a href="#services">Staffing / Recruitment</a></li>
+          <li><a href="#services">HR Solutions</a></li>
+          <li><a href="#services">Business Development</a></li>
+          <li><a href="#services">Career Counseling</a></li>
+          <li><a href="#services">Legal Solutions</a></li>
+          <li><a href="#services">IT Services</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h6 class="footer-heading">Get In Touch</h6>
+        <ul class="footer-contact-list">
+          <li><i class="fas fa-map-marker-alt"></i> 27A, South Ganesh Nagar, Delhi-110092, India</li>
+          <li><i class="fas fa-phone-alt"></i> <a href="tel:+919899202646">+91-9899202646</a></li>
+          <li><i class="fas fa-clock"></i> Mon to Sat – 09:00 AM to 6:00 PM</li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:info@alpgroupindia.com">business@alpgroupindia.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="row ">
+        <div class="col-md-6">
+          <p>© 2026 ALP Group India. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p>Inspired by the legacy of Sh. Achchhe Lal Priyadarshi</p>
+          <p class="">Developed with ❤️ by <a class="text-gray-300" href="https://www.linkedin.com/in/ayushdce2/" target="_blank">Ayush</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ 
+    
+ 
+</footer>
+
+<!-- ══════════════════════════════════════════════════
+     ENQUIRY MODAL
+══════════════════════════════════════════════════ -->
+<div class="modal fade enq-modal" id="enquiryModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content border-0" style="border-radius:12px;overflow:hidden;">
+
+      <div class="modal-header navy-hdr py-3 px-4">
+        <div>
+          <small style="color:rgba(255,255,255,.55);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:3px;">ALP Talent Solutions</small>
+          <h5 class="modal-title text-white mb-0" style="font-size:1.1rem;">Submit Your Hiring Requirement</h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body p-4" style="background:var(--alp-light-bg);">
+        <!-- FORM -->
+        <div id="enqFormWrap">
+          <h6 style="color:var(--alp-navy);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">Company Details</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label">Company Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="companyName" placeholder="e.g. Infra Corp Ltd">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Contact Person <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="contactPerson" placeholder="Full Name">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email Address <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="enqEmail" placeholder="hr@company.com">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control" id="enqPhone" placeholder="+91 98765 43210">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Industry / Sector</label>
+              <select class="form-select" id="industry">
+                <option value="">Select Sector…</option>
+                <option>Infrastructure &amp; Highways</option>
+                <option>Real Estate &amp; Construction</option>
+                <option>Railways &amp; Metro</option>
+                <option>Power &amp; Energy</option>
+                <option>Mining &amp; Metals</option>
+                <option>Oil, Gas &amp; Refineries</option>
+                <option>Manufacturing</option>
+                <option>BFSI</option>
+                <option>IT &amp; Technology</option>
+                <option>Healthcare &amp; Pharma</option>
+                <option>FMCG &amp; Retail</option>
+                <option>Logistics &amp; Supply Chain</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Location / City</label>
+              <input type="text" class="form-control" id="enqLocation" placeholder="e.g. Delhi, Mumbai, Abroad">
+            </div>
+          </div>
+
+          <h6 style="color:var(--alp-navy);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">Requirement Details</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label">Position(s) Required</label>
+              <input type="text" class="form-control" id="positionsReq" placeholder="e.g. Sr. Highway Engineer, GM – Projects">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Number of Vacancies</label>
+              <input type="number" class="form-control" id="vacancies" min="1" placeholder="e.g. 5">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Hiring Type</label>
+              <select class="form-select" id="hiringType">
+                <option value="">Select…</option>
+                <option>Permanent Staffing</option>
+                <option>Contract Staffing</option>
+                <option>Executive / Leadership Search</option>
+                <option>Mass / Bulk Hiring</option>
+                <option>International / Expat Hiring</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Expected Timeline</label>
+              <select class="form-select" id="timeline">
+                <option value="">Select…</option>
+                <option>Immediate (within 2 weeks)</option>
+                <option>Within 1 Month</option>
+                <option>Within 3 Months</option>
+                <option>Planned Hiring (3–6 months)</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Additional Notes / JD</label>
+              <textarea class="form-control" id="enqNotes" rows="3" placeholder="Share any specific requirements, experience levels, budget range, or JD details…"></textarea>
+            </div>
+          </div>
+          <div id="enqError" class="text-danger mb-2" style="font-size:.83rem;display:none;"></div>
+        </div>
+
+        <!-- SUCCESS -->
+        <div class="enq-success" id="enqSuccess">
+          <div class="check-circle mx-auto"><i class="bi bi-check-lg"></i></div>
+          <h5 style="color:var(--alp-navy);font-weight:700;">Requirement Submitted!</h5>
+          <p class="text-muted" style="font-size:.9rem;max-width:360px;margin:0 auto;">
+            Thank you. Our specialist consultant will contact you within <strong>24 business hours</strong> to discuss your requirement in detail.
+          </p>
+        </div>
+      </div>
+
+      <div class="modal-footer border-0 bg-white" id="enqFooter">
+        <button type="button" class="btn-outline-navy" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn-navy" onclick="submitEnquiry()">
+          <i class="bi bi-send-fill"></i> Submit Requirement
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+function openEnquiry() {
+  // Reset form
+  ['companyName','contactPerson','enqEmail','enqPhone','enqLocation','positionsReq','vacancies','enqNotes']
+    .forEach(function(id){ var el = document.getElementById(id); if(el) el.value = ''; });
+  ['industry','hiringType','timeline']
+    .forEach(function(id){ var el = document.getElementById(id); if(el) el.value = ''; });
+  document.getElementById('enqFormWrap').style.display = '';
+  document.getElementById('enqSuccess').style.display = 'none';
+  document.getElementById('enqFooter').style.display = '';
+  document.getElementById('enqError').style.display = 'none';
+  new bootstrap.Modal(document.getElementById('enquiryModal')).show();
+}
+
+function submitEnquiry() {
+  var err = document.getElementById('enqError');
+  var company = document.getElementById('companyName').value.trim();
+  var contact = document.getElementById('contactPerson').value.trim();
+  var email   = document.getElementById('enqEmail').value.trim();
+  var phone   = document.getElementById('enqPhone').value.trim();
+  if (!company || !contact || !email || !phone) {
+    err.textContent = 'Please fill in all required fields (Company, Contact Person, Email, Phone).';
+    err.style.display = 'block'; return;
+  }
+  err.style.display = 'none';
+  document.getElementById('enqFormWrap').style.display = 'none';
+  document.getElementById('enqSuccess').style.display = 'block';
+  document.getElementById('enqFooter').style.display = 'none';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HR Shared Services – ALP Group India</title>
+ <link rel="stylesheet" href="./asset/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+   <!-- <link rel="stylesheet" href="./asset/all.min.css"/> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"/>
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="./asset/header_footer.css"/>
+  <style>
+    :root {
+      --alp-navy:      #0d2d6b;
+      --alp-navy-dark: #091d47;
+      --alp-gold:      #c9a84c;
+      --alp-gold-lt:   #f0d080;
+      --alp-light-bg:  #f4f7fc;
+      --alp-border:    #dde4f0;
+      --alp-text:      #2c3e50;
+      --alp-muted:     #6b7c93;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: var(--font-body); color: var(--alp-text); background: #fff; margin: 0; }
+
+    /* ── TYPOGRAPHY ── */
+    .eyebrow {
+      display: inline-block; font-size: .72rem; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--alp-gold); margin-bottom: 8px;
+    }
+    .sec-title {
+      font-size: clamp(1.55rem, 3vw, 2.1rem); font-weight: 700;
+      color: var(--alp-navy); line-height: 1.2; margin-bottom: 12px;
+    }
+    .gold-bar { width: 48px; height: 3px; background: var(--alp-gold); border-radius: 2px; margin-bottom: 20px; }
+    .gold-bar.center { margin-left: auto; margin-right: auto; }
+
+    /* ── BUTTONS ── */
+    .btn-navy {
+      background: var(--alp-navy); color: #fff; border: none; border-radius: 8px;
+      font-weight: 600; font-size: .9rem; padding: 11px 28px;
+      transition: background .2s, transform .15s; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+    }
+    .btn-navy:hover { background: var(--alp-navy-dark); color: #fff; transform: translateY(-1px); }
+    .btn-gold {
+      background: var(--alp-gold); color: var(--alp-navy); border: none; border-radius: 8px;
+      font-weight: 700; font-size: .9rem; padding: 11px 28px;
+      transition: background .2s, transform .15s; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+    }
+    .btn-gold:hover { background: var(--alp-gold-lt); color: var(--alp-navy-dark); transform: translateY(-1px); }
+    .btn-outline-navy {
+      background: transparent; color: var(--alp-navy); border: 1.5px solid var(--alp-navy);
+      border-radius: 8px; font-weight: 600; font-size: .88rem; padding: 10px 26px;
+      transition: background .2s, color .2s; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+    }
+    .btn-outline-navy:hover { background: var(--alp-navy); color: #fff; }
+    .btn-outline-white {
+      background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.6);
+      border-radius: 8px; font-weight: 600; font-size: .9rem; padding: 11px 28px;
+      transition: background .2s; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,.12); border-color: #fff; color: #fff; }
+
+    /* ══ 1. PAGE HEADER ══ */
+    .page-header {
+      background: linear-gradient(135deg, var(--alp-navy-dark) 0%, var(--alp-navy) 60%, #1a4a9e 100%);
+      padding: 80px 0 64px; position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-header .gold-rule { width: 60px; height: 3px; background: var(--alp-gold); border-radius: 2px; margin: 0 auto 18px; }
+    .page-header h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); font-weight: 700; color: #fff; letter-spacing: -.5px; }
+    .page-header .sub { color: rgba(255,255,255,.72); font-size: .97rem; max-width: 580px; margin: 0 auto 22px; }
+    .page-header .breadcrumb { background: transparent; padding: 0; margin: 0; justify-content: center; }
+    .page-header .breadcrumb-item,
+    .page-header .breadcrumb-item a { color: rgba(255,255,255,.6); font-size: .87rem; text-decoration: none; }
+    .page-header .breadcrumb-item.active { color: var(--alp-gold); }
+    .page-header .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,.35); }
+    .unit-badge {
+      display: inline-block; background: var(--alp-navy); color: #fff;
+      font-size: .72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 4px; border-left: 4px solid var(--alp-gold); margin-bottom: 20px;
+    }
+
+    /* ══ 2. INTRO ══ */
+    .intro-visual {
+      background: linear-gradient(135deg, #1a4a9e 0%, var(--alp-navy) 100%);
+      border-radius: 14px; min-height: 380px; position: relative; overflow: hidden;
+      box-shadow: 0 16px 48px rgba(13,45,107,.2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .check-list { list-style: none; padding: 0; margin: 0; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .93rem; margin-bottom: 10px; color: var(--alp-text);
+    }
+    .check-list li i { color: var(--alp-navy); font-size: 1.05rem; margin-top: 1px; flex-shrink: 0; }
+
+    /* ══ 3. STATS BAND ══ */
+    .stats-band { background: var(--alp-navy); padding: 52px 0; }
+    .stat-num { font-size: 2.5rem; font-weight: 800; color: var(--alp-gold); line-height: 1; }
+    .stat-lbl { font-size: .82rem; color: rgba(255,255,255,.68); margin-top: 5px; }
+
+    /* ══ 4. SERVICE CARDS ══ */
+    .svc-card {
+      border: 1.5px solid var(--alp-border); border-radius: 12px;
+      background: #fff; padding: 26px 22px; height: 100%;
+      transition: border-color .25s, box-shadow .25s, transform .22s;
+      position: relative; overflow: hidden;
+    }
+    .svc-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%; background: transparent;
+      transition: background .25s;
+    }
+    .svc-card:hover { border-color: var(--alp-navy); box-shadow: 0 8px 28px rgba(13,45,107,.1); transform: translateY(-3px); }
+    .svc-card:hover::before { background: var(--alp-gold); }
+    .svc-icon {
+      width: 50px; height: 50px; border-radius: 11px;
+      background: var(--alp-light-bg); color: var(--alp-navy);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 14px;
+    }
+    .svc-card h6 { font-size: .95rem; font-weight: 700; color: var(--alp-navy); margin-bottom: 7px; }
+    .svc-card p  { font-size: .83rem; color: var(--alp-muted); line-height: 1.6; margin: 0; }
+
+    /* ══ 5. DETAIL SECTIONS (alternating) ══ */
+    .detail-row { padding: 64px 0; }
+    .detail-row.alt { background: var(--alp-light-bg); }
+    .detail-num-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--alp-navy); color: #fff;
+      font-size: .85rem; font-weight: 700; flex-shrink: 0; margin-right: 14px;
+    }
+    .feature-list { list-style: none; padding: 0; margin: 0; }
+    .feature-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .9rem; color: var(--alp-text); padding: 9px 0;
+      border-bottom: 1px solid var(--alp-border);
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-list li i { color: var(--alp-gold); font-size: .9rem; margin-top: 2px; flex-shrink: 0; }
+    .detail-visual {
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 12px 36px rgba(13,45,107,.15);
+    }
+    .detail-visual-inner {
+      min-height: 320px; display: flex; align-items: center; justify-content: center;
+      padding: 36px; position: relative;
+    }
+
+    /* ══ 6. COMPLIANCE GRID ══ */
+    .compliance-card {
+      background: #fff; border: 1.5px solid var(--alp-border); border-radius: 12px;
+      padding: 22px 18px; text-align: center; height: 100%;
+      transition: border-color .22s, box-shadow .22s, transform .22s;
+    }
+    .compliance-card:hover {
+      border-color: var(--alp-navy); box-shadow: 0 6px 22px rgba(13,45,107,.1); transform: translateY(-3px);
+    }
+    .compliance-card .c-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--alp-light-bg); color: var(--alp-navy);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin: 0 auto 12px;
+    }
+    .compliance-card h6 { font-size: .88rem; font-weight: 700; color: var(--alp-navy); margin-bottom: 5px; }
+    .compliance-card p  { font-size: .78rem; color: var(--alp-muted); line-height: 1.5; margin: 0; }
+
+    /* ══ 7. PROCESS STEPS ══ */
+    .process-step { text-align: center; padding: 0 8px; position: relative; z-index: 1; }
+    .step-circle {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--alp-navy); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; font-weight: 700; margin: 0 auto 14px;
+      border: 3px solid #fff; box-shadow: 0 4px 14px rgba(13,45,107,.25);
+    }
+    .process-step h6 { font-size: .88rem; font-weight: 700; color: var(--alp-navy); margin-bottom: 4px; }
+    .process-step p  { font-size: .78rem; color: var(--alp-muted); margin: 0; }
+    .process-wrap { position: relative; }
+    .process-line {
+      position: absolute; top: 29px; left: 10%; right: 10%; height: 2px;
+      background: var(--alp-border); z-index: 0;
+    }
+    .process-line::after {
+      content: ''; position: absolute; right: -6px; top: -4px;
+      border: 5px solid transparent; border-left-color: var(--alp-gold);
+    }
+
+    /* ══ 8. WHY CHOOSE ══ */
+    .why-card {
+      border: 1.5px solid var(--alp-border); border-radius: 12px;
+      background: #fff; padding: 26px 22px; height: 100%;
+      transition: border-color .25s, box-shadow .25s, transform .25s;
+    }
+    .why-card:hover { border-color: var(--alp-navy); box-shadow: 0 8px 28px rgba(13,45,107,.1); transform: translateY(-3px); }
+    .why-icon {
+      width: 50px; height: 50px; border-radius: 12px;
+      background: var(--alp-light-bg); color: var(--alp-navy);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 14px;
+    }
+    .why-card h6 { font-size: .93rem; font-weight: 700; color: var(--alp-navy); margin-bottom: 6px; }
+    .why-card p  { font-size: .82rem; color: var(--alp-muted); line-height: 1.55; margin: 0; }
+
+    /* ══ 9. CTA ══ */
+    .cta-band {
+      background: linear-gradient(135deg, var(--alp-navy-dark) 0%, var(--alp-navy) 100%);
+      padding: 70px 0; position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0; opacity: .04;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* ══ MODAL ══ */
+    .modal-header.navy-hdr { background: var(--alp-navy); color: #fff; }
+    .modal-header.navy-hdr .btn-close { filter: invert(1); }
+    .enq-modal .form-label { font-size: .84rem; font-weight: 600; color: var(--alp-navy); }
+    .enq-modal .form-control,
+    .enq-modal .form-select { border: 1.5px solid var(--alp-border); border-radius: 8px; font-size: .9rem; }
+    .enq-modal .form-control:focus,
+    .enq-modal .form-select:focus { border-color: var(--alp-navy); box-shadow: 0 0 0 3px rgba(13,45,107,.1); }
+    .enq-success { display: none; text-align: center; padding: 40px 20px; }
+    .enq-success .check-circle {
+      width: 68px; height: 68px; border-radius: 50%; background: #e8f5e9; color: #2e7d32;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.9rem; margin: 0 auto 14px;
+    }
+
+    /* ── TAB NAV ── */
+    .svc-tabs .nav-link {
+      color: var(--alp-navy); font-weight: 600; font-size: .87rem;
+      border-radius: 8px; padding: 9px 18px; border: 1.5px solid var(--alp-border);
+      margin: 3px; transition: all .2s; background: #fff;
+    }
+    .svc-tabs .nav-link:hover { border-color: var(--alp-navy); background: var(--alp-light-bg); }
+    .svc-tabs .nav-link.active { background: var(--alp-navy); color: #fff; border-color: var(--alp-navy); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 767px) {
+      .page-header { padding: 56px 0 44px; }
+      .process-line { display: none; }
+      .detail-row { padding: 44px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div class="top-contact d-flex gap-md-3 flex-wrap">
+        <a href="tel:+919899202646"><i class="fas fa-phone-alt me-1"></i>+91-9899202646</a>
+        <a href="mailto:info@alpgroupindia.com"><i class="fas fa-envelope me-1"></i>business@alpgroupindia.com</a>
+        <a href="mailto:hr@alpgroupindia.com"><i class="fas fa-envelope me-1"></i>hr@alpgroupindia.com</a>
+      </div>
+      <div class="top-social d-flex gap-2">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY HEADER -->
+<nav class="navbar navbar-expand-lg sticky-top main-navbar" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <div class="brand-logo">
+        <img src="./asset/alp1.jpg" />
+        <!-- <span class="logo-alp">ALP</span>
+        <span class="logo-sub">GROUP</span> -->
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">ALP Group India</div>
+        <div class="brand-tagline">HR <span style="font-weight: bold;">|</span> Business Consulting <span style="font-weight: bold;">|</span> Legal services</div>
+      </div>
+    </a>
+    <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link fw-bold " href="./index.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link fw-bold" href="#about">ABOUT US</a></li>
+        <!-- <li class="nav-item"><a class="nav-link fw-bold" href="#services">SERVICES</a></li> -->
+        <li class="nav-item">
+        <div class="dropdown">
+  <button class="btn  dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #073e88;">
+    <a class="fw-bold active" href="#">SERVICES</a>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="./staffing-service.html">Staffing / Recruitment Service</a></li>
+    <li><a class="dropdown-item active" href="./hr-shared-services.html">HR Shared Services</a></li>
+    <li><a class="dropdown-item" href="#BusinessDevelopment&BusinessSolutions">Business Development & Business Solutions</a></li>
+    <li><a class="dropdown-item" href="#CareerCounselling&Training">Career Counselling & Training</a></li>
+    <li><a class="dropdown-item" href="#ComprehensiveLegalServices">Comprehensive Legal Services</a></li>
+    <li><a class="dropdown-item" href="#ITServices">IT Services</a></li>
+  </ul>
+</div>
+</li>
+        <!-- <li class="nav-item"><a class="nav-link" href="index.html#why">Why Choose Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#vision">Vision</a></li>-->
+        <li class="nav-item"><a class="nav-link fw-bold" href="./careers.html">CAREER</a></li> 
+        <li class="nav-item"><a class="nav-link fw-bold" href="#contact">CONTACT US</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     1. PAGE HEADER
+══════════════════════════════════════════════ -->
+<section class="page-header">
+  <div class="container text-center position-relative">
+    <div class="gold-rule"></div>
+    <div class="unit-badge">ALP GROUP INDIA &nbsp;|&nbsp; HR Solutions Division</div>
+    <h1 class="mb-3">HR Shared Services</h1>
+    <p class="sub">
+      Comprehensive, compliant, and people-first HR solutions — from policy formulation and payroll management to statutory compliance and organisational transformation.
+    </p>
+    <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Services</a></li>
+        <li class="breadcrumb-item active">HR Shared Services</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     2. INTRO
+══════════════════════════════════════════════ -->
+<section class="py-5 bg-white">
+  <div class="container py-2">
+    <div class="row g-5 align-items-center">
+
+      <!-- Text -->
+      <div class="col-lg-6 order-2 order-lg-1">
+        <span class="eyebrow">Our Service</span>
+        <h2 class="sec-title">HR Shared Services</h2>
+        <div class="gold-bar"></div>
+        <p style="font-size:.95rem;line-height:1.78;color:#4a5568;margin-bottom:22px;">
+          Our comprehensive HR Solutions are designed to help organisations build efficient, compliant, and high-performing workplaces. From policy development and payroll administration to organisational transformation and employee development, we provide end-to-end HR support that aligns people, processes, and business objectives.
+        </p>
+        <p style="font-size:.93rem;line-height:1.72;color:#4a5568;margin-bottom:24px;">
+          With a practical, business-focused approach, we enable companies to strengthen their HR framework, enhance employee productivity, and drive sustainable growth.
+        </p>
+        <ul class="check-list mb-4">
+          <li><i class="bi bi-check-circle-fill"></i>HR Policy Formulation &amp; Effectiveness</li>
+          <li><i class="bi bi-check-circle-fill"></i>Time Office &amp; Payroll Management</li>
+          <li><i class="bi bi-check-circle-fill"></i>Statutory Compliances (EPF, ESIC, GPA, GMC etc.)</li>
+          <li><i class="bi bi-check-circle-fill"></i>Contract Labour Management &amp; Administration</li>
+          <li><i class="bi bi-check-circle-fill"></i>Organisational Re-structuring &amp; TNA</li>
+          <li><i class="bi bi-check-circle-fill"></i>SOP Formulation Services</li>
+        </ul>
+        <div class="d-flex flex-wrap gap-3">
+          <button class="btn-navy" onclick="openEnquiry()">
+            <i class="bi bi-telephone-fill"></i> Get HR Solutions
+          </button>
+          <a href="#services-detail" class="btn-outline-navy">
+            <i class="bi bi-arrow-down-circle"></i> Explore Services
+          </a>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="col-lg-6 order-1 order-lg-2">
+        <div class="intro-visual">
+          <svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:.08;">
+            <circle cx="260" cy="190" r="160" fill="none" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="260" cy="190" r="100" fill="none" stroke="#fff" stroke-width="1"/>
+            <circle cx="260" cy="190" r="50" fill="none" stroke="#fff" stroke-width="1"/>
+            <line x1="0" y1="190" x2="520" y2="190" stroke="#fff" stroke-width=".6"/>
+            <line x1="260" y1="0" x2="260" y2="380" stroke="#fff" stroke-width=".6"/>
+          </svg>
+          <div style="position:relative;z-index:2;text-align:center;padding:44px 32px;width:100%;">
+            <div style="width:88px;height:88px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">
+              <i class="bi bi-people-fill" style="font-size:2.6rem;color:var(--alp-gold);"></i>
+            </div>
+            <div style="color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:8px;">End-to-End HR Support</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.84rem;margin-bottom:28px;">Policy · Payroll · Compliance · OD</div>
+            <!-- mini service pills -->
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+              <span style="background:rgba(255,255,255,.12);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">HR Policy</span>
+              <span style="background:rgba(255,255,255,.12);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Payroll</span>
+              <span style="background:rgba(255,255,255,.12);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Compliance</span>
+              <span style="background:rgba(255,255,255,.12);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Training</span>
+              <span style="background:rgba(255,255,255,.12);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">OD &amp; Change</span>
+              <span style="background:rgba(255,255,255,.12);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">SOP</span>
+              <span style="background:rgba(255,255,255,.12);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Contract Labour</span>
+              <span style="background:rgba(255,255,255,.12);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">C&amp;B Module</span>
+            </div>
+            <!-- stats row -->
+            <div class="d-flex justify-content-center gap-4 mt-4 pt-4" style="border-top:1px solid rgba(255,255,255,.15);">
+              <div style="text-align:center;">
+                <div style="font-size:1.7rem;font-weight:800;color:var(--alp-gold);">500+</div>
+                <div style="font-size:.7rem;color:rgba(255,255,255,.55);">Clients Served</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,.15);"></div>
+              <div style="text-align:center;">
+                <div style="font-size:1.7rem;font-weight:800;color:var(--alp-gold);">12</div>
+                <div style="font-size:.7rem;color:rgba(255,255,255,.55);">HR Services</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,.15);"></div>
+              <div style="text-align:center;">
+                <div style="font-size:1.7rem;font-weight:800;color:var(--alp-gold);">20+</div>
+                <div style="font-size:.7rem;color:rgba(255,255,255,.55);">Years Exp.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     3. STATS BAND
+══════════════════════════════════════════════ -->
+<div class="stats-band">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-6 col-md-3">
+        <div class="stat-num">500+</div>
+        <div class="stat-lbl">Organisations Supported</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">12</div>
+        <div class="stat-lbl">Comprehensive HR Services</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">20+</div>
+        <div class="stat-lbl">Years of HR Expertise</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">Statutory Compliance Rate</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     4. ALL SERVICES — TABBED CARDS
+══════════════════════════════════════════════ -->
+<section id="services-detail" class="py-5" style="background:var(--alp-light-bg);">
+  <div class="container py-2">
+    <div class="text-center mb-5">
+      <span class="eyebrow">What We Offer</span>
+      <h2 class="sec-title">Comprehensive HR Support Services</h2>
+      <div class="gold-bar center"></div>
+      <p class="text-muted" style="max-width:580px;margin:0 auto;font-size:.93rem;">
+        A full suite of HR services covering every function — from people strategy and payroll to compliance and organisational design.
+      </p>
+    </div>
+
+    <!-- Tab nav -->
+    <ul class="nav svc-tabs justify-content-center mb-4 flex-wrap" id="svcTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-hr" type="button">
+          <i class="bi bi-file-earmark-text me-1"></i>HR &amp; Policy
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-payroll" type="button">
+          <i class="bi bi-currency-rupee me-1"></i>Payroll &amp; Wages
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-compliance" type="button">
+          <i class="bi bi-shield-check me-1"></i>Compliance
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-od" type="button">
+          <i class="bi bi-diagram-3 me-1"></i>OD &amp; Training
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+
+      <!-- TAB 1: HR & Policy -->
+      <div class="tab-pane fade show active" id="tab-hr">
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-file-earmark-check"></i></div>
+              <h6>HR Policy Formulation &amp; Effectiveness</h6>
+              <p>Design and implement robust HR policies aligned with your organisation's culture, industry standards, and legal requirements — reviewed for real-world effectiveness.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-person-gear"></i></div>
+              <h6>Performance Management System</h6>
+              <p>Build and deploy structured PMS frameworks — KRA/KPI design, appraisal cycles, bell-curve calibration, and feedback mechanisms that drive a performance culture.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-journal-bookmark"></i></div>
+              <h6>Standard Operating Procedure (SOP) Formulation</h6>
+              <p>Document, standardise, and communicate HR and administrative processes through clear, actionable SOPs that ensure consistency and reduce operational risk.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-building-gear"></i></div>
+              <h6>Advisory &amp; Guidance on General Administration</h6>
+              <p>Expert advisory on office administration, facilities management, vendor management, and internal governance to improve operational efficiency.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-clipboard-data"></i></div>
+              <h6>HR Shared Services Setup</h6>
+              <p>Design and operationalise a centralised HR Shared Services model — from HRMS implementation and process standardisation to service delivery governance.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-chat-square-text"></i></div>
+              <h6>Employee Relations &amp; Grievance Management</h6>
+              <p>Structured frameworks for employee engagement, disciplinary proceedings, grievance redressal, and maintaining positive industrial relations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Payroll & Wages -->
+      <div class="tab-pane fade" id="tab-payroll">
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-clock-history"></i></div>
+              <h6>Time Office &amp; Payroll Management</h6>
+              <p>End-to-end payroll processing — attendance management, leave tracking, payslip generation, and bank disbursements — accurate, timely, every month.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-wallet2"></i></div>
+              <h6>Wages &amp; Salary Administration</h6>
+              <p>Structured salary administration covering CTC design, minimum wage compliance, increment workflows, and full-and-final settlements for all employee categories.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-gift"></i></div>
+              <h6>Compensation &amp; Benefit Module</h6>
+              <p>Design comprehensive C&amp;B structures — salary benchmarking, variable pay programmes, benefits administration, and incentive schemes tied to performance.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-receipt-cutoff"></i></div>
+              <h6>TDS &amp; Income Tax Compliance</h6>
+              <p>Monthly TDS calculation, Form 16 generation, investment declaration management, and liaison with finance for accurate tax reporting on employee income.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-bar-chart-line"></i></div>
+              <h6>HR MIS &amp; Analytics</h6>
+              <p>Custom HR dashboards and MIS reports — headcount, attrition, payroll cost analysis, and compliance trackers for data-driven HR decision-making.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-people"></i></div>
+              <h6>Contract Labour Administration</h6>
+              <p>Manage contract workforce payroll, register maintenance, muster rolls, wage registers, and contractor compliance in line with the Contract Labour Act.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Compliance -->
+      <div class="tab-pane fade" id="tab-compliance">
+        <div class="row g-4 mb-4">
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-shield-fill-check"></i></div>
+              <h6>EPF (Employees' Provident Fund)</h6>
+              <p>Registration, monthly challan filing, UAN generation, KYC updates, claims processing, and annual return filings in full compliance with EPF &amp; MP Act.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-heart-pulse"></i></div>
+              <h6>ESIC (Employees' State Insurance)</h6>
+              <p>ESIC registration, monthly contribution filing, IP generation, half-yearly returns, and employee claim assistance under the ESI Act, 1948.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-umbrella"></i></div>
+              <h6>GPA &amp; GMC Insurance</h6>
+              <p>Group Personal Accident (GPA) and Group Mediclaim (GMC) policy management — enrolment, endorsements, claims coordination, and annual renewal.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-people-fill"></i></div>
+              <h6>Contract Labour Management</h6>
+              <p>Contractor licence registration, principal employer registration, Form V/VI filing, inspection readiness, and end-to-end contract labour compliance management.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-file-text"></i></div>
+              <h6>Labour Law Compliance Audit</h6>
+              <p>Periodic compliance audits across applicable labour laws — Factories Act, Shops &amp; Establishment Act, Payment of Wages Act, Maternity Benefit Act, POSH, and more.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-calendar-check"></i></div>
+              <h6>Statutory Register &amp; Return Filing</h6>
+              <p>Timely maintenance of all statutory registers and filing of periodic returns — monthly, quarterly, half-yearly, and annual — across all applicable Acts.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compliance quick-ref pills -->
+        <div class="p-4 rounded-3" style="background:var(--alp-navy);">
+          <div class="row align-items-center">
+            <div class="col-md-4 mb-3 mb-md-0">
+              <h6 style="color:var(--alp-gold);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Acts &amp; Statutes We Cover</h6>
+              <p style="color:rgba(255,255,255,.7);font-size:.82rem;margin:0;">Complete compliance coverage across all major Indian labour laws applicable to your industry and workforce size.</p>
+            </div>
+            <div class="col-md-8">
+              <div class="d-flex flex-wrap gap-2">
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">EPF &amp; MP Act</span>
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">ESI Act</span>
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Contract Labour Act</span>
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Factories Act</span>
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Minimum Wages Act</span>
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Payment of Wages Act</span>
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Gratuity Act</span>
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Shops &amp; Estb. Act</span>
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">POSH Act</span>
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Maternity Benefit Act</span>
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Bonus Act</span>
+                <span style="background:rgba(255,255,255,.1);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.2);">Professional Tax</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: OD & Training -->
+      <div class="tab-pane fade" id="tab-od">
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-diagram-3-fill"></i></div>
+              <h6>Organisation Development &amp; Change Management</h6>
+              <p>Structured OD interventions — culture diagnostics, change management planning, employee engagement surveys, and leadership alignment programmes.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-arrow-left-right"></i></div>
+              <h6>Organisational Re-structuring</h6>
+              <p>Role rationalisation, org-chart redesign, span of control analysis, and workforce restructuring — managing transitions while protecting business continuity.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-clipboard-pulse"></i></div>
+              <h6>Training Needs Analysis (TNA)</h6>
+              <p>Competency gap analysis, skills assessment, and training calendar design aligned with individual development plans and organisational strategic goals.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-mortarboard-fill"></i></div>
+              <h6>Training &amp; Development</h6>
+              <p>Customised soft-skills training, leadership development programmes, functional workshops, and e-learning solutions delivered by certified trainers.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-graph-up-arrow"></i></div>
+              <h6>Competency Mapping &amp; Succession Planning</h6>
+              <p>Define competency frameworks, identify high-potential employees, and build succession pipelines to ensure leadership continuity at every level.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="svc-card">
+              <div class="svc-icon"><i class="bi bi-stars"></i></div>
+              <h6>Employee Engagement Programmes</h6>
+              <p>Design and run engagement surveys, action planning workshops, reward &amp; recognition schemes, and team-building interventions that reduce attrition.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tab-content -->
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     5. DEEP DIVE — ALTERNATING DETAIL ROWS
+══════════════════════════════════════════════ -->
+
+<!-- ROW A: Payroll & Time Office -->
+<section class="detail-row bg-white">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 order-2 order-lg-1">
+        <span class="eyebrow">Payroll &amp; Time Office</span>
+        <h2 class="sec-title">Accurate Payroll.<br>On Time. Every Time.</h2>
+        <div class="gold-bar"></div>
+        <p style="font-size:.92rem;line-height:1.75;color:#4a5568;margin-bottom:20px;">
+          Our payroll team manages the full payroll lifecycle — from attendance integration and leave management to statutory deductions, salary disbursements, and regulatory filings — so your HR team can focus on people, not paperwork.
+        </p>
+        <ul class="feature-list">
+          <li><i class="bi bi-check2-circle"></i>Attendance &amp; Leave Management Integration</li>
+          <li><i class="bi bi-check2-circle"></i>Monthly Payroll Processing &amp; Payslip Generation</li>
+          <li><i class="bi bi-check2-circle"></i>Wages &amp; Salary Administration for All Employee Types</li>
+          <li><i class="bi bi-check2-circle"></i>TDS Computation &amp; Form 16 Issuance</li>
+          <li><i class="bi bi-check2-circle"></i>Full &amp; Final Settlement Processing</li>
+          <li><i class="bi bi-check2-circle"></i>Contract Workforce Payroll &amp; Muster Roll Maintenance</li>
+        </ul>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2">
+        <div class="detail-visual">
+          <div class="detail-visual-inner" style="background:linear-gradient(135deg,#1a4a9e,var(--alp-navy));">
+            <div style="width:100%;text-align:center;padding:20px;">
+              <i class="bi bi-calculator" style="font-size:3.5rem;color:var(--alp-gold);display:block;margin-bottom:20px;"></i>
+              <div class="row g-3">
+                <div class="col-6">
+                  <div style="background:rgba(255,255,255,.08);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,.12);">
+                    <div style="font-size:1.5rem;font-weight:800;color:var(--alp-gold);">48 hrs</div>
+                    <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-top:3px;">Payroll Turnaround</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div style="background:rgba(255,255,255,.08);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,.12);">
+                    <div style="font-size:1.5rem;font-weight:800;color:var(--alp-gold);">0 Errors</div>
+                    <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-top:3px;">Accuracy Commitment</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div style="background:rgba(255,255,255,.08);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,.12);">
+                    <div style="font-size:1.5rem;font-weight:800;color:var(--alp-gold);">1000+</div>
+                    <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-top:3px;">Payrolls Processed</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div style="background:rgba(255,255,255,.08);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,.12);">
+                    <div style="font-size:1.5rem;font-weight:800;color:var(--alp-gold);">Multi-State</div>
+                    <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-top:3px;">Compliance Handling</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROW B: Statutory Compliance -->
+<section class="detail-row alt">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <div class="detail-visual">
+          <div class="detail-visual-inner" style="background:linear-gradient(135deg,var(--alp-navy-dark),#1a4a9e);">
+            <div style="width:100%;padding:10px;">
+              <div style="text-align:center;margin-bottom:20px;">
+                <i class="bi bi-shield-fill-check" style="font-size:3rem;color:var(--alp-gold);"></i>
+                <div style="color:#fff;font-size:.9rem;font-weight:700;margin-top:8px;">Statutory Compliance Dashboard</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.1);">
+                  <span style="width:10px;height:10px;border-radius:50%;background:#4caf50;flex-shrink:0;"></span>
+                  <span style="color:#fff;font-size:.82rem;font-weight:600;">EPF &amp; MP Act — Monthly Challan Filed</span>
+                </div>
+                <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.1);">
+                  <span style="width:10px;height:10px;border-radius:50%;background:#4caf50;flex-shrink:0;"></span>
+                  <span style="color:#fff;font-size:.82rem;font-weight:600;">ESIC — Contributions &amp; Returns Updated</span>
+                </div>
+                <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.1);">
+                  <span style="width:10px;height:10px;border-radius:50%;background:#4caf50;flex-shrink:0;"></span>
+                  <span style="color:#fff;font-size:.82rem;font-weight:600;">GPA / GMC — Policy Active &amp; Claims Ready</span>
+                </div>
+                <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.1);">
+                  <span style="width:10px;height:10px;border-radius:50%;background:#4caf50;flex-shrink:0;"></span>
+                  <span style="color:#fff;font-size:.82rem;font-weight:600;">Contract Labour — Registers Maintained</span>
+                </div>
+                <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.1);">
+                  <span style="width:10px;height:10px;border-radius:50%;background:#4caf50;flex-shrink:0;"></span>
+                  <span style="color:#fff;font-size:.82rem;font-weight:600;">Professional Tax — State-wise Filed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <span class="eyebrow">Statutory Compliance</span>
+        <h2 class="sec-title">Zero Penalties.<br>Full Compliance.</h2>
+        <div class="gold-bar"></div>
+        <p style="font-size:.92rem;line-height:1.75;color:#4a5568;margin-bottom:20px;">
+          Stay fully compliant with every applicable Indian labour statute. Our compliance specialists monitor regulatory changes, maintain your statutory registers, and file returns on time — eliminating the risk of penalties and legal disputes.
+        </p>
+        <ul class="feature-list">
+          <li><i class="bi bi-check2-circle"></i>EPF Registration, Challan Filing &amp; Claims</li>
+          <li><i class="bi bi-check2-circle"></i>ESIC Contributions, IP Generation &amp; Returns</li>
+          <li><i class="bi bi-check2-circle"></i>GPA &amp; GMC Insurance Administration</li>
+          <li><i class="bi bi-check2-circle"></i>Contract Labour Act Compliance &amp; Audit Readiness</li>
+          <li><i class="bi bi-check2-circle"></i>Annual Labour Law Compliance Audit</li>
+          <li><i class="bi bi-check2-circle"></i>Multi-State Statutory Register Maintenance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROW C: OD & Change Management -->
+<section class="detail-row bg-white">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 order-2 order-lg-1">
+        <span class="eyebrow">OD &amp; Change Management</span>
+        <h2 class="sec-title">Build Organisations<br>That Thrive.</h2>
+        <div class="gold-bar"></div>
+        <p style="font-size:.92rem;line-height:1.75;color:#4a5568;margin-bottom:20px;">
+          Sustainable growth starts with the right organisational design and a culture ready for change. We partner with leadership teams to reimagine structures, identify skill gaps, and build the capabilities your workforce needs for tomorrow.
+        </p>
+        <ul class="feature-list">
+          <li><i class="bi bi-check2-circle"></i>Organisation Development &amp; Culture Diagnostics</li>
+          <li><i class="bi bi-check2-circle"></i>Change Management Planning &amp; Execution</li>
+          <li><i class="bi bi-check2-circle"></i>Organisational Re-structuring &amp; Role Rationalisation</li>
+          <li><i class="bi bi-check2-circle"></i>Training Needs Analysis (TNA)</li>
+          <li><i class="bi bi-check2-circle"></i>Leadership Development &amp; Succession Planning</li>
+          <li><i class="bi bi-check2-circle"></i>Employee Engagement Surveys &amp; Action Planning</li>
+        </ul>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2">
+        <div class="detail-visual">
+          <div class="detail-visual-inner" style="background:linear-gradient(135deg,#1a4a9e,var(--alp-navy));">
+            <div style="width:100%;text-align:center;padding:20px;">
+              <i class="bi bi-diagram-3-fill" style="font-size:3rem;color:var(--alp-gold);display:block;margin-bottom:20px;"></i>
+              <!-- OD pillars -->
+              <div class="row g-3">
+                <div class="col-6">
+                  <div style="background:rgba(255,255,255,.08);border-radius:10px;padding:14px 10px;border:1px solid rgba(255,255,255,.12);">
+                    <i class="bi bi-arrow-repeat" style="font-size:1.4rem;color:var(--alp-gold);margin-bottom:6px;display:block;"></i>
+                    <div style="font-size:.75rem;color:#fff;font-weight:600;">OD &amp; Change</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div style="background:rgba(255,255,255,.08);border-radius:10px;padding:14px 10px;border:1px solid rgba(255,255,255,.12);">
+                    <i class="bi bi-binoculars" style="font-size:1.4rem;color:var(--alp-gold);margin-bottom:6px;display:block;"></i>
+                    <div style="font-size:.75rem;color:#fff;font-weight:600;">Succession Planning</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div style="background:rgba(255,255,255,.08);border-radius:10px;padding:14px 10px;border:1px solid rgba(255,255,255,.12);">
+                    <i class="bi bi-mortarboard" style="font-size:1.4rem;color:var(--alp-gold);margin-bottom:6px;display:block;"></i>
+                    <div style="font-size:.75rem;color:#fff;font-weight:600;">L&amp;D Programmes</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div style="background:rgba(255,255,255,.08);border-radius:10px;padding:14px 10px;border:1px solid rgba(255,255,255,.12);">
+                    <i class="bi bi-clipboard-pulse" style="font-size:1.4rem;color:var(--alp-gold);margin-bottom:6px;display:block;"></i>
+                    <div style="font-size:.75rem;color:#fff;font-weight:600;">TNA</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     6. OUR PROCESS
+══════════════════════════════════════════════ -->
+<section class="py-5" style="background:var(--alp-light-bg);">
+  <div class="container py-2">
+    <div class="text-center mb-5">
+      <span class="eyebrow">How We Engage</span>
+      <h2 class="sec-title">Our Service Delivery Process</h2>
+      <div class="gold-bar center"></div>
+    </div>
+
+    <!-- Desktop -->
+    <div class="process-wrap d-none d-md-block mb-2" style="position:relative;">
+      <div class="process-line"></div>
+      <div class="row g-0">
+        <div class="col process-step">
+          <div class="step-circle">1</div>
+          <h6>Discovery<br>Workshop</h6>
+          <p>Understand HR challenges, current state &amp; goals</p>
+        </div>
+        <div class="col process-step">
+          <div class="step-circle">2</div>
+          <h6>Scope &amp;<br>Proposal</h6>
+          <p>Customised service scope, SLA &amp; commercials</p>
+        </div>
+        <div class="col process-step">
+          <div class="step-circle">3</div>
+          <h6>Onboarding &amp;<br>Setup</h6>
+          <p>Data migration, system config &amp; team alignment</p>
+        </div>
+        <div class="col process-step">
+          <div class="step-circle">4</div>
+          <h6>Service<br>Delivery</h6>
+          <p>Live operations with dedicated HR specialists</p>
+        </div>
+        <div class="col process-step">
+          <div class="step-circle">5</div>
+          <h6>Review &amp;<br>Reporting</h6>
+          <p>Monthly MIS, SLA review &amp; governance calls</p>
+        </div>
+        <div class="col process-step">
+          <div class="step-circle" style="background:var(--alp-gold);color:var(--alp-navy);">6</div>
+          <h6>Continuous<br>Improvement</h6>
+          <p>Regular optimisation &amp; regulatory updates</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile -->
+    <div class="d-md-none">
+      <div class="d-flex flex-column gap-3">
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;">1</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Discovery Workshop</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Understand HR challenges, current state &amp; goals</p></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;">2</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Scope &amp; Proposal</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Customised service scope, SLA &amp; commercials</p></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;">3</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Onboarding &amp; Setup</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Data migration, system config &amp; team alignment</p></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;">4</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Service Delivery</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Live operations with dedicated HR specialists</p></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;">5</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Review &amp; Reporting</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Monthly MIS, SLA review &amp; governance calls</p></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div class="step-circle" style="flex-shrink:0;width:44px;height:44px;font-size:1rem;background:var(--alp-gold);color:var(--alp-navy);">6</div>
+          <div><h6 style="color:var(--alp-navy);font-weight:700;font-size:.92rem;margin-bottom:3px;">Continuous Improvement</h6><p style="font-size:.82rem;color:var(--alp-muted);margin:0;">Regular optimisation &amp; regulatory updates</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     7. WHY CHOOSE ALP
+══════════════════════════════════════════════ -->
+<section class="py-5 bg-white">
+  <div class="container py-2">
+    <div class="text-center mb-5">
+      <span class="eyebrow">Our Advantage</span>
+      <h2 class="sec-title">Why Choose ALP for HR Services?</h2>
+      <div class="gold-bar center"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-award"></i></div>
+          <h6>20+ Years of HR Domain Expertise</h6>
+          <p>Deep experience across industries — construction, manufacturing, BFSI, IT — with specialist HR professionals who understand your sector's unique challenges.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-shield-check"></i></div>
+          <h6>100% Statutory Compliance</h6>
+          <p>A dedicated compliance team monitors regulatory changes in real time and ensures zero-penalty, audit-ready statutory compliance across all applicable Acts.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-person-check"></i></div>
+          <h6>Dedicated Account Manager</h6>
+          <p>One specialist point of contact for every client — ensuring seamless communication, timely deliverables, and proactive support at every stage of engagement.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-sliders2"></i></div>
+          <h6>Fully Customisable Solutions</h6>
+          <p>No one-size-fits-all approach. Every service package is tailored to your workforce size, industry, geographic spread, and specific HR maturity level.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-cpu"></i></div>
+          <h6>Technology-Enabled Delivery</h6>
+          <p>HRMS integration, digital payroll platforms, compliance tracking tools, and real-time MIS dashboards — delivering HR services with speed and accuracy.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-globe2"></i></div>
+          <h6>Pan-India Coverage</h6>
+          <p>Managing multi-location, multi-state HR operations with expertise in state-specific labour laws, professional tax structures, and shop &amp; establishment requirements.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     8. CTA BAND
+══════════════════════════════════════════════ -->
+<div class="cta-band">
+  <div class="container text-center position-relative">
+    <span class="eyebrow" style="color:rgba(255,255,255,.5);">Let's Strengthen Your HR</span>
+    <h2 class="sec-title text-white mt-1 mb-3">Ready to Streamline<br class="d-none d-md-block"> Your HR Operations?</h2>
+    <p style="color:rgba(255,255,255,.7);max-width:500px;margin:0 auto 32px;font-size:.95rem;">
+      Share your HR challenge and our consultants will design a customised solution to help your organisation build efficiency, ensure compliance, and develop your people.
+    </p>
+    <div class="d-flex flex-wrap gap-3 justify-content-center">
+      <button class="btn-gold" onclick="openEnquiry()">
+        <i class="bi bi-send-fill"></i> Send Your Requirement
+      </button>
+      <a href="tel:+911234567890" class="btn-outline-white">
+        <i class="bi bi-telephone-fill"></i> Call Us Now
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="container pt-5">
+    <div class="row g-2 g-md-4 g-lg-5 ">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand d-flex align-items-center gap-2 mb-3">
+          <div class="brand-logo" style="padding: 0.2rem; background-color: #fff;">
+            <img src="./asset/alp1.jpg"/>
+            <!-- <span class="logo-alp">ALP</span>
+            <span class="logo-sub">GROUP</span> -->
+          </div>
+          <div>
+            <div class="brand-name text-white">ALP Group India</div>
+          </div>
+        </div>
+        <p class="footer-text">ALP Group India is a new-age HR, Business Consulting and Legal Consulting firm bringing over 20 years of industry expertise in Infrastructure & Construction sectors.</p>
+        <div class="footer-social d-flex gap-2 mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-6">
+        <h6 class="footer-heading">Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-6">
+        <h6 class="footer-heading">Our Services</h6>
+        <ul class="footer-links">
+          <li><a href="#services">Staffing / Recruitment</a></li>
+          <li><a href="#services">HR Solutions</a></li>
+          <li><a href="#services">Business Development</a></li>
+          <li><a href="#services">Career Counseling</a></li>
+          <li><a href="#services">Legal Solutions</a></li>
+          <li><a href="#services">IT Services</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h6 class="footer-heading">Get In Touch</h6>
+        <ul class="footer-contact-list">
+          <li><i class="fas fa-map-marker-alt"></i> 27A, South Ganesh Nagar, Delhi-110092, India</li>
+          <li><i class="fas fa-phone-alt"></i> <a href="tel:+919899202646">+91-9899202646</a></li>
+          <li><i class="fas fa-clock"></i> Mon to Sat – 09:00 AM to 6:00 PM</li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:info@alpgroupindia.com">business@alpgroupindia.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="row ">
+        <div class="col-md-6">
+          <p>© 2026 ALP Group India. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p>Inspired by the legacy of Sh. Achchhe Lal Priyadarshi</p>
+          <p class="">Developed with ❤️ by <a class="text-gray-300" href="https://www.linkedin.com/in/ayushdce2/" target="_blank">Ayush</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ 
+    
+ 
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     ENQUIRY MODAL
+══════════════════════════════════════════════ -->
+<div class="modal fade enq-modal" id="enquiryModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content border-0" style="border-radius:12px;overflow:hidden;">
+
+      <div class="modal-header navy-hdr py-3 px-4">
+        <div>
+          <small style="color:rgba(255,255,255,.55);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:3px;">ALP Group India</small>
+          <h5 class="modal-title text-white mb-0" style="font-size:1.1rem;">HR Shared Services Enquiry</h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body p-4" style="background:var(--alp-light-bg);">
+        <div id="enqFormWrap">
+
+          <h6 style="color:var(--alp-navy);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">Organisation Details</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label">Company Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="companyName" placeholder="e.g. ABC Industries Pvt Ltd">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Contact Person <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="contactPerson" placeholder="Full Name &amp; Designation">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email Address <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="enqEmail" placeholder="hr@company.com">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control" id="enqPhone" placeholder="+91 98765 43210">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Industry / Sector</label>
+              <select class="form-select" id="industry">
+                <option value="">Select…</option>
+                <option>Infrastructure &amp; Construction</option>
+                <option>Manufacturing</option>
+                <option>BFSI</option>
+                <option>IT &amp; Technology</option>
+                <option>Healthcare &amp; Pharma</option>
+                <option>FMCG &amp; Retail</option>
+                <option>Logistics &amp; Supply Chain</option>
+                <option>Real Estate</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Employee Strength</label>
+              <select class="form-select" id="empStrength">
+                <option value="">Select…</option>
+                <option>Up to 50</option>
+                <option>51–200</option>
+                <option>201–500</option>
+                <option>501–1000</option>
+                <option>1000+</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Operating Locations</label>
+              <input type="text" class="form-control" id="locations" placeholder="e.g. Delhi, Mumbai, Bangalore (multi-state)">
+            </div>
+          </div>
+
+          <h6 style="color:var(--alp-navy);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">Services Required</h6>
+          <div class="row g-2 mb-4">
+            <div class="col-6 col-md-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="svc1">
+                <label class="form-check-label" for="svc1" style="font-size:.83rem;">HR Policy Formulation</label>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="svc2">
+                <label class="form-check-label" for="svc2" style="font-size:.83rem;">Payroll Management</label>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="svc3">
+                <label class="form-check-label" for="svc3" style="font-size:.83rem;">Statutory Compliance</label>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="svc4">
+                <label class="form-check-label" for="svc4" style="font-size:.83rem;">Performance Management</label>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="svc5">
+                <label class="form-check-label" for="svc5" style="font-size:.83rem;">Training &amp; Development</label>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="svc6">
+                <label class="form-check-label" for="svc6" style="font-size:.83rem;">OD &amp; Change Management</label>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="svc7">
+                <label class="form-check-label" for="svc7" style="font-size:.83rem;">Contract Labour Mgmt</label>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="svc8">
+                <label class="form-check-label" for="svc8" style="font-size:.83rem;">C&amp;B Module</label>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="svc9">
+                <label class="form-check-label" for="svc9" style="font-size:.83rem;">SOP Formulation</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Additional Requirements / Notes</label>
+            <textarea class="form-control" id="enqNotes" rows="3" placeholder="Describe your current HR challenges or specific areas where you need support…"></textarea>
+          </div>
+
+          <div id="enqError" class="text-danger mt-1" style="font-size:.83rem;display:none;"></div>
+        </div>
+
+        <!-- Success -->
+        <div class="enq-success" id="enqSuccess">
+          <div class="check-circle mx-auto"><i class="bi bi-check-lg"></i></div>
+          <h5 style="color:var(--alp-navy);font-weight:700;">Enquiry Submitted!</h5>
+          <p class="text-muted" style="font-size:.9rem;max-width:360px;margin:0 auto;">
+            Thank you for reaching out. Our HR Solutions team will contact you within <strong>24 business hours</strong> to discuss your requirements.
+          </p>
+        </div>
+      </div>
+
+      <div class="modal-footer border-0 bg-white" id="enqFooter">
+        <button type="button" class="btn-outline-navy" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn-navy" onclick="submitEnquiry()">
+          <i class="bi bi-send-fill"></i> Submit Enquiry
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+function openEnquiry() {
+  ['companyName','contactPerson','enqEmail','enqPhone','locations','enqNotes']
+    .forEach(function(id){ var el=document.getElementById(id); if(el) el.value=''; });
+  ['industry','empStrength']
+    .forEach(function(id){ var el=document.getElementById(id); if(el) el.value=''; });
+  for(var i=1;i<=9;i++){
+    var cb=document.getElementById('svc'+i); if(cb) cb.checked=false;
+  }
+  document.getElementById('enqFormWrap').style.display='';
+  document.getElementById('enqSuccess').style.display='none';
+  document.getElementById('enqFooter').style.display='';
+  document.getElementById('enqError').style.display='none';
+  new bootstrap.Modal(document.getElementById('enquiryModal')).show();
+}
+
+function submitEnquiry() {
+  var err=document.getElementById('enqError');
+  var company=document.getElementById('companyName').value.trim();
+  var contact=document.getElementById('contactPerson').value.trim();
+  var email=document.getElementById('enqEmail').value.trim();
+  var phone=document.getElementById('enqPhone').value.trim();
+  if(!company||!contact||!email||!phone){
+    err.textContent='Please fill in all required fields (Company, Contact, Email, Phone).';
+    err.style.display='block'; return;
+  }
+  err.style.display='none';
+  document.getElementById('enqFormWrap').style.display='none';
+  document.getElementById('enqSuccess').style.display='block';
+  document.getElementById('enqFooter').style.display='none';
+}
+</script>
+</body>
+</html>

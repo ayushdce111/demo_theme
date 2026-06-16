@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers – ALP Group India</title>
+<link rel="stylesheet" href="./asset/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+   <!-- <link rel="stylesheet" href="./asset/all.min.css"/> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./asset/header_footer.css"/>
+  <style>
+    :root {
+      --alp-navy: #0d2d6b;
+      --alp-navy-dark: #091d47;
+      --alp-gold: #c9a84c;
+      --alp-gold-light: #f0d080;
+      --alp-light-bg: #f4f7fc;
+      --alp-border: #dde4f0;
+      --alp-text: #2c3e50;
+      --alp-muted: #6b7c93;
+    }
+
+    body { font-family: var(--font-body); color: var(--alp-text); background: #fff; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, var(--alp-navy-dark) 0%, var(--alp-navy) 60%, #1a4a9e 100%);
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-header .gold-rule {
+      width: 60px; height: 3px;
+      background: var(--alp-gold);
+      border-radius: 2px;
+      margin: 0 auto 16px;
+    }
+    .page-header h1 {
+      font-size: 2.6rem; font-weight: 700; color: #fff; letter-spacing: -0.5px;
+    }
+    .page-header .breadcrumb { background: transparent; padding: 0; margin: 0; }
+    .page-header .breadcrumb-item, .page-header .breadcrumb-item a {
+      color: rgba(255,255,255,0.65); font-size: 0.9rem; text-decoration: none;
+    }
+    .page-header .breadcrumb-item.active { color: var(--alp-gold); }
+    .page-header .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.4); }
+
+    /* ── SECTION LABELS ── */
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--alp-gold);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 2rem; font-weight: 700; color: var(--alp-navy);
+      margin-bottom: 12px; line-height: 1.2;
+    }
+    .gold-divider {
+      width: 48px; height: 3px; background: var(--alp-gold);
+      border-radius: 2px; margin-bottom: 20px;
+    }
+
+    /* ── WHY JOIN US ── */
+    .why-card {
+      border: 1.5px solid var(--alp-border);
+      border-radius: 10px;
+      padding: 28px 24px;
+      height: 100%;
+      transition: border-color .25s, box-shadow .25s, transform .25s;
+      background: #fff;
+    }
+    .why-card:hover {
+      border-color: var(--alp-navy);
+      box-shadow: 0 6px 28px rgba(13,45,107,.1);
+      transform: translateY(-3px);
+    }
+    .why-icon {
+      width: 52px; height: 52px;
+      background: var(--alp-light-bg);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--alp-navy);
+      margin-bottom: 16px;
+    }
+
+    /* ── STATS BAND ── */
+    .stats-band {
+      background: var(--alp-navy);
+      padding: 48px 0;
+    }
+    .stat-num {
+      font-size: 2.6rem; font-weight: 800; color: var(--alp-gold); line-height: 1;
+    }
+    .stat-label { font-size: 0.85rem; color: rgba(255,255,255,.7); margin-top: 4px; }
+
+    /* ── JOB SEARCH ── */
+    .search-wrap {
+      background: var(--alp-light-bg); padding: 36px; border-radius: 12px;
+      border: 1.5px solid var(--alp-border);
+    }
+    .search-wrap .form-control,
+    .search-wrap .form-select {
+      border: 1.5px solid var(--alp-border);
+      border-radius: 8px; height: 46px; font-size: 0.92rem;
+    }
+    .search-wrap .form-control:focus,
+    .search-wrap .form-select:focus {
+      border-color: var(--alp-navy); box-shadow: 0 0 0 3px rgba(13,45,107,.12);
+    }
+    .btn-navy {
+      background: var(--alp-navy); color: #fff; border: none;
+      border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+      padding: 10px 24px; transition: background .2s, transform .15s;
+    }
+    .btn-navy:hover { background: var(--alp-navy-dark); color: #fff; transform: translateY(-1px); }
+    .btn-gold {
+      background: var(--alp-gold); color: var(--alp-navy); border: none;
+      border-radius: 8px; font-weight: 700; font-size: 0.88rem;
+      padding: 8px 20px; transition: background .2s, transform .15s;
+    }
+    .btn-gold:hover { background: var(--alp-gold-light); color: var(--alp-navy-dark); transform: translateY(-1px); }
+    .btn-outline-navy {
+      background: transparent; color: var(--alp-navy);
+      border: 1.5px solid var(--alp-navy); border-radius: 8px;
+      font-weight: 600; font-size: 0.85rem; padding: 7px 18px;
+      transition: background .2s, color .2s;
+    }
+    .btn-outline-navy:hover { background: var(--alp-navy); color: #fff; }
+
+    /* ── JOB CARDS ── */
+    .job-card {
+      border: 1.5px solid var(--alp-border);
+      border-radius: 12px;
+      background: #fff;
+      transition: border-color .25s, box-shadow .25s, transform .2s;
+      overflow: hidden;
+    }
+    .job-card:hover {
+      border-color: var(--alp-navy);
+      box-shadow: 0 8px 32px rgba(13,45,107,.12);
+      transform: translateY(-3px);
+    }
+    .job-card-header {
+      background: var(--alp-light-bg);
+      padding: 18px 24px 14px;
+      border-bottom: 1.5px solid var(--alp-border);
+    }
+    .job-dept-badge {
+      display: inline-block;
+      background: var(--alp-navy); color: #fff;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .job-title { font-size: 1.1rem; font-weight: 700; color: var(--alp-navy); margin-bottom: 4px; }
+    .job-meta span {
+      font-size: 0.8rem; color: var(--alp-muted);
+      margin-right: 14px; display: inline-flex; align-items: center; gap: 4px;
+    }
+    .job-card-body { padding: 18px 24px 20px; }
+    .job-desc { font-size: 0.88rem; color: #4a5568; line-height: 1.6; margin-bottom: 14px; }
+    .job-tag {
+      display: inline-block;
+      background: var(--alp-light-bg); color: var(--alp-navy);
+      font-size: 0.75rem; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px; margin: 2px 3px 2px 0;
+      border: 1px solid var(--alp-border);
+    }
+    .read-more-link {
+      color: var(--alp-navy); font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 4px;
+    }
+    .read-more-link:hover { color: var(--alp-gold); }
+    .read-more-link i { font-size: 0.8rem; transition: transform .2s; }
+    .read-more-link:hover i { transform: translateX(3px); }
+
+    /* ── CULTURE SECTION ── */
+    .culture-img-wrap {
+      border-radius: 12px; overflow: hidden;
+      position: relative;
+    }
+    .culture-img-bg {
+      background: linear-gradient(135deg, var(--alp-navy) 0%, #1a4a9e 100%);
+      border-radius: 12px;
+      height: 380px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .culture-float-card {
+      position: absolute; bottom: -16px; right: -16px;
+      background: var(--alp-gold); color: var(--alp-navy);
+      border-radius: 10px; padding: 20px 24px; min-width: 160px;
+      font-weight: 700; text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,.18);
+    }
+    .culture-float-card .big-num { font-size: 2.4rem; font-weight: 800; line-height: 1; }
+
+    /* ── PROCESS STEPS ── */
+    .process-step {
+      text-align: center; padding: 24px 16px;
+      position: relative;
+    }
+    .step-num {
+      width: 52px; height: 52px;
+      background: var(--alp-navy); color: #fff;
+      border-radius: 50%; font-size: 1.2rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .process-connector {
+      position: absolute; top: 50px; left: calc(50% + 26px);
+      width: calc(100% - 52px); height: 2px;
+      background: var(--alp-border);
+    }
+    .process-connector::after {
+      content: ''; position: absolute; right: 0; top: -4px;
+      border: 5px solid transparent; border-left-color: var(--alp-gold);
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonial-card {
+      background: var(--alp-light-bg);
+      border-radius: 12px; padding: 28px;
+      border: 1.5px solid var(--alp-border);
+      height: 100%;
+    }
+    .testimonial-card .quote-mark {
+      font-size: 3rem; color: var(--alp-gold); line-height: 1;
+      font-family: Georgia, serif; margin-bottom: 8px;
+    }
+    .testimonial-card p { font-size: 0.92rem; font-style: italic; line-height: 1.65; color: #444; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+    .author-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--alp-navy); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700;
+    }
+    .author-name { font-size: 0.88rem; font-weight: 700; color: var(--alp-navy); }
+    .author-role { font-size: 0.78rem; color: var(--alp-muted); }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--alp-navy-dark) 0%, var(--alp-navy) 100%);
+      padding: 64px 0;
+    }
+
+    /* ── MODAL ── */
+    .modal-header.navy-header {
+      background: var(--alp-navy); color: #fff; border-radius: 0;
+    }
+    .modal-header.navy-header .btn-close { filter: invert(1); }
+    .job-detail-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--alp-light-bg); border: 1px solid var(--alp-border);
+      border-radius: 20px; padding: 5px 14px;
+      font-size: 0.8rem; color: var(--alp-navy); font-weight: 600;
+    }
+    .detail-section h6 {
+      font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--alp-gold); margin-bottom: 8px;
+    }
+    .detail-section ul { padding-left: 18px; }
+    .detail-section ul li { font-size: 0.9rem; margin-bottom: 5px; color: #444; }
+
+    /* ── APPLY FORM ── */
+    .apply-form-modal .modal-body { background: var(--alp-light-bg); }
+    .apply-form-modal .form-label { font-size: 0.85rem; font-weight: 600; color: var(--alp-navy); }
+    .apply-form-modal .form-control,
+    .apply-form-modal .form-select {
+      border: 1.5px solid var(--alp-border); border-radius: 8px; font-size: 0.9rem;
+    }
+    .apply-form-modal .form-control:focus,
+    .apply-form-modal .form-select:focus {
+      border-color: var(--alp-navy); box-shadow: 0 0 0 3px rgba(13,45,107,.1);
+    }
+    .upload-zone {
+      border: 2px dashed var(--alp-border); border-radius: 10px;
+      padding: 32px; text-align: center; cursor: pointer;
+      transition: border-color .2s, background .2s;
+      background: #fff;
+    }
+    .upload-zone:hover { border-color: var(--alp-navy); background: var(--alp-light-bg); }
+    .upload-zone i { font-size: 2rem; color: var(--alp-navy); margin-bottom: 8px; display: block; }
+    .upload-zone span { font-size: 0.85rem; color: var(--alp-muted); display: block; }
+    .success-screen { display: none; text-align: center; padding: 40px 20px; }
+    .success-screen .check-circle {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: #e8f5e9; color: #2e7d32;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; margin: 0 auto 16px;
+    }
+  </style>
+</head>
+<body>
+
+  
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div class="top-contact d-flex gap-md-3 flex-wrap">
+        <a href="tel:+919899202646"><i class="fas fa-phone-alt me-1"></i>+91-9899202646</a>
+        <a href="mailto:info@alpgroupindia.com"><i class="fas fa-envelope me-1"></i>business@alpgroupindia.com</a>
+        <a href="mailto:hr@alpgroupindia.com"><i class="fas fa-envelope me-1"></i>hr@alpgroupindia.com</a>
+      </div>
+      <div class="top-social d-flex gap-2">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY HEADER -->
+<nav class="navbar navbar-expand-lg sticky-top main-navbar" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <div class="brand-logo">
+        <img src="./asset/alp1.jpg" />
+        <!-- <span class="logo-alp">ALP</span>
+        <span class="logo-sub">GROUP</span> -->
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">ALP Group India</div>
+        <div class="brand-tagline">HR <span style="font-weight: bold;">|</span> Business Consulting <span style="font-weight: bold;">|</span> Legal services</div>
+      </div>
+    </a>
+    <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link fw-bold " href="./index.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link fw-bold" href="#about">ABOUT US</a></li>
+        <!-- <li class="nav-item"><a class="nav-link fw-bold" href="#services">SERVICES</a></li> -->
+        <li class="nav-item">
+        <div class="dropdown">
+  <button class="btn  dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #073e88;">
+    <a class="fw-bold" href="#">SERVICES</a>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="./staffing-service.html">Staffing / Recruitment Service</a></li>
+    <li><a class="dropdown-item" href="./hr-shared-services.html">HR Shared Services</a></li>
+    <li><a class="dropdown-item" href="#BusinessDevelopment&BusinessSolutions">Business Development & Business Solutions</a></li>
+    <li><a class="dropdown-item" href="#CareerCounselling&Training">Career Counselling & Training</a></li>
+    <li><a class="dropdown-item" href="#ComprehensiveLegalServices">Comprehensive Legal Services</a></li>
+    <li><a class="dropdown-item" href="#ITServices">IT Services</a></li>
+  </ul>
+</div>
+</li>
+        <!-- <li class="nav-item"><a class="nav-link" href="index.html#why">Why Choose Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#vision">Vision</a></li>-->
+        <li class="nav-item"><a class="nav-link fw-bold active" href="./careers.html">CAREER</a></li> 
+        <li class="nav-item"><a class="nav-link fw-bold" href="#contact">CONTACT US</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE HEADER — place right after navbar
+══════════════════════════════════════════ -->
+<section class="page-header">
+  <div class="container text-center position-relative">
+    <div class="gold-rule"></div>
+    <h1 class="mb-3">Careers at ALP Group India</h1>
+    <p class="text-white-50 mb-4" style="max-width:540px;margin:0 auto 20px;">
+      Join a team that powers careers, fuels businesses, and drives digital success — one solution at a time.
+    </p>
+    <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Careers</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     WHY JOIN US
+══════════════════════════════════════════ -->
+<section class="py-5" style="background:#fff;">
+  <div class="container py-3">
+    <div class="text-center mb-5">
+      <span class="section-eyebrow">Why Choose ALP</span>
+      <h2 class="section-title">Why Join Our Team?</h2>
+      <div class="gold-divider mx-auto"></div>
+      <p class="text-muted" style="max-width:560px;margin:0 auto;font-size:.95rem;">
+        At ALP Group India, we don't just fill roles — we build careers. Our workplace is where ambition meets opportunity.
+      </p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 col-sm-6">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-graph-up-arrow"></i></div>
+          <h6 class="fw-700 mb-2" style="color:var(--alp-navy);font-weight:700;">Growth & Learning</h6>
+          <p class="text-muted mb-0" style="font-size:.88rem;line-height:1.6;">Structured learning paths, mentorship programmes, and leadership tracks that grow with your ambitions.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-people-fill"></i></div>
+          <h6 class="fw-700 mb-2" style="color:var(--alp-navy);font-weight:700;">Collaborative Culture</h6>
+          <p class="text-muted mb-0" style="font-size:.88rem;line-height:1.6;">Flat hierarchy, open-door leadership, and cross-functional teams that celebrate shared success.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-shield-check"></i></div>
+          <h6 class="fw-700 mb-2" style="color:var(--alp-navy);font-weight:700;">Job Security & Benefits</h6>
+          <p class="text-muted mb-0" style="font-size:.88rem;line-height:1.6;">Competitive salaries, health coverage, provident fund, and performance bonuses built for long-term well-being.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-clock-history"></i></div>
+          <h6 class="fw-700 mb-2" style="color:var(--alp-navy);font-weight:700;">Work-Life Balance</h6>
+          <p class="text-muted mb-0" style="font-size:.88rem;line-height:1.6;">Flexible hours, hybrid options, and a culture that respects your time outside the office.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-award"></i></div>
+          <h6 class="fw-700 mb-2" style="color:var(--alp-navy);font-weight:700;">Recognition & Rewards</h6>
+          <p class="text-muted mb-0" style="font-size:.88rem;line-height:1.6;">Monthly star performer awards, quarterly incentives, and public recognition that make excellence visible.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-globe2"></i></div>
+          <h6 class="fw-700 mb-2" style="color:var(--alp-navy);font-weight:700;">Diverse Clientele</h6>
+          <p class="text-muted mb-0" style="font-size:.88rem;line-height:1.6;">Work with 500+ organisations across industries — from startups to Fortune 500 — and build a remarkable résumé.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     STATS BAND
+══════════════════════════════════════════ -->
+<div class="stats-band">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-6 col-md-3">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Client Organisations</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">10K+</div>
+        <div class="stat-label">Placements Made</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Employee Satisfaction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     OPEN POSITIONS
+══════════════════════════════════════════ -->
+<section class="py-5" style="background:var(--alp-light-bg);">
+  <div class="container py-3">
+    <div class="text-center mb-4">
+      <span class="section-eyebrow">Now Hiring</span>
+      <h2 class="section-title">Open Positions</h2>
+      <div class="gold-divider mx-auto"></div>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="search-wrap mb-5">
+      <div class="row g-3 align-items-end">
+        <div class="col-md-4">
+          <label class="form-label fw-semibold" style="font-size:.85rem;color:var(--alp-navy);">Search Role</label>
+          <input type="text" id="jobSearch" class="form-control" placeholder="e.g. Recruiter, HR Manager…" oninput="filterJobs()">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label fw-semibold" style="font-size:.85rem;color:var(--alp-navy);">Department</label>
+          <select id="deptFilter" class="form-select" onchange="filterJobs()">
+            <option value="">All Departments</option>
+            <option>Talent Solutions</option>
+            <option>HR Shared Services</option>
+            <option>Business Development</option>
+            <option>Legal Services</option>
+            <option>IT Services</option>
+            <option>Career Counselling</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label fw-semibold" style="font-size:.85rem;color:var(--alp-navy);">Work Type</label>
+          <select id="typeFilter" class="form-select" onchange="filterJobs()">
+            <option value="">All Types</option>
+            <option>Full-time</option>
+            <option>Part-time</option>
+            <option>Remote</option>
+            <option>Hybrid</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-navy w-100" onclick="clearFilters()"><i class="bi bi-arrow-clockwise me-1"></i>Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result count + active chips -->
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+      <span id="resultCount" style="font-size:.85rem;font-weight:600;color:var(--alp-navy);">6 open positions</span>
+      <div id="activeChips" class="d-flex gap-2 flex-wrap"></div>
+    </div>
+
+    <!-- Job Listing Grid -->
+    <div class="row g-4" id="jobGrid">
+
+      <!-- JOB 1 -->
+      <div class="col-lg-6 job-item" data-dept="Talent Solutions" data-type="Full-time">
+        <div class="job-card">
+          <div class="job-card-header">
+            <span class="job-dept-badge">Talent Solutions</span>
+            <div class="job-title">Senior Recruitment Consultant</div>
+            <div class="job-meta">
+              <span><i class="bi bi-geo-alt-fill"></i>Noida, UP</span>
+              <span><i class="bi bi-briefcase-fill"></i>Full-time</span>
+              <span><i class="bi bi-currency-rupee"></i>6–10 LPA</span>
+            </div>
+          </div>
+          <div class="job-card-body">
+            <p class="job-desc">Lead end-to-end recruitment for mid to senior positions across BFSI, IT, and Manufacturing sectors. Drive candidate sourcing, stakeholder management, and client engagement.</p>
+            <div class="mb-3">
+              <span class="job-tag">3–6 Yrs Exp</span>
+              <span class="job-tag">ATS Tools</span>
+              <span class="job-tag">Headhunting</span>
+              <span class="job-tag">LinkedIn Recruiter</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <button class="btn btn-gold" onclick="openApply('Senior Recruitment Consultant')">
+                <i class="bi bi-send-fill me-1"></i>Apply Now
+              </button>
+              <a href="#" class="read-more-link" onclick="openJobDetail(0);return false;">
+                Read More <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOB 2 -->
+      <div class="col-lg-6 job-item" data-dept="HR Shared Services" data-type="Hybrid">
+        <div class="job-card">
+          <div class="job-card-header">
+            <span class="job-dept-badge">HR Shared Services</span>
+            <div class="job-title">Payroll & Compliance Executive</div>
+            <div class="job-meta">
+              <span><i class="bi bi-geo-alt-fill"></i>Delhi / Hybrid</span>
+              <span><i class="bi bi-briefcase-fill"></i>Hybrid</span>
+              <span><i class="bi bi-currency-rupee"></i>4–7 LPA</span>
+            </div>
+          </div>
+          <div class="job-card-body">
+            <p class="job-desc">Manage payroll processing, statutory compliance (PF, ESI, PT), and HR operations for 1000+ employee accounts across multiple clients.</p>
+            <div class="mb-3">
+              <span class="job-tag">2–4 Yrs Exp</span>
+              <span class="job-tag">Payroll Software</span>
+              <span class="job-tag">Labour Law</span>
+              <span class="job-tag">MS Excel</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <button class="btn btn-gold" onclick="openApply('Payroll & Compliance Executive')">
+                <i class="bi bi-send-fill me-1"></i>Apply Now
+              </button>
+              <a href="#" class="read-more-link" onclick="openJobDetail(1);return false;">
+                Read More <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOB 3 -->
+      <div class="col-lg-6 job-item" data-dept="Business Development" data-type="Full-time">
+        <div class="job-card">
+          <div class="job-card-header">
+            <span class="job-dept-badge">Business Development</span>
+            <div class="job-title">Business Development Manager</div>
+            <div class="job-meta">
+              <span><i class="bi bi-geo-alt-fill"></i>Ghaziabad, UP</span>
+              <span><i class="bi bi-briefcase-fill"></i>Full-time</span>
+              <span><i class="bi bi-currency-rupee"></i>8–14 LPA</span>
+            </div>
+          </div>
+          <div class="job-card-body">
+            <p class="job-desc">Identify and convert new business opportunities in HR outsourcing and staffing. Build long-term relationships with C-suite decision makers across sectors.</p>
+            <div class="mb-3">
+              <span class="job-tag">5+ Yrs Exp</span>
+              <span class="job-tag">B2B Sales</span>
+              <span class="job-tag">HR Consulting</span>
+              <span class="job-tag">CRM Tools</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <button class="btn btn-gold" onclick="openApply('Business Development Manager')">
+                <i class="bi bi-send-fill me-1"></i>Apply Now
+              </button>
+              <a href="#" class="read-more-link" onclick="openJobDetail(2);return false;">
+                Read More <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOB 4 -->
+      <div class="col-lg-6 job-item" data-dept="Career Counselling" data-type="Full-time">
+        <div class="job-card">
+          <div class="job-card-header">
+            <span class="job-dept-badge">Career Counselling</span>
+            <div class="job-title">Career Coach & Trainer</div>
+            <div class="job-meta">
+              <span><i class="bi bi-geo-alt-fill"></i>Delhi NCR</span>
+              <span><i class="bi bi-briefcase-fill"></i>Full-time</span>
+              <span><i class="bi bi-currency-rupee"></i>5–9 LPA</span>
+            </div>
+          </div>
+          <div class="job-card-body">
+            <p class="job-desc">Conduct career assessment, one-on-one coaching, resume workshops, and mock interview sessions for fresh graduates and mid-career professionals.</p>
+            <div class="mb-3">
+              <span class="job-tag">3+ Yrs Exp</span>
+              <span class="job-tag">Coaching</span>
+              <span class="job-tag">Training</span>
+              <span class="job-tag">Psychometric Tools</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <button class="btn btn-gold" onclick="openApply('Career Coach & Trainer')">
+                <i class="bi bi-send-fill me-1"></i>Apply Now
+              </button>
+              <a href="#" class="read-more-link" onclick="openJobDetail(3);return false;">
+                Read More <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOB 5 -->
+      <div class="col-lg-6 job-item" data-dept="IT Services" data-type="Remote">
+        <div class="job-card">
+          <div class="job-card-header">
+            <span class="job-dept-badge">IT Services</span>
+            <div class="job-title">Full Stack Developer</div>
+            <div class="job-meta">
+              <span><i class="bi bi-geo-alt-fill"></i>Remote / Noida</span>
+              <span><i class="bi bi-briefcase-fill"></i>Remote</span>
+              <span><i class="bi bi-currency-rupee"></i>10–18 LPA</span>
+            </div>
+          </div>
+          <div class="job-card-body">
+            <p class="job-desc">Design and develop scalable HR-tech and business solutions using modern web frameworks. Collaborate with product and design teams on client-facing portals.</p>
+            <div class="mb-3">
+              <span class="job-tag">3–7 Yrs Exp</span>
+              <span class="job-tag">React.js</span>
+              <span class="job-tag">Node.js</span>
+              <span class="job-tag">PostgreSQL</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <button class="btn btn-gold" onclick="openApply('Full Stack Developer')">
+                <i class="bi bi-send-fill me-1"></i>Apply Now
+              </button>
+              <a href="#" class="read-more-link" onclick="openJobDetail(4);return false;">
+                Read More <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOB 6 -->
+      <div class="col-lg-6 job-item" data-dept="Legal Services" data-type="Full-time">
+        <div class="job-card">
+          <div class="job-card-header">
+            <span class="job-dept-badge">Legal Services</span>
+            <div class="job-title">Legal & Compliance Officer</div>
+            <div class="job-meta">
+              <span><i class="bi bi-geo-alt-fill"></i>Delhi</span>
+              <span><i class="bi bi-briefcase-fill"></i>Full-time</span>
+              <span><i class="bi bi-currency-rupee"></i>6–12 LPA</span>
+            </div>
+          </div>
+          <div class="job-card-body">
+            <p class="job-desc">Advise on labour law compliance, draft service agreements, manage legal risk for HR and staffing operations, and coordinate with external counsel on disputes.</p>
+            <div class="mb-3">
+              <span class="job-tag">4+ Yrs Exp</span>
+              <span class="job-tag">LLB/LLM</span>
+              <span class="job-tag">Labour Law</span>
+              <span class="job-tag">Contract Drafting</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <button class="btn btn-gold" onclick="openApply('Legal & Compliance Officer')">
+                <i class="bi bi-send-fill me-1"></i>Apply Now
+              </button>
+              <a href="#" class="read-more-link" onclick="openJobDetail(5);return false;">
+                Read More <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /jobGrid -->
+
+    <!-- No Results -->
+    <div id="noResults" class="text-center py-5" style="display:none;">
+      <i class="bi bi-search" style="font-size:2.5rem;color:var(--alp-muted);"></i>
+      <p class="mt-3 text-muted">No positions match your search. Try different keywords or filters.</p>
+      <button class="btn btn-outline-navy mt-2" onclick="clearFilters()">Clear Filters</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     HIRING PROCESS
+══════════════════════════════════════════ -->
+<section class="py-5" style="background:#fff;">
+  <div class="container py-3">
+    <div class="text-center mb-5">
+      <span class="section-eyebrow">How It Works</span>
+      <h2 class="section-title">Our Hiring Process</h2>
+      <div class="gold-divider mx-auto"></div>
+    </div>
+    <div class="row g-0 justify-content-center">
+      <div class="col-6 col-md-2 process-step">
+        <div class="step-num">1</div>
+        <h6 class="fw-700 mb-1" style="color:var(--alp-navy);font-size:.9rem;font-weight:700;">Apply Online</h6>
+        <p class="text-muted mb-0" style="font-size:.8rem;">Submit your application and CV</p>
+        <div class="process-connector d-none d-md-block"></div>
+      </div>
+      <div class="col-6 col-md-2 process-step">
+        <div class="step-num">2</div>
+        <h6 class="fw-700 mb-1" style="color:var(--alp-navy);font-size:.9rem;font-weight:700;">Screening Call</h6>
+        <p class="text-muted mb-0" style="font-size:.8rem;">Initial 20-min HR conversation</p>
+        <div class="process-connector d-none d-md-block"></div>
+      </div>
+      <div class="col-6 col-md-2 process-step">
+        <div class="step-num">3</div>
+        <h6 class="fw-700 mb-1" style="color:var(--alp-navy);font-size:.9rem;font-weight:700;">Assessment</h6>
+        <p class="text-muted mb-0" style="font-size:.8rem;">Role-specific skill evaluation</p>
+        <div class="process-connector d-none d-md-block"></div>
+      </div>
+      <div class="col-6 col-md-2 process-step">
+        <div class="step-num">4</div>
+        <h6 class="fw-700 mb-1" style="color:var(--alp-navy);font-size:.9rem;font-weight:700;">Panel Interview</h6>
+        <p class="text-muted mb-0" style="font-size:.8rem;">Meet the team & leadership</p>
+        <div class="process-connector d-none d-md-block"></div>
+      </div>
+      <div class="col-6 col-md-2 process-step">
+        <div class="step-num">5</div>
+        <h6 class="fw-700 mb-1" style="color:var(--alp-navy);font-size:.9rem;font-weight:700;">Offer & Onboard</h6>
+        <p class="text-muted mb-0" style="font-size:.8rem;">Receive offer & join the team</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     EMPLOYEE TESTIMONIALS
+══════════════════════════════════════════ -->
+<section class="py-5" style="background:var(--alp-light-bg);">
+  <div class="container py-3">
+    <div class="text-center mb-5">
+      <span class="section-eyebrow">Team Voices</span>
+      <h2 class="section-title">What Our Team Says</h2>
+      <div class="gold-divider mx-auto"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p>ALP gave me the space to grow from a junior recruiter to a team lead within three years. The mentorship here is genuine, not just a buzzword on a poster.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">PS</div>
+            <div>
+              <div class="author-name">Priya Sharma</div>
+              <div class="author-role">Team Lead – Talent Solutions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p>The exposure to diverse industries and senior clients accelerated my career by at least five years. Every day brings a new challenge — and that's what keeps me here.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RV</div>
+            <div>
+              <div class="author-name">Rahul Verma</div>
+              <div class="author-role">Business Development Executive</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p>As a woman in a senior HR role, ALP has been genuinely inclusive — flexible policies, equal opportunities, and leadership that walks the talk on diversity.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">NA</div>
+            <div>
+              <div class="author-name">Neha Arora</div>
+              <div class="author-role">HR Compliance Manager</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CTA BAND
+══════════════════════════════════════════ -->
+<div class="cta-band">
+  <div class="container text-center">
+    <span class="section-eyebrow" style="color:var(--alp-gold-light);">Don't See Your Role?</span>
+    <h2 class="section-title text-white mt-1 mb-3">Send Us Your CV Anyway</h2>
+    <p class="mb-4" style="color:rgba(255,255,255,.7);max-width:500px;margin:0 auto 28px;font-size:.95rem;">
+      We're always on the lookout for exceptional talent. Drop your résumé and we'll reach out when the right opportunity opens up.
+    </p>
+    <button class="btn btn-gold px-5 py-2" style="font-size:1rem;" onclick="openApply('General Application')">
+      <i class="bi bi-envelope-fill me-2"></i>Submit Your CV
+    </button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="container pt-5">
+    <div class="row g-2 g-md-4 g-lg-5 ">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand d-flex align-items-center gap-2 mb-3">
+          <div class="brand-logo" style="padding: 0.2rem; background-color: #fff;">
+            <img src="./asset/alp1.jpg"/>
+            <!-- <span class="logo-alp">ALP</span>
+            <span class="logo-sub">GROUP</span> -->
+          </div>
+          <div>
+            <div class="brand-name text-white">ALP Group India</div>
+          </div>
+        </div>
+        <p class="footer-text">ALP Group India is a new-age HR, Business Consulting and Legal Consulting firm bringing over 20 years of industry expertise in Infrastructure & Construction sectors.</p>
+        <div class="footer-social d-flex gap-2 mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-6">
+        <h6 class="footer-heading">Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-6">
+        <h6 class="footer-heading">Our Services</h6>
+        <ul class="footer-links">
+          <li><a href="#services">Staffing / Recruitment</a></li>
+          <li><a href="#services">HR Solutions</a></li>
+          <li><a href="#services">Business Development</a></li>
+          <li><a href="#services">Career Counseling</a></li>
+          <li><a href="#services">Legal Solutions</a></li>
+          <li><a href="#services">IT Services</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h6 class="footer-heading">Get In Touch</h6>
+        <ul class="footer-contact-list">
+          <li><i class="fas fa-map-marker-alt"></i> 27A, South Ganesh Nagar, Delhi-110092, India</li>
+          <li><i class="fas fa-phone-alt"></i> <a href="tel:+919899202646">+91-9899202646</a></li>
+          <li><i class="fas fa-clock"></i> Mon to Sat – 09:00 AM to 6:00 PM</li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:info@alpgroupindia.com">business@alpgroupindia.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="row ">
+        <div class="col-md-6">
+          <p>© 2026 ALP Group India. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p>Inspired by the legacy of Sh. Achchhe Lal Priyadarshi</p>
+          <p class="">Developed with ❤️ by <a class="text-gray-300" href="https://www.linkedin.com/in/ayushdce2/" target="_blank">Ayush</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ 
+    
+ 
+</footer>
+
+<!-- ══════════════════════════════════════════
+     JOB DETAIL MODAL
+══════════════════════════════════════════ -->
+<div class="modal fade" id="jobDetailModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content border-0" style="border-radius:12px;overflow:hidden;">
+      <div class="modal-header navy-header">
+        <div>
+          <small class="text-white-50" style="font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;" id="detailDept">Department</small>
+          <h5 class="modal-title text-white mt-1 mb-0" id="detailTitle">Job Title</h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-4">
+        <!-- Meta badges -->
+        <div class="d-flex flex-wrap gap-2 mb-4" id="detailMeta"></div>
+        <!-- Sections injected by JS -->
+        <div id="detailContent"></div>
+      </div>
+      <div class="modal-footer border-0 bg-white pt-0">
+        <button type="button" class="btn btn-outline-navy" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-gold px-4" id="detailApplyBtn">
+          <i class="bi bi-send-fill me-1"></i>Apply Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     APPLY MODAL
+══════════════════════════════════════════ -->
+<div class="modal fade apply-form-modal" id="applyModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content border-0" style="border-radius:12px;overflow:hidden;">
+      <div class="modal-header navy-header">
+        <div>
+          <small class="text-white-50" style="font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;">Apply For</small>
+          <h5 class="modal-title text-white mt-1 mb-0" id="applyRoleTitle">Position</h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-4">
+        <!-- Form -->
+        <div id="applyFormWrap">
+          <h6 class="fw-700 mb-3" style="color:var(--alp-navy);font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:1px;">Personal Details</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label">First Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="fName" placeholder="e.g. Rahul">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Last Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="lName" placeholder="e.g. Sharma">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email Address <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control" id="phone" placeholder="+91 98765 43210">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Current Location</label>
+              <input type="text" class="form-control" id="location" placeholder="City, State">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Total Experience</label>
+              <select class="form-select" id="experience">
+                <option value="">Select…</option>
+                <option>Fresher (0–1 yr)</option>
+                <option>1–3 Years</option>
+                <option>3–6 Years</option>
+                <option>6–10 Years</option>
+                <option>10+ Years</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Current / Last Company</label>
+              <input type="text" class="form-control" id="company" placeholder="Company name">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Current CTC (LPA)</label>
+              <input type="text" class="form-control" id="ctc" placeholder="e.g. 6.5">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Notice Period</label>
+              <select class="form-select" id="notice">
+                <option value="">Select…</option>
+                <option>Immediate</option>
+                <option>15 Days</option>
+                <option>30 Days</option>
+                <option>60 Days</option>
+                <option>90 Days</option>
+              </select>
+            </div>
+          </div>
+
+          <h6 class="fw-700 mb-3" style="color:var(--alp-navy);font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:1px;">Upload CV / Résumé</h6>
+          <div class="upload-zone mb-4" id="uploadZone" onclick="document.getElementById('cvFile').click()">
+            <i class="bi bi-cloud-upload"></i>
+            <span id="uploadLabel">Click to upload your CV (PDF, DOC, DOCX — max 5 MB)</span>
+          </div>
+          <input type="file" id="cvFile" accept=".pdf,.doc,.docx" style="display:none" onchange="handleFile(this)">
+
+          <h6 class="fw-700 mb-2" style="color:var(--alp-navy);font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:1px;">Cover Note <span style="color:var(--alp-muted);font-weight:400;font-size:.78rem;text-transform:none;">(optional)</span></h6>
+          <textarea class="form-control mb-4" id="coverNote" rows="3" placeholder="Tell us briefly why you'd be a great fit for this role…"></textarea>
+
+          <div class="form-check mb-1">
+            <input class="form-check-input" type="checkbox" id="consentCheck">
+            <label class="form-check-label" for="consentCheck" style="font-size:.83rem;color:var(--alp-muted);">
+              I agree to ALP Group India processing my personal data for recruitment purposes as per the <a href="#" style="color:var(--alp-navy);">Privacy Policy</a>.
+            </label>
+          </div>
+          <div id="formError" class="text-danger mt-2" style="font-size:.83rem;display:none;"></div>
+        </div>
+
+        <!-- Success Screen -->
+        <div class="success-screen" id="successScreen">
+          <div class="check-circle mx-auto"><i class="bi bi-check-lg"></i></div>
+          <h5 style="color:var(--alp-navy);font-weight:700;">Application Submitted!</h5>
+          <p class="text-muted" style="font-size:.9rem;max-width:360px;margin:0 auto;">
+            Thank you for applying. Our talent team will review your profile and reach out within 5–7 business days.
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer border-0 bg-white" id="applyFooter">
+        <button type="button" class="btn btn-outline-navy" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-gold px-4" onclick="submitApplication()">
+          <i class="bi bi-send-fill me-1"></i>Submit Application
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ── JOB DATA ─────────────────────────────────── */
+const jobs = [
+  {
+    title: 'Senior Recruitment Consultant',
+    dept: 'Talent Solutions',
+    location: 'Noida, UP',
+    type: 'Full-time',
+    salary: '₹6–10 LPA',
+    exp: '3–6 Years',
+    about: 'ALP Talent Solutions is the flagship vertical of ALP Group India, delivering specialised recruitment services across BFSI, IT, Manufacturing, and FMCG. As a Senior Recruitment Consultant you will own the full recruitment lifecycle for mid to senior mandates.',
+    responsibilities: [
+      'Manage end-to-end recruitment for 10–15 active positions simultaneously',
+      'Source candidates via LinkedIn Recruiter, job boards, referrals and headhunting',
+      'Conduct competency-based interviews and shortlist candidates for client submission',
+      'Build and maintain strong client relationships with weekly status updates',
+      'Negotiate offers and ensure smooth candidate onboarding',
+      'Contribute to team KPIs and monthly target reviews',
+    ],
+    requirements: [
+      '3–6 years of recruitment / executive search experience',
+      'Proficiency with ATS platforms (e.g. Zoho Recruit, Bullhorn)',
+      'Strong understanding of at least one industry vertical',
+      'Excellent communication and negotiation skills',
+      'Graduate / Postgraduate in HR, Business, or related field',
+    ],
+    perks: ['Incentive pay up to 30% of CTC', 'Hybrid work options after 6 months', 'Annual performance review', 'Health insurance for self & family'],
+  },
+  {
+    title: 'Payroll & Compliance Executive',
+    dept: 'HR Shared Services',
+    location: 'Delhi / Hybrid',
+    type: 'Hybrid',
+    salary: '₹4–7 LPA',
+    exp: '2–4 Years',
+    about: 'Our HR Shared Services team manages payroll and statutory compliance for 50+ client organisations. You will ensure accurate, timely payroll runs and keep clients compliant with Indian labour laws.',
+    responsibilities: [
+      'Process monthly payroll for 500–1000+ employees across multiple clients',
+      'Manage PF, ESI, PT, TDS, and other statutory deductions',
+      'File monthly/quarterly/annual statutory returns within deadlines',
+      'Handle employee queries on salary slips, Form 16, and benefits',
+      'Coordinate with finance teams for bank disbursements',
+      'Generate MIS reports and payroll dashboards for client review',
+    ],
+    requirements: [
+      '2–4 years in payroll processing or HR operations',
+      'Sound knowledge of PF, ESI, PT, and labour law',
+      'Hands-on experience with payroll software (GreytHR, Keka, or similar)',
+      'Advanced MS Excel (VLOOKUP, pivot tables)',
+      'B.Com / MBA (HR/Finance) preferred',
+    ],
+    perks: ['Hybrid work (3 days WFH)', 'Annual bonus', 'Skill-based increments', 'Provident fund'],
+  },
+  {
+    title: 'Business Development Manager',
+    dept: 'Business Development',
+    location: 'Ghaziabad, UP',
+    type: 'Full-time',
+    salary: '₹8–14 LPA',
+    exp: '5+ Years',
+    about: 'Drive ALP\'s growth by opening new accounts and deepening relationships with existing clients in the HR outsourcing and staffing space. You will work directly with the VP-Sales and leadership team.',
+    responsibilities: [
+      'Identify and prospect new B2B opportunities in staffing and HR outsourcing',
+      'Present ALP\'s service portfolio to CHROs and C-suite executives',
+      'Negotiate commercial terms and close long-term service agreements',
+      'Coordinate with delivery teams to ensure seamless client onboarding',
+      'Maintain a healthy pipeline using CRM tools',
+      'Achieve and exceed monthly and quarterly revenue targets',
+    ],
+    requirements: [
+      '5+ years in B2B sales, preferably in HR, staffing or consulting',
+      'Proven track record of closing deals ₹50L+',
+      'Strong network in BFSI, IT, or Manufacturing sectors (preferred)',
+      'MBA in Sales / Marketing / HR preferred',
+      'Willingness to travel within NCR and pan-India',
+    ],
+    perks: ['Uncapped quarterly incentives', 'Car allowance', 'Business entertainment budget', 'ESOPs for senior hires'],
+  },
+  {
+    title: 'Career Coach & Trainer',
+    dept: 'Career Counselling',
+    location: 'Delhi NCR',
+    type: 'Full-time',
+    salary: '₹5–9 LPA',
+    exp: '3+ Years',
+    about: 'ALP\'s Career Counselling vertical supports thousands of job seekers annually. As a Career Coach you will design and deliver high-impact coaching programmes for students and mid-career professionals.',
+    responsibilities: [
+      'Conduct one-on-one career counselling and psychometric assessments',
+      'Design and deliver workshops on résumé writing, LinkedIn, and interview skills',
+      'Build personalised career roadmaps for clients',
+      'Maintain coaching records and track client progress',
+      'Develop content for career guides and webinars',
+      'Collaborate with placement teams to connect clients with opportunities',
+    ],
+    requirements: [
+      '3+ years in career coaching, L&D, or HR',
+      'Certification in coaching (ICF, NCDA, or equivalent) — preferred',
+      'Experience with psychometric tools (MBTI, DISC, etc.)',
+      'Excellent presentation and facilitation skills',
+      'MSW / MBA (HR) / Psychology background preferred',
+    ],
+    perks: ['Travel allowance', 'Annual training budget ₹50K', 'Flexible schedule', 'Performance bonus'],
+  },
+  {
+    title: 'Full Stack Developer',
+    dept: 'IT Services',
+    location: 'Remote / Noida',
+    type: 'Remote',
+    salary: '₹10–18 LPA',
+    exp: '3–7 Years',
+    about: 'Join ALP\'s growing technology team to build the next generation of HR-tech products and client-facing portals that power our staffing and compliance services.',
+    responsibilities: [
+      'Design, develop, and maintain full-stack web applications',
+      'Build RESTful APIs and integrate third-party HR software',
+      'Write clean, testable code with proper documentation',
+      'Participate in code reviews and architecture discussions',
+      'Optimise application performance and scalability',
+      'Collaborate with product managers and UX designers',
+    ],
+    requirements: [
+      '3–7 years of full-stack development experience',
+      'Strong proficiency in React.js and Node.js',
+      'Experience with PostgreSQL / MongoDB',
+      'Familiarity with AWS or Azure deployment',
+      'B.Tech / MCA or equivalent',
+    ],
+    perks: ['100% remote option', 'Annual tech upgrade stipend ₹30K', 'Flexible hours', 'ESOP scheme'],
+  },
+  {
+    title: 'Legal & Compliance Officer',
+    dept: 'Legal Services',
+    location: 'Delhi',
+    type: 'Full-time',
+    salary: '₹6–12 LPA',
+    exp: '4+ Years',
+    about: 'ALP Legal Services provides compliance advisory to 100+ client companies. As Legal & Compliance Officer you will be the first point of contact for all legal matters across HR operations.',
+    responsibilities: [
+      'Draft, review, and negotiate employment contracts and service agreements',
+      'Advise management on applicable labour laws and regulatory changes',
+      'Manage litigation, conciliation, and tribunal proceedings',
+      'Conduct internal compliance audits across client sites',
+      'Maintain a regulatory calendar and ensure timely filings',
+      'Train HR teams on legal best practices',
+    ],
+    requirements: [
+      'LLB / LLM from a recognised institution',
+      '4+ years of experience in labour / employment law',
+      'Strong knowledge of Industrial Disputes Act, Factories Act, POSH',
+      'Excellent drafting and verbal communication skills',
+      'Enrolment with the Bar Council preferred',
+    ],
+    perks: ['CLE/CPD budget ₹40K/yr', 'Health & accidental insurance', 'Bar council fee reimbursement', 'Performance bonus'],
+  },
+];
+
+/* ── FILTER ─────────────────────────────────── */
+function filterJobs() {
+  var search = document.getElementById('jobSearch').value.trim().toLowerCase();
+  var dept   = document.getElementById('deptFilter').value;
+  var type   = document.getElementById('typeFilter').value;
+  var items  = document.querySelectorAll('.job-item');
+  var visible = 0;
+
+  items.forEach(function(item) {
+    var title    = (item.querySelector('.job-title') ? item.querySelector('.job-title').textContent : '').toLowerCase();
+    var desc     = (item.querySelector('.job-desc')  ? item.querySelector('.job-desc').textContent  : '').toLowerCase();
+    var tagsArr  = Array.from(item.querySelectorAll('.job-tag')).map(function(t){ return t.textContent.toLowerCase(); });
+    var tags     = tagsArr.join(' ');
+    var badge    = (item.querySelector('.job-dept-badge') ? item.querySelector('.job-dept-badge').textContent : '').toLowerCase();
+    var meta     = (item.querySelector('.job-meta') ? item.querySelector('.job-meta').textContent : '').toLowerCase();
+    var haystack = title + ' ' + desc + ' ' + tags + ' ' + badge + ' ' + meta;
+
+    var matchSearch = !search || haystack.indexOf(search) !== -1;
+    var matchDept   = !dept   || item.getAttribute('data-dept') === dept;
+    var matchType   = !type   || item.getAttribute('data-type') === type;
+
+    var show = matchSearch && matchDept && matchType;
+    item.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+
+  // Result count
+  var countEl = document.getElementById('resultCount');
+  if (countEl) {
+    var total = items.length;
+    countEl.textContent = (document.getElementById('jobSearch').value.trim() || dept || type)
+      ? ('Showing ' + visible + ' of ' + total + ' position' + (total !== 1 ? 's' : ''))
+      : (total + ' open position' + (total !== 1 ? 's' : ''));
+  }
+
+  // Active filter chips
+  var chips = document.getElementById('activeChips');
+  if (chips) {
+    chips.innerHTML = '';
+    var rawSearch = document.getElementById('jobSearch').value.trim();
+    if (rawSearch) chips.innerHTML += chipHTML('Search: ' + rawSearch, 'clearSearch()');
+    if (dept)      chips.innerHTML += chipHTML(dept, 'clearDept()');
+    if (type)      chips.innerHTML += chipHTML(type, 'clearType()');
+  }
+
+  var noRes = document.getElementById('noResults');
+  var grid  = document.getElementById('jobGrid');
+  if (noRes) noRes.style.display = visible === 0 ? 'block' : 'none';
+  if (grid)  grid.style.display  = visible === 0 ? 'none'  : '';
+}
+
+function chipHTML(label, clearFn) {
+  return '<span style="display:inline-flex;align-items:center;gap:6px;background:var(--alp-navy);color:#fff;'
+    + 'font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:20px;">'
+    + label
+    + '<span onclick="' + clearFn + '" style="cursor:pointer;opacity:.7;font-size:.9rem;line-height:1;" title="Remove">&#x2715;</span></span>';
+}
+
+function clearSearch() {
+  document.getElementById('jobSearch').value = '';
+  filterJobs();
+}
+function clearDept() {
+  document.getElementById('deptFilter').value = '';
+  filterJobs();
+}
+function clearType() {
+  document.getElementById('typeFilter').value = '';
+  filterJobs();
+}
+
+function clearFilters() {
+  document.getElementById('jobSearch').value = '';
+  document.getElementById('deptFilter').value = '';
+  document.getElementById('typeFilter').value = '';
+  filterJobs();
+}
+
+document.addEventListener('DOMContentLoaded', function() { filterJobs(); });
+
+/* ── JOB DETAIL MODAL ───────────────────────── */
+function openJobDetail(idx) {
+  const j = jobs[idx];
+  document.getElementById('detailDept').textContent = j.dept;
+  document.getElementById('detailTitle').textContent = j.title;
+  document.getElementById('detailMeta').innerHTML = `
+    <span class="job-detail-badge"><i class="bi bi-geo-alt-fill"></i>${j.location}</span>
+    <span class="job-detail-badge"><i class="bi bi-briefcase-fill"></i>${j.type}</span>
+    <span class="job-detail-badge"><i class="bi bi-currency-rupee"></i>${j.salary.replace('₹','')}</span>
+    <span class="job-detail-badge"><i class="bi bi-person-workspace"></i>${j.exp}</span>
+  `;
+  document.getElementById('detailContent').innerHTML = `
+    <div class="detail-section mb-4">
+      <h6>About the Role</h6>
+      <p style="font-size:.9rem;color:#444;line-height:1.65;">${j.about}</p>
+    </div>
+    <div class="detail-section mb-4">
+      <h6>Key Responsibilities</h6>
+      <ul>${j.responsibilities.map(r=>`<li>${r}</li>`).join('')}</ul>
+    </div>
+    <div class="detail-section mb-4">
+      <h6>Requirements</h6>
+      <ul>${j.requirements.map(r=>`<li>${r}</li>`).join('')}</ul>
+    </div>
+    <div class="detail-section mb-2">
+      <h6>Perks & Benefits</h6>
+      <div class="d-flex flex-wrap gap-2">
+        ${j.perks.map(p=>`<span class="job-tag"><i class="bi bi-check-circle-fill text-success me-1"></i>${p}</span>`).join('')}
+      </div>
+    </div>
+  `;
+  document.getElementById('detailApplyBtn').onclick = () => {
+    bootstrap.Modal.getInstance(document.getElementById('jobDetailModal')).hide();
+    setTimeout(() => openApply(j.title), 350);
+  };
+  new bootstrap.Modal(document.getElementById('jobDetailModal')).show();
+}
+
+/* ── APPLY MODAL ────────────────────────────── */
+function openApply(role) {
+  document.getElementById('applyRoleTitle').textContent = role;
+  document.getElementById('applyFormWrap').style.display = '';
+  document.getElementById('successScreen').style.display = 'none';
+  document.getElementById('applyFooter').style.display = '';
+  document.getElementById('formError').style.display = 'none';
+  // Reset fields
+  ['fName','lName','email','phone','location','company','ctc','coverNote'].forEach(id=>document.getElementById(id).value='');
+  ['experience','notice'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('consentCheck').checked = false;
+  document.getElementById('uploadLabel').textContent = 'Click to upload your CV (PDF, DOC, DOCX — max 5 MB)';
+  new bootstrap.Modal(document.getElementById('applyModal')).show();
+}
+
+function handleFile(input) {
+  if (input.files && input.files[0]) {
+    document.getElementById('uploadLabel').innerHTML =
+      `<i class="bi bi-file-earmark-check" style="color:green;font-size:1.1rem;"></i> ${input.files[0].name}`;
+  }
+}
+
+function submitApplication() {
+  const err = document.getElementById('formError');
+  if (!document.getElementById('fName').value.trim() ||
+      !document.getElementById('lName').value.trim() ||
+      !document.getElementById('email').value.trim() ||
+      !document.getElementById('phone').value.trim()) {
+    err.textContent = 'Please fill in all required fields.';
+    err.style.display = 'block'; return;
+  }
+  if (!document.getElementById('consentCheck').checked) {
+    err.textContent = 'Please accept the privacy policy to continue.';
+    err.style.display = 'block'; return;
+  }
+  err.style.display = 'none';
+  document.getElementById('applyFormWrap').style.display = 'none';
+  document.getElementById('successScreen').style.display = 'block';
+  document.getElementById('applyFooter').style.display = 'none';
+}
+</script>
+</body>
+</html>
